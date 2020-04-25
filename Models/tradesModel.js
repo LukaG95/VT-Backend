@@ -21,6 +21,9 @@ const tradesSchema = new mongoose.Schema({
 
     Have: [
         {
+            _id: {
+                select: false,
+            },
             itemID: {
                 type: Number,
             },
