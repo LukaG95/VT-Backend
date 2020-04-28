@@ -1,13 +1,22 @@
+// Modules
 const express = require('express');
-
-const Trade = require('./Models/tradesModel');
 
 const app = express();
 
-app.get('/', async (req, res) => {
-    const trades = await Trade.find({}, { _id: 0, __v: 0 });
-    res.json(trades);
-});
+const cookieParser = require('cookie-parser');
+
+// Routers
+const TradeRouter = require('./Routes/tradeRoutes');
+const AuthRouter = require('./Routes/authRoutes');
+
+
+app.use(express.json());
+app.use(cookieParser());
+
+
+app.use('/trades/', TradeRouter);
+
+app.use('/auth/', AuthRouter);
 
 
 module.exports = app;
