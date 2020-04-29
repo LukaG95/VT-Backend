@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 
 const router = express.Router();
 
@@ -7,7 +8,7 @@ const passport = require('../misc/passport');
 
 const authController = require('../Controllers/authController');
 
-
+router.use(cors());
 router.use(passport.initialize());
 
 router.route('/signup')
