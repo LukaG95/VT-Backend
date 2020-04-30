@@ -31,6 +31,7 @@ const createSendToken = (user, res, option) => {
     return res.json({ status: 'success' });
 };
 
+
 exports.login = async (req, res) => {
     const { email, password } = req.body;
 
@@ -53,12 +54,12 @@ exports.login = async (req, res) => {
 exports.signup = async (req, res) => {
     try {
         const {
-            username, email, password,
+            username, email, password, passwordConfirm,
         } = req.body;
 
 
         const newUser = await User.create({
-            username, email, password,
+            username, email, password, passwordConfirm,
         });
 
 
@@ -70,20 +71,21 @@ exports.signup = async (req, res) => {
 
 exports.passportLoginOrCreate = async (req, res) => {
     const { user } = req;
-
+    let passportUser;
     try {
         if (user.method === 'steam') {
-            const steam = req.user.id;
-            const username = req.user.displayName;
-            const passportUser = await User.findOne({ steam }).then((data) => data || User.create({ steam, username }));
-            createSendToken(passportUser, res, 'redirect');
-        } if (user.method === 'discord') {
-            const discord = req.user.id;
-            const { username } = req.user;
-            const passportUser = await User.findOne({ discord }).then((data) => data || User.create({ discord, username }));
-
-            createSendToken(passportUser, res, 'redirect');
+            const steam = user.id;
+            const username = user.displayName;
+            passportUser = await User.findOne({ steam })
+                .then((data) => data || User.create({ steam, username }));
+        } else if (user.method === 'discord') {
+            const discord = user.id;
+            const { username } = user;
+            passportUser = await User.findOne({ discord })
+                .then((data) => data || User.create({ discord, username }));
         }
+
+        createSendToken(passportUser, res, 'redirect');
     } catch (err) {
         console.log(err);
     }
@@ -91,6 +93,17 @@ exports.passportLoginOrCreate = async (req, res) => {
 
 
 exports.getUser = async (req, res) => {
+    const { user } = req;
+
+    if (user && user !== undefined) {
+        return res.json({ user, status: 'success' });
+    }
+
+    return res.json({ status: 'unauthorized' });
+};
+
+
+exports.protect = async (req, res, next) => {
     let token;
     if (req.cookies.jwt) {
         token = req.cookies.jwt;
@@ -100,7 +113,8 @@ exports.getUser = async (req, res) => {
 
     const decoded = await promisify(jwt.verify)(token, process.env.JWT_SECRET);
 
-    const currentUser = await User.findById(decoded.id).select('-__v -_id');
+    const user = await User.findById(decoded.id).select('-__v -_id');
 
-    return res.json({ user: currentUser });
+    req.user = user;
+    next();
 };

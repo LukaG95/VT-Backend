@@ -10,6 +10,9 @@ const TradeRouter = require('./Routes/tradeRoutes');
 const AuthRouter = require('./Routes/authRoutes');
 
 
+app.set('trust proxy', 1);
+
+
 app.use(express.json());
 app.use(cookieParser());
 

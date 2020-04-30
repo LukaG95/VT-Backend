@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const limiter = require('../misc/rateLimiter');
 
 const router = express.Router();
 
@@ -12,11 +13,11 @@ router.use(cors());
 router.use(passport.initialize());
 
 router.route('/signup')
-    .post(authController.signup);
+    .post(limiter, authController.signup);
 
 
 router.route('/login')
-    .post(authController.login);
+    .post(limiter, authController.login);
 
 
 router.route('/steam')
@@ -34,6 +35,6 @@ router.route('/discord/callback')
 
 
 router.route('/getUser')
-    .get(authController.getUser);
+    .get(authController.protect, authController.getUser);
 
 module.exports = router;

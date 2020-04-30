@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
-
-const findOrCreate = require('mongoose-find-or-create');
+const validator = require('validator');
 
 
 const userSchema = new mongoose.Schema({
@@ -19,6 +18,15 @@ const userSchema = new mongoose.Schema({
         minlength: 8,
         select: false,
     },
+    passwordConfirm: {
+        type: String,
+        required: [true, 'Please confirm a password'],
+        validate: {
+            validator(el) {
+                return el === this.password;
+            },
+        },
+    },
     discord: {
         type: String,
         unique: true,
@@ -32,24 +40,18 @@ const userSchema = new mongoose.Schema({
     },
 });
 
-userSchema.plugin(findOrCreate);
 
 userSchema.pre('save', async function (next) {
     if (!this.isModified('password')) return next();
 
     this.password = await bcrypt.hash(this.password, 12);
+
+    this.passwordConfirm = undefined;
     next();
 });
 
-// userSchema.methods.correctPassword = async function (receivedPassword, userPassword) {
-//     return await bcrypt.compare(receivedPassword, userPassword);
-// };
-
-userSchema.methods.correctPassword = async function (
-    candidatePassword,
-    userPassword,
-) {
-    return await bcrypt.compare(candidatePassword, userPassword);
+userSchema.methods.correctPassword = async function (receivedPassword, userPassword) {
+    return await bcrypt.compare(receivedPassword, userPassword);
 };
 
 
