@@ -1,10 +1,10 @@
 const express = require('express');
 const cors = require('cors');
-const limiter = require('../misc/rateLimiter');
+const limiter = require('../misc/RateLimiter');
 
 const router = express.Router();
 
-const passport = require('../misc/passport');
+const passport = require('../misc/Passport');
 
 
 const authController = require('../Controllers/authController');
@@ -37,4 +37,9 @@ router.route('/discord/callback')
 router.route('/getUser')
     .get(authController.protect, authController.getUser);
 
+router.route('/confirmEmail/:code')
+    .post(authController.protect, authController.confirmEmail);
+
+router.route('/resendCode')
+    .post(authController.protect, authController.resendCode);
 module.exports = router;
