@@ -1,37 +1,46 @@
-const crypto = require('crypto');
-const bcrypt = require('bcrypt');
 
+function setName(name) {
+    const name1 = name;
+    const rlitems = {
+        bodies: [
+            {
+                name: 'Backfire',
+                color: 'Default',
+                url: '21.0.webp',
+            },
+            {
+                name: 'Breakout',
+                color: 'Default',
+                url: '22.0.webp',
+            },
+            {
+                name: 'Breakout',
+                color: 'Crimson',
+                url: '22.1.webp',
+            },
+        ],
 
-// 1) Create random token
-// 2) Hash token with bcrypt and later save in db
-// 3) Send the user 'random token'
-let hashedToken;
+        wheels: [
+            {
+                name: 'Backfire',
+                color: 'Default',
+                url: '21.0.webp',
+            },
+            {
+                name: 'Breakout',
+                color: 'Default',
+                url: '22.0.webp',
+            },
+            {
+                name: 'Breakout',
+                color: 'Crimson',
+                url: '22.1.webp',
+            }],
+    };
 
-const createToken = async function () {
-    const emailToken = crypto.randomBytes(32).toString('hex');
+    rlitems[name].map((item) => {
+        console.log(item.name);
+    });
+}
 
-    hashedToken = await bcrypt.hash(emailToken, 8);
-    console.log(hashedToken);
-    return emailToken;
-};
-
-
-const asyncFunc = async () => {
-    const token = await createToken();
-    console.log('Hey!');
-    console.log(token);
-    console.log(await bcrypt.compare(token, hashedToken));
-};
-
-
-asyncFunc();
-
-
-
-
-sendEmail on signup
-
-verifyToken
-
-sendAgain
-verifyToken
+setName('bodies');

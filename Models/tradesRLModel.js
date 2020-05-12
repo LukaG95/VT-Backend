@@ -6,7 +6,7 @@ const tradesRLSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    userName: {
+    username: {
         type: String,
         required: true,
     },
@@ -27,16 +27,12 @@ const tradesRLSchema = new mongoose.Schema({
             itemID: {
                 type: Number,
             },
-            Name: {
-                type: String,
-                required: true,
-            },
             Paint: {
-                type: String,
-                required: true,
+                type: Number,
+
             },
             Cert: {
-                type: String,
+                type: Number,
 
             },
             itemType: {
@@ -56,16 +52,12 @@ const tradesRLSchema = new mongoose.Schema({
             itemID: {
                 type: Number,
             },
-            Name: {
-                type: String,
-                required: true,
-            },
             Paint: {
-                type: String,
-                required: true,
+                type: Number,
+
             },
             Cert: {
-                type: String,
+                type: Number,
 
             },
             itemType: {
