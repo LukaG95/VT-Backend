@@ -41,6 +41,8 @@ function setName(name) {
     rlitems[name].map((item) => {
         console.log(item.name);
     });
+
+    console.log(rlitems.wheels.length);
 }
 
 setName('bodies');

@@ -1,32 +1,35 @@
 const TradeRL = require('../Models/tradesRLModel');
 
 const AdvancedQueryRL = require('../misc/AdvancedQueryRL');
+const catchAsync = require('../misc/catchAsync');
+const AppError = require('../misc/AppError');
 
 
-exports.getTrades = async (req, res) => {
+exports.getTrades = catchAsync(async (req, res, next) => {
     const advanced = new AdvancedQueryRL(TradeRL.find(), req.query)
         .filter()
         .paginate();
     const trades = await advanced.query;
     return res.json({ trades });
-};
+});
 
 
-exports.createTrade = async (req, res) => {
-    try {
-        const { user } = req;
-        const tradeDetails = {
-            userId: user._id,
-            username: user.username,
-            Have: req.body.Have,
-            Want: req.body.Want,
-            Platform: req.body.Platform,
-        };
+exports.createTrade = catchAsync(async (req, res, next) => {
+    const { user } = req;
+    const { have, want, platform } = req.body;
 
-        const newTrade = await new TradeRL(tradeDetails).save();
-        return res.json({ status: 'success', newTrade });
-    } catch (err) {
-        console.log(err);
-        return res.json({ status: 'error' });
-    }
-};
+    if (have.length > 12 || want.length > 12) return next(new AppError('invalid'));
+
+    // return res.json({ status: 'invalid' });
+
+    const tradeDetails = {
+        userId: user._id,
+        username: user.username,
+        have,
+        want,
+        platform,
+    };
+
+    const newTrade = await new TradeRL(tradeDetails).save();
+    return res.json({ status: 'success', newTrade });
+});

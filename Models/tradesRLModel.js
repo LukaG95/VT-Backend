@@ -19,58 +19,68 @@ const tradesRLSchema = new mongoose.Schema({
         default: 0,
     },
 
-    Have: [
+    have: [
         {
             _id: {
                 select: false,
             },
             itemID: {
                 type: Number,
+                required: true,
             },
-            Paint: {
-                type: Number,
+            paint: {
+                type: String,
+                required: true,
 
             },
-            Cert: {
-                type: Number,
+            cert: {
+                type: String,
+                required: true,
 
             },
             itemType: {
                 type: String,
+                required: true,
 
             },
-            Quantity: {
+            amount: {
                 type: Number,
+                required: true,
             },
         },
     ],
-    Want: [
+    want: [
         {
             _id: {
                 select: false,
             },
             itemID: {
                 type: Number,
+                required: true,
             },
-            Paint: {
-                type: Number,
+            paint: {
+                type: String,
+                required: true,
 
             },
-            Cert: {
-                type: Number,
+            cert: {
+                type: String,
+                required: true,
 
             },
             itemType: {
                 type: String,
+                required: true,
 
             },
-            Quantity: {
+            amount: {
                 type: Number,
+                required: true,
             },
         },
     ],
 
-    Platform: {
+    platform: {
         type: String,
         enum: ['PC', 'XBOX', 'PS4', 'SWITCH'],
     },

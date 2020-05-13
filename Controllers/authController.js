@@ -3,6 +3,8 @@ const { promisify } = require('util');
 
 
 const EmailingSystem = require('../misc/EmailingSystem');
+const catchAsync = require('../misc/catchAsync');
+const AppError = require('../misc/AppError');
 
 
 const User = require('../Models/userModel');
@@ -46,84 +48,73 @@ const sendEmail = async (user) => {
 };
 
 
-exports.login = async (req, res) => {
+exports.login = catchAsync(async (req, res, next) => {
     const { email, password } = req.body;
 
 
-    try {
-        const user = await User.findOne({ email }).select('+password');
+    const user = await User.findOne({ email }).select('+password');
 
 
-        if (!user || !(await user.correctPassword(password, user.password))) {
-            return res.json({ status: 'logorpass' });
-        }
-
-        return createSendToken(user, res);
-    } catch (err) {
-        return res.json({ status: 'error' });
+    if (!user || !(await user.correctPassword(password, user.password))) {
+        return next(new AppError('logorpass'));
     }
-};
+
+    return createSendToken(user, res);
+});
 
 
-exports.signup = async (req, res) => {
-    try {
-        const {
-            username, email, password, passwordConfirm,
-        } = req.body;
+exports.signup = catchAsync(async (req, res, next) => {
+    const {
+        username, email, password, passwordConfirm,
+    } = req.body;
 
 
-        const newUser = await User.create({
-            username, email, password, passwordConfirm,
-        });
+    const newUser = await User.create({
+        username, email, password, passwordConfirm,
+    });
 
-        await sendEmail(newUser);
-        createSendToken(newUser, res);
-    } catch (err) {
-        return res.json({ status: 'error' });
-    }
-};
+    await sendEmail(newUser);
+    createSendToken(newUser, res);
+});
 
-exports.passportLoginOrCreate = async (req, res) => {
+exports.passportLoginOrCreate = catchAsync(async (req, res, next) => {
     const { user } = req;
     let passportUser;
-    try {
-        if (user.method === 'steam') {
-            const steam = user.id;
-            const username = user.displayName;
-            passportUser = await User.findOne({ steam })
-                .then((data) => data || User.create({ steam, username }));
-        } else if (user.method === 'discord') {
-            const discord = user.id;
-            const { username } = user;
-            passportUser = await User.findOne({ discord })
-                .then((data) => data || User.create({ discord, username }));
-        }
 
-        createSendToken(passportUser, res, 'redirect');
-    } catch (err) {
-        console.log(err);
+    if (user.method === 'steam') {
+        const steam = user.id;
+        const username = user.displayName;
+        passportUser = await User.findOne({ steam })
+            .then((data) => data || User.create({ steam, username }));
+    } else if (user.method === 'discord') {
+        const discord = user.id;
+        const { username } = user;
+        passportUser = await User.findOne({ discord })
+            .then((data) => data || User.create({ discord, username }));
     }
-};
+
+    createSendToken(passportUser, res, 'redirect');
+});
 
 
-exports.getUser = async (req, res) => {
+exports.getUser = catchAsync(async (req, res, next) => {
     const { user } = req;
 
     if (user && user !== undefined) {
         return res.json({ user, status: 'success' });
     }
 
-    return res.json({ status: 'unauthorized' });
-};
+    return next(new AppError('unauthorized'));
+});
 
 
-exports.protect = async (req, res, next) => {
+exports.protect = catchAsync(async (req, res, next) => {
     let token;
     if (req.cookies.jwt) {
         token = req.cookies.jwt;
     }
 
-    if (!token) return res.json({ status: 'unauthorized' });
+    if (!token) return next(new AppError('unauthorized'));
 
     const decoded = await promisify(jwt.verify)(token, process.env.JWT_SECRET);
 
@@ -131,36 +122,29 @@ exports.protect = async (req, res, next) => {
 
     req.user = user;
     next();
-};
+});
 
-exports.confirmEmail = async (req, res) => {
-    try {
-        const { user } = req;
-        const { code } = req.params;
+exports.confirmEmail = catchAsync(async (req, res, next) => {
+    const { user } = req;
+    const { code } = req.params;
 
-        const result = await user.compareTokens(code, user.verificationToken);
+    const result = await user.compareTokens(code, user.verificationToken);
 
 
-        if (result === true) {
-            user.confirmedEmail = true;
-            await user.save();
-            return res.json({ status: 'success' });
-        }
-        res.json({ status: 'OldOrInvalid' });
-    } catch (err) {
-        res.json({ status: 'error' });
+    if (result === true) {
+        user.confirmedEmail = true;
+        await user.save();
+        return res.json({ status: 'success' });
     }
-};
 
-exports.resendCode = async (req, res) => {
-    try {
-        const { user } = req;
+    next(new AppError('OldOrInvalid'));
+});
 
-        if (user.confirmedEmail === true) return res.json({ status: 'error' });
+exports.resendCode = catchAsync(async (req, res, next) => {
+    const { user } = req;
 
-        await sendEmail(user);
-        res.json({ status: 'success' });
-    } catch (err) {
-        res.json({ status: 'error' });
-    }
-};
+    if (user.confirmedEmail === true) return next(new AppError());
+
+    await sendEmail(user);
+    return res.json({ status: 'success' });
+});
