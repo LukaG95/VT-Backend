@@ -74,7 +74,7 @@ exports.signup = catchAsync(async (req, res, next) => {
     });
 
     await sendEmail(newUser);
-    createSendToken(newUser, res);
+    return createSendToken(newUser, res);
 });
 
 exports.passportLoginOrCreate = catchAsync(async (req, res, next) => {
