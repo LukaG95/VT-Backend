@@ -82,6 +82,7 @@ const tradesRLSchema = new mongoose.Schema({
 
     platform: {
         type: String,
+        required: true,
         enum: ['PC', 'XBOX', 'PS4', 'SWITCH'],
     },
 
