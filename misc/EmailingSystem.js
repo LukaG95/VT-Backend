@@ -1,5 +1,6 @@
 /* eslint-disable no-trailing-spaces */
 const nodemailer = require('nodemailer');
+const aws = require('aws-sdk');
 
 
 class EmailingSystem {
@@ -21,10 +22,24 @@ class EmailingSystem {
         return this.transporter;
     }
 
+    newAwsTransport() {
+        this.transporter = nodemailer.createTransport({
+            host: 'email-smtp.eu-west-2.amazonaws.com',
+            port: 587,
+            secure: false, // true for 465, false for other ports
+            auth: {
+                user: 'AKIA3TLDQUNCJRB3O7GR',
+                pass: 'BEDaMAXJ648jO7tXSXT4waL+uDH8qbZyaNJMxA+LdIwf',
+            },
+        
+        });
+        return this.transporter;
+    }
+
     async sendEmail(subject, text) {
-        const transporter = this.newTransporter();
+        const transporter = this.newAwsTransport();
         const messageOptions = {
-            from: '"Dolly Bradtke" <admin@virtrade.gg>', // sender address
+            from: 'nikforce1605@mail.ru', // sender address
             to: this.receiver, // list of receivers
             subject, // Subject line
             text, // plain text body
