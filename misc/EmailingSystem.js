@@ -1,6 +1,5 @@
 /* eslint-disable no-trailing-spaces */
 const nodemailer = require('nodemailer');
-const aws = require('aws-sdk');
 
 
 class EmailingSystem {
@@ -9,42 +8,43 @@ class EmailingSystem {
     }
 
     newTransporter() {
-        this.transporter = nodemailer.createTransport({
-            host: 'smtp.ethereal.email',
-            port: 587,
-            secure: false, // true for 465, false for other ports
-            auth: {
-                user: 'dolly12@ethereal.email',
-                pass: '9unyCuCYf521v3nnzu',
-            },
-            tls: { rejectUnauthorized: false },
-        });
+        if (process.env.NODE_ENV === 'production') {
+            this.transporter = nodemailer.createTransport({
+                host: process.env.EMAIL_HOST,
+                port: 465,
+                auth: {
+                    user: process.env.EMAIL_LOGIN,
+                    pass: process.env.EMAIL_PASSWORD,
+                },
+            
+            });
+        } else {
+            this.transporter = nodemailer.createTransport({
+                host: 'smtp.ethereal.email',
+                port: 587,
+                secure: false, // true for 465, false for other ports
+                auth: {
+                    user: 'dolly12@ethereal.email',
+                    pass: '9unyCuCYf521v3nnzu',
+                },
+                tls: { rejectUnauthorized: false },
+            });
+        }
         return this.transporter;
     }
 
-    newAwsTransport() {
-        this.transporter = nodemailer.createTransport({
-            host: 'email-smtp.eu-west-2.amazonaws.com',
-            port: 587,
-            secure: false, // true for 465, false for other ports
-            auth: {
-                user: 'AKIA3TLDQUNCJRB3O7GR',
-                pass: 'BEDaMAXJ648jO7tXSXT4waL+uDH8qbZyaNJMxA+LdIwf',
-            },
-        
-        });
-        return this.transporter;
-    }
 
     async sendEmail(subject, text) {
-        const transporter = this.newAwsTransport();
+        const transporter = this.newTransport();
         const messageOptions = {
-            from: 'nikforce1605@mail.ru', // sender address
+            from: 'virtrade.gg', // sender address
             to: this.receiver, // list of receivers
             subject, // Subject line
             text, // plain text body
             html: `<b>${text}</b>`, // html body
         };
+        if (process.env.NODE_ENV === 'production') messageOptions.from = '"Virtrade.gg" <rldsocials@gmail.com>';
+        
         await transporter.sendMail(messageOptions);
     }
 

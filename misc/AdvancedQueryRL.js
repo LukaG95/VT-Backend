@@ -2,14 +2,14 @@ class AdvancedQueryRL {
     constructor(query, queryString) {
         this.query = query;
         this.queryString = queryString;
-        this.excludedFields = ['Search', 'Page', 'Limit'];
+        this.excludedFields = ['search', 'page', 'limit'];
     }
 
     filter() {
         const queryObj = { ...this.queryString };
         const queryStr = JSON.stringify(queryObj);
-        const tradeOption = (queryObj.Search === '1') ? 'Want' : 'Have';
-        const editedStr = queryStr.replace(/\b(itemID|itemType|Certification|Color)\b/g, (match) => `${tradeOption}.${match}`);
+        const tradeOption = (queryObj.Search === '1') ? 'want' : 'have';
+        const editedStr = queryStr.replace(/\b(itemID|itemType|cert|paint)\b/g, (match) => `${tradeOption}.${match}`);
 
         const editedObj = JSON.parse(editedStr);
 
@@ -20,8 +20,8 @@ class AdvancedQueryRL {
     }
 
     paginate() {
-        const page = this.queryString.Page * 1 || 1;
-        const limit = this.queryString.Limit * 1 || 15;
+        const page = this.queryString.page * 1 || 1;
+        const limit = this.queryString.limit * 1 || 15;
         const skip = (page - 1) * limit;
 
 
