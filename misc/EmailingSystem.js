@@ -35,7 +35,7 @@ class EmailingSystem {
 
 
     async sendEmail(subject, text) {
-        const transporter = this.newTransport();
+        const transporter = this.newTransporter();
         const messageOptions = {
             from: 'virtrade.gg', // sender address
             to: this.receiver, // list of receivers
@@ -45,7 +45,13 @@ class EmailingSystem {
         };
         if (process.env.NODE_ENV === 'production') messageOptions.from = '"Virtrade.gg" <rldsocials@gmail.com>';
         
-        await transporter.sendMail(messageOptions);
+        await transporter.sendMail(messageOptions, (error, info) => {
+            if (error) {
+                console.log(error);
+            } else {
+                console.log(`Message sent: ${info.response}`);
+            }
+        });
     }
 
     async sendSignup(code) {
