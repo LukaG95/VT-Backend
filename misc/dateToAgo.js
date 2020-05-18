@@ -1,13 +1,22 @@
+function toString(timeAgo, option) {
+    const string = (timeAgo === 1) ? `${timeAgo} ${option} ago` : `${timeAgo} ${option}s ago`;
+    return string;
+}
+
+
 function dateToAgo(date) {
     let timeAgo = Math.round((Date.now() - new Date(date)) / 1000);
 
     if (timeAgo > 86400) {
-        timeAgo = `${Math.round(timeAgo / 86400)} days ago`;
+        timeAgo = toString(Math.round(timeAgo / 86400), 'day');
     } else if (timeAgo > 3600) {
-        timeAgo = `${Math.round(timeAgo / 3660)} hours ago`;
+        timeAgo = toString(Math.round(timeAgo / 3600), 'hour');
     } else if (timeAgo > 60) {
-        timeAgo = `${Math.round(timeAgo / 60)} minutes ago`;
+        timeAgo = toString(Math.round(timeAgo / 60), 'minute');
+    } else {
+        timeAgo = toString(timeAgo, 'second');
     }
+
 
     return timeAgo;
 }
