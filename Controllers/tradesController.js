@@ -8,7 +8,8 @@ const dateToAgo = require('../misc/dateToAgo');
 
 
 exports.getTrades = catchAsync(async (req, res, next) => {
-    const advancedQuery = new AdvancedQueryRL(TradeRL.find(), req.query)
+    const { query } = req;
+    const advancedQuery = new AdvancedQueryRL(TradeRL.find(), query)
         .filter()
         .paginate()
         .sortByLatest();

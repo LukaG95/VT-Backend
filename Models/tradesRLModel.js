@@ -28,9 +28,14 @@ const tradesRLSchema = new mongoose.Schema({
             _id: {
                 select: false,
             },
+
             itemID: {
                 type: Number,
                 required: true,
+            },
+            itemName: {
+                type: String,
+                default: 'Zomba',
             },
             paint: {
                 type: String,

@@ -7,6 +7,11 @@ class AdvancedQueryRL {
 
     filter() {
         const queryObj = { ...this.queryString };
+        Object.keys(queryObj).forEach((q) => {
+            if (queryObj[q] === 'any') {
+                delete queryObj[q];
+            }
+        });
         const queryStr = JSON.stringify(queryObj);
         const tradeOption = (queryObj.search === '1') ? 'want' : 'have';
         const editedStr = queryStr.replace(/\b(itemID|itemType|cert|paint)\b/g, (match) => `${tradeOption}.${match}`);
