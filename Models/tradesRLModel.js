@@ -111,6 +111,14 @@ const tradesRLSchema = new mongoose.Schema({
         type: Date,
         default: Date.now(),
     },
+    notes: {
+        type: 'String',
+        default: 'Test',
+    },
+    premium: {
+        type: Boolean,
+        default: false,
+    },
     __v: { type: Number, select: false },
 });
 
