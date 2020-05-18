@@ -56,6 +56,10 @@ const tradesRLSchema = new mongoose.Schema({
                 type: Number,
                 required: true,
             },
+            url: {
+                type: String,
+                required: true,
+            },
         },
     ],
     want: [
@@ -66,6 +70,10 @@ const tradesRLSchema = new mongoose.Schema({
             itemID: {
                 type: Number,
                 required: true,
+            },
+            itemName: {
+                type: String,
+                default: 'Zomba',
             },
             paint: {
                 type: String,
@@ -84,6 +92,10 @@ const tradesRLSchema = new mongoose.Schema({
             },
             amount: {
                 type: Number,
+                required: true,
+            },
+            url: {
+                type: String,
                 required: true,
             },
         },
