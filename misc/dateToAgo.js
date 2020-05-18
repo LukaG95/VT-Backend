@@ -6,7 +6,7 @@ function toString(timeAgo, option) {
 
 function dateToAgo(date) {
     let timeAgo = Math.round((Date.now() - new Date(date)) / 1000);
-
+    console.log(timeAgo);
     if (timeAgo > 86400) {
         timeAgo = toString(Math.round(timeAgo / 86400), 'day');
     } else if (timeAgo > 3600) {
@@ -17,7 +17,7 @@ function dateToAgo(date) {
         timeAgo = toString(timeAgo, 'second');
     }
 
-
+    console.log(timeAgo);
     return timeAgo;
 }
 

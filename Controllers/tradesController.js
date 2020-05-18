@@ -46,6 +46,7 @@ exports.createTrade = catchAsync(async (req, res, next) => {
         have,
         want,
         platform,
+        createdAt: Date.now(),
     };
 
     const newTrade = await new TradeRL(tradeDetails).save();
