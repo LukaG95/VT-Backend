@@ -10,15 +10,19 @@ const tradesRLSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    userUps: {
+    steamAccount: {
         type: String,
-        default: 0,
     },
-    userDowns: {
-        type: String,
-        default: 0,
+    reputation: {
+        ups: {
+            type: Number,
+            default: 0,
+        },
+        downs: {
+            type: Number,
+            default: 0,
+        },
     },
-
     have: [
         {
             _id: {

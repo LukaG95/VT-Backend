@@ -15,17 +15,31 @@ class AdvancedQueryRL {
 
         this.excludedFields.map((field) => delete editedObj[field]);
 
-        this.query = this.query.find(editedObj);
+        this.query = this.query.find(editedObj).select('-_id');
         return this;
     }
 
     paginate() {
         const page = this.queryString.page * 1 || 1;
-        const limit = this.queryString.limit * 1 || 15;
+        let limit = this.queryString.limit * 1 || 15;
         const skip = (page - 1) * limit;
 
+        if (limit < 0 || limit > 50) limit = 15;
 
+        this.limit = limit;
         this.query = this.query.skip(skip).limit(limit);
+        return this;
+    }
+
+    sortByLatest() {
+        this.query.sort('-createdAt');
+        return this;
+    }
+
+    resetQuery() {
+        delete this.query.skip();
+        delete this.query.limit();
+        delete this.query.sort();
         return this;
     }
 }

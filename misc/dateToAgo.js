@@ -1,6 +1,3 @@
-const date1 = '2020-05-17T23:55:04.054Z';
-
-
 function dateToAgo(date) {
     let timeAgo = Math.round((Date.now() - new Date(date)) / 1000);
 
@@ -16,4 +13,4 @@ function dateToAgo(date) {
 }
 
 
-console.log(dateToAgo(date1));
+module.exports = dateToAgo;
