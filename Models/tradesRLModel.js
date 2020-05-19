@@ -73,7 +73,7 @@ const tradesRLSchema = new mongoose.Schema({
             },
             itemName: {
                 type: String,
-                default: 'Zomba',
+                required: true,
             },
             paint: {
                 type: String,
