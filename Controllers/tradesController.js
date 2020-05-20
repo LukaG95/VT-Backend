@@ -6,6 +6,8 @@ const catchAsync = require('../misc/catchAsync');
 const AppError = require('../misc/AppError');
 const dateToAgo = require('../misc/dateToAgo');
 
+const items = require('../misc/items.json');
+
 
 exports.getTrades = catchAsync(async (req, res, next) => {
     const { query } = req;
@@ -38,6 +40,22 @@ exports.createTrade = catchAsync(async (req, res, next) => {
     if (have.length > 12 || want.length > 12) return next(new AppError('invalid'));
 
     // return res.json({ status: 'invalid' });
+    const getItemName = (arr) => {
+        arr.forEach((item, i) => {
+            let itemName;
+            items.Slots.forEach((type) => type.Items.forEach((item1) => {
+                if (item1.ItemID === item.itemID) {
+                    itemName = item1.Name;
+                }
+            }));
+            arr[i].itemName = itemName;
+            if (!arr[i].itemName || arr[i].itemName === undefined) return next(new AppError('invalid'));
+        });
+    };
+
+    getItemName(have);
+    getItemName(want);
+
 
     const tradeDetails = {
         userId: user._id,
