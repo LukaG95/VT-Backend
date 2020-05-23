@@ -131,7 +131,7 @@ exports.addReputation = catchAsync(async (req, res, next) => {
     const userId = req.params.user;
     const { rep } = req.body;
 
-    if (!userId || userId.length !== 24 || !rep || userId === user._id) return next(new AppError('invalid'));
+    if (!userId || userId.length !== 24 || !rep || userId == user._id) return next(new AppError('invalid'));
 
 
     rep.createdBy = user._id;
