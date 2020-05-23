@@ -20,11 +20,11 @@ app.use(express.json());
 app.use(cookieParser());
 
 
-app.use('/trades/', TradeRouter);
+app.use('/api/trades/', TradeRouter);
 
-app.use('/auth/', AuthRouter);
+app.use('/api/auth/', AuthRouter);
 
-app.use('/reputation', RepRouter);
+app.use('/api/reputation', RepRouter);
 
 app.use(errorController);
 

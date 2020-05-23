@@ -8,7 +8,7 @@ const AppError = require('../misc/AppError');
 exports.getReputation = catchAsync(async (req, res, next) => {
     const userId = req.params.user;
 
-    if (userId.length < 15) return next(new AppError('invalid'));
+    if (userId.length !== 24) return next(new AppError('invalid'));
 
     const rep = await Reputation.aggregate([
         { $match: { userId } },
@@ -16,11 +16,17 @@ exports.getReputation = catchAsync(async (req, res, next) => {
         { $sort: { 'reps.createdAt': -1 } },
         {
             $group: {
-                _id: '$_id',
+                _id: {
+                    id: '$_id',
+                    grade: '$grade',
+                    title: '$title',
+                },
+
                 reps: {
                     $push:
             '$reps',
                 },
+
             },
         },
         {
@@ -61,16 +67,30 @@ exports.getReputation = catchAsync(async (req, res, next) => {
                         },
                     },
                 },
+                other: {
+                    $sum: {
+                        $map: {
+                            input: '$reps',
+                            as: 'repobj',
+                            in: { $cond: { if: { $eq: ['$$repobj.game', 'other'] }, then: 1, else: 0 } },
+                        },
+                    },
+                },
             },
         },
         {
             $project: {
+                _id: 0,
+                id: '$_id.id',
                 userId: 1,
                 ups: '$ups',
                 downs: '$downs',
-                amount: { all: { $sum: ['$ups', '$downs'] }, rl: '$rl', csgo: '$csgo' },
-                title: '$title',
-                grade: '$grade',
+                amount: {
+                    all: { $sum: ['$ups', '$downs'] }, rl: '$rl', csgo: '$csgo', other: '$other',
+                },
+                title: '$_id.title',
+                grade: '$_id.grade',
+
                 reps: {
                     $map: {
                         input: '$reps',
@@ -108,7 +128,7 @@ exports.addReputation = catchAsync(async (req, res, next) => {
     const userId = req.params.user;
     const { rep } = req.body;
 
-    if (!userId || userId.length < 15 || !rep || userId === user._id) return next(new AppError('invalid'));
+    if (!userId || userId.length !== 24 || !rep || userId === user._id) return next(new AppError('invalid'));
 
 
     rep.createdBy = user._id;
@@ -119,16 +139,15 @@ exports.addReputation = catchAsync(async (req, res, next) => {
     //     feedback: 'Bad trade!',
     //     game: 'csgo',
     // };
+    const dbUser = await User.findById(userId);
+    if (!dbUser) return next(new AppError('error'));
 
     const repDB = await Reputation.findOne({ userId });
 
 
     if (!repDB) {
-        const dbUser = await User.findById(userId);
-
-        if (!dbUser) return next(new AppError('error1'));
-
-        await new Reputation({ userId, reps: [rep] }).save();
+        const newRep = new Reputation({ userId, username: dbUser.username, reps: [rep] });
+        await newRep.save();
         return res.json({ status: 'success' });
     }
 

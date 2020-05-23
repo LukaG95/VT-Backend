@@ -7,17 +7,18 @@ const repSchema = new mongoose.Schema({
         unique: true,
         required: true,
     },
-    username: {
-        type: String,
-        Default: 'Test',
-    },
     title: {
         type: String,
-        Default: 'Veteran',
+        default: 'Veteran',
     },
+    username: {
+        type: String,
+        required: true,
+    },
+
     grade: {
         type: String,
-        Default: '5.0',
+        default: '5.0',
     },
 
     reps: [
@@ -41,11 +42,11 @@ const repSchema = new mongoose.Schema({
             game: {
                 type: String,
                 required: true,
-                enum: ['rl', 'csgo'],
+                enum: ['rl', 'csgo', 'other'],
             },
         },
     ],
-
+    __v: { type: Number, select: false },
 });
 
 
