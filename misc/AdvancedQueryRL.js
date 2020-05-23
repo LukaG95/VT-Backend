@@ -20,7 +20,7 @@ class AdvancedQueryRL {
 
         this.excludedFields.map((field) => delete editedObj[field]);
 
-        this.query = this.query.find(editedObj).select('-_id');
+        this.query = this.query.find(editedObj);
         return this;
     }
 
