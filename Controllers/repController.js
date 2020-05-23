@@ -18,6 +18,7 @@ exports.getReputation = catchAsync(async (req, res, next) => {
             $group: {
                 _id: {
                     id: '$_id',
+                    username: '$username',
                     grade: '$grade',
                     title: '$title',
                 },
@@ -83,13 +84,15 @@ exports.getReputation = catchAsync(async (req, res, next) => {
                 _id: 0,
                 id: '$_id.id',
                 userId: 1,
+                username: '$_id.username',
+                title: '$_id.title',
+                grade: '$_id.grade',
                 ups: '$ups',
                 downs: '$downs',
                 amount: {
                     all: { $sum: ['$ups', '$downs'] }, rl: '$rl', csgo: '$csgo', other: '$other',
                 },
-                title: '$_id.title',
-                grade: '$_id.grade',
+
 
                 reps: {
                     $map: {
