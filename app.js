@@ -8,6 +8,7 @@ const cookieParser = require('cookie-parser');
 // Routers
 const TradeRouter = require('./Routes/tradeRoutes');
 const AuthRouter = require('./Routes/authRoutes');
+const RepRouter = require('./Routes/repRoutes');
 
 const errorController = require('./misc/errorController');
 
@@ -22,6 +23,8 @@ app.use(cookieParser());
 app.use('/trades/', TradeRouter);
 
 app.use('/auth/', AuthRouter);
+
+app.use('/reputation', RepRouter);
 
 app.use(errorController);
 
