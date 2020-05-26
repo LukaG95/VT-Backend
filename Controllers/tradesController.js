@@ -33,7 +33,11 @@ exports.getTrades = catchAsync(async (req, res, next) => {
 
 exports.createTrade = catchAsync(async (req, res, next) => {
     const { user } = req;
-    const { have, want, platform } = req.body;
+    const { edit } = req.query;
+    const {
+        have, want, platform, notes,
+    } = req.body;
+    const userRep = req.rep;
     let steamAccount = null;
     if (user.steam) steamAccount = `https://steamcommunity.com/profiles/${user.steam}`;
 
@@ -56,17 +60,59 @@ exports.createTrade = catchAsync(async (req, res, next) => {
     getItemName(have);
     getItemName(want);
 
-
     const tradeDetails = {
-        userId: user._id,
         username: user.username,
+        reputation: {
+            ups: userRep.ups,
+            downs: userRep.downs,
+        },
         steamAccount,
         have,
         want,
         platform,
+        notes,
         createdAt: Date.now(),
     };
 
+
+    if (edit) {
+        if (edit.length !== 24) return next(new AppError());
+
+        const trade = await TradeRL.findById(edit);
+
+        if (trade.userId != user._id) return next(new AppError());
+
+
+        await TradeRL.findOneAndUpdate({ _id: trade._id }, tradeDetails, { useFindAndModify: false });
+
+        return res.json({ status: 'success' });
+    }
+
+    tradeDetails.userId = user._id;
+
+
     const newTrade = await new TradeRL(tradeDetails).save();
-    return res.json({ status: 'success', newTrade });
+    return res.json({ status: 'success' });
+});
+
+
+exports.deleteTrade = catchAsync(async (req, res, next) => {
+    const tradeId = req.query.id;
+    const { all } = req.query;
+    const { user } = req;
+
+    if (all === 'true') {
+        await TradeRL.deleteMany({ userId: user._id });
+        return res.json({ status: 'success' });
+    }
+
+    if (!tradeId || tradeId.length !== 24) return next(new AppError('invalid'));
+
+    const trade = await TradeRL.findById(tradeId);
+
+    if (trade.userId != user._id) return next(new AppError('invalid'));
+
+    await TradeRL.findOneAndDelete({ _id: tradeId });
+
+    return res.json({ status: 'success' });
 });
