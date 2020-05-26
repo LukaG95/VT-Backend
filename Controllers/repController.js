@@ -111,7 +111,7 @@ exports.getReputation = catchAsync(async (req, res, next) => {
                     csgo: '$csgoCount',
                     other: '$otherCount',
                 },
-                repsgame: {
+                repsByGame: {
                     all: '$reps',
                     rl: '$rlReps',
                     csgo: '$csgoReps',
