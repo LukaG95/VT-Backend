@@ -87,7 +87,7 @@ exports.getReputation = catchAsync(async (req, res, next) => {
                 },
                 otherReps: {
                     $filter: {
-                        input: '$rlReps',
+                        input: '$otherReps',
                         as: 'rep',
                         cond: {
                             $ne: ['$$rep', null],
