@@ -1,10 +1,10 @@
 const express = require('express');
 const cors = require('cors');
-const limiter = require('../misc/RateLimiter');
+const limiter = require('../misc/rateLimiter');
 
 const router = express.Router();
 
-const passport = require('../misc/Passport');
+const passport = require('../misc/passport');
 
 
 const authController = require('../Controllers/authController');

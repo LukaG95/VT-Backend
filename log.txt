@@ -1,0 +1,6 @@
+
+> vir_backend@1.0.0 start /home/nikforce/Desktop/webdev/vir_backend
+> node server.js
+
+Successful connection to the DB!
+Server is running on port 3000

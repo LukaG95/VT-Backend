@@ -126,11 +126,16 @@ exports.getReputation = catchAsync(async (req, res, next) => {
     ]);
 
     if (rep.length < 1) {
-        const rep = {
+        rep[0] = {
+            ups: 0,
+            downs: 0,
+            grade: "1.0",
+            title: "Novice",
+            amount: { all: 0, rl: 0, csgo: 0, other: 0 },
+            repsByGame: { all: [], rl: [], csgo: [], other: [] },
             userId: user._id,
             username: user.username,
         };
-        return res.json({ status: 'default', rep });
     }
 
     return res.json({ status: 'success', rep: rep[0] });
