@@ -119,7 +119,7 @@ const tradesRLSchema = new mongoose.Schema({
         type: Boolean,
         default: false,
     },
-    old: { have: {}, want: {} },
+    old: { have: [], want: [] },
     __v: { type: Number, select: false },
 });
 

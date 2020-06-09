@@ -82,7 +82,6 @@ exports.createTrade = catchAsync(async (req, res, next) => {
         have, want, platform, notes, old,
     } = req.body;
 
-    console.log(old);
 
     const userRep = req.rep;
 
