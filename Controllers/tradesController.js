@@ -106,7 +106,7 @@ exports.createTrade = catchAsync(async (req, res, next) => {
 
 
             arr[i].itemName = itemName;
-            arr[i].url = `${item.itemID}.${paintId}.webp`;
+            arr[i].url = `${item.itemID}.0.webp`;
 
             if (!arr[i].itemName || paintId == undefined || certId == undefined) return err = 1;
         });
