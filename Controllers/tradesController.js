@@ -8,14 +8,41 @@ const dateToAgo = require('../misc/dateToAgo');
 
 const items = require('../misc/items.json');
 
-const paintIds= {"None": 0, "Crimson": 1, "Lime": 2, "Black": 3, 
-"Sky Blue": 4, "Cobalt": 5, "Burnt Sienna": 6, "Forest Green": 7, "Purple": 8, 
-"Pink": 9, "Orange": 10, "Grey": 11, "Titanium White": 12, "Saffron": 13};
+const paintIds = {
+    None: 0,
+    Crimson: 1,
+    Lime: 2,
+    Black: 3,
+    'Sky Blue': 4,
+    Cobalt: 5,
+    'Burnt Sienna': 6,
+    'Forest Green': 7,
+    Purple: 8,
+    Pink: 9,
+    Orange: 10,
+    Grey: 11,
+    'Titanium White': 12,
+    Saffron: 13,
+};
 
-const certIds = {"None": 0, "Playmaker": 1, "Acrobat": 2, "Aviator": 3, "Goalkeeper": 4, "Guardian": 5, "Juggler": 6, 
-"Paragon": 7, "Scorer": 8, "Show-Off": 9, "Sniper": 10, "Striker": 11, "Sweeper": 12, "Tactician": 13, "Turtle": 14, "Victor": 15};
-
-
+const certIds = {
+    None: 0,
+    Playmaker: 1,
+    Acrobat: 2,
+    Aviator: 3,
+    Goalkeeper: 4,
+    Guardian: 5,
+    Juggler: 6,
+    Paragon: 7,
+    Scorer: 8,
+    'Show-Off': 9,
+    Sniper: 10,
+    Striker: 11,
+    Sweeper: 12,
+    Tactician: 13,
+    Turtle: 14,
+    Victor: 15,
+};
 
 
 exports.getTrades = catchAsync(async (req, res, next) => {
@@ -26,7 +53,7 @@ exports.getTrades = catchAsync(async (req, res, next) => {
         .sortByLatest();
 
 
-    const trades = await advancedQuery.query;
+    const trades = await advancedQuery.query.select({ old: 0 });
     const pages = Math.ceil((await TradeRL.countDocuments(advancedQuery.resetQuery().query)) / advancedQuery.limit);
 
     const editedTrades = trades.map((trade) => {
@@ -39,48 +66,58 @@ exports.getTrades = catchAsync(async (req, res, next) => {
     return res.json({ trades: editedTrades, pages });
 });
 
+exports.getTrade = catchAsync(async (req, res, next) => {
+    const { id } = req.params;
+
+    const trade = await TradeRL.findById(id);
+
+    res.json(trade);
+});
+
 
 exports.createTrade = catchAsync(async (req, res, next) => {
     const { user } = req;
     const { edit } = req.query;
     const {
-        have, want, platform, notes,
+        have, want, platform, notes, old,
     } = req.body;
+
+    console.log(old);
+
     const userRep = req.rep;
-    
+
     const steamAccount = (user.steam) ? `https://steamcommunity.com/profiles/${user.steam}` : null;
 
     if (have.length > 12 || want.length > 12 || !steamAccount) return next(new AppError('invalid'));
 
     // return res.json({ status: 'invalid' });
-    function getItemNamesAndUrls (arr) {
-        let err = 0
+    function getItemNamesAndUrls(arr) {
+        let err = 0;
 
         arr.forEach((item, i) => {
-        let itemName;
-        items.Slots.forEach((type) => type.Items.forEach((item1) => {
-            if (item1.ItemID === item.itemID) {
-                itemName = item1.Name;
-            }
-        }));
+            let itemName;
+            items.Slots.forEach((type) => type.Items.forEach((item1) => {
+                if (item1.ItemID === item.itemID) {
+                    itemName = item1.Name;
+                }
+            }));
 
-        const paintId = paintIds[item.paint];
-        const certId = certIds[item.cert];
-        
-        
-        arr[i].itemName = itemName;
-        arr[i].url = `${item.itemID}.${paintId}.webp`;
+            const paintId = paintIds[item.paint];
+            const certId = certIds[item.cert];
 
-        if (!arr[i].itemName || paintId == undefined || certId == undefined) return err = 1;
 
-    });
-    return err;
-    };
+            arr[i].itemName = itemName;
+            arr[i].url = `${item.itemID}.${paintId}.webp`;
+
+            if (!arr[i].itemName || paintId == undefined || certId == undefined) return err = 1;
+        });
+        return err;
+    }
 
 
     const h = getItemNamesAndUrls(have);
     const w = getItemNamesAndUrls(want);
-    
+
     if (h === 1 || w === 1) return next(new AppError('invalid'));
 
     const tradeDetails = {
@@ -94,6 +131,7 @@ exports.createTrade = catchAsync(async (req, res, next) => {
         want,
         platform,
         notes,
+        old,
         createdAt: Date.now(),
     };
 
@@ -138,4 +176,4 @@ exports.deleteTrade = catchAsync(async (req, res, next) => {
     await TradeRL.findOneAndDelete({ _id: tradeId });
 
     return res.json({ status: 'success' });
-    })
+});
