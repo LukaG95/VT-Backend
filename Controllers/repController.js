@@ -176,41 +176,60 @@ exports.addReputation = catchAsync(async (req, res, next) => {
 });
 
 exports.getTop10 = catchAsync(async (req, res, next) => {
-    const top10 = await Reputation.aggregate([
-        { $unwind: '$reps' },
-        {
-            $group: {
-                _id: {
-                    userId: '$userId',
-                    username: '$username',
+
+    const oneDayInMs = (1 * 24 * 3600 * 1000);
+    const weekDate = new Date(Date.now() - 7 * oneDayInMs);
+    const monthDate = new Date(Date.now() - 30 * oneDayInMs);
+
+    const aggregation = function (Date) {
+        let match;
+
+        if (!Date) {
+            match = {}
+        } else {
+            match = { 'reps.createdAt': { $gte: Date } }
+        }
+
+        return Reputation.aggregate([
+            { $unwind: '$reps' },
+            { $match: match },
+            {
+                $group: {
+                    _id: {
+                        userId: '$userId',
+                        username: '$username',
+                    },
+
+                    ups: { $sum: { $cond: { if: { $eq: ['$reps.good', true] }, then: 1, else: 0 } } },
+                    downs: { $sum: { $cond: { if: { $eq: ['$reps.good', false] }, then: 1, else: 0 } } },
                 },
-
-                ups: { $sum: { $cond: { if: { $eq: ['$reps.good', true] }, then: 1, else: 0 } } },
-                downs: { $sum: { $cond: { if: { $eq: ['$reps.good', false] }, then: 1, else: 0 } } },
-
-
             },
-        },
-        {
-            $addFields: {
-                repRating: { $subtract: ['$ups', '$downs'] },
+            {
+                $addFields: {
+                    repRating: { $subtract: ['$ups', '$downs'] },
+                },
             },
-        },
-        { $sort: { repRating: -1 } },
-        { $limit: 10 },
-        {
-            $project: {
-                _id: 0,
-                userId: '$_id.userId',
-                username: '$_id.username',
-                repRating: '$repRating',
+            { $sort: { repRating: -1 } },
+            { $limit: 10 },
+            {
+                $project: {
+                    _id: 0,
+                    userId: '$_id.userId',
+                    username: '$_id.username',
+                    repRating: '$repRating',
+                },
             },
-        },
+        ]);
+    }
 
 
-    ]);
 
-    return res.json({ status: 'success', top10 });
+    const All = await aggregation();
+    const Month = await aggregation(monthDate);
+    const Week = await aggregation(weekDate);
+
+
+    return res.json({ status: 'success', top10: { All, Month, Week } });
 });
 
 

@@ -69,9 +69,10 @@ exports.getTrades = catchAsync(async (req, res, next) => {
 exports.getTrade = catchAsync(async (req, res, next) => {
     const { id } = req.params;
 
-    const trade = await TradeRL.findById(id);
+    const trade = await TradeRL.findById(id, { old: 1, userId: 1 });
 
-    res.json(trade);
+
+    return res.json({ status: 'success', trade });
 });
 
 
