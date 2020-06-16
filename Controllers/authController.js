@@ -68,7 +68,7 @@ exports.login = catchAsync(async (req, res, next) => {
 
 
 
-    if (!user._id || !(await user.correctPassword(password, user.password))) {
+    if (!user || !(await user.correctPassword(password, user.password))) {
         return next(new AppError('logorpass'));
     }
 
