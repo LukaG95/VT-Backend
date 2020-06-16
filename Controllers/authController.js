@@ -47,15 +47,28 @@ const sendEmail = async (user) => {
     await Email;
 };
 
+function validateEmail(email) {
+    var regex = /^[^\s@]+@[^\s@\.]+(\.[^\s@.]+)+$/;
+    return regex.test(email);
+}
+
 
 exports.login = catchAsync(async (req, res, next) => {
     const { email, password } = req.body;
 
 
-    const user = await User.findOne({ email }).select('+password');
+    if (!email || !password) return next(new AppError('invalid'));
+
+    // Check if email or username supplied
+    const query = validateEmail(email) === true ? { email } : { username: email };
 
 
-    if (!user || !(await user.correctPassword(password, user.password))) {
+
+    const user = await User.findOne(query).select('+password');
+
+
+
+    if (!user._id || !(await user.correctPassword(password, user.password))) {
         return next(new AppError('logorpass'));
     }
 
@@ -64,9 +77,19 @@ exports.login = catchAsync(async (req, res, next) => {
 
 
 exports.signup = catchAsync(async (req, res, next) => {
-    const {
+
+
+    let {
         username, email, password, passwordConfirm,
     } = req.body;
+
+
+    const validateName = await User.findOne({ username }).collation({ locale: "en", strength: 2 });
+    if (validateName) return next(new AppError('username'));
+
+    const validateEmail = await User.findOne({ email }).collation({ locale: "en", strength: 2 });
+    if (validateEmail) return next(new AppError('email'));
+
 
 
     const newUser = await User.create({

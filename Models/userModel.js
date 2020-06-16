@@ -4,16 +4,19 @@ const crypto = require('crypto');
 const { promisify } = require('util');
 const validator = require('validator');
 
+// var uniqueValidator = require('mongoose-unique-validator');
+
 
 const userSchema = new mongoose.Schema({
     username: {
         type: String,
         maxlength: 20,
+        unique: true,
     },
     email: {
         type: String,
-        unique: true,
         sparse: true,
+        unique: true
     },
     confirmedEmail: {
         type: Boolean,
@@ -51,6 +54,8 @@ const userSchema = new mongoose.Schema({
 
 });
 
+// userSchema.plugin(uniqueValidator);
+
 
 userSchema.pre('save', async function (next) {
     if (!this.isModified('password')) return next();
@@ -75,8 +80,19 @@ userSchema.methods.compareTokens = async function (Token, HashedToken) {
     return await bcrypt.compare(Token, HashedToken);
 };
 
-
+userSchema.index({ username: 1, email: 1 }, { collation: { locale: 'en', strength: 2 } });
+// userSchema.set('autoIndex', true);
 const User = mongoose.model('User', userSchema);
+
+
+
+
+
+
+User.collection.dropIndexes(function (err, results) {
+    // Handle errors
+});
+
 
 
 module.exports = User;

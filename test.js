@@ -5,4 +5,5 @@
 
 
 
-console.log(Date.now());
+
+console.log((3 < 0 ? "" : "+") + 3);
