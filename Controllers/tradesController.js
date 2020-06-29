@@ -83,14 +83,15 @@ exports.createTrade = catchAsync(async (req, res, next) => {
         have, want, platform, notes, old,
     } = req.body;
 
-    const maxTrades = 15;
+    // const maxTrades = 15;
 
 
     const userRep = req.rep;
 
     const steamAccount = (user.steam) ? `https://steamcommunity.com/profiles/${user.steam}` : null;
-    const totalTrades = await TradeRL.find({ userId: user._id }).length;
-    console.log(totalTrades);
+
+    // const totalTrades = await TradeRL.find({ userId: user._id }).length;
+    // console.log(totalTrades);
 
     if (have.length > 12 || want.length > 12 || !steamAccount) return next(new AppError('invalid'));
 
