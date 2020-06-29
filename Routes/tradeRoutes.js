@@ -19,5 +19,8 @@ router.route('/createTrade')
 router.route('/deleteTrade/')
     .delete(authController.protect, tradesController.deleteTrade);
 
+router.route('/bumpTrade/:id')
+    .put(authController.protect, tradesController.bumpTrade);
+
 
 module.exports = router;

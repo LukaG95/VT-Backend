@@ -42,7 +42,7 @@ const sendEmail = async (user) => {
     // const user = await User.findById('5ea87e2930da1617545e0c6f');
     const emailToken = await user.generateToken();
     await user.save();
-    const Email = new EmailingSystem({ email: user.email })
+    const Email = new EmailingSystem({ email: user.email, id: user._id })
         .sendSignup(emailToken);
     await Email;
 };
@@ -50,6 +50,19 @@ const sendEmail = async (user) => {
 function validateEmail(email) {
     var regex = /^[^\s@]+@[^\s@\.]+(\.[^\s@.]+)+$/;
     return regex.test(email);
+}
+
+function genNumber(times = 1) {
+    let num = '';
+
+    for (let i = 0; i < times; i++) {
+
+        let j = Math.round(Math.random() * (9 - 0) + 0);
+        num = num + j
+
+    }
+
+    return num;
 }
 
 
@@ -84,11 +97,24 @@ exports.signup = catchAsync(async (req, res, next) => {
     } = req.body;
 
 
-    const validateName = await User.findOne({ username }).collation({ locale: "en", strength: 2 });
-    if (validateName) return next(new AppError('username'));
+    if (username == null || email == null) return next(new AppError());
+
 
     const validateEmail = await User.findOne({ email }).collation({ locale: "en", strength: 2 });
-    if (validateEmail) return next(new AppError('email'));
+    if (validateEmail) {
+
+        if (validateEmail.confirmedEmail === false && validateEmail.tokenCreatedAt > (Date.now() - 15 * 60 * 1000)) {
+
+            // Remove account with unconfirmed email created 15+ mins ago
+            await User.deleteOne({ id: validateEmail._id });
+
+        } else {
+            return next(new AppError('email'));
+        }
+    }
+
+    const validateName = await User.findOne({ username }).collation({ locale: "en", strength: 2 });
+    if (validateName) return next(new AppError('username'));
 
 
 
@@ -103,20 +129,28 @@ exports.signup = catchAsync(async (req, res, next) => {
 exports.passportLoginOrCreate = catchAsync(async (req, res, next) => {
     const { user } = req;
     let passportUser;
+    let loginMethod = user.method;
+    let username = user.username;
 
-    if (user.method === 'steam') {
-        const steam = user.id;
-        const username = user.displayName;
-        passportUser = await User.findOne({ steam })
-            .then((data) => data || User.create({ steam, username }));
-    } else if (user.method === 'discord') {
-        const discord = user.id;
-        const { username } = user;
-        passportUser = await User.findOne({ discord })
-            .then((data) => data || User.create({ discord, username }));
-    }
+    // returnResponse - sets JWT token in cookie
+    const returnResponse = createSendToken(passportUser, res, 'redirect');
 
-    createSendToken(passportUser, res, 'redirect');
+    // Checks if user already exists in DataBase
+    passportUser = await User.findOne({ loginMethod: user.id });
+    if (passportUser) return returnResponse;
+
+
+    // Checks if username is available
+    registeredUser = await User.findOne({ username: username }).collation({ locale: "en", strength: 2 });
+
+    // If not, Slice username to 13 char + add 3 random numbers
+    if (registeredUser) username = username.slice(0, 13) + genNumber(3);
+
+    // Create user
+    passportUser = await User.create({ loginMethod: user.id, username });
+
+    return returnResponse;
+
 });
 
 
@@ -148,26 +182,109 @@ exports.protect = catchAsync(async (req, res, next) => {
 });
 
 exports.confirmEmail = catchAsync(async (req, res, next) => {
-    const { user } = req;
+    const { user } = req.params;
     const { code } = req.params;
 
-    const result = await user.compareTokens(code, user.verificationToken);
 
 
-    if (result === true) {
-        user.confirmedEmail = true;
-        await user.save();
+    const userDB = await User.findById(user);
+    if (!userDB) return next(new AppError());
+
+
+    const result = await userDB.compareTokens(code, userDB.verificationToken);
+
+
+    if (result === true && !userDB.confirmedEmail) {
+        userDB.confirmedEmail = true;
+        await userDB.save();
         return res.json({ status: 'success' });
     }
 
     next(new AppError('OldOrInvalid'));
 });
 
-exports.resendCode = catchAsync(async (req, res, next) => {
+// exports.resendCode = catchAsync(async (req, res, next) => {
+//     const { user } = req;
+
+//     if (user.confirmedEmail === true) return next(new AppError());
+
+//     await sendEmail(user);
+//     return res.json({ status: 'success' });
+// });
+
+exports.logout = catchAsync(async (req, res, next) => {
+
+    res.clearCookie('jwt');
+    return res.json({ status: 'success' });
+
+})
+
+
+exports.updateUsername = catchAsync(async (req, res, next) => {
     const { user } = req;
 
-    if (user.confirmedEmail === true) return next(new AppError());
+    const newUsername = req.body.username;
 
-    await sendEmail(user);
+    // Find user, if user exists change his username if new one matches the regex and hasn't been changed in the past 30 days
+
+    if (!newUsername || !newUsername.match(/^(?!.*[ ]{2,})[a-zA-Z0-9 _-]{2,15}$/gm)) return next(new AppError(1));
+
+    if (user.usernameChangedAt > new Date(Date.now() - 86400 * 1000)) return next(new AppError('days30'));
+
+    const validateName = await User.findOne({ username: newUsername }).collation({ locale: "en", strength: 2 });
+    if (validateName) return next(new AppError('username'));
+
+
+    user.username = newUsername;
+    user.usernameChangedAt = Date.now();
+
+    await user.save();
+
     return res.json({ status: 'success' });
+
+
+})
+
+exports.updateEmail = catchAsync(async (req, res, next) => {
+    const { user } = req;
+    const { newEmail } = req.body;
+
+
+    takenEmail = await User.findOne({ email: newEmail }).collation({ locale: "en", strength: 2 });
+
+    if (newEmail && validateEmail(newEmail) && !takenEmail) {
+
+        user.email = newEmail;
+        await user.save();
+        return res.json({ status: 'success' });
+    }
+
+    return next(new AppError());
+
+    // Update user's email if it matches regex
+
 });
+
+exports.updatePassword = catchAsync(async (req, res, next) => {
+    const { user } = req;
+
+    const { password, passwordConfirm, newPassword } = req.body;
+
+    const userDB = await User.findById(user._id).select('+password');
+
+    if (newPassword.match(/^[\!@#$%^&*()\\[\]{}\-_+=~`|:;"'<>,./?a-zA-Z0-9]{4,30}$/gm) && (await userDB.correctPassword(password, userDB.password))) {
+
+
+
+        userDB.password = newPassword;
+
+        await userDB.save();
+
+        return res.json({ status: 'success' });
+    };
+
+
+    return next(new AppError('error'));
+
+});
+

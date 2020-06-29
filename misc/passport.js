@@ -21,12 +21,13 @@ passport.use(new SteamStrategy({
     realm: `${envURL}`,
     apiKey: process.env.STEAM_API_KEY,
 },
-((identifier, profile, done) => {
-    profile.method = 'steam';
+    ((identifier, profile, done) => {
+        profile.method = 'steam';
+        profile.username = profile.displayName;
 
-    return done(null, profile);
-}
-)));
+        return done(null, profile);
+    }
+    )));
 
 
 passport.use(new DiscordStrategy({
@@ -37,12 +38,12 @@ passport.use(new DiscordStrategy({
     callbackURL: `${envURL}auth/discord/callback`,
     scope: ['identify'],
 },
-((accessToken, refreshToken, profile, cb) => {
-    profile.method = 'discord';
+    ((accessToken, refreshToken, profile, cb) => {
+        profile.method = 'discord';
 
 
-    return cb(null, profile);
-})));
+        return cb(null, profile);
+    })));
 
 
 module.exports = passport;

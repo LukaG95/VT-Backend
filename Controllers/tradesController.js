@@ -83,10 +83,14 @@ exports.createTrade = catchAsync(async (req, res, next) => {
         have, want, platform, notes, old,
     } = req.body;
 
+    const maxTrades = 15;
+
 
     const userRep = req.rep;
 
     const steamAccount = (user.steam) ? `https://steamcommunity.com/profiles/${user.steam}` : null;
+    const totalTrades = await TradeRL.find({ userId: user._id }).length;
+    console.log(totalTrades);
 
     if (have.length > 12 || want.length > 12 || !steamAccount) return next(new AppError('invalid'));
 
@@ -107,7 +111,7 @@ exports.createTrade = catchAsync(async (req, res, next) => {
 
 
             arr[i].itemName = itemName;
-            arr[i].url = `${item.itemID}.0.webp`;
+            arr[i].url = `${item.itemID}.${paintId}.webp`;
 
             if (!arr[i].itemName || paintId == undefined || certId == undefined) return err = 1;
         });
@@ -132,7 +136,7 @@ exports.createTrade = catchAsync(async (req, res, next) => {
         platform,
         notes,
         old,
-        createdAt: Date.now(),
+
     };
 
 
@@ -150,11 +154,27 @@ exports.createTrade = catchAsync(async (req, res, next) => {
     }
 
     tradeDetails.userId = user._id;
+    tradeDetails.createdAt = Date.now();
 
 
     const newTrade = await new TradeRL(tradeDetails).save();
     return res.json({ status: 'success' });
 });
+
+exports.bumpTrade = catchAsync(async (req, res, next) => {
+    const { user } = req;
+    const { id } = req.params;
+
+    const trade = await TradeRL.findById(id);
+    if (trade.userId != user._id) return next(new AppError());
+
+
+    trade.createdAt = Date.now();
+    await trade.save();
+
+    return res.json({ status: 'success' });
+
+})
 
 
 exports.deleteTrade = catchAsync(async (req, res, next) => {

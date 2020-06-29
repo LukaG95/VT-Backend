@@ -10,7 +10,8 @@ const validator = require('validator');
 const userSchema = new mongoose.Schema({
     username: {
         type: String,
-        maxlength: 20,
+        minlength: 2,
+        maxlength: 15,
         unique: true,
     },
     email: {
@@ -49,7 +50,15 @@ const userSchema = new mongoose.Schema({
     },
     verificationToken: {
         type: String,
+        select: false
     },
+    tokenCreatedAt: { type: Date }
+    ,
+
+    usernameChangedAt: {
+        type: Date,
+    },
+
     __v: { type: Number, select: false },
 
 });
@@ -71,13 +80,13 @@ userSchema.methods.correctPassword = async function (receivedPassword, userPassw
 };
 
 userSchema.methods.generateToken = async function () {
-    const emailToken = (await promisify(crypto.randomBytes)(32)).toString('hex');
+    const emailToken = (await promisify(crypto.randomBytes)(16)).toString('hex');
     this.verificationToken = await bcrypt.hash(emailToken, 8);
     return emailToken;
 };
 
 userSchema.methods.compareTokens = async function (Token, HashedToken) {
-    return await bcrypt.compare(Token, HashedToken);
+    return bcrypt.compare(Token, HashedToken);
 };
 
 userSchema.index({ username: 1, email: 1 }, { collation: { locale: 'en', strength: 2 } });

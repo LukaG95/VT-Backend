@@ -19,6 +19,19 @@ router.route('/signup')
 router.route('/login')
     .post(limiter, authController.login);
 
+router.route('/logout')
+    .delete(authController.protect, authController.logout);
+
+
+router.route('/updateEmail')
+    .put(authController.protect, authController.updateEmail);
+
+router.route('/updateUsername')
+    .put(authController.protect, authController.updateUsername);
+
+
+router.route('/updatePassword')
+    .put(authController.protect, authController.updatePassword);
 
 router.route('/steam')
     .get(passport.authenticate('steam'));
@@ -37,9 +50,10 @@ router.route('/discord/callback')
 router.route('/getUser')
     .get(authController.protect, authController.getUser);
 
-router.route('/confirmEmail/:code')
-    .post(authController.protect, authController.confirmEmail);
+router.route('/reg/:user/:code')
+    .get(authController.confirmEmail);
 
-router.route('/resendCode')
-    .post(authController.protect, authController.resendCode);
+// router.route('/resendCode')
+//     .post(authController.protect, authController.resendCode);
+
 module.exports = router;

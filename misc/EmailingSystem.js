@@ -5,6 +5,8 @@ const nodemailer = require('nodemailer');
 class EmailingSystem {
     constructor(options) {
         this.receiver = options.email;
+        this.userId = options.id;
+        this.url = (process.env.NODE_ENV === 'production') ? 'virtrade.gg' : 'https://justlearningfront.website';
     }
 
     newTransporter() {
@@ -16,7 +18,7 @@ class EmailingSystem {
                     user: process.env.EMAIL_LOGIN,
                     pass: process.env.EMAIL_PASSWORD,
                 },
-            
+
             });
         } else {
             this.transporter = nodemailer.createTransport({
@@ -44,7 +46,7 @@ class EmailingSystem {
             html: `<b>${text}</b>`, // html body
         };
         if (process.env.NODE_ENV === 'production') messageOptions.from = '"Virtrade.gg" <rldsocials@gmail.com>';
-        
+
         await transporter.sendMail(messageOptions, (error, info) => {
             if (error) {
                 console.log(error);
@@ -55,11 +57,11 @@ class EmailingSystem {
     }
 
     async sendSignup(code) {
-        await this.sendEmail('Email verification', `Your verification code is ${code}`);
+        await this.sendEmail('Email verification', `Your verification link is ${this.url}/api/auth/reg/${this.userId}/${code}`);
     }
 
     async sendVerification(code) {
-        
+
     }
 }
 
