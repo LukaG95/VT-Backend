@@ -223,7 +223,7 @@ exports.logout = catchAsync(async (req, res, next) => {
 exports.updateUsername = catchAsync(async (req, res, next) => {
     const { user } = req;
 
-    const newUsername = req.body.username;
+    const { newUsername } = req.body;
 
     // Find user, if user exists change his username if new one matches the regex and hasn't been changed in the past 30 days
 
