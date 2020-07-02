@@ -25,7 +25,7 @@ const userSchema = new mongoose.Schema({
     },
     password: {
         type: String,
-        minlength: 8,
+        minlength: 6,
         select: false,
     },
     passwordConfirm: {
@@ -86,7 +86,7 @@ userSchema.methods.generateToken = async function () {
 };
 
 userSchema.methods.compareTokens = async function (Token, HashedToken) {
-    return bcrypt.compare(Token, HashedToken);
+    return await bcrypt.compare(Token, HashedToken);
 };
 
 userSchema.index({ username: 1, email: 1 }, { collation: { locale: 'en', strength: 2 } });

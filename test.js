@@ -1,6 +1,1 @@
-const user = { usernameChangedAt: '2020-06-29T15:15:17.735Z' }
-
-const Date1 = new Date(Date.now() - 86400 * 1000);
-
-
-console.log(user.usernameChangedAt + ' ' + Date1)
+console.log('1dfbdc53e5a3b232f878814c247f1d99'.length);

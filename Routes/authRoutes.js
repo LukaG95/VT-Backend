@@ -33,6 +33,7 @@ router.route('/updateUsername')
 router.route('/updatePassword')
     .put(authController.protect, authController.updatePassword);
 
+
 router.route('/steam')
     .get(passport.authenticate('steam'));
 
@@ -50,8 +51,16 @@ router.route('/discord/callback')
 router.route('/getUser')
     .get(authController.protect, authController.getUser);
 
-router.route('/reg/:user/:code')
-    .get(authController.confirmEmail);
+
+
+router.route('/confirmEmail/')
+    .put(authController.confirmEmail);
+
+router.route('/sendResetEmail')
+    .post(authController.sendResetToken);
+
+router.route('/resetPassword')
+    .put(authController.resetPassword);
 
 // router.route('/resendCode')
 //     .post(authController.protect, authController.resendCode);

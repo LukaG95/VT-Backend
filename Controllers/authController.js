@@ -7,11 +7,15 @@ const catchAsync = require('../misc/catchAsync');
 const AppError = require('../misc/AppError');
 
 
+
+
 const User = require('../Models/userModel');
 
-const createToken = (id) => jwt.sign({ id }, process.env.JWT_SECRET, {
+const createToken = (id, code = 0) => jwt.sign({ id, code }, process.env.JWT_SECRET, {
     expiresIn: process.env.JWT_EXPIRES_IN,
 });
+
+const decodeToken = async (token) => promisify(jwt.verify)(token, process.env.JWT_SECRET)
 
 const createSendToken = (user, res, option) => {
     const expires = process.env.JWT_EXPIRES_IN.slice(0, -1); // Delete 'd' from the end
@@ -38,14 +42,24 @@ const createSendToken = (user, res, option) => {
 };
 
 
-const sendEmail = async (user) => {
-    // const user = await User.findById('5ea87e2930da1617545e0c6f');
+const sendSignupEmail = async (user) => {
     const emailToken = await user.generateToken();
     await user.save();
-    const Email = new EmailingSystem({ email: user.email, id: user._id })
-        .sendSignup(emailToken);
+    const token = await createToken(user._id, emailToken);
+    const Email = new EmailingSystem({ email: user.email })
+        .sendSignup(token);
     await Email;
 };
+
+const sendPasswordResetEmail = async (user) => {
+    const emailToken = await user.generateToken();
+    await user.save();
+    const token = await createToken(user._id, emailToken);
+    const Email = new EmailingSystem({ email: user.email })
+        .sendPasswordReset(token);
+    await Email;
+
+}
 
 function validateEmail(email) {
     var regex = /^[^\s@]+@[^\s@\.]+(\.[^\s@.]+)+$/;
@@ -122,7 +136,7 @@ exports.signup = catchAsync(async (req, res, next) => {
         username, email, password, passwordConfirm,
     });
 
-    await sendEmail(newUser);
+    await sendSignupEmail(newUser);
     return createSendToken(newUser, res);
 });
 
@@ -173,7 +187,9 @@ exports.protect = catchAsync(async (req, res, next) => {
 
     if (!token) return next(new AppError('unauthorized'));
 
-    const decoded = await promisify(jwt.verify)(token, process.env.JWT_SECRET);
+    console.log(token);
+
+    const decoded = await decodeToken(token);
 
     const user = await User.findById(decoded.id).select('-__v');
 
@@ -182,20 +198,23 @@ exports.protect = catchAsync(async (req, res, next) => {
 });
 
 exports.confirmEmail = catchAsync(async (req, res, next) => {
-    const { user } = req.params;
-    const { code } = req.params;
+    const { code } = req.body;
 
 
+    const decodedCode = await decodeToken(code);
+    console.log(decodedCode);
 
-    const userDB = await User.findById(user);
+    const userDB = await User.findById(decodedCode.id).select('verificationToken');
     if (!userDB) return next(new AppError());
 
 
-    const result = await userDB.compareTokens(code, userDB.verificationToken);
+    const result = await userDB.compareTokens(decodedCode.code, userDB.verificationToken);
+
 
 
     if (result === true && !userDB.confirmedEmail) {
         userDB.confirmedEmail = true;
+        userDB.verificationToken = null;
         await userDB.save();
         return res.json({ status: 'success' });
     }
@@ -272,6 +291,7 @@ exports.updatePassword = catchAsync(async (req, res, next) => {
 
     const userDB = await User.findById(user._id).select('+password');
 
+
     if (newPassword.match(/^[\!@#$%^&*()\\[\]{}\-_+=~`|:;"'<>,./?a-zA-Z0-9]{4,30}$/gm) && (await userDB.correctPassword(password, userDB.password))) {
 
 
@@ -285,6 +305,45 @@ exports.updatePassword = catchAsync(async (req, res, next) => {
 
 
     return next(new AppError('error'));
+
+});
+
+exports.sendResetToken = catchAsync(async (req, res, next) => {
+
+    const { email } = req.body;
+
+    const user = await User.findOne({ email }).collation({ locale: "en", strength: 2 });
+
+    console.log(user);
+
+    if (!user.confirmedEmail) return next(new AppError('invalid'));
+
+    await sendPasswordResetEmail(user);
+
+    return res.json({ status: 'success' });
+
+
+});
+
+exports.resetPassword = catchAsync(async (req, res, next) => {
+
+    const { code, password, passwordConfirm } = req.body;
+
+
+    const decodedCode = await decodeToken(code);
+
+
+    const user = await User.findById(decodedCode.id).select('-__v +verificationToken');
+
+
+    if (await user.compareTokens(decodedCode.code, user.verificationToken) && password === passwordConfirm && user.confirmedEmail) {
+        user.password = password;
+        user.verificationToken = null;
+        await user.save();
+        return res.json({ status: 'success' });
+    }
+
+    if (!user.confirmedEmail) return next(new AppError('invalid'));
 
 });
 
