@@ -4,6 +4,8 @@ const catchAsync = require('../misc/catchAsync');
 
 const AppError = require('../misc/AppError');
 
+const Redis = require('../misc/redisCaching');
+
 
 exports.getReputation = catchAsync(async (req, res, next) => {
     const userId = req.params.user;
@@ -149,6 +151,11 @@ exports.addReputation = catchAsync(async (req, res, next) => {
 
     if (!userId || userId.length !== 24 || !rep || userId == user._id) return next(new AppError('invalid'));
 
+    // Check if user has already given a rep within 24 hours
+    const repCheck = await Redis.isCached(`${user._id}${userId}`);
+    if (repCheck) return next(new AppError('hours24'));
+    //
+
 
     rep.createdBy = user._id;
 
@@ -167,11 +174,13 @@ exports.addReputation = catchAsync(async (req, res, next) => {
     if (!repDB) {
         const newRep = new Reputation({ userId, username: dbUser.username, reps: [rep] });
         await newRep.save();
+        await Redis.cache(`${user._id}${userId}`, 1)
         return res.json({ status: 'success' });
     }
 
     repDB.reps.unshift(rep);
     await repDB.save();
+    await Redis.cache(`${user._id}${userId}`, 1);
     return res.json({ status: 'success' });
 });
 

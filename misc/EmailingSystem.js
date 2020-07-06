@@ -57,11 +57,16 @@ class EmailingSystem {
     }
 
     async sendSignup(code) {
-        await this.sendEmail('Email verification', `Your verification link is ${this.url}/confirmEmail/${code}`);
+        await this.sendEmail('Email verification', `Your verification link is ${this.url}/email/confirm/${code}`);
     }
 
     async sendPasswordReset(code) {
-        await this.sendEmail('Password reset', `Your password reset link is ${this.url}/resetPassword/${code}`);
+        await this.sendEmail('Password reset', `Your password reset link is ${this.url}/password/reset/${code}`);
+
+    }
+
+    async sendEmailUpdate(code) {
+        await this.sendEmail('Email update', `Your email updading link is ${this.url}/email/update/${code}`);
 
     }
 }

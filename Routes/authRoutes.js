@@ -23,8 +23,7 @@ router.route('/logout')
     .delete(authController.protect, authController.logout);
 
 
-router.route('/updateEmail')
-    .put(authController.protect, authController.updateEmail);
+
 
 router.route('/updateUsername')
     .put(authController.protect, authController.updateUsername);
@@ -56,11 +55,19 @@ router.route('/getUser')
 router.route('/confirmEmail/')
     .put(authController.confirmEmail);
 
-router.route('/sendResetEmail')
+router.route('/sendResetPasswordToken')
     .post(authController.sendResetToken);
 
 router.route('/resetPassword')
     .put(authController.resetPassword);
+
+
+router.route('/sendResetEmailToken')
+    .post(authController.protect, authController.sendResetEmail)
+
+
+router.route('/updateEmail')
+    .put(authController.protect, authController.updateEmail);
 
 // router.route('/resendCode')
 //     .post(authController.protect, authController.resendCode);

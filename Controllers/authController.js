@@ -11,7 +11,7 @@ const AppError = require('../misc/AppError');
 
 const User = require('../Models/userModel');
 
-const createToken = (id, code = 0) => jwt.sign({ id, code }, process.env.JWT_SECRET, {
+const createToken = (id, code = 0, email) => jwt.sign({ id, code, email }, process.env.JWT_SECRET, {
     expiresIn: process.env.JWT_EXPIRES_IN,
 });
 
@@ -58,8 +58,17 @@ const sendPasswordResetEmail = async (user) => {
     const Email = new EmailingSystem({ email: user.email })
         .sendPasswordReset(token);
     await Email;
-
 }
+
+const sendEmailUpdateEmail = async (user, newEmail) => {
+    const emailToken = await user.generateToken();
+    await user.save();
+    const token = await createToken(user._id, emailToken, newEmail);
+    const Email = new EmailingSystem({ email: user.email })
+        .sendEmailUpdate(token);
+    await Email;
+}
+
 
 function validateEmail(email) {
     var regex = /^[^\s@]+@[^\s@\.]+(\.[^\s@.]+)+$/;
@@ -187,7 +196,6 @@ exports.protect = catchAsync(async (req, res, next) => {
 
     if (!token) return next(new AppError('unauthorized'));
 
-    console.log(token);
 
     const decoded = await decodeToken(token);
 
@@ -213,7 +221,7 @@ exports.confirmEmail = catchAsync(async (req, res, next) => {
 
 
     if (result === true && !userDB.confirmedEmail) {
-        userDB.confirmedEmail = true;
+        userDB.confirmedEmail = true
         userDB.verificationToken = null;
         await userDB.save();
         return res.json({ status: 'success' });
@@ -265,24 +273,46 @@ exports.updateUsername = catchAsync(async (req, res, next) => {
 })
 
 exports.updateEmail = catchAsync(async (req, res, next) => {
+    const { code } = req.body;
+
+    const decodedCode = await decodeToken(code);
+
+
+    const user = await User.findById(decodedCode.id).select('-__v +verificationToken');
+    if (!user) return next(new AppError('error1'));
+
+    const takenEmail = await User.findOne({ email: decodedCode.email }).collation({ locale: "en", strength: 2 });
+    if (takenEmail || !decodedCode.email) return next(new AppError('email'));
+
+
+
+    user.email = decodedCode.email;
+    await user.save();
+
+    return res.json({ status: 'success', username: user.username, newEmail: decodedCode.email });
+
+
+});
+
+exports.sendResetEmail = catchAsync(async (req, res, next) => {
+
     const { user } = req;
     const { newEmail } = req.body;
 
 
-    takenEmail = await User.findOne({ email: newEmail }).collation({ locale: "en", strength: 2 });
+    const takenEmail = await User.findOne({ email: newEmail }).collation({ locale: "en", strength: 2 });
+    if (takenEmail) return next(new AppError('email'));
 
-    if (newEmail && validateEmail(newEmail) && !takenEmail) {
-
-        user.email = newEmail;
-        await user.save();
-        return res.json({ status: 'success' });
+    if (!newEmail || !validateEmail(newEmail)) {
+        return next(new AppError('error'));
     }
 
-    return next(new AppError());
+    await sendEmailUpdateEmail(user, newEmail);
 
-    // Update user's email if it matches regex
+    return res.json({ status: 'success' });
 
-});
+
+})
 
 exports.updatePassword = catchAsync(async (req, res, next) => {
     const { user } = req;

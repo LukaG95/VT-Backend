@@ -82,6 +82,7 @@ userSchema.methods.correctPassword = async function (receivedPassword, userPassw
 userSchema.methods.generateToken = async function () {
     const emailToken = (await promisify(crypto.randomBytes)(16)).toString('hex');
     this.verificationToken = await bcrypt.hash(emailToken, 8);
+    this.tokenCreatedAt = Date.now();
     return emailToken;
 };
 

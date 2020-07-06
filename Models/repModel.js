@@ -54,4 +54,8 @@ const repSchema = new mongoose.Schema({
 const repModel = mongoose.model('Reputation', repSchema);
 
 
+
+// const func = () => repModel.find({ reps.createdBy: '5eaa006355a0d8265ea8530e' }).then((data) => console.log(data));
+
+// func();
 module.exports = repModel;
