@@ -1,0 +1,120 @@
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-08-27T17:41:52.896Z'
+}
+{
+  message: 'Connected to mongodb://localhost/VT...',
+  level: 'info',
+  timestamp: '2020-08-27T17:41:52.934Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-08-27T17:44:23.063Z'
+}
+{
+  message: 'Connected to mongodb://localhost/VT...',
+  level: 'info',
+  timestamp: '2020-08-27T17:44:23.100Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-08-27T17:45:00.060Z'
+}
+{
+  message: 'Connected to mongodb://localhost/VT...',
+  level: 'info',
+  timestamp: '2020-08-27T17:45:00.088Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-08-27T17:51:07.406Z'
+}
+{
+  message: 'Connected to mongodb://localhost/VT...',
+  level: 'info',
+  timestamp: '2020-08-27T17:51:07.435Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-08-27T20:58:38.493Z'
+}
+{
+  message: 'Connected to mongodb://localhost/VT...',
+  level: 'info',
+  timestamp: '2020-08-27T20:58:38.522Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-08-28T06:33:24.879Z'
+}
+{
+  message: 'Connected to mongodb://localhost/VT...',
+  level: 'info',
+  timestamp: '2020-08-28T06:33:24.909Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-08-28T08:33:41.739Z'
+}
+{
+  message: 'Connected to mongodb://localhost/VT...',
+  level: 'info',
+  timestamp: '2020-08-28T08:33:41.769Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-08-28T08:35:28.878Z'
+}
+{
+  message: 'Connected to mongodb://localhost/VT...',
+  level: 'info',
+  timestamp: '2020-08-28T08:35:28.908Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-08-28T08:57:11.527Z'
+}
+{
+  message: 'Connected to mongodb://localhost/VT...',
+  level: 'info',
+  timestamp: '2020-08-28T08:57:11.555Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-08-28T14:30:18.930Z'
+}
+{
+  message: 'Connected to mongodb://localhost/VT...',
+  level: 'info',
+  timestamp: '2020-08-28T14:30:18.961Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-08-28T20:49:01.630Z'
+}
+{
+  message: 'Connected to mongodb://localhost/VT...',
+  level: 'info',
+  timestamp: '2020-08-28T20:49:01.665Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-08-28T20:49:27.432Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority...',
+  level: 'info',
+  timestamp: '2020-08-28T20:49:27.884Z'
+}
