@@ -1,0 +1,12 @@
+# Node modules
+/node_modules
+package-lock.json
+
+# Error logs
+/errorLogs
+
+# Environment variables, never commit this file
+/*.env
+
+# Other
+test.js
