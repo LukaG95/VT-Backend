@@ -1,5 +1,5 @@
 const express = require('express')
-const cors = require('cors')
+//const cors = require('cors')
 
 const limiter = require('../misc/rateLimiter')
 const passport = require('../misc/passport') 
@@ -7,7 +7,7 @@ const authController = require('../Controllers/authController')
 
 const router = express.Router()
 
-router.use(cors())
+//router.use(cors())
 // router.use(passport.initialize())
 
 router.post('/signup', limiter, authController.signup)

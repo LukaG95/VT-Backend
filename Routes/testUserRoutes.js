@@ -1,12 +1,12 @@
 const express = require('express')
-const cors = require('cors')
+//const cors = require('cors')
 
 const authController = require('../Controllers/authController')
 const testUserController = require('../Controllers/testUserController')
 
 const router = express.Router()
 
-router.use(cors())
+//router.use(cors())
 
 router.get('/getUser', testUserController.protect, authController.getUser)
 router.get('/aggregateUsers', testUserController.protect, testUserController.adminOnly, testUserController.aggregateUsers)
