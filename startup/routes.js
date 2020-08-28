@@ -8,7 +8,7 @@ const TestUserRouter = require('../Routes/testUserRoutes')
 const errorController = require('../misc/errorController')
 
 module.exports = function(app){
-  // app.set('trust proxy', 1)
+  app.set('trust proxy', 1)
 
   app.use(express.json())
   app.use(cookieParser())
