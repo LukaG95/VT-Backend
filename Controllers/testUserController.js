@@ -60,7 +60,7 @@ exports.aggregateUsers = catchAsync(async (req, res, next) => {
 exports.login = catchAsync(async (req, res, next) => {
   const { username, password } = req.body
   const user = await TestUser.findOne({ username })
-  
+  console.log(req.body)
   if (!user || user.password != password) return next(new AppError('error'))
 
   return createSendToken(user, res)
