@@ -118,3 +118,13 @@
   level: 'info',
   timestamp: '2020-08-28T20:49:27.884Z'
 }
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-08-29T07:27:18.676Z'
+}
+{
+  message: 'Connected to mongodb://localhost/VT...',
+  level: 'info',
+  timestamp: '2020-08-29T07:27:18.705Z'
+}
