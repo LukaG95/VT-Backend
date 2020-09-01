@@ -163,7 +163,6 @@ exports.getUser = catchAsync(async (req, res, next) => {
 
 exports.protect = catchAsync(async (req, res, next) => {
   const token = req.cookies.jwt
-
   if (!token) return next(new AppError('unauthorized'))
 
   const decoded = await decodeToken(token)
