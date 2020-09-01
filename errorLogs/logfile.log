@@ -158,3 +158,53 @@
   level: 'info',
   timestamp: '2020-08-31T17:26:35.661Z'
 }
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-08-31T17:32:16.289Z'
+}
+{
+  message: 'Connected to mongodb://localhost/VT...',
+  level: 'info',
+  timestamp: '2020-08-31T17:32:16.315Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-08-31T17:33:59.139Z'
+}
+{
+  message: 'Connected to mongodb://localhost/VT...',
+  level: 'info',
+  timestamp: '2020-08-31T17:33:59.170Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-08-31T17:40:54.612Z'
+}
+{
+  message: 'Connected to mongodb://localhost/VT...',
+  level: 'info',
+  timestamp: '2020-08-31T17:40:54.642Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-08-31T17:41:12.608Z'
+}
+{
+  message: 'Connected to mongodb://localhost/VT...',
+  level: 'info',
+  timestamp: '2020-08-31T17:41:12.638Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-09-01T14:51:02.839Z'
+}
+{
+  message: 'Connected to mongodb://localhost/VT...',
+  level: 'info',
+  timestamp: '2020-09-01T14:51:02.867Z'
+}
