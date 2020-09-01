@@ -143,8 +143,9 @@ exports.addReputation = async (req, res, next) => {
     if (!userId || userId.length !== 24 || !rep || userId == user._id) return next(new AppError('invalid'));
 
     // Check if user has already given a rep within 24 hours
+    /*
     const repCheck = await Redis.isCached(`${user._id}${userId}`);
-    if (repCheck) return next(new AppError('hours24'));
+    if (repCheck) return next(new AppError('hours24'));*/
 
     rep.createdBy = user._id;
 
