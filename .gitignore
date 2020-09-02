@@ -5,5 +5,8 @@ package-lock.json
 # Environment variables, never commit this file
 /*.env
 
+# React build (only push to production)
+/build
+
 # Other
 test.js
