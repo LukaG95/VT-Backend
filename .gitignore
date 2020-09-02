@@ -1,12 +1,12 @@
 # Node modules
-/node_modules
+node_modules/
 package-lock.json
+
+# React build (only push to production)
+build/
 
 # Environment variables, never commit this file
 /*.env
-
-# React build (only push to production)
-/build
 
 # Other
 test.js
