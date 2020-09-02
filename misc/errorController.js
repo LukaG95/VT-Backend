@@ -1,3 +1,4 @@
+
 const logger = require('../startup/logging')
 
 module.exports = function(err, req, res, next){   
@@ -10,12 +11,11 @@ module.exports = function(err, req, res, next){
   // debug
   // silly
 
-  res.status(500).json({
+  res.json({
     message: 'Something failed.',
     status: err.status,
   })
 }
-
 /*
 module.exports = (err, req, res, next) => {
   err.status = err.status || 'error';
