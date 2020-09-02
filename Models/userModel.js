@@ -27,8 +27,7 @@ const userSchema = new mongoose.Schema({
   confirmedEmail: {
     type: Boolean,
     maxlength: 255,
-    default: false,
-    required: true
+    default: false
   },
 
   password: {
@@ -46,8 +45,7 @@ const userSchema = new mongoose.Schema({
       validator(el) {
         return el === this.password;
       }
-    },
-    required: true
+    }
   },
 
   discord: {
@@ -71,7 +69,8 @@ const userSchema = new mongoose.Schema({
   },
 
   tokenCreatedAt: { 
-    type: Date 
+    type: Date,
+    default: Date.now
   },
 
   usernameChangedAt: {

@@ -97,30 +97,35 @@ exports.login = catchAsync(async (req, res, next) => {
 
 exports.signup = async (req, res, next) => {
   let { username, email, password, passwordConfirm } = req.body
-
+  
   const { error } = validateUser(req.body)
-  if (error) return res.status(400).send(error.details[0].message)
-  return res.status(400).send("test")
-  // if (username == null || email == null) return next(new AppError())
-
+  if (error) return res.status(400).send({info: "invalid credentials", message: error.details[0].message})
+ 
   const validateEmail = await User.findOne({ email }).collation({ locale: "en", strength: 2 })
   if (validateEmail) {
-
-    if (validateEmail.confirmedEmail === false && validateEmail.tokenCreatedAt > (Date.now() - 15 * 60 * 1000)) {
-
-      // Remove account with unconfirmed email created 15+ mins ago
-      await User.deleteOne({ id: validateEmail._id })
+    
+    if (validateEmail.confirmedEmail === false && validateEmail.tokenCreatedAt.getTime() < (Date.now() - 15 * 60 * 1000)) {
+      await User.deleteOne({ _id: validateEmail._id })
 
     } else {
-      return next(new AppError('email'))
+      return res.status(400).send({info: "email", message: "this email is already in use"})
     }
   }
 
   const validateName = await User.findOne({ username }).collation({ locale: "en", strength: 2 })
-  if (validateName) return next(new AppError('username'))
+  if (validateName) {
+
+    if (validateName.confirmedEmail === false && validateName.tokenCreatedAt.getTime() < (Date.now() - 15 * 60 * 1000)) {
+      console.log("heh")
+      await User.deleteOne({ _id: validateName._id })
+
+    } else {
+      return res.status(400).send({info: "username", message: "this username is already in use"})
+    }
+  }
 
   const newUser = await User.create({
-    username, email, password, passwordConfirm,
+    username, email, password, passwordConfirm
   })
 
   await sendSignupEmail(newUser)
@@ -152,7 +157,7 @@ exports.passportLoginOrCreate = catchAsync(async (req, res, next) => {
   return returnResponse
 })
 
-exports.getUser = catchAsync(async (req, res, next) => { console.log("heh")
+exports.getUser = catchAsync(async (req, res, next) => { 
   const { user } = req
   
   if (user && user !== undefined) {
@@ -162,7 +167,7 @@ exports.getUser = catchAsync(async (req, res, next) => { console.log("heh")
   return next(new AppError('unauthorized'))
 })
 
-exports.protect = catchAsync(async (req, res, next) => { console.log("heh")
+exports.protect = catchAsync(async (req, res, next) => { 
   const token = req.cookies.jwt
   if (!token) return next(new AppError('unauthorized'))
 

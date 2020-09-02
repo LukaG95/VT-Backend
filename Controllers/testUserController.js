@@ -66,7 +66,7 @@ exports.login = catchAsync(async (req, res, next) => {
   return createSendToken(user, res)
 })
 
-exports.protect = catchAsync(async (req, res, next) => { console.log("heh")
+exports.protect = catchAsync(async (req, res, next) => { 
   const token = req.cookies.test
   if (!token) return next(new AppError('unauthorized'))
 
