@@ -1,260 +1,305 @@
 {
   message: 'Listening on port 3000...',
   level: 'info',
-  timestamp: '2020-08-27T17:41:52.896Z'
-}
-{
-  message: 'Connected to mongodb://localhost/VT...',
-  level: 'info',
-  timestamp: '2020-08-27T17:41:52.934Z'
-}
-{
-  message: 'Listening on port 3000...',
-  level: 'info',
-  timestamp: '2020-08-27T17:44:23.063Z'
-}
-{
-  message: 'Connected to mongodb://localhost/VT...',
-  level: 'info',
-  timestamp: '2020-08-27T17:44:23.100Z'
-}
-{
-  message: 'Listening on port 3000...',
-  level: 'info',
-  timestamp: '2020-08-27T17:45:00.060Z'
-}
-{
-  message: 'Connected to mongodb://localhost/VT...',
-  level: 'info',
-  timestamp: '2020-08-27T17:45:00.088Z'
-}
-{
-  message: 'Listening on port 3000...',
-  level: 'info',
-  timestamp: '2020-08-27T17:51:07.406Z'
-}
-{
-  message: 'Connected to mongodb://localhost/VT...',
-  level: 'info',
-  timestamp: '2020-08-27T17:51:07.435Z'
-}
-{
-  message: 'Listening on port 3000...',
-  level: 'info',
-  timestamp: '2020-08-27T20:58:38.493Z'
-}
-{
-  message: 'Connected to mongodb://localhost/VT...',
-  level: 'info',
-  timestamp: '2020-08-27T20:58:38.522Z'
-}
-{
-  message: 'Listening on port 3000...',
-  level: 'info',
-  timestamp: '2020-08-28T06:33:24.879Z'
-}
-{
-  message: 'Connected to mongodb://localhost/VT...',
-  level: 'info',
-  timestamp: '2020-08-28T06:33:24.909Z'
-}
-{
-  message: 'Listening on port 3000...',
-  level: 'info',
-  timestamp: '2020-08-28T08:33:41.739Z'
-}
-{
-  message: 'Connected to mongodb://localhost/VT...',
-  level: 'info',
-  timestamp: '2020-08-28T08:33:41.769Z'
-}
-{
-  message: 'Listening on port 3000...',
-  level: 'info',
-  timestamp: '2020-08-28T08:35:28.878Z'
-}
-{
-  message: 'Connected to mongodb://localhost/VT...',
-  level: 'info',
-  timestamp: '2020-08-28T08:35:28.908Z'
-}
-{
-  message: 'Listening on port 3000...',
-  level: 'info',
-  timestamp: '2020-08-28T08:57:11.527Z'
-}
-{
-  message: 'Connected to mongodb://localhost/VT...',
-  level: 'info',
-  timestamp: '2020-08-28T08:57:11.555Z'
-}
-{
-  message: 'Listening on port 3000...',
-  level: 'info',
-  timestamp: '2020-08-28T14:30:18.930Z'
-}
-{
-  message: 'Connected to mongodb://localhost/VT...',
-  level: 'info',
-  timestamp: '2020-08-28T14:30:18.961Z'
-}
-{
-  message: 'Listening on port 3000...',
-  level: 'info',
-  timestamp: '2020-08-28T20:49:01.630Z'
-}
-{
-  message: 'Connected to mongodb://localhost/VT...',
-  level: 'info',
-  timestamp: '2020-08-28T20:49:01.665Z'
-}
-{
-  message: 'Listening on port 3000...',
-  level: 'info',
-  timestamp: '2020-08-28T20:49:27.432Z'
+  timestamp: '2020-09-02T16:36:29.441Z'
 }
 {
   message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority...',
   level: 'info',
-  timestamp: '2020-08-28T20:49:27.884Z'
+  timestamp: '2020-09-02T16:36:29.832Z'
 }
 {
   message: 'Listening on port 3000...',
   level: 'info',
-  timestamp: '2020-08-29T07:27:18.676Z'
-}
-{
-  message: 'Connected to mongodb://localhost/VT...',
-  level: 'info',
-  timestamp: '2020-08-29T07:27:18.705Z'
-}
-{
-  message: 'Listening on port 3000...',
-  level: 'info',
-  timestamp: '2020-08-31T16:33:51.053Z'
-}
-{
-  message: 'Listening on port 3000...',
-  level: 'info',
-  timestamp: '2020-08-31T16:36:23.816Z'
-}
-{
-  message: 'Listening on port 3000...',
-  level: 'info',
-  timestamp: '2020-08-31T16:37:01.473Z'
-}
-{
-  message: 'Connected to mongodb://localhost/VT...',
-  level: 'info',
-  timestamp: '2020-08-31T16:37:01.505Z'
-}
-{
-  message: 'Listening on port 3000...',
-  level: 'info',
-  timestamp: '2020-08-31T17:26:35.628Z'
-}
-{
-  message: 'Connected to mongodb://localhost/VT...',
-  level: 'info',
-  timestamp: '2020-08-31T17:26:35.661Z'
-}
-{
-  message: 'Listening on port 3000...',
-  level: 'info',
-  timestamp: '2020-08-31T17:32:16.289Z'
-}
-{
-  message: 'Connected to mongodb://localhost/VT...',
-  level: 'info',
-  timestamp: '2020-08-31T17:32:16.315Z'
-}
-{
-  message: 'Listening on port 3000...',
-  level: 'info',
-  timestamp: '2020-08-31T17:33:59.139Z'
-}
-{
-  message: 'Connected to mongodb://localhost/VT...',
-  level: 'info',
-  timestamp: '2020-08-31T17:33:59.170Z'
-}
-{
-  message: 'Listening on port 3000...',
-  level: 'info',
-  timestamp: '2020-08-31T17:40:54.612Z'
-}
-{
-  message: 'Connected to mongodb://localhost/VT...',
-  level: 'info',
-  timestamp: '2020-08-31T17:40:54.642Z'
-}
-{
-  message: 'Listening on port 3000...',
-  level: 'info',
-  timestamp: '2020-08-31T17:41:12.608Z'
-}
-{
-  message: 'Connected to mongodb://localhost/VT...',
-  level: 'info',
-  timestamp: '2020-08-31T17:41:12.638Z'
-}
-{
-  message: 'Listening on port 3000...',
-  level: 'info',
-  timestamp: '2020-09-01T14:51:02.839Z'
-}
-{
-  message: 'Connected to mongodb://localhost/VT...',
-  level: 'info',
-  timestamp: '2020-09-01T14:51:02.867Z'
-}
-{
-  message: 'Listening on port 3000...',
-  level: 'info',
-  timestamp: '2020-09-01T16:57:19.342Z'
-}
-{
-  message: 'Connected to mongodb://localhost/VT...',
-  level: 'info',
-  timestamp: '2020-09-01T16:57:19.382Z'
-}
-{
-  message: 'Listening on port 3000...',
-  level: 'info',
-  timestamp: '2020-09-01T16:58:41.149Z'
+  timestamp: '2020-09-02T16:36:41.572Z'
 }
 {
   message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority...',
   level: 'info',
-  timestamp: '2020-09-01T16:58:41.547Z'
+  timestamp: '2020-09-02T16:36:41.750Z'
 }
 {
   message: 'Listening on port 3000...',
   level: 'info',
-  timestamp: '2020-09-01T17:05:49.431Z'
+  timestamp: '2020-09-02T16:37:10.495Z'
 }
 {
   message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority...',
   level: 'info',
-  timestamp: '2020-09-01T17:05:49.766Z'
+  timestamp: '2020-09-02T16:37:10.676Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority...',
+  level: 'info',
+  timestamp: '2020-09-02T16:38:26.751Z'
 }
 {
   message: 'Listening on port 3000...',
   level: 'info',
-  timestamp: '2020-09-01T17:07:40.274Z'
+  timestamp: '2020-09-02T16:39:06.761Z'
 }
 {
   message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority...',
   level: 'info',
-  timestamp: '2020-09-01T17:07:40.597Z'
+  timestamp: '2020-09-02T16:39:06.945Z'
 }
 {
   message: 'Listening on port 3000...',
   level: 'info',
-  timestamp: '2020-09-01T17:08:01.260Z'
+  timestamp: '2020-09-02T16:40:29.854Z'
 }
 {
   message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority...',
   level: 'info',
-  timestamp: '2020-09-01T17:08:01.437Z'
+  timestamp: '2020-09-02T16:40:30.229Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-09-02T16:45:26.610Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority...',
+  level: 'info',
+  timestamp: '2020-09-02T16:45:26.918Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-09-02T16:46:04.737Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority...',
+  level: 'info',
+  timestamp: '2020-09-02T16:46:04.930Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-09-02T16:51:49.033Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority...',
+  level: 'info',
+  timestamp: '2020-09-02T16:51:49.354Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-09-02T16:54:08.765Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority...',
+  level: 'info',
+  timestamp: '2020-09-02T16:54:09.100Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-09-02T16:55:13.387Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority...',
+  level: 'info',
+  timestamp: '2020-09-02T16:55:13.754Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-09-02T16:57:37.021Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority...',
+  level: 'info',
+  timestamp: '2020-09-02T16:57:37.321Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-09-02T17:07:09.079Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority...',
+  level: 'info',
+  timestamp: '2020-09-02T17:07:09.359Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-09-02T17:08:23.588Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority...',
+  level: 'info',
+  timestamp: '2020-09-02T17:08:23.871Z'
+}
+{
+  metadata: AppError: unauthorized
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\Controllers\authController.js:166:27
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\misc\catchAsync.js:2:5
+      at newFn (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express-async-errors\index.js:16:20)
+      at Layer.handle [as handle_request] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\layer.js:95:5)
+      at next (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\route.js:137:13)
+      at Route.dispatch (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\route.js:112:3)
+      at newFn (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express-async-errors\index.js:16:20)
+      at Layer.handle [as handle_request] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\layer.js:95:5)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:281:22
+      at Function.process_params (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:335:12)
+      at next (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:275:10)
+      at Function.handle (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:174:3)
+      at router (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:47:12)
+      at newFn (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express-async-errors\index.js:16:20)
+      at Layer.handle [as handle_request] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\layer.js:95:5)
+      at trim_prefix (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:317:13) {
+    status: 'unauthorized'
+  },
+  level: 'error',
+  message: 'unauthorized',
+  timestamp: '2020-09-02T17:09:27.397Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-09-02T17:09:55.206Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority...',
+  level: 'info',
+  timestamp: '2020-09-02T17:09:55.551Z'
+}
+{
+  metadata: AppError: unauthorized
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\Controllers\authController.js:166:27
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\misc\catchAsync.js:2:5
+      at newFn (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express-async-errors\index.js:16:20)
+      at Layer.handle [as handle_request] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\layer.js:95:5)
+      at next (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\route.js:137:13)
+      at Route.dispatch (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\route.js:112:3)
+      at newFn (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express-async-errors\index.js:16:20)
+      at Layer.handle [as handle_request] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\layer.js:95:5)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:281:22
+      at Function.process_params (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:335:12)
+      at next (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:275:10)
+      at Function.handle (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:174:3)
+      at router (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:47:12)
+      at newFn (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express-async-errors\index.js:16:20)
+      at Layer.handle [as handle_request] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\layer.js:95:5)
+      at trim_prefix (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:317:13) {
+    status: 'unauthorized'
+  },
+  level: 'error',
+  message: 'unauthorized',
+  timestamp: '2020-09-02T17:10:03.463Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-09-02T17:11:32.531Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority...',
+  level: 'info',
+  timestamp: '2020-09-02T17:11:32.834Z'
+}
+{
+  metadata: AppError: unauthorized
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\Controllers\authController.js:167:27
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\misc\catchAsync.js:2:5
+      at newFn (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express-async-errors\index.js:16:20)
+      at Layer.handle [as handle_request] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\layer.js:95:5)
+      at next (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\route.js:137:13)
+      at Route.dispatch (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\route.js:112:3)
+      at newFn (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express-async-errors\index.js:16:20)
+      at Layer.handle [as handle_request] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\layer.js:95:5)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:281:22
+      at Function.process_params (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:335:12)
+      at next (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:275:10)
+      at Function.handle (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:174:3)
+      at router (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:47:12)
+      at newFn (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express-async-errors\index.js:16:20)
+      at Layer.handle [as handle_request] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\layer.js:95:5)
+      at trim_prefix (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:317:13) {
+    status: 'unauthorized'
+  },
+  level: 'error',
+  message: 'unauthorized',
+  timestamp: '2020-09-02T17:11:39.762Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-09-02T17:12:07.405Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority...',
+  level: 'info',
+  timestamp: '2020-09-02T17:12:07.591Z'
+}
+{
+  metadata: AppError: unauthorized
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\Controllers\authController.js:167:27
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\misc\catchAsync.js:2:5
+      at newFn (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express-async-errors\index.js:16:20)
+      at Layer.handle [as handle_request] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\layer.js:95:5)
+      at next (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\route.js:137:13)
+      at Route.dispatch (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\route.js:112:3)
+      at newFn (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express-async-errors\index.js:16:20)
+      at Layer.handle [as handle_request] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\layer.js:95:5)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:281:22
+      at Function.process_params (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:335:12)
+      at next (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:275:10)
+      at Function.handle (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:174:3)
+      at router (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:47:12)
+      at newFn (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express-async-errors\index.js:16:20)
+      at Layer.handle [as handle_request] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\layer.js:95:5)
+      at trim_prefix (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:317:13) {
+    status: 'unauthorized'
+  },
+  level: 'error',
+  message: 'unauthorized',
+  timestamp: '2020-09-02T17:12:10.262Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-09-02T17:16:41.456Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority...',
+  level: 'info',
+  timestamp: '2020-09-02T17:16:41.761Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-09-02T17:17:37.849Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority...',
+  level: 'info',
+  timestamp: '2020-09-02T17:17:38.060Z'
+}
+{
+  metadata: AppError: unauthorized
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\Controllers\authController.js:167:27
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\misc\catchAsync.js:2:5
+      at newFn (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express-async-errors\index.js:16:20)
+      at Layer.handle [as handle_request] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\layer.js:95:5)
+      at next (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\route.js:137:13)
+      at Route.dispatch (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\route.js:112:3)
+      at newFn (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express-async-errors\index.js:16:20)
+      at Layer.handle [as handle_request] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\layer.js:95:5)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:281:22
+      at Function.process_params (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:335:12)
+      at next (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:275:10)
+      at Function.handle (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:174:3)
+      at router (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:47:12)
+      at newFn (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express-async-errors\index.js:16:20)
+      at Layer.handle [as handle_request] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\layer.js:95:5)
+      at trim_prefix (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:317:13) {
+    status: 'unauthorized'
+  },
+  level: 'error',
+  message: 'unauthorized',
+  timestamp: '2020-09-02T17:17:40.044Z'
 }
