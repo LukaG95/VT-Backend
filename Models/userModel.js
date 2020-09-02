@@ -130,5 +130,8 @@ function validateUser(user){
   return schema.validate(user)
 }
 
+module.exports = User
+/*
 exports.validateUser = validateUser
 exports.User = User
+*/

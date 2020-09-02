@@ -4,7 +4,7 @@ const { promisify } = require('util')
 const EmailingSystem = require('../misc/EmailingSystem')
 const catchAsync = require('../misc/catchAsync')
 const AppError = require('../misc/AppError')
-const { User, validateUser } = require('../Models/userModel')
+const User = require('../Models/userModel')
 
 const createToken = (id, code = 0, email) => jwt.sign({ id, code, email }, process.env.JWT_SECRET, {
   expiresIn: process.env.JWT_EXPIRES_IN,
@@ -95,13 +95,12 @@ exports.login = catchAsync(async (req, res, next) => {
   return createSendToken(user, res)
 })
 
-exports.signup = async (req, res, next) => {
-  let { username, email, password, passwordConfirm } = req.body
+exports.signup = catchAsync(async (req, res, next) => {
+  let {
+    username, email, password, passwordConfirm,
+  } = req.body
 
-  const { error } = validateUser(req.body)
-  if (error) return res.status(400).send(error.details[0].message)
-
-  // if (username == null || email == null) return next(new AppError())
+  if (username == null || email == null) return next(new AppError())
 
   const validateEmail = await User.findOne({ email }).collation({ locale: "en", strength: 2 })
   if (validateEmail) {
@@ -125,7 +124,7 @@ exports.signup = async (req, res, next) => {
 
   await sendSignupEmail(newUser)
   return createSendToken(newUser, res)
-}
+})
 
 exports.passportLoginOrCreate = catchAsync(async (req, res, next) => {
   const { user } = req
