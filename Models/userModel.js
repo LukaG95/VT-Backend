@@ -1,59 +1,72 @@
-const mongoose = require('mongoose');
-const bcrypt = require('bcrypt');
-const crypto = require('crypto');
-const { promisify } = require('util');
-const validator = require('validator');
+const mongoose = require('mongoose')
+const bcrypt = require('bcrypt')
+const crypto = require('crypto')
+const { promisify } = require('util')
+const Joi = require('joi')
+const validator = require('validator')
 
 // var uniqueValidator = require('mongoose-unique-validator');
 
 const userSchema = new mongoose.Schema({
   username: {
-      type: String,
-      minlength: 2,
-      maxlength: 15,
-      unique: true,
+    type: String,
+    minlength: 2,
+    maxlength: 15,
+    unique: true,
+    required: true
   },
 
   email: {
-      type: String,
-      sparse: true,
-      unique: true
+    type: String,
+    maxlength: 255,
+    sparse: true,
+    unique: true,
+    required: true
   },
 
   confirmedEmail: {
-      type: Boolean,
-      default: false,
+    type: Boolean,
+    maxlength: 255,
+    default: false,
+    required: true
   },
 
   password: {
-      type: String,
-      minlength: 6,
-      select: false,
+    type: String,
+    minlength: 6,
+    maxlength: 255,
+    select: false,
+    required: true
   },
 
   passwordConfirm: {
     type: String,
+    maxlength: 255,
     validate: {
       validator(el) {
         return el === this.password;
       }
-    }
+    },
+    required: true
   },
 
   discord: {
     type: String,
+    maxlength: 255,
     unique: true,
-    sparse: true,
+    sparse: true
   },
 
   steam: {
     type: String,
+    maxlength: 255,
     unique: true,
-    sparse: true,
+    sparse: true
   },
 
   verificationToken: {
     type: String,
+    maxlength: 255,
     select: false
   },
 
@@ -62,7 +75,7 @@ const userSchema = new mongoose.Schema({
   },
 
   usernameChangedAt: {
-      type: Date,
+    type: Date
   },
 
   __v: { 
@@ -71,38 +84,51 @@ const userSchema = new mongoose.Schema({
   }
 })
 
-// userSchema.plugin(uniqueValidator);
+// userSchema.plugin(uniqueValidator)
 
 userSchema.pre('save', async function (next) {
-    if (!this.isModified('password')) return next()
+  if (!this.isModified('password')) return next()
 
-    this.password = await bcrypt.hash(this.password, 12)
+  this.password = await bcrypt.hash(this.password, 12)
 
-    this.passwordConfirm = undefined
-    next()
+  this.passwordConfirm = undefined
+  next()
 })
 
 userSchema.methods.correctPassword = async function (receivedPassword, userPassword) {
-    return await bcrypt.compare(receivedPassword, userPassword)
+  return await bcrypt.compare(receivedPassword, userPassword)
 }
 
 userSchema.methods.generateToken = async function () {
-    const emailToken = (await promisify(crypto.randomBytes)(16)).toString('hex')
-    this.verificationToken = await bcrypt.hash(emailToken, 8)
-    this.tokenCreatedAt = Date.now()
-    return emailToken
+  const emailToken = (await promisify(crypto.randomBytes)(16)).toString('hex')
+  this.verificationToken = await bcrypt.hash(emailToken, 8)
+  this.tokenCreatedAt = Date.now()
+  return emailToken
 }
 
 userSchema.methods.compareTokens = async function (Token, HashedToken) {
-    return await bcrypt.compare(Token, HashedToken)
+  return await bcrypt.compare(Token, HashedToken)
 }
 
 userSchema.index({ username: 1, email: 1 }, { collation: { locale: 'en', strength: 2 } })
 // userSchema.set('autoIndex', true)
+
 const User = mongoose.model('User', userSchema)
 
 User.collection.dropIndexes(function (err, results) {
-    // Handle errors
-});
+  // Handle errors
+})
 
-module.exports = User
+function validateUser(user){
+  const schema = Joi.object({
+    username: Joi.string().min(2).max(15).required(),
+    password: Joi.string().min(6).max(255).required(),
+    passwordConfirm: Joi.string().min(6).max(255).required(),
+    email: Joi.string().min(1).max(255).email().required()
+  })
+
+  return schema.validate(user)
+}
+
+exports.validateUser = validateUser
+exports.User = User

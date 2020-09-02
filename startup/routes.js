@@ -15,9 +15,9 @@ module.exports = function(app){
   app.use(express.json())
   app.use(cookieParser())
 
-  app.use('/api/trades/', TradeRouter)
   app.use('/api/auth/', AuthRouter)
   app.use('/api/test', TestUserRouter)
+  app.use('/api/trades/', TradeRouter)
   app.use('/api/reputation', RepRouter)
 
   app.use(errorController)

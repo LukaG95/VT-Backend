@@ -1,5 +1,5 @@
 const Reputation = require('../Models/repModel')
-const User = require('../Models/userModel')
+const { User } = require('../Models/userModel')
 const catchAsync = require('../misc/catchAsync')
 const AppError = require('../misc/AppError')
 const Redis = require('../misc/redisCaching')
