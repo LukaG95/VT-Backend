@@ -401,3 +401,13 @@
   message: 'unauthorized',
   timestamp: '2020-09-02T18:03:38.742Z'
 }
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-09-02T18:52:54.747Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority...',
+  level: 'info',
+  timestamp: '2020-09-02T18:52:55.066Z'
+}

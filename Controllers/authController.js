@@ -100,7 +100,7 @@ exports.signup = async (req, res, next) => {
 
   const { error } = validateUser(req.body)
   if (error) return res.status(400).send(error.details[0].message)
-
+  return res.status(400).send("test")
   // if (username == null || email == null) return next(new AppError())
 
   const validateEmail = await User.findOne({ email }).collation({ locale: "en", strength: 2 })
