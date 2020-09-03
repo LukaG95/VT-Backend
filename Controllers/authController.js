@@ -35,7 +35,7 @@ const createSendToken = (user, res, option) => {
 }
 
 const sendSignupEmail = async (user) => {
-  const emailToken = await user.generateToken()
+  const emailToken = await user.generateEmailToken()
   await user.save()
   const token = await createToken(user._id, emailToken)
   const Email = new EmailingSystem({ email: user.email })
@@ -44,7 +44,7 @@ const sendSignupEmail = async (user) => {
 }
 
 const sendPasswordResetEmail = async (user) => {
-  const emailToken = await user.generateToken()
+  const emailToken = await user.generateEmailToken()
   await user.save()
   const token = await createToken(user._id, emailToken)
   const Email = new EmailingSystem({ email: user.email })
@@ -53,7 +53,7 @@ const sendPasswordResetEmail = async (user) => {
 }
 
 const sendEmailUpdateEmail = async (user, newEmail) => {
-  const emailToken = await user.generateToken()
+  const emailToken = await user.generateEmailToken()
   await user.save()
   const token = await createToken(user._id, emailToken, newEmail)
   const Email = new EmailingSystem({ email: user.email })
@@ -78,6 +78,7 @@ function genNumber(times = 1) {
   return num
 }
 
+// POST api/auth/login
 exports.login = catchAsync(async (req, res, next) => {
   const { email, password } = req.body
 
@@ -95,6 +96,7 @@ exports.login = catchAsync(async (req, res, next) => {
   return createSendToken(user, res)
 })
 
+// POST api/auth/signup
 exports.signup = async (req, res, next) => {
   let { username, email, password, passwordConfirm } = req.body
   
@@ -157,6 +159,7 @@ exports.passportLoginOrCreate = catchAsync(async (req, res, next) => {
   return returnResponse
 })
 
+// GET api/auth/getUser
 exports.getUser = catchAsync(async (req, res, next) => { 
   const { user } = req
   
@@ -169,15 +172,22 @@ exports.getUser = catchAsync(async (req, res, next) => {
 
 exports.protect = catchAsync(async (req, res, next) => { 
   const token = req.cookies.jwt
-  if (!token) return next(new AppError('unauthorized'))
+  if (!token) return res.status(401).send("Access denied. No token provided.")
 
-  const decoded = await decodeToken(token)
-  const user = await User.findById(decoded.id).select('-__v')
-
-  req.user = user
-  next()
+  try{
+    const decoded = await decodeToken(token)
+    const user = await User.findById(decoded.id).select('-__v')
+  
+    req.user = user
+    next()
+    
+  } catch {
+    res.status(400).send('Invalid token.')
+  }
+  
 })
 
+// PUT api/auth/confirmEmail
 exports.confirmEmail = catchAsync(async (req, res, next) => {
   const { code } = req.body
   const decodedCode = await decodeToken(code)
@@ -206,12 +216,14 @@ exports.confirmEmail = catchAsync(async (req, res, next) => {
 //     return res.json({ status: 'success' })
 // })
 
+// DELETE api/auth/logout
 exports.logout = catchAsync(async (req, res, next) => {
   res.clearCookie('jwt')
 
   return res.json({ status: 'success' })
 })
 
+// PUT api/auth/updateUsername
 exports.updateUsername = catchAsync(async (req, res, next) => {
   const { user } = req
   const { newUsername } = req.body
@@ -232,6 +244,7 @@ exports.updateUsername = catchAsync(async (req, res, next) => {
   return res.json({ status: 'success' })
 })
 
+// PUT api/auth/updateEmail
 exports.updateEmail = catchAsync(async (req, res, next) => {
   const { code } = req.body
   const decodedCode = await decodeToken(code)
@@ -248,6 +261,7 @@ exports.updateEmail = catchAsync(async (req, res, next) => {
   return res.json({ status: 'success', username: user.username, newEmail: decodedCode.email })
 })
 
+// POST api/auth/sendResetEmailToken
 exports.sendResetEmail = catchAsync(async (req, res, next) => {
   const { user } = req
   const { newEmail } = req.body
@@ -264,6 +278,7 @@ exports.sendResetEmail = catchAsync(async (req, res, next) => {
   return res.json({ status: 'success' })
 })
 
+// PUT api/auth/updatePassword
 exports.updatePassword = catchAsync(async (req, res, next) => {
   const { user } = req
   const { password, passwordConfirm, newPassword } = req.body
@@ -279,6 +294,7 @@ exports.updatePassword = catchAsync(async (req, res, next) => {
   return next(new AppError('error'))
 })
 
+// POST api/auth/sendResetPasswordToken
 exports.sendResetToken = catchAsync(async (req, res, next) => {
   const { email } = req.body
   const user = await User.findOne({ email }).collation({ locale: "en", strength: 2 })
@@ -289,6 +305,7 @@ exports.sendResetToken = catchAsync(async (req, res, next) => {
   return res.json({ status: 'success' })
 })
 
+// PUT api/auth/resetPassword
 exports.resetPassword = catchAsync(async (req, res, next) => {
   const { code, password, passwordConfirm } = req.body
   const decodedCode = await decodeToken(code)
