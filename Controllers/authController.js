@@ -172,7 +172,19 @@ exports.getUser = catchAsync(async (req, res, next) => {
 
 exports.protect = catchAsync(async (req, res, next) => { 
   const token = req.cookies.jwt
-  if (!token) return res.status(401).send("Access denied. No token provided.")
+  if (!token) return next(new AppError('unauthorized'))
+
+  const decoded = await decodeToken(token)
+  const user = await User.findById(decoded.id).select('-__v')
+
+  req.user = user
+  next()
+})
+
+/*
+exports.protect = catchAsync(async (req, res, next) => { 
+  const token = req.cookies.jwt
+  if (!token) return res.status(401).send({info: "denied", message: "No token provided"})
 
   try{
     const decoded = await decodeToken(token)
@@ -180,12 +192,12 @@ exports.protect = catchAsync(async (req, res, next) => {
   
     req.user = user
     next()
-    
+
   } catch {
-    res.status(400).send('Invalid token.')
+      res.status(400).send('Invalid token.')
   }
   
-})
+}) */
 
 // PUT api/auth/confirmEmail
 exports.confirmEmail = catchAsync(async (req, res, next) => {
