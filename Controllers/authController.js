@@ -101,7 +101,7 @@ exports.signup = async (req, res, next) => {
   let { username, email, password, passwordConfirm } = req.body
   
   const { error } = validateUser(req.body)
-  if (error) return res.status(400).send({info: "invalid credentials", message: error.details[0].message})
+  if (error) return res.status(400).json({info: "invalid credentials", message: error.details[0].message})
  
   const validateEmail = await User.findOne({ email }).collation({ locale: "en", strength: 2 })
   if (validateEmail) {
@@ -110,7 +110,7 @@ exports.signup = async (req, res, next) => {
       await User.deleteOne({ _id: validateEmail._id })
 
     } else {
-      return res.status(400).send({info: "email", message: "this email is already in use"})
+      return res.status(400).json({info: "email", message: "this email is already in use"})
     }
   }
 
@@ -121,7 +121,7 @@ exports.signup = async (req, res, next) => {
       await User.deleteOne({ _id: validateName._id })
 
     } else {
-      return res.status(400).send({info: "username", message: "this username is already in use"})
+      return res.status(400).json({info: "username", message: "this username is already in use"})
     }
   }
 
@@ -162,12 +162,12 @@ exports.passportLoginOrCreate = catchAsync(async (req, res, next) => {
 exports.getUser = catchAsync(async (req, res, next) => { 
   const user = await User.findById(req.user.id).select('-__v')
   
-  return res.status(200).send({info: "success", message: "successfully got user", user: user})
+  return res.status(200).json({info: "success", message: "successfully got user", user: user})
 })
 
 exports.protect = catchAsync(async (req, res, next) => { 
   const token = req.cookies.jwt
-  if (!token) return res.status(401).send({info: "unauthorized", message: "No token provided"})
+  if (!token) return res.status(401).json({info: "unauthorized", message: "No token provided"})
 
   try{
     const decoded = await decodeToken(token)
@@ -175,7 +175,7 @@ exports.protect = catchAsync(async (req, res, next) => {
 
     next()
   } catch {
-      res.status(400).send('Invalid token.')
+      res.status(400).json('Invalid token.')
   }
   
 }) 

@@ -2006,3 +2006,23 @@
   level: 'info',
   timestamp: '2020-09-04T09:35:08.624Z'
 }
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-09-04T09:43:23.766Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-04T09:43:24.032Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-09-04T11:33:42.399Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-04T11:33:42.708Z'
+}
