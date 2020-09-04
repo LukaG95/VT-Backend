@@ -2046,3 +2046,53 @@
   level: 'info',
   timestamp: '2020-09-04T16:03:19.347Z'
 }
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-09-04T16:21:51.368Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-04T16:21:51.691Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-09-04T16:28:30.133Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-04T16:28:30.535Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-09-04T16:32:02.697Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-04T16:32:03.033Z'
+}
+{
+  metadata: AppError: error
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\Controllers\testUserController.js:64:55
+      at processTicksAndRejections (internal/process/task_queues.js:93:5) {
+    status: 'error'
+  },
+  level: 'error',
+  message: 'error',
+  timestamp: '2020-09-04T16:32:18.470Z'
+}
+{
+  metadata: AppError: logorpass
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\Controllers\authController.js:93:17
+      at processTicksAndRejections (internal/process/task_queues.js:93:5) {
+    status: 'logorpass'
+  },
+  level: 'error',
+  message: 'logorpass',
+  timestamp: '2020-09-04T16:32:32.032Z'
+}
