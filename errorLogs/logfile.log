@@ -1690,3 +1690,299 @@
   level: 'info',
   timestamp: '2020-09-03T09:09:01.075Z'
 }
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-09-03T20:40:22.060Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-03T20:40:22.416Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-09-03T20:41:05.586Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-03T20:41:05.787Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-09-03T20:41:30.466Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-03T20:41:30.708Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-09-03T20:42:13.754Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-03T20:42:13.927Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-09-03T20:42:50.031Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-03T20:42:50.336Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-09-03T21:05:08.452Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-03T21:05:08.760Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-09-03T21:09:24.880Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-03T21:09:25.202Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-09-03T21:10:13.486Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-03T21:10:13.657Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-09-03T21:11:35.285Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-03T21:11:35.589Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-09-03T21:12:18.969Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-03T21:12:19.204Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-09-04T08:20:10.693Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-04T08:20:11.039Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-09-04T08:21:42.173Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-04T08:21:42.468Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-09-04T08:23:20.961Z'
+}
+{
+  metadata: JsonWebTokenError {
+    name: 'JsonWebTokenError',
+    message: 'jwt malformed'
+  },
+  level: 'error',
+  message: 'jwt malformed',
+  timestamp: '2020-09-04T08:23:21.022Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-04T08:23:21.330Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-09-04T08:23:34.384Z'
+}
+{
+  metadata: JsonWebTokenError {
+    name: 'JsonWebTokenError',
+    message: 'jwt malformed'
+  },
+  level: 'error',
+  message: 'jwt malformed',
+  timestamp: '2020-09-04T08:23:34.436Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-04T08:23:34.619Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-09-04T08:24:58.766Z'
+}
+{
+  metadata: JsonWebTokenError {
+    name: 'JsonWebTokenError',
+    message: 'jwt malformed'
+  },
+  level: 'error',
+  message: 'jwt malformed',
+  timestamp: '2020-09-04T08:24:58.818Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-04T08:24:59.044Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-09-04T08:25:30.023Z'
+}
+{
+  metadata: JsonWebTokenError {
+    name: 'JsonWebTokenError',
+    message: 'jwt malformed'
+  },
+  level: 'error',
+  message: 'jwt malformed',
+  timestamp: '2020-09-04T08:25:30.088Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-04T08:25:30.233Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-09-04T08:27:46.019Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-04T08:27:46.355Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-09-04T08:28:56.465Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-04T08:28:56.785Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-09-04T08:29:10.337Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-04T08:29:10.508Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-09-04T08:36:29.303Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-04T08:36:29.590Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-09-04T08:37:57.967Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-04T08:37:58.325Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-09-04T08:42:58.196Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-04T08:42:58.513Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-09-04T08:43:05.207Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-04T08:43:05.378Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-09-04T08:43:18.363Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-04T08:43:18.529Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-09-04T08:44:04.246Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-04T08:44:04.547Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-09-04T08:49:36.260Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-04T08:49:36.553Z'
+}

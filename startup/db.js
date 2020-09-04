@@ -11,8 +11,6 @@ module.exports = function(){
     DB = process.env.DATABASE_TEST
   else
     DB = process.env.DATABASE
-  
-  console.log(DB)
 
   mongoose.connect(DB, {
     useNewUrlParser: true,

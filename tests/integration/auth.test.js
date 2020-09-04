@@ -1,8 +1,9 @@
 const request = require('supertest')
 const {User} = require('../../Models/userModel')
+const {createToken} = require('../../Controllers/authController')
 
-describe('authRoutes - signup', () => {
-  beforeEach(() => { server = require('../../index') })  
+describe('authRoutes - protect', () => {
+  beforeEach(() => { server = require('../../index'); token = createToken('5f49163b5519cb996a1c9e14')  })  // has to be a valid objectID
   afterEach(async () => { 
     server.close()
     // await GenreModel.deleteMany({}) delete the DB
@@ -12,14 +13,12 @@ describe('authRoutes - signup', () => {
 
   const exec = () => {
     return request(server)
-      .post('/api/genres/create')
-      .set('x-auth-token', token)
-      .send({ name: 'genre 1' })
+      .get('/api/auth/getUser')
+      .set('Cookie', [`jwt = ${token}`])
+      // .send({ username: 'Ryu', email: "test@gmail.com", password: "123456", passwordConfirm: "123456" })
   }
 
-  beforeEach(() => { 
-    token = new UserModel().generateAuthToken()
-  })  
+
 
   it('should return 401 if no token is provided', async () => {
     token = ''
@@ -36,7 +35,7 @@ describe('authRoutes - signup', () => {
     
     expect(res.status).toBe(400)
   })
-
+  
   it('should return 200 if token is valid', async () => {
     const res = await exec()
     

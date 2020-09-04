@@ -118,7 +118,6 @@ exports.signup = async (req, res, next) => {
   if (validateName) {
 
     if (validateName.confirmedEmail === false && validateName.tokenCreatedAt.getTime() < (Date.now() - 15 * 60 * 1000)) {
-      console.log("heh")
       await User.deleteOne({ _id: validateName._id })
 
     } else {
@@ -161,14 +160,11 @@ exports.passportLoginOrCreate = catchAsync(async (req, res, next) => {
 
 // GET api/auth/getUser
 exports.getUser = catchAsync(async (req, res, next) => { 
-  const { user } = req
+  const user = await User.findById(req.user.id).select('-__v')
   
-  if (user && user !== undefined) {
-    return res.json({ user, status: 'success' })
-  }
-
-  return next(new AppError('unauthorized'))
+  return res.status(200).send({data: user, info: "200", message: "success"})
 })
+
 /*
 exports.protect = catchAsync(async (req, res, next) => { 
   const token = req.cookies.jwt
@@ -188,11 +184,9 @@ exports.protect = catchAsync(async (req, res, next) => {
 
   try{
     const decoded = await decodeToken(token)
-    const user = await User.findById(decoded.id).select('-__v')
-  
-    req.user = user
-    next()
+    req.user = decoded
 
+    next()
   } catch {
       res.status(400).send('Invalid token.')
   }
@@ -333,3 +327,4 @@ exports.resetPassword = catchAsync(async (req, res, next) => {
   if (!user.confirmedEmail) return next(new AppError('invalid'))
 })
 
+exports.createToken = createToken
