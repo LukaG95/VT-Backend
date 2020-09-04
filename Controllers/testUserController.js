@@ -68,15 +68,20 @@ exports.login = catchAsync(async (req, res, next) => {
 
 exports.protect = catchAsync(async (req, res, next) => { 
   const token = req.cookies.test
-  if (!token) return next(new AppError('unauthorized'))
+  if (!token) return res.status(401).send({info: "unauthorized", message: "No token provided"})
 
-  const decoded = await decodeToken(token)
+  try{
+    const decoded = await decodeToken(token)
+    const user = await TestUser.findById(decoded.id).select('-__v -password')
 
-  const user = await TestUser.findById(decoded.id).select('-__v -password')
-
-  req.user = user
-  next()
+    res.status(200).send({info: "success", message: "successfully got test user", user: user})
+  } catch {
+    res.status(400).send('Invalid token.')
+  }
 })
+
+
+
 
 exports.adminOnly = catchAsync(async (req, res, next) => {
   const { user } = req
