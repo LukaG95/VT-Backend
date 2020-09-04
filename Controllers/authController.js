@@ -162,21 +162,8 @@ exports.passportLoginOrCreate = catchAsync(async (req, res, next) => {
 exports.getUser = catchAsync(async (req, res, next) => { 
   const user = await User.findById(req.user.id).select('-__v')
   
-  return res.status(200).send({data: user, info: "200", message: "success"})
+  return res.status(200).send({info: "success", message: "successfully got user", user: user})
 })
-
-/*
-exports.protect = catchAsync(async (req, res, next) => { 
-  const token = req.cookies.jwt
-  if (!token) return next(new AppError('unauthorized'))
-
-  const decoded = await decodeToken(token)
-  const user = await User.findById(decoded.id).select('-__v')
-
-  req.user = user
-  next()
-})
-*/
 
 exports.protect = catchAsync(async (req, res, next) => { 
   const token = req.cookies.jwt

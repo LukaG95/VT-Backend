@@ -1986,3 +1986,13 @@
   level: 'info',
   timestamp: '2020-09-04T08:49:36.553Z'
 }
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-09-04T08:52:05.777Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-04T08:52:06.072Z'
+}
