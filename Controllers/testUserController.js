@@ -81,18 +81,17 @@ exports.getTestUser = catchAsync(async (req, res, next) => {
 })
 
 
-
 exports.adminOnly = catchAsync(async (req, res, next) => {
-  const { user } = req
+  const test_user = await TestUser.findById(req.user.id).select('-__v')
   
-  if (user.role !== 'admin') 
+  if (test_user.role !== 'admin') 
   return res.status(403).json({info: "forbidden", message: "looks like you don't have the permission to access this floor"})
 
   next()
 })
 
 exports.aggregateUsers = catchAsync(async (req, res, next) => {
-  const users = await TestUser.find({ }).select('-_id -__v')
+  const testers = await TestUser.find({ }).select('-_id -__v')
 
-  return res.json({users})
+  return res.json({testers})
 })
