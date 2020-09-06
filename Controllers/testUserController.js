@@ -51,12 +51,6 @@ exports.deleteUser = catchAsync(async (req, res, next) => {
   return res.json({ status: 'success' })
 })
 
-exports.aggregateUsers = catchAsync(async (req, res, next) => {
-  const users = await TestUser.find({ role: 'user' }).select('-_id -__v')
-
-  return res.json(users)
-})
-
 exports.login = catchAsync(async (req, res, next) => {
   const { username, password } = req.body
   const user = await TestUser.findOne({ username })
@@ -68,24 +62,37 @@ exports.login = catchAsync(async (req, res, next) => {
 
 exports.protect = catchAsync(async (req, res, next) => { 
   const token = req.cookies.test
-  if (!token) return res.status(401).send({info: "unauthorized", message: "No token provided"})
+  if (!token) return res.status(401).json({info: "unauthorized", message: "no token provided"})
 
   try{
     const decoded = await decodeToken(token)
-    const user = await TestUser.findById(decoded.id).select('-__v -password')
+    req.user = decoded
 
-    res.status(200).send({info: "success", message: "successfully got test user", user: user})
+    next()
   } catch {
     res.status(400).send('Invalid token.')
   }
 })
 
+exports.getTestUser = catchAsync(async (req, res, next) => { 
+  const test_user = await TestUser.findById(req.user.id).select('-__v')
+  
+  return res.status(200).json({info: "success", message: "successfully got test user", user: test_user})
+})
 
 
 
 exports.adminOnly = catchAsync(async (req, res, next) => {
   const { user } = req
-  if (user.role !== 'admin') return next(new AppError('notAllowed'))
+  
+  if (user.role !== 'admin') 
+  return res.status(403).json({info: "forbidden", message: "looks like you don't have the permission to access this floor"})
 
   next()
+})
+
+exports.aggregateUsers = catchAsync(async (req, res, next) => {
+  const users = await TestUser.find({ }).select('-_id -__v')
+
+  return res.json({users})
 })

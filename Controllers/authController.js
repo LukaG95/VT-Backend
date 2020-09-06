@@ -5,6 +5,8 @@ const EmailingSystem = require('../misc/EmailingSystem')
 const catchAsync = require('../misc/catchAsync')
 const AppError = require('../misc/AppError')
 const { User, validateUser } = require('../Models/userModel')
+const user = require('../Models/userModel')
+
 
 const createToken = (id, code = 0, email) => jwt.sign({ id, code, email }, process.env.JWT_SECRET, {
   expiresIn: process.env.JWT_EXPIRES_IN,
@@ -61,7 +63,7 @@ const sendEmailUpdateEmail = async (user, newEmail) => {
   await Email
 }
 
-function validateEmail(email) {
+function parseEmail(email) {
   var regex = /^[^\s@]+@[^\s@\.]+(\.[^\s@.]+)+$/
 
   return regex.test(email)
@@ -85,7 +87,7 @@ exports.login = catchAsync(async (req, res, next) => {
   if (!email || !password) return next(new AppError('invalid'))
 
   // Check if email or username supplied
-  const query = validateEmail(email) === true ? { email } : { username: email }
+  const query = parseEmail(email) === true ? { email } : { username: email }
 
   const user = await User.findOne(query).select('+password')
 
@@ -102,34 +104,18 @@ exports.signup = async (req, res, next) => {
   
   const { error } = validateUser(req.body)
   if (error) return res.status(400).json({info: "invalid credentials", message: error.details[0].message})
- 
-  const validateEmail = await User.findOne({ email }).collation({ locale: "en", strength: 2 })
-  if (validateEmail) {
-    
-    if (validateEmail.confirmedEmail === false && validateEmail.tokenCreatedAt.getTime() < (Date.now() - 15 * 60 * 1000)) {
-      await User.deleteOne({ _id: validateEmail._id })
 
-    } else {
-      return res.status(400).json({info: "email", message: "this email is already in use"})
-    }
-  }
+  let result = await user.validateEmail(email)
+  if (!result) return res.status(400).json({info: "email", message: "this email is taken"})
 
-  const validateName = await User.findOne({ username }).collation({ locale: "en", strength: 2 })
-  if (validateName) {
-
-    if (validateName.confirmedEmail === false && validateName.tokenCreatedAt.getTime() < (Date.now() - 15 * 60 * 1000)) {
-      await User.deleteOne({ _id: validateName._id })
-
-    } else {
-      return res.status(400).json({info: "username", message: "this username is already in use"})
-    }
-  }
+  result = await user.validateUsername(username)
+  if (!result) return res.status(400).json({info: "username", message: "this username is taken"})
 
   const newUser = await User.create({
     username, email, password, passwordConfirm
   })
 
-  await sendSignupEmail(newUser)
+  // await sendSignupEmail(newUser)
   return createSendToken(newUser, res)
 }
 
@@ -165,7 +151,7 @@ exports.getUser = catchAsync(async (req, res, next) => {
   return res.status(200).json({info: "success", message: "successfully got user", user: user})
 })
 
-exports.protect = catchAsync(async (req, res, next) => { 
+exports.protect = async (req, res, next) => { 
   const token = req.cookies.jwt
   if (!token) return res.status(401).json({info: "unauthorized", message: "No token provided"})
 
@@ -177,8 +163,7 @@ exports.protect = catchAsync(async (req, res, next) => {
   } catch {
       res.status(400).json('Invalid token.')
   }
-  
-}) 
+}
 
 // PUT api/auth/confirmEmail
 exports.confirmEmail = catchAsync(async (req, res, next) => {
@@ -262,7 +247,7 @@ exports.sendResetEmail = catchAsync(async (req, res, next) => {
   const takenEmail = await User.findOne({ email: newEmail }).collation({ locale: "en", strength: 2 })
   if (takenEmail) return next(new AppError('email'))
 
-  if (!newEmail || !validateEmail(newEmail)) {
+  if (!newEmail || !parseEmail(newEmail)) {
       return next(new AppError('error'))
   }
 
@@ -313,5 +298,8 @@ exports.resetPassword = catchAsync(async (req, res, next) => {
 
   if (!user.confirmedEmail) return next(new AppError('invalid'))
 })
+
+
+
 
 exports.createToken = createToken

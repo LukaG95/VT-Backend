@@ -118,7 +118,9 @@ User.collection.dropIndexes(function (err, results) {
   // Handle errors
 })
 
-function validateUser(user){
+exports.User = User
+
+exports.validateUser = (user) => {
   const schema = Joi.object({
     username: Joi.string().min(2).max(15).required(),
     password: Joi.string().min(6).max(255).required(),
@@ -129,5 +131,36 @@ function validateUser(user){
   return schema.validate(user)
 }
 
-exports.validateUser = validateUser
-exports.User = User
+exports.validateEmail = async (email) => {
+  const user = await User.findOne({ email }).collation({ locale: "en", strength: 2 })
+  if (user) {
+
+    if (user.confirmedEmail === false && user.tokenCreatedAt.getTime() < (Date.now() - 15 * 60 * 1000)) {
+      await User.deleteOne({ _id: user._id })
+      return true
+    } 
+    else return false
+
+  }
+  
+  return true
+}
+
+exports.validateUsername = async (username) => {
+  const user = await User.findOne({ username }).collation({ locale: "en", strength: 2 })
+  if (user) {
+    
+    if (user.confirmedEmail === false && user.tokenCreatedAt.getTime() < (Date.now() - 15 * 60 * 1000)) {
+      await User.deleteOne({ _id: user._id })
+      return true
+    } 
+    else return false
+
+  }
+  
+  return true
+}
+
+
+
+

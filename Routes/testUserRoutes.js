@@ -8,7 +8,7 @@ const router = express.Router()
 
 //router.use(cors())
 
-router.get('/getUser', testUserController.protect, authController.getUser)
+router.get('/getUser', testUserController.protect, testUserController.getTestUser)
 router.get('/aggregateUsers', testUserController.protect, testUserController.adminOnly, testUserController.aggregateUsers)
 
 router.post('/login', testUserController.login)
