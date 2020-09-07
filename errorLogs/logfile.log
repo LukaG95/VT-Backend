@@ -6094,3 +6094,8 @@
   level: 'info',
   timestamp: '2020-09-07T10:35:06.571Z'
 }
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-09-07T14:40:32.150Z'
+}

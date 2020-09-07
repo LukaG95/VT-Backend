@@ -4,7 +4,7 @@ const { promisify } = require('util')
 const EmailingSystem = require('../misc/EmailingSystem')
 const catchAsync = require('../misc/catchAsync')
 const AppError = require('../misc/AppError')
-const { User, validateUser } = require('../Models/userModel')
+const { User, validateSignup, validateLogin } = require('../Models/userModel')
 const user = require('../Models/userModel')
 
 
@@ -33,7 +33,7 @@ const createSendToken = (user, res, option) => {
     return res.redirect('/')
   }
 
-  return res.json({ status: 'success' })
+  return res.status(200).json({ info: 'success', message: 'successfully added jwt cookie' })
 }
 
 const sendSignupEmail = async (user) => {
@@ -81,28 +81,26 @@ function genNumber(times = 1) {
 }
 
 // POST api/auth/login
-exports.login = catchAsync(async (req, res, next) => {
+exports.login = async (req, res, next) => {
   const { email, password } = req.body
 
-  if (!email || !password) return next(new AppError('invalid'))
+  const { error } = validateLogin(req.body)
+  if (error) return res.status(400).json({info: "invalid credentials", message: error.details[0].message})
 
-  // Check if email or username supplied
   const query = parseEmail(email) === true ? { email } : { username: email }
-
   const user = await User.findOne(query).select('+password')
 
-  if (!user || !(await user.correctPassword(password, user.password))) {
-    return next(new AppError('logorpass'))
-  }
+  if (!user || !(await user.correctPassword(password, user.password)))
+    return res.status(400).json({info: "logorpass", message: error.details[0].message})
 
   return createSendToken(user, res)
-})
+}
 
 // POST api/auth/signup
 exports.signup = async (req, res, next) => {
   let { username, email, password, passwordConfirm } = req.body
   
-  const { error } = validateUser(req.body)
+  const { error } = validateSignup(req.body)
   if (error) return res.status(400).json({info: "invalid credentials", message: error.details[0].message})
 
   let result = await user.validateEmail(email)
