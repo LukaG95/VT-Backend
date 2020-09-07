@@ -90,7 +90,7 @@ exports.login = catchAsync(async (req, res, next) => {
   const query = parseEmail(email) === true ? { email } : { username: email }
 
   const user = await User.findOne(query).select('+password')
-  
+
   if (!user || !(await user.correctPassword(password, user.password))) {
     return next(new AppError('logorpass'))
   }
@@ -161,7 +161,7 @@ exports.protect = async (req, res, next) => {
 
     next()
   } catch {
-      res.status(400).json('Invalid token.')
+    return res.status(400).json('Invalid token.')
   }
 }
 
