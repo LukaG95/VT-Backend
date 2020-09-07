@@ -137,7 +137,7 @@ exports.getReputation = async (req, res, next) => {
 
 exports.addReputation = async (req, res, next) => {
     const { user } = req;
-    return res.json({user})
+    return res.json({user: user, ID: user._id, ID2: user.id})
     const userId = req.params.user;
     const { rep } = req.body;
 
