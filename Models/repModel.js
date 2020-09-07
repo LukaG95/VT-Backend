@@ -9,7 +9,7 @@ const repSchema = new mongoose.Schema({
 
   title: {
     type: String,
-    default: 'Veteran'
+    default: 'Novice'
   },
 
   username: {

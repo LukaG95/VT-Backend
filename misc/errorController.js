@@ -12,8 +12,9 @@ module.exports = function(err, req, res, next){
   // silly
 
   res.json({
-    message: 'Something failed.',
+    message: 'Something failed!',
     status: err.status,
+    error: err 
   })
 }
 /*

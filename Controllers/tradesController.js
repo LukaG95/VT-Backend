@@ -80,7 +80,7 @@ exports.createTrade = catchAsync(async (req, res, next) => {
     const { user } = req;
     const { edit } = req.query;
     const {
-        have, want, platform, notes, old,
+      have, want, platform, notes, old,
     } = req.body;
 
     // const maxTrades = 15;
@@ -97,26 +97,26 @@ exports.createTrade = catchAsync(async (req, res, next) => {
 
     // return res.json({ status: 'invalid' });
     function getItemNamesAndUrls(arr) {
-        let err = 0;
+      let err = 0;
 
-        arr.forEach((item, i) => {
-            let itemName;
-            items.Slots.forEach((type) => type.Items.forEach((item1) => {
-                if (item1.ItemID === item.itemID) {
-                    itemName = item1.Name;
-                }
-            }));
+      arr.forEach((item, i) => {
+        let itemName;
+        items.Slots.forEach((type) => type.Items.forEach((item1) => {
+          if (item1.ItemID === item.itemID) {
+            itemName = item1.Name;
+          }
+        }));
 
-            const paintId = paintIds[item.paint];
-            const certId = certIds[item.cert];
+        const paintId = paintIds[item.paint];
+        const certId = certIds[item.cert];
 
 
-            arr[i].itemName = itemName;
-            arr[i].url = `${item.itemID}.${paintId}.webp`;
+        arr[i].itemName = itemName;
+        arr[i].url = `${item.itemID}.${paintId}.webp`;
 
-            if (!arr[i].itemName || paintId == undefined || certId == undefined) return err = 1;
-        });
-        return err;
+        if (!arr[i].itemName || paintId == undefined || certId == undefined) return err = 1;
+      });
+      return err;
     }
 
 
@@ -126,32 +126,31 @@ exports.createTrade = catchAsync(async (req, res, next) => {
     if (h === 1 || w === 1) return next(new AppError('invalid'));
 
     const tradeDetails = {
-        username: user.username,
-        reputation: {
-            ups: userRep.ups,
-            downs: userRep.downs,
-        },
-        steamAccount,
-        have,
-        want,
-        platform,
-        notes,
-        old,
-
+      username: user.username,
+      reputation: {
+        ups: userRep.ups,
+        downs: userRep.downs,
+      },
+      steamAccount,
+      have,
+      want,
+      platform,
+      notes,
+      old,
     };
 
 
     if (edit) {
-        if (edit.length !== 24) return next(new AppError());
+      if (edit.length !== 24) return next(new AppError());
 
-        const trade = await TradeRL.findById(edit);
+      const trade = await TradeRL.findById(edit);
 
-        if (trade.userId != user._id) return next(new AppError());
+      if (trade.userId != user._id) return next(new AppError());
 
 
-        await TradeRL.findOneAndUpdate({ _id: trade._id }, tradeDetails, { useFindAndModify: false });
+      await TradeRL.findOneAndUpdate({ _id: trade._id }, tradeDetails, { useFindAndModify: false });
 
-        return res.json({ status: 'success' });
+      return res.json({ status: 'success' });
     }
 
     tradeDetails.userId = user._id;
@@ -163,38 +162,38 @@ exports.createTrade = catchAsync(async (req, res, next) => {
 });
 
 exports.bumpTrade = catchAsync(async (req, res, next) => {
-    const { user } = req;
-    const { id } = req.params;
+  const { user } = req;
+  const { id } = req.params;
 
-    const trade = await TradeRL.findById(id);
-    if (trade.userId != user._id) return next(new AppError());
+  const trade = await TradeRL.findById(id);
+  if (trade.userId != user._id) return next(new AppError());
 
 
-    trade.createdAt = Date.now();
-    await trade.save();
+  trade.createdAt = Date.now();
+  await trade.save();
 
-    return res.json({ status: 'success' });
+  return res.json({ status: 'success' });
 
 })
 
 
 exports.deleteTrade = catchAsync(async (req, res, next) => {
-    const tradeId = req.query.id;
-    const { all } = req.query;
-    const { user } = req;
+  const tradeId = req.query.id;
+  const { all } = req.query;
+  const { user } = req;
 
-    if (all === 'true') {
-        await TradeRL.deleteMany({ userId: user._id });
-        return res.json({ status: 'success' });
-    }
-
-    if (!tradeId || tradeId.length !== 24) return next(new AppError('invalid'));
-
-    const trade = await TradeRL.findById(tradeId);
-
-    if (trade.userId != user._id) return next(new AppError('invalid'));
-
-    await TradeRL.findOneAndDelete({ _id: tradeId });
-
+  if (all === 'true') {
+    await TradeRL.deleteMany({ userId: user._id });
     return res.json({ status: 'success' });
+  }
+
+  if (!tradeId || tradeId.length !== 24) return next(new AppError('invalid'));
+
+  const trade = await TradeRL.findById(tradeId);
+
+  if (trade.userId != user._id) return next(new AppError('invalid'));
+
+  await TradeRL.findOneAndDelete({ _id: tradeId });
+
+  return res.json({ status: 'success' });
 });

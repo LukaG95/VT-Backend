@@ -6079,3 +6079,8 @@
   message: 'notAllowed',
   timestamp: '2020-09-06T15:02:35.873Z'
 }
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-09-06T22:44:36.009Z'
+}
