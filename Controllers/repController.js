@@ -156,7 +156,7 @@ exports.addReputation = async (req, res, next) => {
     //     game: 'csgo',
     // };
     const dbUser = await User.findById(userId);
-    console.log(`userID: ${userId}`)
+
     if (!dbUser) return next(new AppError('error'));
 
     const repDB = await Reputation.findOne({ userId });
@@ -165,13 +165,13 @@ exports.addReputation = async (req, res, next) => {
     if (!repDB) {
         const newRep = new Reputation({ userId, username: dbUser.username, reps: [rep] })
         await newRep.save()
-        await Redis.cache(`${user._id}${userId}`, 1)
+        //await Redis.cache(`${user._id}${userId}`, 1)
         return res.json({ status: 'success' })
     }
 
     repDB.reps.unshift(rep)
     await repDB.save()
-    await Redis.cache(`${user._id}${userId}`, 1)
+    //await Redis.cache(`${user._id}${userId}`, 1)
     return res.json({ status: 'success' })
 }
 
