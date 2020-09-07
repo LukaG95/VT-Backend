@@ -122,8 +122,8 @@ exports.User = User
 
 exports.validateSignup = (user) => {
   const schema = Joi.object({
-    username: Joi.string().min(2).max(15).regex(/^(?!.*[ ]{2,})[a-zA-Z0-9 _-]{2,15}$/gm).required(),
-    password: Joi.string().min(6).max(255).regex(/^[\!@#$%^&*()\\[\]{}\-_+=~`|:;"'<>,./?a-zA-Z0-9]{6,30}$/gm).required(),
+    username: Joi.string().min(2).max(15).regex(/^(?!.*[ ]{2,})[a-zA-Z0-9 _-]{2,15}$/m).required(),
+    password: Joi.string().min(6).max(255).regex(/^[\!@#$%^&*()\\[\]{}\-_+=~`|:;"'<>,./?a-zA-Z0-9]{6,30}$/m).required(),
     passwordConfirm: Joi.string().min(6).max(255).required(),
     email: Joi.string().min(1).max(255).email().required()
   })
