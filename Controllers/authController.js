@@ -89,9 +89,11 @@ exports.login = async (req, res, next) => {
 
   const query = parseEmail(email) === true ? { email } : { username: email }
   const user = await User.findOne(query).select('+password')
-
-  if (!user || !(await user.correctPassword(password, user.password)))
-    return res.status(400).json({info: "logorpass", message: error.details[0].message})
+ 
+  if (!user || !(await user.correctPassword(password, user.password))){
+    return res.status(400).json({info: "logorpass", message: "credentials don't match any users"})
+  }
+    
 
   return createSendToken(user, res)
 }
