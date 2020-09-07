@@ -11,7 +11,7 @@ module.exports = function(err, req, res, next){
   // debug
   // silly
 
-  res.json({
+  res.status(400).json({
     message: 'Something failed!',
     status: err.status,
     error: err 
