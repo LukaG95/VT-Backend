@@ -34,6 +34,20 @@ const createSendToken = (user, res, option) => {
   return res.json({ status: 'success' })
 }
 
+exports.protect = catchAsync(async (req, res, next) => { 
+  const token = req.cookies.test
+  if (!token) return res.status(401).json({info: "unauthorized", message: "no token provided"})
+
+  try{
+    const decoded = await decodeToken(token)
+    req.user = decoded
+
+    next()
+  } catch {
+    res.status(400).send('Invalid token.')
+  }
+})
+
 exports.createUser = catchAsync(async (req, res, next) => {
   const { username } = req.body
   const password = crypto.randomBytes(8).toString('hex')
@@ -58,20 +72,6 @@ exports.login = catchAsync(async (req, res, next) => {
   if (!user || user.password != password) return next(new AppError('error'))
 
   return createSendToken(user, res)
-})
-
-exports.protect = catchAsync(async (req, res, next) => { 
-  const token = req.cookies.test
-  if (!token) return res.status(401).json({info: "unauthorized", message: "no token provided"})
-
-  try{
-    const decoded = await decodeToken(token)
-    req.user = decoded
-
-    next()
-  } catch {
-    res.status(400).send('Invalid token.')
-  }
 })
 
 exports.getTestUser = catchAsync(async (req, res, next) => { 

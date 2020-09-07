@@ -203,7 +203,7 @@ exports.logout = catchAsync(async (req, res, next) => {
 
 // PUT api/auth/updateUsername
 exports.updateUsername = catchAsync(async (req, res, next) => {
-  const { user } = req
+  const user = await User.findById(req.user.id).select('-__v')
   const { newUsername } = req.body
 
   // Find user, if user exists change his username if new one matches the regex and hasn't been changed in the past 30 days
@@ -241,7 +241,7 @@ exports.updateEmail = catchAsync(async (req, res, next) => {
 
 // POST api/auth/sendResetEmailToken
 exports.sendResetEmail = catchAsync(async (req, res, next) => {
-  const { user } = req
+  const user = await User.findById(req.user.id).select('-__v')
   const { newEmail } = req.body
 
   const takenEmail = await User.findOne({ email: newEmail }).collation({ locale: "en", strength: 2 })
@@ -258,7 +258,7 @@ exports.sendResetEmail = catchAsync(async (req, res, next) => {
 
 // PUT api/auth/updatePassword
 exports.updatePassword = catchAsync(async (req, res, next) => {
-  const { user } = req
+  const user = await User.findById(req.user.id).select('-__v')
   const { password, passwordConfirm, newPassword } = req.body
   const userDB = await User.findById(user._id).select('+password')
 
