@@ -136,8 +136,7 @@ exports.getReputation = async (req, res, next) => {
 
 
 exports.addReputation = async (req, res, next) => {
-    const { user } = req;
-    
+    const user = await User.findById(req.user.id).select('-__v')
     const userId = req.params.user;
     const { rep } = req.body;
 

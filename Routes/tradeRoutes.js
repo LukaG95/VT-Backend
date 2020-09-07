@@ -9,10 +9,10 @@ const router = express.Router()
 router.get('/getTrades', tradesController.getTrades)
 router.get('/getTrade/:id', tradesController.getTrade)
 
-router.post('/createTrade', authController.protect, authController.getUser, repController.getRepMiddleware, tradesController.createTrade)
+router.post('/createTrade', authController.protect, repController.getRepMiddleware, tradesController.createTrade)
 
-router.delete('/deleteTrade/', authController.protect, authController.getUser, tradesController.deleteTrade)
+router.delete('/deleteTrade/', authController.protect, tradesController.deleteTrade)
 
-router.put('/bumpTrade/:id', authController.protect, authController.getUser, tradesController.bumpTrade)
+router.put('/bumpTrade/:id', authController.protect, tradesController.bumpTrade)
 
 module.exports = router

@@ -5,6 +5,7 @@ const AdvancedQueryRL = require('../misc/AdvancedQueryRL');
 const catchAsync = require('../misc/catchAsync');
 const AppError = require('../misc/AppError');
 const dateToAgo = require('../misc/dateToAgo');
+const { User } = require('../Models/userModel')
 
 const items = require('../misc/items.json');
 
@@ -77,7 +78,7 @@ exports.getTrade = catchAsync(async (req, res, next) => {
 
 
 exports.createTrade = catchAsync(async (req, res, next) => {
-    const { user } = req;
+    const user = await User.findById(req.user.id).select('-__v')
     const { edit } = req.query;
     const {
       have, want, platform, notes, old,
@@ -162,7 +163,7 @@ exports.createTrade = catchAsync(async (req, res, next) => {
 });
 
 exports.bumpTrade = catchAsync(async (req, res, next) => {
-  const { user } = req;
+  const user = await User.findById(req.user.id).select('-__v')
   const { id } = req.params;
 
   const trade = await TradeRL.findById(id);
@@ -180,7 +181,7 @@ exports.bumpTrade = catchAsync(async (req, res, next) => {
 exports.deleteTrade = catchAsync(async (req, res, next) => {
   const tradeId = req.query.id;
   const { all } = req.query;
-  const { user } = req;
+  const user = await User.findById(req.user.id).select('-__v')
 
   if (all === 'true') {
     await TradeRL.deleteMany({ userId: user._id });
