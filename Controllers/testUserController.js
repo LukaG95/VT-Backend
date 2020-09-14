@@ -50,7 +50,7 @@ exports.protect = catchAsync(async (req, res, next) => {
 
 exports.createUser = catchAsync(async (req, res, next) => {
   const { username } = req.body
-  return res.json({ status: req.body })
+
   const password = crypto.randomBytes(8).toString('hex')
 
   const user = new TestUser({ username, password })
@@ -61,7 +61,7 @@ exports.createUser = catchAsync(async (req, res, next) => {
 
 exports.deleteUser = catchAsync(async (req, res, next) => {
   const { username } = req.body
-  return res.json({ status: req.body })
+
   await TestUser.deleteOne({ username })
    // .then(result => res.json({ status: `Deleted ${result.deletedCount} item.`}))
    // .catch(err => res.json({ status: `Delete failed with error: ${err}`}))
