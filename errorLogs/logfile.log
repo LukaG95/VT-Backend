@@ -6194,3 +6194,133 @@
   message: 'regex should not use global or sticky mode',
   timestamp: '2020-09-07T16:17:22.943Z'
 }
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-14T19:36:13.370Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-14T19:36:18.352Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-14T19:37:04.800Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-14T19:37:04.992Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-14T19:37:24.289Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-14T19:37:24.612Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-14T19:43:56.221Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-14T19:43:56.522Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-14T20:07:06.891Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-14T20:07:07.192Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-14T20:08:02.405Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-14T20:08:02.587Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-14T20:09:02.906Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-14T20:09:03.140Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-14T20:09:23.866Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-14T20:09:24.046Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-14T20:10:06.142Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-14T20:10:06.408Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-14T20:10:55.140Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-14T20:10:55.322Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-14T20:12:03.170Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-14T20:12:03.441Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-14T20:13:33.969Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-14T20:14:10.782Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-14T20:15:06.573Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-14T20:17:43.078Z'
+}

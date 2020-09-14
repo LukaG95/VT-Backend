@@ -809,3 +809,222 @@
   ],
   timestamp: '2020-09-03T08:07:49.047Z'
 }
+{
+  error: C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\Controllers\testUserController.js:65
+      .catch(err => res.json({ status: `Delete failed with error: ${err}`, info: username})
+                                                                                          ^
+  
+  SyntaxError: missing ) after argument list
+      at Module._compile (internal/modules/cjs/loader.js:895:18)
+      at Object.Module._extensions..js (internal/modules/cjs/loader.js:995:10)
+      at Module.load (internal/modules/cjs/loader.js:815:32)
+      at Function.Module._load (internal/modules/cjs/loader.js:727:14)
+      at Module.require (internal/modules/cjs/loader.js:852:19)
+      at require (internal/modules/cjs/helpers.js:74:18)
+      at Object.<anonymous> (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\Routes\testUserRoutes.js:5:28)
+      at Module._compile (internal/modules/cjs/loader.js:959:30)
+      at Object.Module._extensions..js (internal/modules/cjs/loader.js:995:10)
+      at Module.load (internal/modules/cjs/loader.js:815:32)
+      at Function.Module._load (internal/modules/cjs/loader.js:727:14)
+      at Module.require (internal/modules/cjs/loader.js:852:19)
+      at require (internal/modules/cjs/helpers.js:74:18)
+      at Object.<anonymous> (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\startup\routes.js:8:24)
+      at Module._compile (internal/modules/cjs/loader.js:959:30)
+      at Object.Module._extensions..js (internal/modules/cjs/loader.js:995:10),
+  level: 'error',
+  message: 'uncaughtException: missing ) after argument list\n' +
+    'C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\Controllers\\testUserController.js:65\n' +
+    '    .catch(err => res.json({ status: `Delete failed with error: ${err}`, info: username})\n' +
+    '                                                                                        ^\n' +
+    '\n' +
+    'SyntaxError: missing ) after argument list\n' +
+    '    at Module._compile (internal/modules/cjs/loader.js:895:18)\n' +
+    '    at Object.Module._extensions..js (internal/modules/cjs/loader.js:995:10)\n' +
+    '    at Module.load (internal/modules/cjs/loader.js:815:32)\n' +
+    '    at Function.Module._load (internal/modules/cjs/loader.js:727:14)\n' +
+    '    at Module.require (internal/modules/cjs/loader.js:852:19)\n' +
+    '    at require (internal/modules/cjs/helpers.js:74:18)\n' +
+    '    at Object.<anonymous> (C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\Routes\\testUserRoutes.js:5:28)\n' +
+    '    at Module._compile (internal/modules/cjs/loader.js:959:30)\n' +
+    '    at Object.Module._extensions..js (internal/modules/cjs/loader.js:995:10)\n' +
+    '    at Module.load (internal/modules/cjs/loader.js:815:32)\n' +
+    '    at Function.Module._load (internal/modules/cjs/loader.js:727:14)\n' +
+    '    at Module.require (internal/modules/cjs/loader.js:852:19)\n' +
+    '    at require (internal/modules/cjs/helpers.js:74:18)\n' +
+    '    at Object.<anonymous> (C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\startup\\routes.js:8:24)\n' +
+    '    at Module._compile (internal/modules/cjs/loader.js:959:30)\n' +
+    '    at Object.Module._extensions..js (internal/modules/cjs/loader.js:995:10)',
+  stack: 'C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\Controllers\\testUserController.js:65\n' +
+    '    .catch(err => res.json({ status: `Delete failed with error: ${err}`, info: username})\n' +
+    '                                                                                        ^\n' +
+    '\n' +
+    'SyntaxError: missing ) after argument list\n' +
+    '    at Module._compile (internal/modules/cjs/loader.js:895:18)\n' +
+    '    at Object.Module._extensions..js (internal/modules/cjs/loader.js:995:10)\n' +
+    '    at Module.load (internal/modules/cjs/loader.js:815:32)\n' +
+    '    at Function.Module._load (internal/modules/cjs/loader.js:727:14)\n' +
+    '    at Module.require (internal/modules/cjs/loader.js:852:19)\n' +
+    '    at require (internal/modules/cjs/helpers.js:74:18)\n' +
+    '    at Object.<anonymous> (C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\Routes\\testUserRoutes.js:5:28)\n' +
+    '    at Module._compile (internal/modules/cjs/loader.js:959:30)\n' +
+    '    at Object.Module._extensions..js (internal/modules/cjs/loader.js:995:10)\n' +
+    '    at Module.load (internal/modules/cjs/loader.js:815:32)\n' +
+    '    at Function.Module._load (internal/modules/cjs/loader.js:727:14)\n' +
+    '    at Module.require (internal/modules/cjs/loader.js:852:19)\n' +
+    '    at require (internal/modules/cjs/helpers.js:74:18)\n' +
+    '    at Object.<anonymous> (C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\startup\\routes.js:8:24)\n' +
+    '    at Module._compile (internal/modules/cjs/loader.js:959:30)\n' +
+    '    at Object.Module._extensions..js (internal/modules/cjs/loader.js:995:10)',
+  exception: true,
+  date: 'Mon Sep 14 2020 22:05:57 GMT+0200 (GMT+02:00)',
+  process: {
+    pid: 5160,
+    uid: null,
+    gid: null,
+    cwd: 'C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop',
+    execPath: 'C:\\Program Files\\nodejs\\node.exe',
+    version: 'v12.13.1',
+    argv: [
+      'C:\\Program Files\\nodejs\\node.exe',
+      'C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\index.js'
+    ],
+    memoryUsage: {
+      rss: 63152128,
+      heapTotal: 55164928,
+      heapUsed: 29627728,
+      external: 20737217
+    }
+  },
+  os: { loadavg: [ 0, 0, 0 ], uptime: 3567 },
+  trace: [
+    {
+      column: 18,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module._compile',
+      line: 895,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 10,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module._extensions..js',
+      line: 995,
+      method: '.js',
+      native: false
+    },
+    {
+      column: 32,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module.load',
+      line: 815,
+      method: 'load',
+      native: false
+    },
+    {
+      column: 14,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module._load',
+      line: 727,
+      method: '_load',
+      native: false
+    },
+    {
+      column: 19,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module.require',
+      line: 852,
+      method: 'require',
+      native: false
+    },
+    {
+      column: 18,
+      file: 'internal/modules/cjs/helpers.js',
+      function: 'require',
+      line: 74,
+      method: null,
+      native: false
+    },
+    {
+      column: 28,
+      file: 'C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\Routes\\testUserRoutes.js',
+      function: null,
+      line: 5,
+      method: null,
+      native: false
+    },
+    {
+      column: 30,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module._compile',
+      line: 959,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 10,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module._extensions..js',
+      line: 995,
+      method: '.js',
+      native: false
+    },
+    {
+      column: 32,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module.load',
+      line: 815,
+      method: 'load',
+      native: false
+    },
+    {
+      column: 14,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module._load',
+      line: 727,
+      method: '_load',
+      native: false
+    },
+    {
+      column: 19,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module.require',
+      line: 852,
+      method: 'require',
+      native: false
+    },
+    {
+      column: 18,
+      file: 'internal/modules/cjs/helpers.js',
+      function: 'require',
+      line: 74,
+      method: null,
+      native: false
+    },
+    {
+      column: 24,
+      file: 'C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\startup\\routes.js',
+      function: null,
+      line: 8,
+      method: null,
+      native: false
+    },
+    {
+      column: 30,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module._compile',
+      line: 959,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 10,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module._extensions..js',
+      line: 995,
+      method: '.js',
+      native: false
+    }
+  ],
+  timestamp: '2020-09-14T20:05:57.836Z'
+}
