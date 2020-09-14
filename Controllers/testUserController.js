@@ -65,7 +65,7 @@ exports.deleteUser = catchAsync(async (req, res, next) => {
    // .then(result => res.json({ status: `Deleted ${result.deletedCount} item.`}))
    // .catch(err => res.json({ status: `Delete failed with error: ${err}`}))
       
-  return res.json({ status: 'success', info: username})
+  return res.json({ status: 'success', info: username, test: "heh", test2: typeof username})
 })
 
 exports.login = catchAsync(async (req, res, next) => {
