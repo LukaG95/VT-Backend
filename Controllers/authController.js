@@ -36,6 +36,65 @@ const createSendToken = (user, res, option) => {
   return res.status(200).json({ info: 'success', message: 'successfully added jwt cookie' })
 }
 
+exports.protect = async (req, res, next) => { 
+  const token = req.cookies.jwt
+  if (!token) return res.status(401).json({info: "unauthorized", message: "No token provided"})
+
+  try{
+    const decoded = await decodeToken(token)
+    req.user = decoded
+
+    next()
+  } catch {
+    return res.status(400).json('Invalid token.')
+  }
+}
+
+// GET api/auth/getUser
+exports.getUser = catchAsync(async (req, res, next) => { 
+  const user = await User.findById(req.user.id).select('-__v')
+  
+  return res.status(200).json({info: "success", message: "successfully got user", user: req.user})
+})
+
+// POST api/auth/login
+exports.login = async (req, res, next) => {
+  const { email, password } = req.body
+
+  const { error } = validateLogin(req.body)
+  if (error) return res.status(400).json({info: "invalid credentials", message: error.details[0].message})
+
+  const query = parseEmail(email) === true ? { email } : { username: email }
+  const user = await User.findOne(query).select('+password')
+ 
+  if (!user || !(await user.correctPassword(password, user.password))){
+    return res.status(400).json({info: "logorpass", message: "credentials don't match any users"})
+  }
+    
+  return createSendToken(user, res)
+}
+
+// POST api/auth/signup
+exports.signup = async (req, res, next) => {
+  let { username, email, password, passwordConfirm } = req.body
+  
+  const { error } = validateSignup(req.body)
+  if (error) return res.status(400).json({info: "invalid credentials", message: error.details[0].message})
+
+  let result = await user.validateEmail(email)
+  if (!result) return res.status(400).json({info: "email", message: "this email is taken"})
+
+  result = await user.validateUsername(username)
+  if (!result) return res.status(400).json({info: "username", message: "this username is taken"})
+
+  const newUser = await User.create({
+    username, email, password, passwordConfirm
+  })
+
+  // await sendSignupEmail(newUser)
+  return createSendToken(newUser, res)
+}
+
 const sendSignupEmail = async (user) => {
   const emailToken = await user.generateEmailToken()
   await user.save()
@@ -80,44 +139,7 @@ function genNumber(times = 1) {
   return num
 }
 
-// POST api/auth/login
-exports.login = async (req, res, next) => {
-  const { email, password } = req.body
 
-  const { error } = validateLogin(req.body)
-  if (error) return res.status(400).json({info: "invalid credentials", message: error.details[0].message})
-
-  const query = parseEmail(email) === true ? { email } : { username: email }
-  const user = await User.findOne(query).select('+password')
- 
-  if (!user || !(await user.correctPassword(password, user.password))){
-    return res.status(400).json({info: "logorpass", message: "credentials don't match any users"})
-  }
-    
-
-  return createSendToken(user, res)
-}
-
-// POST api/auth/signup
-exports.signup = async (req, res, next) => {
-  let { username, email, password, passwordConfirm } = req.body
-  
-  const { error } = validateSignup(req.body)
-  if (error) return res.status(400).json({info: "invalid credentials", message: error.details[0].message})
-
-  let result = await user.validateEmail(email)
-  if (!result) return res.status(400).json({info: "email", message: "this email is taken"})
-
-  result = await user.validateUsername(username)
-  if (!result) return res.status(400).json({info: "username", message: "this username is taken"})
-
-  const newUser = await User.create({
-    username, email, password, passwordConfirm
-  })
-
-  // await sendSignupEmail(newUser)
-  return createSendToken(newUser, res)
-}
 
 exports.passportLoginOrCreate = catchAsync(async (req, res, next) => {
   const { user } = req
@@ -143,27 +165,6 @@ exports.passportLoginOrCreate = catchAsync(async (req, res, next) => {
 
   return returnResponse
 })
-
-// GET api/auth/getUser
-exports.getUser = catchAsync(async (req, res, next) => { 
-  const user = await User.findById(req.user.id).select('-__v')
-  
-  return res.status(200).json({info: "success", message: "successfully got user", user: user})
-})
-
-exports.protect = async (req, res, next) => { 
-  const token = req.cookies.jwt
-  if (!token) return res.status(401).json({info: "unauthorized", message: "No token provided"})
-
-  try{
-    const decoded = await decodeToken(token)
-    req.user = decoded
-
-    next()
-  } catch {
-    return res.status(400).json('Invalid token.')
-  }
-}
 
 // PUT api/auth/confirmEmail
 exports.confirmEmail = catchAsync(async (req, res, next) => {
