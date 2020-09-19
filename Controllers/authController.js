@@ -54,7 +54,7 @@ exports.protect = async (req, res, next) => {
 exports.getUser = catchAsync(async (req, res, next) => { 
   const user = await User.findById(req.user.id).select('-__v')
   
-  return res.status(200).json({info: "success", message: "successfully got user", user: req.user})
+  return res.status(200).json({info: "success", message: "successfully got user", user: user})
 })
 
 // POST api/auth/login

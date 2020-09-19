@@ -228,7 +228,7 @@ exports.getTop10 = async (req, res, next) => {
 }
 
 exports.getRepMiddleware = async (req, res, next) => {
-  const { user } = req
+  const user = await User.findById(req.user.id).select('-__v')
 
   const rep = await Reputation.aggregate([
     { $match: { userId: `${user._id}` } },
