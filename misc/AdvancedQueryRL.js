@@ -9,7 +9,7 @@ class AdvancedQueryRL {
     // deletes fields with "Any" filter attribute
     const queryObj = { ...this.queryString }  
     Object.keys(queryObj).forEach((q) => {
-      if (queryObj[q] === 'any') {
+      if (queryObj[q] === 'Any') {
         delete queryObj[q]
       }
     })
