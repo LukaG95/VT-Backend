@@ -11,10 +11,6 @@ const tradesRLSchema = new mongoose.Schema({
     required: true
   },
 
-  steamAccount: {
-    type: String
-  },
-
   reputation: {
     ups: {
       type: Number,
@@ -29,9 +25,7 @@ const tradesRLSchema = new mongoose.Schema({
 
   have: [
     {
-      _id: {
-        select: false
-      },
+      _id: { select: false },
 
       itemID: {
         type: Number,
@@ -43,7 +37,12 @@ const tradesRLSchema = new mongoose.Schema({
         required: true
       },
 
-      paint: {
+      color: {
+        type: String,
+        required: true
+      },
+
+      colorID: {
         type: String,
         required: true
       },
@@ -60,11 +59,6 @@ const tradesRLSchema = new mongoose.Schema({
 
       amount: {
         type: Number,
-        required: true
-      },
-
-      url: {
-        type: String,
         required: true
       }
     }
@@ -72,9 +66,7 @@ const tradesRLSchema = new mongoose.Schema({
 
   want: [
     {
-      _id: {
-        select: false
-      },
+      _id: { select: false },
 
       itemID: {
         type: Number,
@@ -86,7 +78,12 @@ const tradesRLSchema = new mongoose.Schema({
         required: true
       },
 
-      paint: {
+      color: {
+        type: String,
+        required: true
+      },
+
+      colorID: {
         type: String,
         required: true
       },
@@ -103,11 +100,6 @@ const tradesRLSchema = new mongoose.Schema({
 
       amount: {
         type: Number,
-        required: true
-      },
-      
-      url: {
-        type: String,
         required: true
       }
     }
@@ -116,7 +108,7 @@ const tradesRLSchema = new mongoose.Schema({
   platform: {
     type: String,
     required: true,
-    enum: ['PC', 'XBOX', 'PS4', 'SWITCH']
+    enum: ['Steam', 'XBOX', 'PS4', 'SWITCH']
   },
 
   createdAt: {
@@ -133,8 +125,6 @@ const tradesRLSchema = new mongoose.Schema({
     type: Boolean,
     default: false
   },
-
-  old: { have: [], want: [] },
 
   __v: { type: Number, select: false }
 })

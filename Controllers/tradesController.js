@@ -47,120 +47,76 @@ const certIds = {
 
 
 exports.getTrades = catchAsync(async (req, res, next) => {
-    const { query } = req;
-    const advancedQuery = new AdvancedQueryRL(TradeRL.find(), query)
-        .filter()
-        .paginate()
-        .sortByLatest();
+  const { query } = req
 
+  const advancedQuery = new AdvancedQueryRL(TradeRL.find(), query)
+    .filter()
+    .paginate()
+    .sortByLatest()
 
-    const trades = await advancedQuery.query.select({ old: 0 });
-    const pages = Math.ceil((await TradeRL.countDocuments(advancedQuery.resetQuery().query)) / advancedQuery.limit);
+  const trades = await advancedQuery.query.select({ old: 0 })
+  const pages = Math.ceil((await TradeRL.countDocuments(advancedQuery.resetQuery().query)) / advancedQuery.limit)
 
-    const editedTrades = trades.map((trade) => {
-        const editedTrade = trade.toObject();
-        editedTrade.createdAt = dateToAgo(editedTrade.createdAt);
-        return editedTrade;
-    });
+  const editedTrades = trades.map((trade) => {
+    const editedTrade = trade.toObject()
+    editedTrade.createdAt = dateToAgo(editedTrade.createdAt)
+    return editedTrade
+  })
 
-
-    return res.json({ trades: editedTrades, pages });
-});
+  return res.json({ trades: editedTrades, pages })
+})
 
 exports.getTrade = catchAsync(async (req, res, next) => {
-    const { id } = req.params;
+  const { id } = req.params
 
-    const trade = await TradeRL.findById(id, { platform: 1, old: 1, notes: 1 });
+  const trade = await TradeRL.findById(id, { platform: 1, old: 1, notes: 1 })
 
-
-    return res.json({ status: 'success', trade });
+  return res.json({ status: 'success', trade })
 });
 
 
 exports.createTrade = catchAsync(async (req, res, next) => {
-    const user = await User.findById(req.user.id).select('-__v')
-    const { edit } = req.query;
-    const {
-      have, want, platform, notes, old,
-    } = req.body;
+  const user = await User.findById(req.user.id).select('-__v')
+  
+  const { have, want, platform, notes } = req.body
+  const { edit } = req.query
+  const userRep = req.rep
 
-    // const maxTrades = 15;
+  // const totalTrades = await TradeRL.find({ userId: user._id }).length
 
+  if (have.length > 12 || want.length > 12) return res.status(400).json({info: ">items", message: "Too many items added"})
+  if (have.length <= 0 || want.length <= 0) return res.status(400).json({info: "<items", message: "Not enough items added"})
 
-    const userRep = req.rep;
+  const tradeDetails = {
+    username: user.username,
+    reputation: {
+      ups: userRep.ups,
+      downs: userRep.downs
+    },
+    have: have,
+    want: want,
+    platform: platform,
+    notes: notes
+  }
 
-    const steamAccount = (user.steam) ? `https://steamcommunity.com/profiles/${user.steam}` : null;
+  if (edit) {
+    if (edit.length !== 24) return res.status(400).json({info: "tradeID", message: "Invalid tradeID"})
 
-    // const totalTrades = await TradeRL.find({ userId: user._id }).length;
-    // console.log(totalTrades);
+    const trade = await TradeRL.findById(edit)
+    if (!trade) return res.status(400).json({info: "no trade", message: "trade with given id doesn't exist"})
 
-    if (have.length > 12 || want.length > 12) return next(new AppError('invalid'));
+    if (trade.userId != user._id) return res.status(404).json({info: "forbidden", message: "can't edit others trades"})
 
-    // return res.json({ status: 'invalid' });
-    function getItemNamesAndUrls(arr) {
-      let err = 0;
+    await TradeRL.findOneAndUpdate({ _id: trade._id }, tradeDetails, { useFindAndModify: false })
+    return res.status(200).json({info: "success", message: "trade was edited"})
+  }
 
-      arr.forEach((item, i) => {
-        let itemName;
-        items.Slots.forEach((type) => type.Items.forEach((item1) => {
-          if (item1.ItemID === item.itemID) {
-            itemName = item1.Name;
-          }
-        }));
+  tradeDetails.userId = user._id
+  tradeDetails.createdAt = Date.now()
 
-        const paintId = paintIds[item.paint];
-        const certId = certIds[item.cert];
-
-
-        arr[i].itemName = itemName;
-        arr[i].url = `${item.itemID}.${paintId}.webp`;
-
-        if (!arr[i].itemName || paintId == undefined || certId == undefined) return err = 1;
-      });
-      return err;
-    }
-
-
-    const h = getItemNamesAndUrls(have);
-    const w = getItemNamesAndUrls(want);
-
-    if (h === 1 || w === 1) return next(new AppError('invalid'));
-
-    const tradeDetails = {
-      username: user.username,
-      reputation: {
-        ups: userRep.ups,
-        downs: userRep.downs,
-      },
-      steamAccount,
-      have,
-      want,
-      platform,
-      notes,
-      old,
-    };
-
-
-    if (edit) {
-      if (edit.length !== 24) return next(new AppError());
-
-      const trade = await TradeRL.findById(edit);
-
-      if (trade.userId != user._id) return next(new AppError());
-
-
-      await TradeRL.findOneAndUpdate({ _id: trade._id }, tradeDetails, { useFindAndModify: false });
-
-      return res.json({ status: 'success' });
-    }
-
-    tradeDetails.userId = user._id;
-    tradeDetails.createdAt = Date.now();
-
-
-    const newTrade = await new TradeRL(tradeDetails).save();
-    return res.json({ status: 'success' });
-});
+  await new TradeRL(tradeDetails).save()
+  return res.status(200).json({info: "success", message: "trade was created"})
+})
 
 exports.bumpTrade = catchAsync(async (req, res, next) => {
   const user = await User.findById(req.user.id).select('-__v')
