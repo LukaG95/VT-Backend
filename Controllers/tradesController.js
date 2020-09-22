@@ -42,8 +42,8 @@ const certIds = {
     Sweeper: 12,
     Tactician: 13,
     Turtle: 14,
-    Victor: 15,
-};
+    Victor: 15
+}
 
 
 exports.getTrades = catchAsync(async (req, res, next) => {
@@ -54,7 +54,7 @@ exports.getTrades = catchAsync(async (req, res, next) => {
     .paginate()
     .sortByLatest()
 
-  const trades = await advancedQuery.query.select({ old: 0 })
+  const trades = await advancedQuery.query.populate('user')
   const pages = Math.ceil((await TradeRL.countDocuments(advancedQuery.resetQuery().query)) / advancedQuery.limit)
 
   const editedTrades = trades.map((trade) => {
@@ -111,7 +111,7 @@ exports.createTrade = catchAsync(async (req, res, next) => {
     return res.status(200).json({info: "success", message: "trade was edited"})
   }
 
-  tradeDetails.userId = user._id
+  tradeDetails.user = user._id
   tradeDetails.createdAt = Date.now()
 
   await new TradeRL(tradeDetails).save()

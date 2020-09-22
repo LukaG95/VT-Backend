@@ -1,9 +1,13 @@
 const mongoose = require('mongoose')
 
 const tradesRLSchema = new mongoose.Schema({
-  userId: {
+  /*userId: {
     type: String,
     required: true
+  },*/
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User'
   },
 
   username: {
