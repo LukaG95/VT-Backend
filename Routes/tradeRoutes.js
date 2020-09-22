@@ -11,7 +11,7 @@ router.get('/getTrade/:id', tradesController.getTrade)
 
 router.post('/createTrade', authController.protect, repController.getRepMiddleware, tradesController.createTrade)
 
-router.put('/bumpTrade/:id', authController.protect, tradesController.bumpTrade)
+router.put('/bumpTrade', authController.protect, tradesController.bumpTrade)
 
 router.delete('/deleteTrade', authController.protect, tradesController.deleteTrade)
 router.delete('/deleteTrades', authController.protect, tradesController.deleteTrades)

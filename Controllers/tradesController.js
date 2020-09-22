@@ -120,7 +120,9 @@ exports.createTrade = catchAsync(async (req, res, next) => {
 
 exports.bumpTrade = async (req, res, next) => {
   const user = await User.findById(req.user.id).select('-__v')
-  const { tradeId } = req.params
+
+  const { tradeId } = req.query
+  if (!tradeId || tradeId.length !== 24) return res.status(400).json('Invalid tradeId')
 
   const trade = await TradeRL.findById(tradeId)
   if (trade.user.toHexString() !== user._id.toHexString()) return res.status(401).json({info: "unauthorized", message: "can't bump others trades"})
@@ -128,7 +130,7 @@ exports.bumpTrade = async (req, res, next) => {
   trade.createdAt = Date.now()
   await trade.save()
 
-  return res.json({ info: 'success' })
+  return res.status(200).json({ info: 'success', message: 'trade was bumped' })
 }
 
 exports.deleteTrade = async (req, res, next) => {

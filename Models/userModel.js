@@ -48,6 +48,18 @@ const userSchema = new mongoose.Schema({
     }
   },
 
+  reputation: {
+    ups: {
+      type: Number,
+      default: 0
+    },
+  
+    downs: {
+      type: Number,
+      default: 0
+    }
+  },
+
   isPremium: {
     type: Boolean,
     default: false

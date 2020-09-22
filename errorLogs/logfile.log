@@ -7425,3 +7425,124 @@
   level: 'info',
   timestamp: '2020-09-22T20:08:32.339Z'
 }
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-22T20:27:43.028Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-22T20:27:43.324Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-22T20:30:53.599Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-22T20:30:53.866Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-22T20:32:35.482Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-22T20:32:35.780Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-22T20:32:47.247Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-22T20:32:47.438Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-22T20:33:47.445Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-22T20:33:47.736Z'
+}
+{
+  metadata: TypeError: Cannot read property 'user' of null
+      at exports.bumpTrade (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\Controllers\tradesController.js:126:13)
+      at processTicksAndRejections (internal/process/task_queues.js:93:5),
+  level: 'error',
+  message: "Cannot read property 'user' of null",
+  timestamp: '2020-09-22T20:34:18.146Z'
+}
+{
+  metadata: TypeError: Cannot read property 'user' of null
+      at exports.bumpTrade (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\Controllers\tradesController.js:126:13)
+      at processTicksAndRejections (internal/process/task_queues.js:93:5),
+  level: 'error',
+  message: "Cannot read property 'user' of null",
+  timestamp: '2020-09-22T20:35:15.473Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-22T20:35:18.709Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-22T20:35:18.967Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-22T20:36:13.981Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-22T20:36:14.158Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-22T20:37:25.243Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-22T20:37:25.489Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-22T20:37:36.155Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-22T20:37:36.339Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-22T20:45:58.391Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-22T20:47:25.532Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-22T20:47:43.766Z'
+}
