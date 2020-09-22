@@ -118,39 +118,35 @@ exports.createTrade = catchAsync(async (req, res, next) => {
   return res.status(200).json({info: "success", message: "trade was created"})
 })
 
-exports.bumpTrade = catchAsync(async (req, res, next) => {
+exports.bumpTrade = async (req, res, next) => {
   const user = await User.findById(req.user.id).select('-__v')
-  const { id } = req.params;
+  const { tradeId } = req.params
 
-  const trade = await TradeRL.findById(id);
-  if (trade.userId != user._id) return next(new AppError());
+  const trade = await TradeRL.findById(tradeId)
+  if (trade.user.toHexString() !== user._id.toHexString()) return res.status(401).json({info: "unauthorized", message: "can't bump others trades"})
 
+  trade.createdAt = Date.now()
+  await trade.save()
 
-  trade.createdAt = Date.now();
-  await trade.save();
+  return res.json({ info: 'success' })
+}
 
-  return res.json({ status: 'success' });
-
-})
-
-
-exports.deleteTrade = catchAsync(async (req, res, next) => {
-  const tradeId = req.query.id;
-  const { all } = req.query;
+exports.deleteTrade = async (req, res, next) => {
   const user = await User.findById(req.user.id).select('-__v')
 
-  if (all === 'true') {
-    await TradeRL.deleteMany({ userId: user._id });
-    return res.json({ status: 'success' });
-  }
+  const { tradeId } = req.query
+  if (!tradeId || tradeId.length !== 24) return res.status(400).json('Invalid tradeId')
 
-  if (!tradeId || tradeId.length !== 24) return next(new AppError('invalid'));
+  const trade = await TradeRL.findById(tradeId)
+  if (trade.user.toHexString() !== user._id.toHexString()) return res.status(401).json({info: "unauthorized", message: "can't delete others trades"})
 
-  const trade = await TradeRL.findById(tradeId);
+  await trade.deleteOne()
+  return res.status(200).json({ info: 'success', message: 'trade was deleted' })
+}
 
-  if (trade.userId != user._id) return next(new AppError('invalid'));
+exports.deleteTrades = async (req, res, next) => {
+  const user = await User.findById(req.user.id).select('-__v')
 
-  await TradeRL.findOneAndDelete({ _id: tradeId });
-
-  return res.json({ status: 'success' });
-});
+  await TradeRL.deleteMany({ user: user._id })
+  return res.status(200).json({ info: 'success', message: 'deleted all trades' })
+}

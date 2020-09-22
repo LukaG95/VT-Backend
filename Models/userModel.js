@@ -48,6 +48,11 @@ const userSchema = new mongoose.Schema({
     }
   },
 
+  isPremium: {
+    type: Boolean,
+    default: false
+  },
+
   discord: {
     type: String,
     maxlength: 255,

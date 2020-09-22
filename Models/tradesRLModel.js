@@ -9,10 +9,15 @@ const tradesRLSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User'
   },
-
+/*
   username: {
     type: String,
     required: true
+  },
+
+  premium: {
+    type: Boolean,
+    default: false
   },
 
   reputation: {
@@ -20,13 +25,13 @@ const tradesRLSchema = new mongoose.Schema({
       type: Number,
       default: 0
     },
-
+  
     downs: {
       type: Number,
       default: 0
     }
   },
-
+*/
   have: [
     {
       _id: { select: false },
@@ -123,11 +128,6 @@ const tradesRLSchema = new mongoose.Schema({
   notes: {
     type: 'String',
     default: 'Test'
-  },
-
-  premium: {
-    type: Boolean,
-    default: false
   },
 
   __v: { type: Number, select: false }
