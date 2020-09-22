@@ -1,37 +1,11 @@
 const mongoose = require('mongoose')
 
 const tradesRLSchema = new mongoose.Schema({
-  /*userId: {
-    type: String,
-    required: true
-  },*/
   user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User'
   },
-/*
-  username: {
-    type: String,
-    required: true
-  },
 
-  premium: {
-    type: Boolean,
-    default: false
-  },
-
-  reputation: {
-    ups: {
-      type: Number,
-      default: 0
-    },
-  
-    downs: {
-      type: Number,
-      default: 0
-    }
-  },
-*/
   have: [
     {
       _id: { select: false },
