@@ -38,13 +38,17 @@ exports.getUserTrades = async (req, res, next) => {
 }
 
 exports.getTrade = async (req, res, next) => {
+  const user = await User.findById(req.user.id).select('-__v')
+
   const { tradeId } = req.params
   if (!tradeId || tradeId.length !== 24) return res.status(400).json({info: "tradeId", message: "Invalid tradeId"})
 
   const trade = await TradeRL.findById(tradeId)
   if (!trade) return res.status(404).json({info: "no trade", message: "trade with given id doesn't exist"})
 
-  return res.json({ info: 'success', trade })
+  const idMatch = user._id.toHexString() === trade.user._id.toHexString()
+
+  return res.json({ info: 'success', idMatch: idMatch, trade })
 }
 
 
