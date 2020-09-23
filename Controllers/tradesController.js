@@ -9,44 +9,7 @@ const { User } = require('../Models/userModel')
 
 const items = require('../misc/items.json')
 
-const paintIds = {
-    None: 0,
-    Crimson: 1,
-    Lime: 2,
-    Black: 3,
-    'Sky Blue': 4,
-    Cobalt: 5,
-    'Burnt Sienna': 6,
-    'Forest Green': 7,
-    Purple: 8,
-    Pink: 9,
-    Orange: 10,
-    Grey: 11,
-    'Titanium White': 12,
-    Saffron: 13,
-};
-
-const certIds = {
-    None: 0,
-    Playmaker: 1,
-    Acrobat: 2,
-    Aviator: 3,
-    Goalkeeper: 4,
-    Guardian: 5,
-    Juggler: 6,
-    Paragon: 7,
-    Scorer: 8,
-    'Show-Off': 9,
-    Sniper: 10,
-    Striker: 11,
-    Sweeper: 12,
-    Tactician: 13,
-    Turtle: 14,
-    Victor: 15
-}
-
-
-exports.getTrades = catchAsync(async (req, res, next) => {
+exports.getTrades = async (req, res, next) => {
   const { query } = req
 
   const advancedQuery = new AdvancedQueryRL(TradeRL.find(), query)
@@ -58,17 +21,16 @@ exports.getTrades = catchAsync(async (req, res, next) => {
   const pages = Math.ceil((await TradeRL.countDocuments(advancedQuery.resetQuery().query)) / advancedQuery.limit)
 
   return res.json({ trades: readableCreatedAt(trades), pages })
-})
-
+}
 
 exports.getUserTrades = async (req, res, next) => {
   const user = await User.findById(req.user.id).select('-__v')
 
   const { searchId } = req.query
-  if (!searchId || searchId.length !== 24) return res.status(400).json({info: "tradeID", message: "Invalid searchId"})
+  if (!searchId || searchId.length !== 24) return res.status(400).json({info: "searchId", message: "Invalid searchId"})
 
   const trades = await TradeRL.find({ user: searchId }).populate('user')
-  if (!trades) return res.status(404).json({info: "no trade", message: "trade with given id doesn't exist"})
+  if (!trades) return res.status(404).json({info: "no trades", message: "trades with given id don't exist"})
 
   const idMatch = user._id.toHexString() === searchId
 
@@ -76,11 +38,13 @@ exports.getUserTrades = async (req, res, next) => {
 }
 
 exports.getTrade = async (req, res, next) => {
-  const { id } = req.params
+  const { tradeId } = req.params
+  if (!tradeId || tradeId.length !== 24) return res.status(400).json({info: "tradeId", message: "Invalid tradeId"})
 
-  const trade = await TradeRL.findById(id, { platform: 1, old: 1, notes: 1 })
+  const trade = await TradeRL.findById(tradeId)
+  if (!trade) return res.status(404).json({info: "no trade", message: "trade with given id doesn't exist"})
 
-  return res.json({ status: 'success', trade })
+  return res.json({ info: 'success', trade })
 }
 
 

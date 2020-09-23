@@ -8,7 +8,7 @@ const router = express.Router()
 
 router.get('/getTrades', tradesController.getTrades)
 router.get('/getUserTrades', authController.protect, tradesController.getUserTrades)
-router.get('/getTrade/:id', tradesController.getTrade)
+router.get('/getTrade/:tradeId', tradesController.getTrade)
 
 router.post('/createTrade', authController.protect, repController.getRepMiddleware, tradesController.createTrade)
 router.post('/editTrade', authController.protect, repController.getRepMiddleware, tradesController.editTrade)
