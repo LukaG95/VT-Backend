@@ -99,6 +99,14 @@ const tradesRLSchema = new mongoose.Schema({
     default: Date.now()
   },
 
+  editedAt: {
+    type: Date
+  },
+
+  bumpedAt: {
+    type: Date
+  },
+
   notes: {
     type: 'String',
     default: 'Test'

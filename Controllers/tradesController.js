@@ -1,13 +1,13 @@
-const { promisify } = require('util');
-const TradeRL = require('../Models/tradesRLModel');
+const { promisify } = require('util')
+const TradeRL = require('../Models/tradesRLModel')
 
-const AdvancedQueryRL = require('../misc/AdvancedQueryRL');
-const catchAsync = require('../misc/catchAsync');
-const AppError = require('../misc/AppError');
-const dateToAgo = require('../misc/dateToAgo');
+const AdvancedQueryRL = require('../misc/AdvancedQueryRL')
+const catchAsync = require('../misc/catchAsync')
+const AppError = require('../misc/AppError')
+const {readableCreatedAt} = require('../misc/time')
 const { User } = require('../Models/userModel')
 
-const items = require('../misc/items.json');
+const items = require('../misc/items.json')
 
 const paintIds = {
     None: 0,
@@ -66,56 +66,76 @@ exports.getTrades = catchAsync(async (req, res, next) => {
   return res.json({ trades: editedTrades, pages })
 })
 
-exports.getTrade = catchAsync(async (req, res, next) => {
+
+exports.getUserTrades = async (req, res, next) => {
+  const user = await User.findById(req.user.id).select('-__v')
+
+  const { searchId } = req.query
+  if (!searchId || searchId.length !== 24) return res.status(400).json({info: "tradeID", message: "Invalid searchId"})
+
+  const trades = await TradeRL.find({ user: searchId }).populate('user')
+  if (!trades) return res.status(404).json({info: "no trade", message: "trade with given id doesn't exist"})
+
+  const idMatch = user._id.toHexString() === searchId
+
+  return res.status(200).json({ info: 'success', idMatch: idMatch, trades: readableCreatedAt(trades)})
+}
+
+exports.getTrade = async (req, res, next) => {
   const { id } = req.params
 
   const trade = await TradeRL.findById(id, { platform: 1, old: 1, notes: 1 })
 
   return res.json({ status: 'success', trade })
-});
+}
 
 
 exports.createTrade = catchAsync(async (req, res, next) => {
   const user = await User.findById(req.user.id).select('-__v')
-  
   const { have, want, platform, notes } = req.body
-  const { edit } = req.query
-  const userRep = req.rep
-
-  // const totalTrades = await TradeRL.find({ userId: user._id }).length
 
   if (have.length > 12 || want.length > 12) return res.status(400).json({info: ">items", message: "Too many items added"})
   if (have.length <= 0 || want.length <= 0) return res.status(400).json({info: "<items", message: "Not enough items added"})
 
   const tradeDetails = {
-    username: user.username,
-    reputation: {
-      ups: userRep.ups,
-      downs: userRep.downs
-    },
+    user: user._id,
     have: have,
     want: want,
     platform: platform,
-    notes: notes
+    notes: notes,
+    createdAt: Date.now()
   }
-
-  if (edit) {
-    if (edit.length !== 24) return res.status(400).json({info: "tradeID", message: "Invalid tradeID"})
-
-    const trade = await TradeRL.findById(edit)
-    if (!trade) return res.status(400).json({info: "no trade", message: "trade with given id doesn't exist"})
-
-    if (trade.userId != user._id) return res.status(404).json({info: "forbidden", message: "can't edit others trades"})
-
-    await TradeRL.findOneAndUpdate({ _id: trade._id }, tradeDetails, { useFindAndModify: false })
-    return res.status(200).json({info: "success", message: "trade was edited"})
-  }
-
-  tradeDetails.user = user._id
-  tradeDetails.createdAt = Date.now()
 
   await new TradeRL(tradeDetails).save()
   return res.status(200).json({info: "success", message: "trade was created"})
+})
+
+exports.editTrade = catchAsync(async (req, res, next) => {
+  const user = await User.findById(req.user.id).select('-__v')
+  
+  const { have, want, platform, notes } = req.body
+  const { tradeId } = req.query
+
+  const tradeDetails = {
+    have: have,
+    want: want,
+    platform: platform,
+    notes: notes,
+    editedAt: Date.now()
+  }
+
+  if (have.length > 12 || want.length > 12) return res.status(400).json({info: ">items", message: "Too many items added"})
+  if (have.length <= 0 || want.length <= 0) return res.status(400).json({info: "<items", message: "Not enough items added"})
+
+  if (!tradeId || tradeId.length !== 24) return res.status(400).json({info: "tradeID", message: "Invalid tradeID"})
+
+  const trade = await TradeRL.findById(tradeId)
+  if (!trade) return res.status(404).json({info: "no trade", message: "trade with given id doesn't exist"})
+
+  if (trade.user !== user._id) return res.status(401).json({info: "forbidden", message: "can't edit others trades"})
+
+  await TradeRL.findOneAndUpdate({ _id: trade._id }, tradeDetails, { useFindAndModify: false })
+  return res.status(200).json({info: "success", message: "trade was edited"})
 })
 
 exports.bumpTrade = async (req, res, next) => {

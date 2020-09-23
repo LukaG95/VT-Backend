@@ -7546,3 +7546,184 @@
   level: 'info',
   timestamp: '2020-09-22T20:47:43.766Z'
 }
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-23T15:37:19.026Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-23T15:37:19.386Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-23T16:05:24.958Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-23T16:05:25.254Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-23T16:09:14.944Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-23T16:09:15.218Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-23T16:09:38.431Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-23T16:09:38.618Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-23T16:12:50.957Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-23T16:12:51.300Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-23T16:14:40.284Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-23T16:14:40.606Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-23T16:15:00.225Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-23T16:15:00.427Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-23T16:22:45.397Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-23T16:22:45.716Z'
+}
+{
+  metadata: ReferenceError: dateToAgo is not defined
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\misc\dateToAgo.js:26:5
+      at Array.map (<anonymous>)
+      at exports.readableCreatedAt (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\misc\dateToAgo.js:24:31)
+      at exports.getUserTrades (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\Controllers\tradesController.js:76:29)
+      at processTicksAndRejections (internal/process/task_queues.js:93:5),
+  level: 'error',
+  message: 'dateToAgo is not defined',
+  timestamp: '2020-09-23T16:22:47.680Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-23T16:23:56.764Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-23T16:23:57.037Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-23T16:27:27.634Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-23T16:27:27.915Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-23T16:29:48.005Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-23T16:29:48.297Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-23T16:30:08.001Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-23T16:30:08.186Z'
+}
+{
+  metadata: CastError: Cast to ObjectId failed for value "5f6a64128b8079001760ef9" at path "user" for model "Trades"
+      at model.Query.exec (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:4368:21)
+      at model.Query.Query.then (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:4460:15)
+      at processTicksAndRejections (internal/process/task_queues.js:93:5) {
+    messageFormat: undefined,
+    stringValue: '"5f6a64128b8079001760ef9"',
+    kind: 'ObjectId',
+    value: '5f6a64128b8079001760ef9',
+    path: 'user',
+    reason: Error: Argument passed in must be a single String of 12 bytes or a string of 24 hex characters
+        at new ObjectID (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\bson\lib\bson\objectid.js:59:11)
+        at castObjectId (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\cast\objectid.js:25:12)
+        at ObjectId.cast (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schema\objectid.js:267:12)
+        at ObjectId.SchemaType.applySetters (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1070:12)
+        at ObjectId.SchemaType._castForQuery (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1498:15)
+        at ObjectId.SchemaType.castForQuery (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1488:15)
+        at ObjectId.SchemaType.castForQueryWrapper (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1467:15)
+        at cast (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\cast.js:331:32)
+        at model.Query.Query.cast (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:4769:12)
+        at model.Query.Query._castConditions (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:1870:10)
+        at model.Query.<anonymous> (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:1897:8)
+        at model.Query._wrappedThunk [as _find] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\helpers\query\wrapThunk.js:16:8)
+        at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\kareem\index.js:369:33
+        at processTicksAndRejections (internal/process/task_queues.js:75:11)
+  },
+  level: 'error',
+  message: 'Cast to ObjectId failed for value "5f6a64128b8079001760ef9" at path "user" for model "Trades"',
+  timestamp: '2020-09-23T16:30:13.200Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-23T16:31:26.281Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-23T16:31:26.600Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-23T16:32:21.138Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-23T16:32:21.336Z'
+}

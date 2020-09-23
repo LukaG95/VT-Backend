@@ -1483,3 +1483,441 @@
   ],
   timestamp: '2020-09-21T20:54:11.081Z'
 }
+{
+  error: C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\misc\dateToAgo.js:33
+  
+  
+  
+  SyntaxError: Unexpected end of input
+      at Module._compile (internal/modules/cjs/loader.js:895:18)
+      at Object.Module._extensions..js (internal/modules/cjs/loader.js:995:10)
+      at Module.load (internal/modules/cjs/loader.js:815:32)
+      at Function.Module._load (internal/modules/cjs/loader.js:727:14)
+      at Module.require (internal/modules/cjs/loader.js:852:19)
+      at require (internal/modules/cjs/helpers.js:74:18)
+      at Object.<anonymous> (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\Controllers\tradesController.js:7:29)
+      at Module._compile (internal/modules/cjs/loader.js:959:30)
+      at Object.Module._extensions..js (internal/modules/cjs/loader.js:995:10)
+      at Module.load (internal/modules/cjs/loader.js:815:32)
+      at Function.Module._load (internal/modules/cjs/loader.js:727:14)
+      at Module.require (internal/modules/cjs/loader.js:852:19)
+      at require (internal/modules/cjs/helpers.js:74:18)
+      at Object.<anonymous> (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\Routes\tradeRoutes.js:4:26)
+      at Module._compile (internal/modules/cjs/loader.js:959:30)
+      at Object.Module._extensions..js (internal/modules/cjs/loader.js:995:10),
+  level: 'error',
+  message: 'uncaughtException: Unexpected end of input\n' +
+    'C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\misc\\dateToAgo.js:33\n' +
+    '\n' +
+    '\n' +
+    '\n' +
+    'SyntaxError: Unexpected end of input\n' +
+    '    at Module._compile (internal/modules/cjs/loader.js:895:18)\n' +
+    '    at Object.Module._extensions..js (internal/modules/cjs/loader.js:995:10)\n' +
+    '    at Module.load (internal/modules/cjs/loader.js:815:32)\n' +
+    '    at Function.Module._load (internal/modules/cjs/loader.js:727:14)\n' +
+    '    at Module.require (internal/modules/cjs/loader.js:852:19)\n' +
+    '    at require (internal/modules/cjs/helpers.js:74:18)\n' +
+    '    at Object.<anonymous> (C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\Controllers\\tradesController.js:7:29)\n' +
+    '    at Module._compile (internal/modules/cjs/loader.js:959:30)\n' +
+    '    at Object.Module._extensions..js (internal/modules/cjs/loader.js:995:10)\n' +
+    '    at Module.load (internal/modules/cjs/loader.js:815:32)\n' +
+    '    at Function.Module._load (internal/modules/cjs/loader.js:727:14)\n' +
+    '    at Module.require (internal/modules/cjs/loader.js:852:19)\n' +
+    '    at require (internal/modules/cjs/helpers.js:74:18)\n' +
+    '    at Object.<anonymous> (C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\Routes\\tradeRoutes.js:4:26)\n' +
+    '    at Module._compile (internal/modules/cjs/loader.js:959:30)\n' +
+    '    at Object.Module._extensions..js (internal/modules/cjs/loader.js:995:10)',
+  stack: 'C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\misc\\dateToAgo.js:33\n' +
+    '\n' +
+    '\n' +
+    '\n' +
+    'SyntaxError: Unexpected end of input\n' +
+    '    at Module._compile (internal/modules/cjs/loader.js:895:18)\n' +
+    '    at Object.Module._extensions..js (internal/modules/cjs/loader.js:995:10)\n' +
+    '    at Module.load (internal/modules/cjs/loader.js:815:32)\n' +
+    '    at Function.Module._load (internal/modules/cjs/loader.js:727:14)\n' +
+    '    at Module.require (internal/modules/cjs/loader.js:852:19)\n' +
+    '    at require (internal/modules/cjs/helpers.js:74:18)\n' +
+    '    at Object.<anonymous> (C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\Controllers\\tradesController.js:7:29)\n' +
+    '    at Module._compile (internal/modules/cjs/loader.js:959:30)\n' +
+    '    at Object.Module._extensions..js (internal/modules/cjs/loader.js:995:10)\n' +
+    '    at Module.load (internal/modules/cjs/loader.js:815:32)\n' +
+    '    at Function.Module._load (internal/modules/cjs/loader.js:727:14)\n' +
+    '    at Module.require (internal/modules/cjs/loader.js:852:19)\n' +
+    '    at require (internal/modules/cjs/helpers.js:74:18)\n' +
+    '    at Object.<anonymous> (C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\Routes\\tradeRoutes.js:4:26)\n' +
+    '    at Module._compile (internal/modules/cjs/loader.js:959:30)\n' +
+    '    at Object.Module._extensions..js (internal/modules/cjs/loader.js:995:10)',
+  exception: true,
+  date: 'Wed Sep 23 2020 18:20:36 GMT+0200 (GMT+02:00)',
+  process: {
+    pid: 10996,
+    uid: null,
+    gid: null,
+    cwd: 'C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop',
+    execPath: 'C:\\Program Files\\nodejs\\node.exe',
+    version: 'v12.13.1',
+    argv: [
+      'C:\\Program Files\\nodejs\\node.exe',
+      'C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\index.js'
+    ],
+    memoryUsage: {
+      rss: 60346368,
+      heapTotal: 54046720,
+      heapUsed: 27920208,
+      external: 19877994
+    }
+  },
+  os: { loadavg: [ 0, 0, 0 ], uptime: 767636 },
+  trace: [
+    {
+      column: 18,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module._compile',
+      line: 895,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 10,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module._extensions..js',
+      line: 995,
+      method: '.js',
+      native: false
+    },
+    {
+      column: 32,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module.load',
+      line: 815,
+      method: 'load',
+      native: false
+    },
+    {
+      column: 14,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module._load',
+      line: 727,
+      method: '_load',
+      native: false
+    },
+    {
+      column: 19,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module.require',
+      line: 852,
+      method: 'require',
+      native: false
+    },
+    {
+      column: 18,
+      file: 'internal/modules/cjs/helpers.js',
+      function: 'require',
+      line: 74,
+      method: null,
+      native: false
+    },
+    {
+      column: 29,
+      file: 'C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\Controllers\\tradesController.js',
+      function: null,
+      line: 7,
+      method: null,
+      native: false
+    },
+    {
+      column: 30,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module._compile',
+      line: 959,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 10,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module._extensions..js',
+      line: 995,
+      method: '.js',
+      native: false
+    },
+    {
+      column: 32,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module.load',
+      line: 815,
+      method: 'load',
+      native: false
+    },
+    {
+      column: 14,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module._load',
+      line: 727,
+      method: '_load',
+      native: false
+    },
+    {
+      column: 19,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module.require',
+      line: 852,
+      method: 'require',
+      native: false
+    },
+    {
+      column: 18,
+      file: 'internal/modules/cjs/helpers.js',
+      function: 'require',
+      line: 74,
+      method: null,
+      native: false
+    },
+    {
+      column: 26,
+      file: 'C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\Routes\\tradeRoutes.js',
+      function: null,
+      line: 4,
+      method: null,
+      native: false
+    },
+    {
+      column: 30,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module._compile',
+      line: 959,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 10,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module._extensions..js',
+      line: 995,
+      method: '.js',
+      native: false
+    }
+  ],
+  timestamp: '2020-09-23T16:20:36.061Z'
+}
+{
+  error: C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\misc\dateToAgo.js:33
+  
+  
+  
+  SyntaxError: Unexpected end of input
+      at Module._compile (internal/modules/cjs/loader.js:895:18)
+      at Object.Module._extensions..js (internal/modules/cjs/loader.js:995:10)
+      at Module.load (internal/modules/cjs/loader.js:815:32)
+      at Function.Module._load (internal/modules/cjs/loader.js:727:14)
+      at Module.require (internal/modules/cjs/loader.js:852:19)
+      at require (internal/modules/cjs/helpers.js:74:18)
+      at Object.<anonymous> (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\Controllers\tradesController.js:7:29)
+      at Module._compile (internal/modules/cjs/loader.js:959:30)
+      at Object.Module._extensions..js (internal/modules/cjs/loader.js:995:10)
+      at Module.load (internal/modules/cjs/loader.js:815:32)
+      at Function.Module._load (internal/modules/cjs/loader.js:727:14)
+      at Module.require (internal/modules/cjs/loader.js:852:19)
+      at require (internal/modules/cjs/helpers.js:74:18)
+      at Object.<anonymous> (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\Routes\tradeRoutes.js:4:26)
+      at Module._compile (internal/modules/cjs/loader.js:959:30)
+      at Object.Module._extensions..js (internal/modules/cjs/loader.js:995:10),
+  level: 'error',
+  message: 'uncaughtException: Unexpected end of input\n' +
+    'C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\misc\\dateToAgo.js:33\n' +
+    '\n' +
+    '\n' +
+    '\n' +
+    'SyntaxError: Unexpected end of input\n' +
+    '    at Module._compile (internal/modules/cjs/loader.js:895:18)\n' +
+    '    at Object.Module._extensions..js (internal/modules/cjs/loader.js:995:10)\n' +
+    '    at Module.load (internal/modules/cjs/loader.js:815:32)\n' +
+    '    at Function.Module._load (internal/modules/cjs/loader.js:727:14)\n' +
+    '    at Module.require (internal/modules/cjs/loader.js:852:19)\n' +
+    '    at require (internal/modules/cjs/helpers.js:74:18)\n' +
+    '    at Object.<anonymous> (C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\Controllers\\tradesController.js:7:29)\n' +
+    '    at Module._compile (internal/modules/cjs/loader.js:959:30)\n' +
+    '    at Object.Module._extensions..js (internal/modules/cjs/loader.js:995:10)\n' +
+    '    at Module.load (internal/modules/cjs/loader.js:815:32)\n' +
+    '    at Function.Module._load (internal/modules/cjs/loader.js:727:14)\n' +
+    '    at Module.require (internal/modules/cjs/loader.js:852:19)\n' +
+    '    at require (internal/modules/cjs/helpers.js:74:18)\n' +
+    '    at Object.<anonymous> (C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\Routes\\tradeRoutes.js:4:26)\n' +
+    '    at Module._compile (internal/modules/cjs/loader.js:959:30)\n' +
+    '    at Object.Module._extensions..js (internal/modules/cjs/loader.js:995:10)',
+  stack: 'C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\misc\\dateToAgo.js:33\n' +
+    '\n' +
+    '\n' +
+    '\n' +
+    'SyntaxError: Unexpected end of input\n' +
+    '    at Module._compile (internal/modules/cjs/loader.js:895:18)\n' +
+    '    at Object.Module._extensions..js (internal/modules/cjs/loader.js:995:10)\n' +
+    '    at Module.load (internal/modules/cjs/loader.js:815:32)\n' +
+    '    at Function.Module._load (internal/modules/cjs/loader.js:727:14)\n' +
+    '    at Module.require (internal/modules/cjs/loader.js:852:19)\n' +
+    '    at require (internal/modules/cjs/helpers.js:74:18)\n' +
+    '    at Object.<anonymous> (C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\Controllers\\tradesController.js:7:29)\n' +
+    '    at Module._compile (internal/modules/cjs/loader.js:959:30)\n' +
+    '    at Object.Module._extensions..js (internal/modules/cjs/loader.js:995:10)\n' +
+    '    at Module.load (internal/modules/cjs/loader.js:815:32)\n' +
+    '    at Function.Module._load (internal/modules/cjs/loader.js:727:14)\n' +
+    '    at Module.require (internal/modules/cjs/loader.js:852:19)\n' +
+    '    at require (internal/modules/cjs/helpers.js:74:18)\n' +
+    '    at Object.<anonymous> (C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\Routes\\tradeRoutes.js:4:26)\n' +
+    '    at Module._compile (internal/modules/cjs/loader.js:959:30)\n' +
+    '    at Object.Module._extensions..js (internal/modules/cjs/loader.js:995:10)',
+  exception: true,
+  date: 'Wed Sep 23 2020 18:21:18 GMT+0200 (GMT+02:00)',
+  process: {
+    pid: 14620,
+    uid: null,
+    gid: null,
+    cwd: 'C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop',
+    execPath: 'C:\\Program Files\\nodejs\\node.exe',
+    version: 'v12.13.1',
+    argv: [
+      'C:\\Program Files\\nodejs\\node.exe',
+      'C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\index.js'
+    ],
+    memoryUsage: {
+      rss: 60784640,
+      heapTotal: 54046720,
+      heapUsed: 28076480,
+      external: 19877994
+    }
+  },
+  os: { loadavg: [ 0, 0, 0 ], uptime: 767679 },
+  trace: [
+    {
+      column: 18,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module._compile',
+      line: 895,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 10,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module._extensions..js',
+      line: 995,
+      method: '.js',
+      native: false
+    },
+    {
+      column: 32,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module.load',
+      line: 815,
+      method: 'load',
+      native: false
+    },
+    {
+      column: 14,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module._load',
+      line: 727,
+      method: '_load',
+      native: false
+    },
+    {
+      column: 19,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module.require',
+      line: 852,
+      method: 'require',
+      native: false
+    },
+    {
+      column: 18,
+      file: 'internal/modules/cjs/helpers.js',
+      function: 'require',
+      line: 74,
+      method: null,
+      native: false
+    },
+    {
+      column: 29,
+      file: 'C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\Controllers\\tradesController.js',
+      function: null,
+      line: 7,
+      method: null,
+      native: false
+    },
+    {
+      column: 30,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module._compile',
+      line: 959,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 10,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module._extensions..js',
+      line: 995,
+      method: '.js',
+      native: false
+    },
+    {
+      column: 32,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module.load',
+      line: 815,
+      method: 'load',
+      native: false
+    },
+    {
+      column: 14,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module._load',
+      line: 727,
+      method: '_load',
+      native: false
+    },
+    {
+      column: 19,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module.require',
+      line: 852,
+      method: 'require',
+      native: false
+    },
+    {
+      column: 18,
+      file: 'internal/modules/cjs/helpers.js',
+      function: 'require',
+      line: 74,
+      method: null,
+      native: false
+    },
+    {
+      column: 26,
+      file: 'C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\Routes\\tradeRoutes.js',
+      function: null,
+      line: 4,
+      method: null,
+      native: false
+    },
+    {
+      column: 30,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module._compile',
+      line: 959,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 10,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module._extensions..js',
+      line: 995,
+      method: '.js',
+      native: false
+    }
+  ],
+  timestamp: '2020-09-23T16:21:18.514Z'
+}

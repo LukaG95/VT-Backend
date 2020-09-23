@@ -7,9 +7,11 @@ const repController = require('../Controllers/repController')
 const router = express.Router()
 
 router.get('/getTrades', tradesController.getTrades)
+router.get('/getUserTrades', authController.protect, tradesController.getUserTrades)
 router.get('/getTrade/:id', tradesController.getTrade)
 
 router.post('/createTrade', authController.protect, repController.getRepMiddleware, tradesController.createTrade)
+router.post('/editTrade', authController.protect, repController.getRepMiddleware, tradesController.editTrade)
 
 router.put('/bumpTrade', authController.protect, tradesController.bumpTrade)
 
