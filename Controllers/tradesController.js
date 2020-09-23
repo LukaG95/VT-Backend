@@ -57,13 +57,7 @@ exports.getTrades = catchAsync(async (req, res, next) => {
   const trades = await advancedQuery.query.populate('user')
   const pages = Math.ceil((await TradeRL.countDocuments(advancedQuery.resetQuery().query)) / advancedQuery.limit)
 
-  const editedTrades = trades.map((trade) => {
-    const editedTrade = trade.toObject()
-    editedTrade.createdAt = dateToAgo(editedTrade.createdAt)
-    return editedTrade
-  })
-
-  return res.json({ trades: editedTrades, pages })
+  return res.json({ trades: readableCreatedAt(trades), pages })
 })
 
 
