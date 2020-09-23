@@ -94,7 +94,7 @@ exports.editTrade = catchAsync(async (req, res, next) => {
   const trade = await TradeRL.findById(tradeId)
   if (!trade) return res.status(404).json({info: "no trade", message: "trade with given id doesn't exist"})
 
-  if (trade.user !== user._id) return res.status(401).json({info: "forbidden", message: "can't edit others trades"})
+  if (trade.user.toHexString() !== user._id.toHexString()) return res.status(401).json({info: "forbidden", message: "can't edit others trades"})
 
   await TradeRL.findOneAndUpdate({ _id: trade._id }, tradeDetails, { useFindAndModify: false })
   return res.status(200).json({info: "success", message: "trade was edited"})
