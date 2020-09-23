@@ -32,7 +32,7 @@ exports.getUserTrades = async (req, res, next) => {
   const trades = await TradeRL.find({ user: searchId }).populate('user')
   if (!trades) return res.status(404).json({info: "no trades", message: "trades with given id don't exist"})
 
-  const idMatch = user._id.toHexString() === searchId
+  const idMatch = user._id.toHexString() === trades[0].user._id.toHexString()
 
   return res.status(200).json({ info: 'success', idMatch: idMatch, trades: readableCreatedAt(trades)})
 }
