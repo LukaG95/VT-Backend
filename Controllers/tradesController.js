@@ -56,6 +56,9 @@ exports.createTrade = catchAsync(async (req, res, next) => {
   const user = await User.findById(req.user.id).select('-__v')
   const { have, want, platform, notes } = req.body
 
+  const trades = await TradeRL.find({ user: req.user.id })
+  if (trades.length >= 15) return res.status(400).json({info: "trade limit", message: "You reached the limit of 15 trades"}) 
+
   if (have.length > 12 || want.length > 12) return res.status(400).json({info: ">items", message: "Too many items added"})
   if (have.length <= 0 || want.length <= 0) return res.status(400).json({info: "<items", message: "Not enough items added"})
 
@@ -109,7 +112,7 @@ exports.bumpTrade = async (req, res, next) => {
   const trade = await TradeRL.findById(tradeId)
   if (trade.user.toHexString() !== user._id.toHexString()) return res.status(401).json({info: "unauthorized", message: "can't bump others trades"})
 
-  trade.createdAt = Date.now()
+  trade.bumpedAt = Date.now()
   await trade.save()
 
   return res.status(200).json({ info: 'success', message: 'trade was bumped' })
