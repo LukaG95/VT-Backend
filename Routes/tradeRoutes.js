@@ -10,8 +10,8 @@ router.get('/getTrades', tradesController.getTrades)
 router.get('/getUserTrades', authController.protect, tradesController.getUserTrades)
 router.get('/getTrade/:tradeId', authController.protect, tradesController.getTrade)
 
-router.post('/createTrade', authController.protect, repController.getRepMiddleware, tradesController.createTrade)
-router.post('/editTrade', authController.protect, repController.getRepMiddleware, tradesController.editTrade)
+router.post('/createTrade', authController.protect, tradesController.createTrade)
+router.post('/editTrade', authController.protect, tradesController.editTrade)
 
 router.put('/bumpTrade', authController.protect, tradesController.bumpTrade)
 

@@ -3,7 +3,8 @@ const mongoose = require('mongoose')
 const tradesRLSchema = new mongoose.Schema({
   user: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'User'
+    ref: 'User',
+    required: true
   },
 
   have: [
@@ -90,8 +91,8 @@ const tradesRLSchema = new mongoose.Schema({
 
   platform: {
     type: String,
-    required: true,
-    enum: ['Steam', 'XBOX', 'PS4', 'SWITCH']
+    enum: ['Steam', 'XBOX', 'PS4', 'SWITCH'],
+    required: true
   },
 
   createdAt: {
@@ -109,7 +110,7 @@ const tradesRLSchema = new mongoose.Schema({
 
   notes: {
     type: 'String',
-    default: 'Test'
+    default: ""
   },
 
   __v: { type: Number, select: false }

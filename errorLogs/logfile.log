@@ -7999,3 +7999,1633 @@
   level: 'info',
   timestamp: '2020-09-24T20:00:36.344Z'
 }
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-25T22:16:41.952Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-25T22:16:42.244Z'
+}
+{
+  metadata: Error: Reputation validation failed: reps.0.createdBy: Path `createdBy` is required.
+      at ValidationError.inspect (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\error\validation.js:47:26)
+      at formatValue (internal/util/inspect.js:563:31)
+      at formatProperty (internal/util/inspect.js:1406:11)
+      at formatRaw (internal/util/inspect.js:785:9)
+      at formatValue (internal/util/inspect.js:591:10)
+      at inspect (internal/util/inspect.js:221:10)
+      at Format.transform (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\logform\pretty-print.js:27:19)
+      at Format.transform (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\logform\combine.js:20:24)
+      at DerivedLogger._transform (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\lib\winston\logger.js:305:29)
+      at DerivedLogger.Transform._read (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\node_modules\readable-stream\lib\_stream_transform.js:177:10)
+      at DerivedLogger.Transform._write (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\node_modules\readable-stream\lib\_stream_transform.js:164:83)
+      at doWrite (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\node_modules\readable-stream\lib\_stream_writable.js:409:139)
+      at writeOrBuffer (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\node_modules\readable-stream\lib\_stream_writable.js:398:5)
+      at DerivedLogger.Writable.write (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\node_modules\readable-stream\lib\_stream_writable.js:307:11)
+      at DerivedLogger.log (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\lib\winston\logger.js:244:14)
+      at DerivedLogger.<computed> [as error] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\lib\winston\create-logger.js:95:19) {
+    errors: {
+      'reps.0.createdBy': ValidatorError: Path `createdBy` is required.
+          at validate (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1217:13)
+          at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1200:7
+          at Array.forEach (<anonymous>)
+          at ObjectId.SchemaType.doValidate (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1145:14)
+          at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\document.js:2408:18
+          at processTicksAndRejections (internal/process/task_queues.js:75:11) {
+        properties: {
+          validator: [Function],
+          message: 'Path `createdBy` is required.',
+          type: 'required',
+          path: 'createdBy',
+          value: undefined
+        },
+        kind: 'required',
+        path: 'createdBy',
+        value: undefined,
+        reason: undefined,
+        [Symbol(mongoose:validatorError)]: true
+      }
+    },
+    _message: 'Reputation validation failed'
+  },
+  level: 'error',
+  message: 'Reputation validation failed: reps.0.createdBy: Path `createdBy` is required.',
+  timestamp: '2020-09-25T22:23:27.608Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-25T22:24:09.917Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-25T22:24:10.197Z'
+}
+{
+  metadata: Error: Reputation validation failed: reps.0.createdBy: Path `createdBy` is required.
+      at ValidationError.inspect (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\error\validation.js:47:26)
+      at formatValue (internal/util/inspect.js:563:31)
+      at formatProperty (internal/util/inspect.js:1406:11)
+      at formatRaw (internal/util/inspect.js:785:9)
+      at formatValue (internal/util/inspect.js:591:10)
+      at inspect (internal/util/inspect.js:221:10)
+      at Format.transform (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\logform\pretty-print.js:27:19)
+      at Format.transform (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\logform\combine.js:20:24)
+      at DerivedLogger._transform (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\lib\winston\logger.js:305:29)
+      at DerivedLogger.Transform._read (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\node_modules\readable-stream\lib\_stream_transform.js:177:10)
+      at DerivedLogger.Transform._write (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\node_modules\readable-stream\lib\_stream_transform.js:164:83)
+      at doWrite (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\node_modules\readable-stream\lib\_stream_writable.js:409:139)
+      at writeOrBuffer (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\node_modules\readable-stream\lib\_stream_writable.js:398:5)
+      at DerivedLogger.Writable.write (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\node_modules\readable-stream\lib\_stream_writable.js:307:11)
+      at DerivedLogger.log (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\lib\winston\logger.js:244:14)
+      at DerivedLogger.<computed> [as error] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\lib\winston\create-logger.js:95:19) {
+    errors: {
+      'reps.0.createdBy': ValidatorError: Path `createdBy` is required.
+          at validate (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1217:13)
+          at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1200:7
+          at Array.forEach (<anonymous>)
+          at ObjectId.SchemaType.doValidate (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1145:14)
+          at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\document.js:2408:18
+          at processTicksAndRejections (internal/process/task_queues.js:75:11) {
+        properties: {
+          validator: [Function],
+          message: 'Path `createdBy` is required.',
+          type: 'required',
+          path: 'createdBy',
+          value: undefined
+        },
+        kind: 'required',
+        path: 'createdBy',
+        value: undefined,
+        reason: undefined,
+        [Symbol(mongoose:validatorError)]: true
+      }
+    },
+    _message: 'Reputation validation failed'
+  },
+  level: 'error',
+  message: 'Reputation validation failed: reps.0.createdBy: Path `createdBy` is required.',
+  timestamp: '2020-09-25T22:24:12.514Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-25T22:24:22.211Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-25T22:24:22.405Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-25T22:25:23.773Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-25T22:25:24.098Z'
+}
+{
+  metadata: Error: Reputation validation failed: reps.0.createdBy: Path `createdBy` is required.
+      at ValidationError.inspect (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\error\validation.js:47:26)
+      at formatValue (internal/util/inspect.js:563:31)
+      at formatProperty (internal/util/inspect.js:1406:11)
+      at formatRaw (internal/util/inspect.js:785:9)
+      at formatValue (internal/util/inspect.js:591:10)
+      at inspect (internal/util/inspect.js:221:10)
+      at Format.transform (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\logform\pretty-print.js:27:19)
+      at Format.transform (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\logform\combine.js:20:24)
+      at DerivedLogger._transform (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\lib\winston\logger.js:305:29)
+      at DerivedLogger.Transform._read (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\node_modules\readable-stream\lib\_stream_transform.js:177:10)
+      at DerivedLogger.Transform._write (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\node_modules\readable-stream\lib\_stream_transform.js:164:83)
+      at doWrite (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\node_modules\readable-stream\lib\_stream_writable.js:409:139)
+      at writeOrBuffer (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\node_modules\readable-stream\lib\_stream_writable.js:398:5)
+      at DerivedLogger.Writable.write (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\node_modules\readable-stream\lib\_stream_writable.js:307:11)
+      at DerivedLogger.log (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\lib\winston\logger.js:244:14)
+      at DerivedLogger.<computed> [as error] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\lib\winston\create-logger.js:95:19) {
+    errors: {
+      'reps.0.createdBy': ValidatorError: Path `createdBy` is required.
+          at validate (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1217:13)
+          at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1200:7
+          at Array.forEach (<anonymous>)
+          at ObjectId.SchemaType.doValidate (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1145:14)
+          at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\document.js:2408:18
+          at processTicksAndRejections (internal/process/task_queues.js:75:11) {
+        properties: {
+          validator: [Function],
+          message: 'Path `createdBy` is required.',
+          type: 'required',
+          path: 'createdBy',
+          value: undefined
+        },
+        kind: 'required',
+        path: 'createdBy',
+        value: undefined,
+        reason: undefined,
+        [Symbol(mongoose:validatorError)]: true
+      }
+    },
+    _message: 'Reputation validation failed'
+  },
+  level: 'error',
+  message: 'Reputation validation failed: reps.0.createdBy: Path `createdBy` is required.',
+  timestamp: '2020-09-25T22:25:25.634Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-25T22:26:04.803Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-25T22:26:04.993Z'
+}
+{
+  metadata: Error: Reputation validation failed: reps.0.createdBy: Path `createdBy` is required.
+      at ValidationError.inspect (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\error\validation.js:47:26)
+      at formatValue (internal/util/inspect.js:563:31)
+      at formatProperty (internal/util/inspect.js:1406:11)
+      at formatRaw (internal/util/inspect.js:785:9)
+      at formatValue (internal/util/inspect.js:591:10)
+      at inspect (internal/util/inspect.js:221:10)
+      at Format.transform (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\logform\pretty-print.js:27:19)
+      at Format.transform (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\logform\combine.js:20:24)
+      at DerivedLogger._transform (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\lib\winston\logger.js:305:29)
+      at DerivedLogger.Transform._read (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\node_modules\readable-stream\lib\_stream_transform.js:177:10)
+      at DerivedLogger.Transform._write (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\node_modules\readable-stream\lib\_stream_transform.js:164:83)
+      at doWrite (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\node_modules\readable-stream\lib\_stream_writable.js:409:139)
+      at writeOrBuffer (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\node_modules\readable-stream\lib\_stream_writable.js:398:5)
+      at DerivedLogger.Writable.write (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\node_modules\readable-stream\lib\_stream_writable.js:307:11)
+      at DerivedLogger.log (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\lib\winston\logger.js:244:14)
+      at DerivedLogger.<computed> [as error] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\lib\winston\create-logger.js:95:19) {
+    errors: {
+      'reps.0.createdBy': ValidatorError: Path `createdBy` is required.
+          at validate (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1217:13)
+          at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1200:7
+          at Array.forEach (<anonymous>)
+          at ObjectId.SchemaType.doValidate (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1145:14)
+          at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\document.js:2408:18
+          at processTicksAndRejections (internal/process/task_queues.js:75:11) {
+        properties: {
+          validator: [Function],
+          message: 'Path `createdBy` is required.',
+          type: 'required',
+          path: 'createdBy',
+          value: undefined
+        },
+        kind: 'required',
+        path: 'createdBy',
+        value: undefined,
+        reason: undefined,
+        [Symbol(mongoose:validatorError)]: true
+      }
+    },
+    _message: 'Reputation validation failed'
+  },
+  level: 'error',
+  message: 'Reputation validation failed: reps.0.createdBy: Path `createdBy` is required.',
+  timestamp: '2020-09-25T22:26:06.594Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-25T22:26:31.241Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-25T22:26:31.523Z'
+}
+{
+  metadata: Error: Reputation validation failed: reps.0.createdBy: Path `createdBy` is required.
+      at ValidationError.inspect (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\error\validation.js:47:26)
+      at formatValue (internal/util/inspect.js:563:31)
+      at formatProperty (internal/util/inspect.js:1406:11)
+      at formatRaw (internal/util/inspect.js:785:9)
+      at formatValue (internal/util/inspect.js:591:10)
+      at inspect (internal/util/inspect.js:221:10)
+      at Format.transform (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\logform\pretty-print.js:27:19)
+      at Format.transform (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\logform\combine.js:20:24)
+      at DerivedLogger._transform (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\lib\winston\logger.js:305:29)
+      at DerivedLogger.Transform._read (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\node_modules\readable-stream\lib\_stream_transform.js:177:10)
+      at DerivedLogger.Transform._write (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\node_modules\readable-stream\lib\_stream_transform.js:164:83)
+      at doWrite (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\node_modules\readable-stream\lib\_stream_writable.js:409:139)
+      at writeOrBuffer (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\node_modules\readable-stream\lib\_stream_writable.js:398:5)
+      at DerivedLogger.Writable.write (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\node_modules\readable-stream\lib\_stream_writable.js:307:11)
+      at DerivedLogger.log (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\lib\winston\logger.js:244:14)
+      at DerivedLogger.<computed> [as error] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\lib\winston\create-logger.js:95:19) {
+    errors: {
+      'reps.0.createdBy': ValidatorError: Path `createdBy` is required.
+          at validate (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1217:13)
+          at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1200:7
+          at Array.forEach (<anonymous>)
+          at ObjectId.SchemaType.doValidate (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1145:14)
+          at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\document.js:2408:18
+          at processTicksAndRejections (internal/process/task_queues.js:75:11) {
+        properties: {
+          validator: [Function],
+          message: 'Path `createdBy` is required.',
+          type: 'required',
+          path: 'createdBy',
+          value: undefined
+        },
+        kind: 'required',
+        path: 'createdBy',
+        value: undefined,
+        reason: undefined,
+        [Symbol(mongoose:validatorError)]: true
+      }
+    },
+    _message: 'Reputation validation failed'
+  },
+  level: 'error',
+  message: 'Reputation validation failed: reps.0.createdBy: Path `createdBy` is required.',
+  timestamp: '2020-09-25T22:26:33.528Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-25T22:28:27.322Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-25T22:28:27.646Z'
+}
+{
+  metadata: Error: Reputation validation failed: reps.0.createdBy: Path `createdBy` is required.
+      at ValidationError.inspect (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\error\validation.js:47:26)
+      at formatValue (internal/util/inspect.js:563:31)
+      at formatProperty (internal/util/inspect.js:1406:11)
+      at formatRaw (internal/util/inspect.js:785:9)
+      at formatValue (internal/util/inspect.js:591:10)
+      at inspect (internal/util/inspect.js:221:10)
+      at Format.transform (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\logform\pretty-print.js:27:19)
+      at Format.transform (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\logform\combine.js:20:24)
+      at DerivedLogger._transform (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\lib\winston\logger.js:305:29)
+      at DerivedLogger.Transform._read (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\node_modules\readable-stream\lib\_stream_transform.js:177:10)
+      at DerivedLogger.Transform._write (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\node_modules\readable-stream\lib\_stream_transform.js:164:83)
+      at doWrite (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\node_modules\readable-stream\lib\_stream_writable.js:409:139)
+      at writeOrBuffer (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\node_modules\readable-stream\lib\_stream_writable.js:398:5)
+      at DerivedLogger.Writable.write (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\node_modules\readable-stream\lib\_stream_writable.js:307:11)
+      at DerivedLogger.log (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\lib\winston\logger.js:244:14)
+      at DerivedLogger.<computed> [as error] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\lib\winston\create-logger.js:95:19) {
+    errors: {
+      'reps.0.createdBy': ValidatorError: Path `createdBy` is required.
+          at validate (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1217:13)
+          at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1200:7
+          at Array.forEach (<anonymous>)
+          at ObjectId.SchemaType.doValidate (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1145:14)
+          at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\document.js:2408:18
+          at processTicksAndRejections (internal/process/task_queues.js:75:11) {
+        properties: {
+          validator: [Function],
+          message: 'Path `createdBy` is required.',
+          type: 'required',
+          path: 'createdBy',
+          value: undefined
+        },
+        kind: 'required',
+        path: 'createdBy',
+        value: undefined,
+        reason: undefined,
+        [Symbol(mongoose:validatorError)]: true
+      }
+    },
+    _message: 'Reputation validation failed'
+  },
+  level: 'error',
+  message: 'Reputation validation failed: reps.0.createdBy: Path `createdBy` is required.',
+  timestamp: '2020-09-25T22:28:30.089Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-25T22:28:40.150Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-25T22:28:40.372Z'
+}
+{
+  metadata: Error: Reputation validation failed: reps.0.createdBy: Path `createdBy` is required.
+      at ValidationError.inspect (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\error\validation.js:47:26)
+      at formatValue (internal/util/inspect.js:563:31)
+      at formatProperty (internal/util/inspect.js:1406:11)
+      at formatRaw (internal/util/inspect.js:785:9)
+      at formatValue (internal/util/inspect.js:591:10)
+      at inspect (internal/util/inspect.js:221:10)
+      at Format.transform (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\logform\pretty-print.js:27:19)
+      at Format.transform (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\logform\combine.js:20:24)
+      at DerivedLogger._transform (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\lib\winston\logger.js:305:29)
+      at DerivedLogger.Transform._read (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\node_modules\readable-stream\lib\_stream_transform.js:177:10)
+      at DerivedLogger.Transform._write (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\node_modules\readable-stream\lib\_stream_transform.js:164:83)
+      at doWrite (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\node_modules\readable-stream\lib\_stream_writable.js:409:139)
+      at writeOrBuffer (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\node_modules\readable-stream\lib\_stream_writable.js:398:5)
+      at DerivedLogger.Writable.write (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\node_modules\readable-stream\lib\_stream_writable.js:307:11)
+      at DerivedLogger.log (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\lib\winston\logger.js:244:14)
+      at DerivedLogger.<computed> [as error] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\lib\winston\create-logger.js:95:19) {
+    errors: {
+      'reps.0.createdBy': ValidatorError: Path `createdBy` is required.
+          at validate (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1217:13)
+          at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1200:7
+          at Array.forEach (<anonymous>)
+          at ObjectId.SchemaType.doValidate (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1145:14)
+          at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\document.js:2408:18
+          at processTicksAndRejections (internal/process/task_queues.js:75:11) {
+        properties: {
+          validator: [Function],
+          message: 'Path `createdBy` is required.',
+          type: 'required',
+          path: 'createdBy',
+          value: undefined
+        },
+        kind: 'required',
+        path: 'createdBy',
+        value: undefined,
+        reason: undefined,
+        [Symbol(mongoose:validatorError)]: true
+      }
+    },
+    _message: 'Reputation validation failed'
+  },
+  level: 'error',
+  message: 'Reputation validation failed: reps.0.createdBy: Path `createdBy` is required.',
+  timestamp: '2020-09-25T22:28:41.611Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-25T22:28:54.115Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-25T22:28:54.308Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-25T22:44:59.940Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-25T22:45:00.346Z'
+}
+{
+  metadata: CastError: Cast to ObjectId failed for value "test" at path "_id" for model "User"
+      at model.Query.exec (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:4368:21)
+      at model.Query.Query.then (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:4460:15)
+      at processTicksAndRejections (internal/process/task_queues.js:93:5) {
+    messageFormat: undefined,
+    stringValue: '"test"',
+    kind: 'ObjectId',
+    value: 'test',
+    path: '_id',
+    reason: Error: Argument passed in must be a single String of 12 bytes or a string of 24 hex characters
+        at new ObjectID (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\bson\lib\bson\objectid.js:59:11)
+        at castObjectId (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\cast\objectid.js:25:12)
+        at ObjectId.cast (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schema\objectid.js:267:12)
+        at ObjectId.SchemaType.applySetters (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1070:12)
+        at ObjectId.SchemaType._castForQuery (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1498:15)
+        at ObjectId.SchemaType.castForQuery (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1488:15)
+        at ObjectId.SchemaType.castForQueryWrapper (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1467:15)
+        at cast (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\cast.js:331:32)
+        at model.Query.Query.cast (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:4769:12)
+        at model.Query.Query._castConditions (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:1870:10)
+        at model.Query.<anonymous> (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:2127:8)
+        at model.Query._wrappedThunk [as _findOne] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\helpers\query\wrapThunk.js:16:8)
+        at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\kareem\index.js:369:33
+        at processTicksAndRejections (internal/process/task_queues.js:75:11)
+  },
+  level: 'error',
+  message: 'Cast to ObjectId failed for value "test" at path "_id" for model "User"',
+  timestamp: '2020-09-25T22:45:29.927Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-25T22:46:13.523Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-25T22:46:13.783Z'
+}
+{
+  metadata: CastError: Cast to ObjectId failed for value "test" at path "_id" for model "User"
+      at model.Query.exec (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:4368:21)
+      at model.Query.Query.then (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:4460:15)
+      at processTicksAndRejections (internal/process/task_queues.js:93:5) {
+    messageFormat: undefined,
+    stringValue: '"test"',
+    kind: 'ObjectId',
+    value: 'test',
+    path: '_id',
+    reason: Error: Argument passed in must be a single String of 12 bytes or a string of 24 hex characters
+        at new ObjectID (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\bson\lib\bson\objectid.js:59:11)
+        at castObjectId (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\cast\objectid.js:25:12)
+        at ObjectId.cast (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schema\objectid.js:267:12)
+        at ObjectId.SchemaType.applySetters (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1070:12)
+        at ObjectId.SchemaType._castForQuery (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1498:15)
+        at ObjectId.SchemaType.castForQuery (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1488:15)
+        at ObjectId.SchemaType.castForQueryWrapper (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1467:15)
+        at cast (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\cast.js:331:32)
+        at model.Query.Query.cast (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:4769:12)
+        at model.Query.Query._castConditions (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:1870:10)
+        at model.Query.<anonymous> (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:2127:8)
+        at model.Query._wrappedThunk [as _findOne] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\helpers\query\wrapThunk.js:16:8)
+        at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\kareem\index.js:369:33
+        at processTicksAndRejections (internal/process/task_queues.js:75:11)
+  },
+  level: 'error',
+  message: 'Cast to ObjectId failed for value "test" at path "_id" for model "User"',
+  timestamp: '2020-09-25T22:46:17.233Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-25T22:47:29.606Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-25T22:47:29.888Z'
+}
+{
+  metadata: CastError: Cast to ObjectId failed for value "test" at path "_id" for model "User"
+      at model.Query.exec (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:4368:21)
+      at model.Query.Query.then (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:4460:15)
+      at processTicksAndRejections (internal/process/task_queues.js:93:5) {
+    messageFormat: undefined,
+    stringValue: '"test"',
+    kind: 'ObjectId',
+    value: 'test',
+    path: '_id',
+    reason: Error: Argument passed in must be a single String of 12 bytes or a string of 24 hex characters
+        at new ObjectID (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\bson\lib\bson\objectid.js:59:11)
+        at castObjectId (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\cast\objectid.js:25:12)
+        at ObjectId.cast (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schema\objectid.js:267:12)
+        at ObjectId.SchemaType.applySetters (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1070:12)
+        at ObjectId.SchemaType._castForQuery (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1498:15)
+        at ObjectId.SchemaType.castForQuery (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1488:15)
+        at ObjectId.SchemaType.castForQueryWrapper (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1467:15)
+        at cast (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\cast.js:331:32)
+        at model.Query.Query.cast (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:4769:12)
+        at model.Query.Query._castConditions (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:1870:10)
+        at model.Query.<anonymous> (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:2127:8)
+        at model.Query._wrappedThunk [as _findOne] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\helpers\query\wrapThunk.js:16:8)
+        at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\kareem\index.js:369:33
+        at processTicksAndRejections (internal/process/task_queues.js:75:11)
+  },
+  level: 'error',
+  message: 'Cast to ObjectId failed for value "test" at path "_id" for model "User"',
+  timestamp: '2020-09-25T22:47:33.273Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-25T22:48:02.071Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-25T22:48:02.269Z'
+}
+{
+  metadata: CastError: Cast to ObjectId failed for value "test" at path "_id" for model "User"
+      at model.Query.exec (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:4368:21)
+      at model.Query.Query.then (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:4460:15)
+      at processTicksAndRejections (internal/process/task_queues.js:93:5) {
+    messageFormat: undefined,
+    stringValue: '"test"',
+    kind: 'ObjectId',
+    value: 'test',
+    path: '_id',
+    reason: Error: Argument passed in must be a single String of 12 bytes or a string of 24 hex characters
+        at new ObjectID (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\bson\lib\bson\objectid.js:59:11)
+        at castObjectId (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\cast\objectid.js:25:12)
+        at ObjectId.cast (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schema\objectid.js:267:12)
+        at ObjectId.SchemaType.applySetters (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1070:12)
+        at ObjectId.SchemaType._castForQuery (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1498:15)
+        at ObjectId.SchemaType.castForQuery (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1488:15)
+        at ObjectId.SchemaType.castForQueryWrapper (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1467:15)
+        at cast (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\cast.js:331:32)
+        at model.Query.Query.cast (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:4769:12)
+        at model.Query.Query._castConditions (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:1870:10)
+        at model.Query.<anonymous> (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:2127:8)
+        at model.Query._wrappedThunk [as _findOne] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\helpers\query\wrapThunk.js:16:8)
+        at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\kareem\index.js:369:33
+        at processTicksAndRejections (internal/process/task_queues.js:75:11)
+  },
+  level: 'error',
+  message: 'Cast to ObjectId failed for value "test" at path "_id" for model "User"',
+  timestamp: '2020-09-25T22:48:03.605Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-25T22:48:28.765Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-25T22:48:28.966Z'
+}
+{
+  metadata: CastError: Cast to ObjectId failed for value "tt" at path "_id" for model "User"
+      at model.Query.exec (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:4368:21)
+      at model.Query.Query.then (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:4460:15)
+      at processTicksAndRejections (internal/process/task_queues.js:93:5) {
+    messageFormat: undefined,
+    stringValue: '"tt"',
+    kind: 'ObjectId',
+    value: 'tt',
+    path: '_id',
+    reason: Error: Argument passed in must be a single String of 12 bytes or a string of 24 hex characters
+        at new ObjectID (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\bson\lib\bson\objectid.js:59:11)
+        at castObjectId (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\cast\objectid.js:25:12)
+        at ObjectId.cast (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schema\objectid.js:267:12)
+        at ObjectId.SchemaType.applySetters (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1070:12)
+        at ObjectId.SchemaType._castForQuery (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1498:15)
+        at ObjectId.SchemaType.castForQuery (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1488:15)
+        at ObjectId.SchemaType.castForQueryWrapper (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1467:15)
+        at cast (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\cast.js:331:32)
+        at model.Query.Query.cast (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:4769:12)
+        at model.Query.Query._castConditions (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:1870:10)
+        at model.Query.<anonymous> (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:2127:8)
+        at model.Query._wrappedThunk [as _findOne] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\helpers\query\wrapThunk.js:16:8)
+        at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\kareem\index.js:369:33
+        at processTicksAndRejections (internal/process/task_queues.js:75:11)
+  },
+  level: 'error',
+  message: 'Cast to ObjectId failed for value "tt" at path "_id" for model "User"',
+  timestamp: '2020-09-25T22:48:30.998Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-25T22:48:55.486Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-25T22:48:55.756Z'
+}
+{
+  metadata: CastError: Cast to ObjectId failed for value "tt" at path "_id" for model "User"
+      at model.Query.exec (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:4368:21)
+      at model.Query.Query.then (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:4460:15)
+      at processTicksAndRejections (internal/process/task_queues.js:93:5) {
+    messageFormat: undefined,
+    stringValue: '"tt"',
+    kind: 'ObjectId',
+    value: 'tt',
+    path: '_id',
+    reason: Error: Argument passed in must be a single String of 12 bytes or a string of 24 hex characters
+        at new ObjectID (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\bson\lib\bson\objectid.js:59:11)
+        at castObjectId (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\cast\objectid.js:25:12)
+        at ObjectId.cast (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schema\objectid.js:267:12)
+        at ObjectId.SchemaType.applySetters (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1070:12)
+        at ObjectId.SchemaType._castForQuery (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1498:15)
+        at ObjectId.SchemaType.castForQuery (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1488:15)
+        at ObjectId.SchemaType.castForQueryWrapper (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1467:15)
+        at cast (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\cast.js:331:32)
+        at model.Query.Query.cast (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:4769:12)
+        at model.Query.Query._castConditions (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:1870:10)
+        at model.Query.<anonymous> (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:2127:8)
+        at model.Query._wrappedThunk [as _findOne] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\helpers\query\wrapThunk.js:16:8)
+        at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\kareem\index.js:369:33
+        at processTicksAndRejections (internal/process/task_queues.js:75:11)
+  },
+  level: 'error',
+  message: 'Cast to ObjectId failed for value "tt" at path "_id" for model "User"',
+  timestamp: '2020-09-25T22:48:56.443Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-25T22:49:37.309Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-25T22:49:37.542Z'
+}
+{
+  metadata: CastError: Cast to ObjectId failed for value "tt" at path "_id" for model "User"
+      at model.Query.exec (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:4368:21)
+      at model.Query.Query.then (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:4460:15)
+      at processTicksAndRejections (internal/process/task_queues.js:93:5) {
+    messageFormat: undefined,
+    stringValue: '"tt"',
+    kind: 'ObjectId',
+    value: 'tt',
+    path: '_id',
+    reason: Error: Argument passed in must be a single String of 12 bytes or a string of 24 hex characters
+        at new ObjectID (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\bson\lib\bson\objectid.js:59:11)
+        at castObjectId (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\cast\objectid.js:25:12)
+        at ObjectId.cast (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schema\objectid.js:267:12)
+        at ObjectId.SchemaType.applySetters (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1070:12)
+        at ObjectId.SchemaType._castForQuery (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1498:15)
+        at ObjectId.SchemaType.castForQuery (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1488:15)
+        at ObjectId.SchemaType.castForQueryWrapper (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1467:15)
+        at cast (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\cast.js:331:32)
+        at model.Query.Query.cast (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:4769:12)
+        at model.Query.Query._castConditions (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:1870:10)
+        at model.Query.<anonymous> (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:2127:8)
+        at model.Query._wrappedThunk [as _findOne] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\helpers\query\wrapThunk.js:16:8)
+        at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\kareem\index.js:369:33
+        at processTicksAndRejections (internal/process/task_queues.js:75:11)
+  },
+  level: 'error',
+  message: 'Cast to ObjectId failed for value "tt" at path "_id" for model "User"',
+  timestamp: '2020-09-25T22:49:38.624Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-25T22:50:22.627Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-25T22:50:22.897Z'
+}
+{
+  metadata: CastError: Cast to ObjectId failed for value "tt" at path "_id" for model "User"
+      at model.Query.exec (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:4368:21)
+      at model.Query.Query.then (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:4460:15)
+      at processTicksAndRejections (internal/process/task_queues.js:93:5) {
+    messageFormat: undefined,
+    stringValue: '"tt"',
+    kind: 'ObjectId',
+    value: 'tt',
+    path: '_id',
+    reason: Error: Argument passed in must be a single String of 12 bytes or a string of 24 hex characters
+        at new ObjectID (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\bson\lib\bson\objectid.js:59:11)
+        at castObjectId (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\cast\objectid.js:25:12)
+        at ObjectId.cast (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schema\objectid.js:267:12)
+        at ObjectId.SchemaType.applySetters (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1070:12)
+        at ObjectId.SchemaType._castForQuery (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1498:15)
+        at ObjectId.SchemaType.castForQuery (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1488:15)
+        at ObjectId.SchemaType.castForQueryWrapper (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1467:15)
+        at cast (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\cast.js:331:32)
+        at model.Query.Query.cast (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:4769:12)
+        at model.Query.Query._castConditions (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:1870:10)
+        at model.Query.<anonymous> (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:2127:8)
+        at model.Query._wrappedThunk [as _findOne] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\helpers\query\wrapThunk.js:16:8)
+        at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\kareem\index.js:369:33
+        at processTicksAndRejections (internal/process/task_queues.js:75:11)
+  },
+  level: 'error',
+  message: 'Cast to ObjectId failed for value "tt" at path "_id" for model "User"',
+  timestamp: '2020-09-25T22:50:29.716Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-25T22:51:31.698Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-25T22:51:31.963Z'
+}
+{
+  metadata: CastError: Cast to ObjectId failed for value "tt" at path "_id" for model "User"
+      at model.Query.exec (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:4368:21)
+      at model.Query.Query.then (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:4460:15)
+      at processTicksAndRejections (internal/process/task_queues.js:93:5) {
+    messageFormat: undefined,
+    stringValue: '"tt"',
+    kind: 'ObjectId',
+    value: 'tt',
+    path: '_id',
+    reason: Error: Argument passed in must be a single String of 12 bytes or a string of 24 hex characters
+        at new ObjectID (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\bson\lib\bson\objectid.js:59:11)
+        at castObjectId (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\cast\objectid.js:25:12)
+        at ObjectId.cast (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schema\objectid.js:267:12)
+        at ObjectId.SchemaType.applySetters (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1070:12)
+        at ObjectId.SchemaType._castForQuery (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1498:15)
+        at ObjectId.SchemaType.castForQuery (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1488:15)
+        at ObjectId.SchemaType.castForQueryWrapper (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1467:15)
+        at cast (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\cast.js:331:32)
+        at model.Query.Query.cast (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:4769:12)
+        at model.Query.Query._castConditions (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:1870:10)
+        at model.Query.<anonymous> (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:2127:8)
+        at model.Query._wrappedThunk [as _findOne] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\helpers\query\wrapThunk.js:16:8)
+        at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\kareem\index.js:369:33
+        at processTicksAndRejections (internal/process/task_queues.js:75:11)
+  },
+  level: 'error',
+  message: 'Cast to ObjectId failed for value "tt" at path "_id" for model "User"',
+  timestamp: '2020-09-25T22:51:33.443Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-25T22:53:07.182Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-25T22:53:07.448Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-25T22:53:25.305Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-25T22:53:25.489Z'
+}
+{
+  metadata: CastError: Cast to ObjectId failed for value "tt" at path "_id" for model "User"
+      at model.Query.exec (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:4368:21)
+      at model.Query.Query.then (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:4460:15)
+      at processTicksAndRejections (internal/process/task_queues.js:93:5) {
+    messageFormat: undefined,
+    stringValue: '"tt"',
+    kind: 'ObjectId',
+    value: 'tt',
+    path: '_id',
+    reason: Error: Argument passed in must be a single String of 12 bytes or a string of 24 hex characters
+        at new ObjectID (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\bson\lib\bson\objectid.js:59:11)
+        at castObjectId (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\cast\objectid.js:25:12)
+        at ObjectId.cast (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schema\objectid.js:267:12)
+        at ObjectId.SchemaType.applySetters (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1070:12)
+        at ObjectId.SchemaType._castForQuery (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1498:15)
+        at ObjectId.SchemaType.castForQuery (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1488:15)
+        at ObjectId.SchemaType.castForQueryWrapper (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1467:15)
+        at cast (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\cast.js:331:32)
+        at model.Query.Query.cast (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:4769:12)
+        at model.Query.Query._castConditions (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:1870:10)
+        at model.Query.<anonymous> (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:2127:8)
+        at model.Query._wrappedThunk [as _findOne] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\helpers\query\wrapThunk.js:16:8)
+        at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\kareem\index.js:369:33
+        at processTicksAndRejections (internal/process/task_queues.js:75:11)
+  },
+  level: 'error',
+  message: 'Cast to ObjectId failed for value "tt" at path "_id" for model "User"',
+  timestamp: '2020-09-25T22:53:27.198Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-25T22:54:25.718Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-25T22:54:26.010Z'
+}
+{
+  metadata: CastError: Cast to ObjectId failed for value "tt" at path "_id" for model "User"
+      at model.Query.exec (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:4368:21)
+      at model.Query.Query.then (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:4460:15)
+      at processTicksAndRejections (internal/process/task_queues.js:93:5) {
+    messageFormat: undefined,
+    stringValue: '"tt"',
+    kind: 'ObjectId',
+    value: 'tt',
+    path: '_id',
+    reason: Error: Argument passed in must be a single String of 12 bytes or a string of 24 hex characters
+        at new ObjectID (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\bson\lib\bson\objectid.js:59:11)
+        at castObjectId (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\cast\objectid.js:25:12)
+        at ObjectId.cast (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schema\objectid.js:267:12)
+        at ObjectId.SchemaType.applySetters (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1070:12)
+        at ObjectId.SchemaType._castForQuery (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1498:15)
+        at ObjectId.SchemaType.castForQuery (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1488:15)
+        at ObjectId.SchemaType.castForQueryWrapper (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1467:15)
+        at cast (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\cast.js:331:32)
+        at model.Query.Query.cast (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:4769:12)
+        at model.Query.Query._castConditions (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:1870:10)
+        at model.Query.<anonymous> (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:2127:8)
+        at model.Query._wrappedThunk [as _findOne] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\helpers\query\wrapThunk.js:16:8)
+        at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\kareem\index.js:369:33
+        at processTicksAndRejections (internal/process/task_queues.js:75:11)
+  },
+  level: 'error',
+  message: 'Cast to ObjectId failed for value "tt" at path "_id" for model "User"',
+  timestamp: '2020-09-25T22:54:27.200Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-25T22:55:04.148Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-25T22:55:04.349Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-25T22:56:21.488Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-25T22:56:21.887Z'
+}
+{
+  metadata: CastError: Cast to ObjectId failed for value "getRepTest" at path "_id" for model "User"
+      at model.Query.exec (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:4368:21)
+      at model.Query.Query.then (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:4460:15)
+      at processTicksAndRejections (internal/process/task_queues.js:93:5) {
+    messageFormat: undefined,
+    stringValue: '"getRepTest"',
+    kind: 'ObjectId',
+    value: 'getRepTest',
+    path: '_id',
+    reason: Error: Argument passed in must be a single String of 12 bytes or a string of 24 hex characters
+        at new ObjectID (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\bson\lib\bson\objectid.js:59:11)
+        at castObjectId (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\cast\objectid.js:25:12)
+        at ObjectId.cast (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schema\objectid.js:267:12)
+        at ObjectId.SchemaType.applySetters (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1070:12)
+        at ObjectId.SchemaType._castForQuery (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1498:15)
+        at ObjectId.SchemaType.castForQuery (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1488:15)
+        at ObjectId.SchemaType.castForQueryWrapper (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1467:15)
+        at cast (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\cast.js:331:32)
+        at model.Query.Query.cast (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:4769:12)
+        at model.Query.Query._castConditions (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:1870:10)
+        at model.Query.<anonymous> (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:2127:8)
+        at model.Query._wrappedThunk [as _findOne] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\helpers\query\wrapThunk.js:16:8)
+        at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\kareem\index.js:369:33
+        at processTicksAndRejections (internal/process/task_queues.js:75:11)
+  },
+  level: 'error',
+  message: 'Cast to ObjectId failed for value "getRepTest" at path "_id" for model "User"',
+  timestamp: '2020-09-25T22:56:22.808Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-25T23:00:37.505Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-25T23:00:37.804Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-25T23:01:49.229Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-25T23:01:49.672Z'
+}
+{
+  metadata: CastError: Cast to ObjectId failed for value "a" at path "_id" for model "User"
+      at model.Query.exec (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:4368:21)
+      at model.Query.Query.then (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:4460:15)
+      at processTicksAndRejections (internal/process/task_queues.js:93:5) {
+    messageFormat: undefined,
+    stringValue: '"a"',
+    kind: 'ObjectId',
+    value: 'a',
+    path: '_id',
+    reason: Error: Argument passed in must be a single String of 12 bytes or a string of 24 hex characters
+        at new ObjectID (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\bson\lib\bson\objectid.js:59:11)
+        at castObjectId (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\cast\objectid.js:25:12)
+        at ObjectId.cast (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schema\objectid.js:267:12)
+        at ObjectId.SchemaType.applySetters (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1070:12)
+        at ObjectId.SchemaType._castForQuery (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1498:15)
+        at ObjectId.SchemaType.castForQuery (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1488:15)
+        at ObjectId.SchemaType.castForQueryWrapper (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1467:15)
+        at cast (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\cast.js:331:32)
+        at model.Query.Query.cast (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:4769:12)
+        at model.Query.Query._castConditions (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:1870:10)
+        at model.Query.<anonymous> (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:2127:8)
+        at model.Query._wrappedThunk [as _findOne] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\helpers\query\wrapThunk.js:16:8)
+        at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\kareem\index.js:369:33
+        at processTicksAndRejections (internal/process/task_queues.js:75:11)
+  },
+  level: 'error',
+  message: 'Cast to ObjectId failed for value "a" at path "_id" for model "User"',
+  timestamp: '2020-09-25T23:01:52.459Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-25T23:02:20.381Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-25T23:02:20.596Z'
+}
+{
+  metadata: CastError: Cast to ObjectId failed for value "a" at path "_id" for model "User"
+      at model.Query.exec (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:4368:21)
+      at model.Query.Query.then (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:4460:15)
+      at processTicksAndRejections (internal/process/task_queues.js:93:5) {
+    messageFormat: undefined,
+    stringValue: '"a"',
+    kind: 'ObjectId',
+    value: 'a',
+    path: '_id',
+    reason: Error: Argument passed in must be a single String of 12 bytes or a string of 24 hex characters
+        at new ObjectID (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\bson\lib\bson\objectid.js:59:11)
+        at castObjectId (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\cast\objectid.js:25:12)
+        at ObjectId.cast (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schema\objectid.js:267:12)
+        at ObjectId.SchemaType.applySetters (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1070:12)
+        at ObjectId.SchemaType._castForQuery (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1498:15)
+        at ObjectId.SchemaType.castForQuery (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1488:15)
+        at ObjectId.SchemaType.castForQueryWrapper (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1467:15)
+        at cast (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\cast.js:331:32)
+        at model.Query.Query.cast (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:4769:12)
+        at model.Query.Query._castConditions (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:1870:10)
+        at model.Query.<anonymous> (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:2127:8)
+        at model.Query._wrappedThunk [as _findOne] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\helpers\query\wrapThunk.js:16:8)
+        at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\kareem\index.js:369:33
+        at processTicksAndRejections (internal/process/task_queues.js:75:11)
+  },
+  level: 'error',
+  message: 'Cast to ObjectId failed for value "a" at path "_id" for model "User"',
+  timestamp: '2020-09-25T23:02:23.496Z'
+}
+{
+  metadata: CastError: Cast to ObjectId failed for value "a" at path "_id" for model "User"
+      at model.Query.exec (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:4368:21)
+      at model.Query.Query.then (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:4460:15)
+      at processTicksAndRejections (internal/process/task_queues.js:93:5) {
+    messageFormat: undefined,
+    stringValue: '"a"',
+    kind: 'ObjectId',
+    value: 'a',
+    path: '_id',
+    reason: Error: Argument passed in must be a single String of 12 bytes or a string of 24 hex characters
+        at new ObjectID (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\bson\lib\bson\objectid.js:59:11)
+        at castObjectId (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\cast\objectid.js:25:12)
+        at ObjectId.cast (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schema\objectid.js:267:12)
+        at ObjectId.SchemaType.applySetters (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1070:12)
+        at ObjectId.SchemaType._castForQuery (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1498:15)
+        at ObjectId.SchemaType.castForQuery (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1488:15)
+        at ObjectId.SchemaType.castForQueryWrapper (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1467:15)
+        at cast (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\cast.js:331:32)
+        at model.Query.Query.cast (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:4769:12)
+        at model.Query.Query._castConditions (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:1870:10)
+        at model.Query.<anonymous> (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:2127:8)
+        at model.Query._wrappedThunk [as _findOne] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\helpers\query\wrapThunk.js:16:8)
+        at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\kareem\index.js:369:33
+        at processTicksAndRejections (internal/process/task_queues.js:75:11)
+  },
+  level: 'error',
+  message: 'Cast to ObjectId failed for value "a" at path "_id" for model "User"',
+  timestamp: '2020-09-25T23:02:39.556Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-25T23:03:01.380Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-25T23:03:01.666Z'
+}
+{
+  metadata: CastError: Cast to ObjectId failed for value "testt" at path "_id" for model "User"
+      at model.Query.exec (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:4368:21)
+      at model.Query.Query.then (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:4460:15)
+      at processTicksAndRejections (internal/process/task_queues.js:93:5) {
+    messageFormat: undefined,
+    stringValue: '"testt"',
+    kind: 'ObjectId',
+    value: 'testt',
+    path: '_id',
+    reason: Error: Argument passed in must be a single String of 12 bytes or a string of 24 hex characters
+        at new ObjectID (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\bson\lib\bson\objectid.js:59:11)
+        at castObjectId (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\cast\objectid.js:25:12)
+        at ObjectId.cast (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schema\objectid.js:267:12)
+        at ObjectId.SchemaType.applySetters (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1070:12)
+        at ObjectId.SchemaType._castForQuery (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1498:15)
+        at ObjectId.SchemaType.castForQuery (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1488:15)
+        at ObjectId.SchemaType.castForQueryWrapper (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1467:15)
+        at cast (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\cast.js:331:32)
+        at model.Query.Query.cast (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:4769:12)
+        at model.Query.Query._castConditions (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:1870:10)
+        at model.Query.<anonymous> (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:2127:8)
+        at model.Query._wrappedThunk [as _findOne] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\helpers\query\wrapThunk.js:16:8)
+        at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\kareem\index.js:369:33
+        at processTicksAndRejections (internal/process/task_queues.js:75:11)
+  },
+  level: 'error',
+  message: 'Cast to ObjectId failed for value "testt" at path "_id" for model "User"',
+  timestamp: '2020-09-25T23:03:03.511Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-25T23:03:28.568Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-25T23:03:28.760Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-25T23:03:54.946Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-25T23:03:55.219Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-25T23:04:25.179Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-25T23:04:25.445Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-25T23:04:36.900Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-25T23:04:37.093Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-25T23:04:55.287Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-25T23:04:55.479Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-25T23:05:03.128Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-25T23:05:03.315Z'
+}
+{
+  metadata: CastError: Cast to ObjectId failed for value "a" at path "_id" for model "User"
+      at model.Query.exec (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:4368:21)
+      at model.Query.Query.then (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:4460:15)
+      at processTicksAndRejections (internal/process/task_queues.js:93:5) {
+    messageFormat: undefined,
+    stringValue: '"a"',
+    kind: 'ObjectId',
+    value: 'a',
+    path: '_id',
+    reason: Error: Argument passed in must be a single String of 12 bytes or a string of 24 hex characters
+        at new ObjectID (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\bson\lib\bson\objectid.js:59:11)
+        at castObjectId (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\cast\objectid.js:25:12)
+        at ObjectId.cast (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schema\objectid.js:267:12)
+        at ObjectId.SchemaType.applySetters (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1070:12)
+        at ObjectId.SchemaType._castForQuery (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1498:15)
+        at ObjectId.SchemaType.castForQuery (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1488:15)
+        at ObjectId.SchemaType.castForQueryWrapper (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1467:15)
+        at cast (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\cast.js:331:32)
+        at model.Query.Query.cast (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:4769:12)
+        at model.Query.Query._castConditions (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:1870:10)
+        at model.Query.<anonymous> (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:2127:8)
+        at model.Query._wrappedThunk [as _findOne] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\helpers\query\wrapThunk.js:16:8)
+        at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\kareem\index.js:369:33
+        at processTicksAndRejections (internal/process/task_queues.js:75:11)
+  },
+  level: 'error',
+  message: 'Cast to ObjectId failed for value "a" at path "_id" for model "User"',
+  timestamp: '2020-09-25T23:05:04.263Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-25T23:05:57.582Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-25T23:05:57.931Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-25T23:09:28.741Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-25T23:09:29.102Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-28T17:56:29.620Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-28T17:56:30.041Z'
+}
+{
+  metadata: AppError: error
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\Controllers\testUserController.js:76:55
+      at processTicksAndRejections (internal/process/task_queues.js:93:5) {
+    status: 'error'
+  },
+  level: 'error',
+  message: 'error',
+  timestamp: '2020-09-28T17:56:43.833Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-28T20:08:33.234Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-28T20:08:33.566Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-28T20:09:31.112Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-28T20:09:31.299Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-28T20:10:07.804Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-28T20:10:08.142Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-28T20:36:30.102Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-28T20:36:52.232Z'
+}
+{
+  metadata: ReferenceError: user is not defined
+      at exports.signup (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\Controllers\authController.js:85:16)
+      at newFn (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express-async-errors\index.js:16:20)
+      at Layer.handle [as handle_request] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\layer.js:95:5)
+      at next (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\route.js:137:13)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express-rate-limit\lib\express-rate-limit.js:144:11
+      at processTicksAndRejections (internal/process/task_queues.js:93:5),
+  level: 'error',
+  message: 'user is not defined',
+  timestamp: '2020-09-28T20:36:52.732Z'
+}
+{
+  metadata: ReferenceError: user is not defined
+      at exports.signup (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\Controllers\authController.js:85:16)
+      at newFn (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express-async-errors\index.js:16:20)
+      at Layer.handle [as handle_request] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\layer.js:95:5)
+      at next (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\route.js:137:13)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express-rate-limit\lib\express-rate-limit.js:144:11
+      at processTicksAndRejections (internal/process/task_queues.js:93:5),
+  level: 'error',
+  message: 'user is not defined',
+  timestamp: '2020-09-28T20:36:52.751Z'
+}
+{
+  metadata: ReferenceError: user is not defined
+      at exports.signup (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\Controllers\authController.js:85:16)
+      at newFn (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express-async-errors\index.js:16:20)
+      at Layer.handle [as handle_request] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\layer.js:95:5)
+      at next (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\route.js:137:13)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express-rate-limit\lib\express-rate-limit.js:144:11
+      at processTicksAndRejections (internal/process/task_queues.js:93:5),
+  level: 'error',
+  message: 'user is not defined',
+  timestamp: '2020-09-28T20:36:52.756Z'
+}
+{
+  metadata: ReferenceError: user is not defined
+      at exports.signup (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\Controllers\authController.js:85:16)
+      at newFn (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express-async-errors\index.js:16:20)
+      at Layer.handle [as handle_request] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\layer.js:95:5)
+      at next (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\route.js:137:13)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express-rate-limit\lib\express-rate-limit.js:144:11
+      at processTicksAndRejections (internal/process/task_queues.js:93:5),
+  level: 'error',
+  message: 'user is not defined',
+  timestamp: '2020-09-28T20:36:52.762Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-28T20:36:55.998Z'
+}
+{
+  metadata: ReferenceError: user is not defined
+      at exports.signup (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\Controllers\authController.js:85:16)
+      at newFn (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express-async-errors\index.js:16:20)
+      at Layer.handle [as handle_request] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\layer.js:95:5)
+      at next (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\route.js:137:13)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express-rate-limit\lib\express-rate-limit.js:144:11
+      at processTicksAndRejections (internal/process/task_queues.js:93:5),
+  level: 'error',
+  message: 'user is not defined',
+  timestamp: '2020-09-28T20:36:56.166Z'
+}
+{
+  metadata: ReferenceError: user is not defined
+      at exports.signup (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\Controllers\authController.js:85:16)
+      at newFn (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express-async-errors\index.js:16:20)
+      at Layer.handle [as handle_request] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\layer.js:95:5)
+      at next (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\route.js:137:13)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express-rate-limit\lib\express-rate-limit.js:144:11
+      at processTicksAndRejections (internal/process/task_queues.js:93:5),
+  level: 'error',
+  message: 'user is not defined',
+  timestamp: '2020-09-28T20:36:56.184Z'
+}
+{
+  metadata: ReferenceError: user is not defined
+      at exports.signup (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\Controllers\authController.js:85:16)
+      at newFn (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express-async-errors\index.js:16:20)
+      at Layer.handle [as handle_request] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\layer.js:95:5)
+      at next (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\route.js:137:13)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express-rate-limit\lib\express-rate-limit.js:144:11
+      at processTicksAndRejections (internal/process/task_queues.js:93:5),
+  level: 'error',
+  message: 'user is not defined',
+  timestamp: '2020-09-28T20:36:56.189Z'
+}
+{
+  metadata: ReferenceError: user is not defined
+      at exports.signup (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\Controllers\authController.js:85:16)
+      at newFn (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express-async-errors\index.js:16:20)
+      at Layer.handle [as handle_request] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\layer.js:95:5)
+      at next (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\route.js:137:13)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express-rate-limit\lib\express-rate-limit.js:144:11
+      at processTicksAndRejections (internal/process/task_queues.js:93:5),
+  level: 'error',
+  message: 'user is not defined',
+  timestamp: '2020-09-28T20:36:56.195Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-28T20:39:10.495Z'
+}
+{
+  metadata: MongoError: E11000 duplicate key error collection: vt_tests.users index: username_1 dup key: { username: "aa" }
+      at Function.create (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\error.js:57:12)
+      at toError (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\utils.js:123:22)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\operations\common_functions.js:265:39
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\connection\pool.js:405:18
+      at processTicksAndRejections (internal/process/task_queues.js:75:11) {
+    driver: true,
+    name: 'MongoError',
+    index: 0,
+    code: 11000,
+    keyPattern: { username: 1 },
+    keyValue: { username: 'aa' }
+  },
+  level: 'error',
+  message: 'E11000 duplicate key error collection: vt_tests.users index: username_1 dup key: { username: "aa" }',
+  timestamp: '2020-09-28T20:39:11.284Z'
+}
+{
+  metadata: MongoError: E11000 duplicate key error collection: vt_tests.users index: username_1 dup key: { username: "aa" }
+      at Function.create (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\error.js:57:12)
+      at toError (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\utils.js:123:22)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\operations\common_functions.js:265:39
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\connection\pool.js:405:18
+      at processTicksAndRejections (internal/process/task_queues.js:75:11) {
+    driver: true,
+    name: 'MongoError',
+    index: 0,
+    code: 11000,
+    keyPattern: { username: 1 },
+    keyValue: { username: 'aa' }
+  },
+  level: 'error',
+  message: 'E11000 duplicate key error collection: vt_tests.users index: username_1 dup key: { username: "aa" }',
+  timestamp: '2020-09-28T20:39:11.810Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-28T20:40:56.372Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-28T20:49:24.390Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-28T20:49:24.852Z'
+}
+{
+  metadata: TypeError: Cannot read property 'id' of undefined
+      at exports.getReputation_compact (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\Controllers\repController.js:221:45)
+      at newFn (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express-async-errors\index.js:16:20)
+      at Layer.handle [as handle_request] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\layer.js:95:5)
+      at next (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\route.js:137:13)
+      at Route.dispatch (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\route.js:112:3)
+      at newFn (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express-async-errors\index.js:16:20)
+      at Layer.handle [as handle_request] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\layer.js:95:5)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:281:22
+      at param (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:354:14)
+      at param (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:365:14)
+      at Function.process_params (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:410:3)
+      at next (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:275:10)
+      at Function.handle (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:174:3)
+      at router (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:47:12)
+      at newFn (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express-async-errors\index.js:16:20)
+      at Layer.handle [as handle_request] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\layer.js:95:5),
+  level: 'error',
+  message: "Cannot read property 'id' of undefined",
+  timestamp: '2020-09-28T20:50:57.460Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-28T20:51:35.466Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-28T20:51:35.778Z'
+}
+{
+  metadata: TypeError: Cannot read property '_id' of null
+      at exports.getReputation_compact (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\Controllers\repController.js:224:28)
+      at processTicksAndRejections (internal/process/task_queues.js:93:5),
+  level: 'error',
+  message: "Cannot read property '_id' of null",
+  timestamp: '2020-09-28T20:51:37.174Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-28T20:52:29.649Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-28T20:52:29.835Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-28T20:57:02.259Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-28T20:57:02.591Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-28T21:03:42.414Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-28T21:03:42.809Z'
+}
+{
+  metadata: TypeError: Cannot read property 'map' of undefined
+      at exports.getReputation_compact (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\Controllers\repController.js:225:19)
+      at processTicksAndRejections (internal/process/task_queues.js:93:5),
+  level: 'error',
+  message: "Cannot read property 'map' of undefined",
+  timestamp: '2020-09-28T21:03:43.633Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-28T21:04:24.017Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-28T21:04:24.193Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-28T21:04:36.292Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-28T21:04:36.480Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-28T21:04:53.171Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-28T21:04:53.422Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-28T21:05:54.592Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-28T21:05:54.860Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-28T21:06:57.054Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-28T21:06:57.373Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-28T21:08:24.902Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-28T21:08:25.198Z'
+}
+{
+  metadata: CastError: Cast to ObjectId failed for value "5f724320e14524299478e1b01" at path "user" for model "Reputation"
+      at model.Query.exec (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:4368:21)
+      at model.Query.Query.then (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:4460:15)
+      at processTicksAndRejections (internal/process/task_queues.js:93:5) {
+    messageFormat: undefined,
+    stringValue: '"5f724320e14524299478e1b01"',
+    kind: 'ObjectId',
+    value: '5f724320e14524299478e1b01',
+    path: 'user',
+    reason: Error: Argument passed in must be a single String of 12 bytes or a string of 24 hex characters
+        at new ObjectID (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\bson\lib\bson\objectid.js:59:11)
+        at castObjectId (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\cast\objectid.js:25:12)
+        at ObjectId.cast (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schema\objectid.js:267:12)
+        at ObjectId.SchemaType.applySetters (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1070:12)
+        at ObjectId.SchemaType._castForQuery (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1498:15)
+        at ObjectId.SchemaType.castForQuery (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1488:15)
+        at ObjectId.SchemaType.castForQueryWrapper (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1467:15)
+        at cast (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\cast.js:331:32)
+        at model.Query.Query.cast (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:4769:12)
+        at model.Query.Query._castConditions (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:1870:10)
+        at model.Query.<anonymous> (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\query.js:1897:8)
+        at model.Query._wrappedThunk [as _find] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\helpers\query\wrapThunk.js:16:8)
+        at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\kareem\index.js:369:33
+        at processTicksAndRejections (internal/process/task_queues.js:75:11)
+  },
+  level: 'error',
+  message: 'Cast to ObjectId failed for value "5f724320e14524299478e1b01" at path "user" for model "Reputation"',
+  timestamp: '2020-09-28T21:08:29.401Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-28T21:08:41.069Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-28T21:08:41.272Z'
+}
+{
+  metadata: TypeError: Cannot read property 'reps' of undefined
+      at exports.getReputation_compact (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\Controllers\repController.js:227:17)
+      at processTicksAndRejections (internal/process/task_queues.js:93:5),
+  level: 'error',
+  message: "Cannot read property 'reps' of undefined",
+  timestamp: '2020-09-28T21:08:49.951Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-28T21:09:26.349Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-28T21:09:26.682Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-28T21:10:00.654Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-28T21:10:00.834Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-28T21:14:44.491Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-28T21:14:44.833Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-28T21:14:48.722Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-28T21:14:48.934Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-28T21:17:13.115Z'
+}

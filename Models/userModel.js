@@ -5,7 +5,7 @@ const { promisify } = require('util')
 const Joi = require('joi')
 const validator = require('validator')
 
-// var uniqueValidator = require('mongoose-unique-validator');
+// var uniqueValidator = require('mongoose-unique-validator')
 
 const userSchema = new mongoose.Schema({
   username: {
@@ -48,18 +48,6 @@ const userSchema = new mongoose.Schema({
     }
   },
 
-  reputation: {
-    ups: {
-      type: Number,
-      default: 0
-    },
-  
-    downs: {
-      type: Number,
-      default: 0
-    }
-  },
-
   isPremium: {
     type: Boolean,
     default: false
@@ -92,6 +80,11 @@ const userSchema = new mongoose.Schema({
 
   usernameChangedAt: {
     type: Date
+  },
+
+  createdAt: { 
+    type: Date,
+    default: Date.now()
   },
 
   __v: { 
@@ -127,7 +120,7 @@ userSchema.methods.compareTokens = async function (Token, HashedToken) {
 }
 
 userSchema.index({ username: 1, email: 1 }, { collation: { locale: 'en', strength: 2 } })
-// userSchema.set('autoIndex', true)
+// Read this - https://mongoosejs.com/docs/guide.html - userSchema.set('autoIndex', true)
 
 const User = mongoose.model('User', userSchema)
 

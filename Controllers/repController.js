@@ -1,21 +1,17 @@
-const Reputation = require('../Models/repModel')
-const { User } = require('../Models/userModel')
-const catchAsync = require('../misc/catchAsync')
-const AppError = require('../misc/AppError')
 const Redis = require('../misc/redisCaching')
 
-exports.getReputation = async (req, res, next) => {
-  const userId = req.params.user
+const Reputation = require('../Models/repModel')
+const { User } = require('../Models/userModel')
 
-  if (userId.length !== 24) return next(new AppError('invalid'))
+exports.getReputation = async (req, res, next) => {
+  const userId = req.params.user // Joi
 
   const user = await User.findById(userId)
-
-  if (!user) return next(new AppError('invalid'))
+  if (!user) return res.status(404).json({info: "no user", message: "user doesn't exist"})
 
   const rep = await Reputation.aggregate([
     { $match: { userId } },
-    { $unwind: '$reps' },
+    { $unwind: '$reps' }, 
     { $sort: { 'reps.createdAt': -1 } },
     {
       $addFields: {
@@ -134,45 +130,39 @@ exports.getReputation = async (req, res, next) => {
   return res.json({ status: 'success', rep: rep[0] });
 }
 
-
 exports.addReputation = async (req, res, next) => {
-    const user = await User.findById(req.user.id).select('-__v')
-    const userId = req.params.user;
-    const { rep } = req.body;
+  const user = await User.findById(req.user.id).select('-__v')
 
-    if (!userId || userId.length !== 24 || !rep || userId == user._id) return next(new AppError('invalid'));
+  const rep = req.body // Joi
+  rep.createdBy = user._id
 
-    // Check if user has already given a rep within 24 hours
-    /*
-    const repCheck = await Redis.isCached(`${user._id}${userId}`);
-    if (repCheck) return next(new AppError('hours24'));*/
+  // Check if user has already given a rep within 24 hours
+  /*
+  const repCheck = await Redis.isCached(`${user._id}${userId}`)
+  if (repCheck) return next(new AppError('hours24'))*/
 
-    rep.createdBy = user._id;
+  const receiving_user = await User.findById(req.params.user).select('-__v')
+  if (!receiving_user) return res.status(404).json({info: 'no user', message: 'user with the given id does not exist'})
 
-    // const rep = {
-    //     good: false,
-    //     createdBy: '44444',
-    //     feedback: 'Bad trade!',
-    //     game: 'csgo',
-    // };
-    const dbUser = await User.findById(userId);
+  // if user exists but has no rep yet (doesn't exist in Reputation collection), create a new one
+  const user_repDB = await Reputation.findOne({ user: req.params.user })
+  if (!user_repDB) {
+    const newRep = new Reputation({ 
+      user: receiving_user._id, 
+      reps: [rep]
+    })
 
-    if (!dbUser) return next(new AppError('error'));
+    await newRep.save()
+    // await Redis.cache(`${user._id}${userId}`, 1)
 
-    const repDB = await Reputation.findOne({ userId });
+    return res.status(200).json({ info: 'success', message: 'successfully added reputation' })
+  }
 
+  user_repDB.reps.push(rep) // or unshift for adding at the start
+  await user_repDB.save()
 
-    if (!repDB) {
-        const newRep = new Reputation({ userId, username: dbUser.username, reps: [rep] })
-        await newRep.save()
-        //await Redis.cache(`${user._id}${userId}`, 1)
-        return res.json({ status: 'success' })
-    }
-
-    repDB.reps.unshift(rep)
-    await repDB.save()
-    //await Redis.cache(`${user._id}${userId}`, 1)
-    return res.json({ status: 'success' })
+  // await Redis.cache(`${user._id}${userId}`, 1)
+  return res.status(200).json({ info: 'success', message: 'successfully added reputation' })
 }
 
 exports.getTop10 = async (req, res, next) => {
@@ -190,10 +180,10 @@ exports.getTop10 = async (req, res, next) => {
     }
 
     return Reputation.aggregate([
-      { $unwind: '$reps' },
-      { $match: match },
+      { $unwind: '$reps' }, // ungroup by reps
+      { $match: match },    // sort by date
       {
-        $group: {
+        $group: {           // regroup 
           _id: {
             userId: '$userId',
             username: '$username',
@@ -227,15 +217,37 @@ exports.getTop10 = async (req, res, next) => {
   return res.json({ status: 'success', top10: { All, Month, Week } })
 }
 
-exports.getRepMiddleware = async (req, res, next) => {
-  const user = await User.findById(req.user.id).select('-__v')
+exports.getReputation_compact = async (req, res, next) => {
+  const userId = req.params.user
+  let ups = 0, downs = 0
 
+  const reputation = await Reputation.find({user: userId})
+  if (reputation.length <= 0) {
+    rep_compact = {
+      ups: 0,
+      downs: 0,
+      grade: "1.0",
+      title: "novice"
+    }
+  }
+  else {
+    reputation[0].reps.map(rep => rep.good ? ups++ : downs++)
+    rep_compact = {
+      ups,
+      downs,
+      grade: reputation[0].grade,
+      title: reputation[0].title
+    }
+  }
+
+  return res.json({info: "success", message: "returned user reputation", rep: rep_compact})
+  /*
   const rep = await Reputation.aggregate([
-    { $match: { userId: `${user._id}` } },
+    { $match: { user: user._id } },
     {
       $project: {
         _id: 0,
-        username: 1,
+        username: user.username,
         title: 1,
         grade: 1,
         ups: {
@@ -260,6 +272,10 @@ exports.getRepMiddleware = async (req, res, next) => {
     }
   ])
 
-  req.rep = rep[0] || { ups: 0, downs: 0 }
-  next()
+  req.rep = rep[0] || { 
+    ups: 0, 
+    downs: 0 
+  }
+  
+  return res.json({})*/
 }

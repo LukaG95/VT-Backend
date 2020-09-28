@@ -52,7 +52,7 @@ exports.getTrade = async (req, res, next) => {
 }
 
 
-exports.createTrade = catchAsync(async (req, res, next) => {
+exports.createTrade = async (req, res, next) => {
   const user = await User.findById(req.user.id).select('-__v')
   const { have, want, platform, notes } = req.body
 
@@ -64,6 +64,7 @@ exports.createTrade = catchAsync(async (req, res, next) => {
 
   const tradeDetails = {
     user: user._id,
+    // reputation: user._id, 
     have: have,
     want: want,
     platform: platform,
@@ -73,9 +74,9 @@ exports.createTrade = catchAsync(async (req, res, next) => {
 
   await new TradeRL(tradeDetails).save()
   return res.status(200).json({info: "success", message: "trade was created"})
-})
+}
 
-exports.editTrade = catchAsync(async (req, res, next) => {
+exports.editTrade = async (req, res, next) => {
   const user = await User.findById(req.user.id).select('-__v')
   
   const { have, want, platform, notes } = req.body
@@ -101,7 +102,7 @@ exports.editTrade = catchAsync(async (req, res, next) => {
 
   await TradeRL.findOneAndUpdate({ _id: trade._id }, tradeDetails, { useFindAndModify: false })
   return res.status(200).json({info: "success", message: "trade was edited"})
-})
+}
 
 exports.bumpTrade = async (req, res, next) => {
   const user = await User.findById(req.user.id).select('-__v')

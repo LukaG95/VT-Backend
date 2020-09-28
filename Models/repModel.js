@@ -1,25 +1,20 @@
 const mongoose = require('mongoose')
 
 const repSchema = new mongoose.Schema({
-  userId: {
-    type: String,
-    unique: true,
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
     required: true
   },
 
   title: {
     type: String,
-    default: 'Novice'
-  },
-
-  username: {
-    type: String,
-    required: true
+    default: 'Novice' // should be get?
   },
 
   grade: {
     type: String,
-    default: '5.0'
+    default: '1.0' // should be get?
   },
 
   reps: [
@@ -29,26 +24,28 @@ const repSchema = new mongoose.Schema({
         required: true
       },
 
-      createdBy: {
+      category: {
         type: String,
+        enum: ['rl', 'csgo', 'other'],
         required: true
-      },
-
-      createdAt: {
-        type: Date,
-        default: Date.now()
       },
 
       feedback: {
         type: String,
         required: true
       },
-      
-      game: {
-        type: String,
-        required: true,
-        enum: ['rl', 'csgo', 'other']
+
+      createdBy: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        required: true
+      },
+
+      createdAt: {
+        type: Date,
+        default: Date.now()
       }
+      
     }
   ],
 
@@ -56,9 +53,5 @@ const repSchema = new mongoose.Schema({
 })
 
 const repModel = mongoose.model('Reputation', repSchema)
-
-// const func = () => repModel.find({ reps.createdBy: '5eaa006355a0d8265ea8530e' }).then((data) => console.log(data))
-
-// func()
 
 module.exports = repModel

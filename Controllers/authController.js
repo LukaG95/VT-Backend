@@ -5,7 +5,8 @@ const EmailingSystem = require('../misc/EmailingSystem')
 const catchAsync = require('../misc/catchAsync')
 const AppError = require('../misc/AppError')
 const { User, validateSignup, validateLogin } = require('../Models/userModel')
-const user = require('../Models/userModel')
+const Reputation = require('../Models/repModel')
+const user = require('../Models/userModel') // this is here because of jest tests
 
 
 const createToken = (id, code = 0, email) => jwt.sign({ id, code, email }, process.env.JWT_SECRET, {
@@ -88,7 +89,7 @@ exports.signup = async (req, res, next) => {
   if (!result) return res.status(400).json({info: "username", message: "this username is taken"})
 
   const newUser = await User.create({
-    username, email, password, passwordConfirm
+    username, email, password, passwordConfirm, reputation: newReputation._id
   })
 
   // await sendSignupEmail(newUser)
