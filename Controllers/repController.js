@@ -27,8 +27,9 @@ exports.getReputation = async (req, res, next) => {
 
     reputation[0].reps.map(rep => {
       rep.good ? user_rep.ups++ : user_rep.downs++
+      user_rep.amount.all++
       user_rep.amount[rep.category]++
-      
+
       user_rep.repsByGame.all.push(rep)
       user_rep.repsByGame[rep.category].push(rep)
     })
