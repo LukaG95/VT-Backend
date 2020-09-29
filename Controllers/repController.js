@@ -9,6 +9,37 @@ exports.getReputation = async (req, res, next) => {
   const user = await User.findById(userId)
   if (!user) return res.status(404).json({info: "no user", message: "user doesn't exist"})
 
+  const reputation = await Reputation.find({user: userId})
+  
+
+  let user_rep = {
+    ups: 0,
+    downs: 0,
+    grade: "1.0",
+    title: "Novice",
+    amount: { all: 0, rl: 0, csgo: 0, other: 0 },
+    repsByGame: { all: [], rl: [], csgo: [], other: [] },
+    userId: user._id,
+    username: user.username
+  }
+
+  if (reputation.length > 0){
+
+    reputation[0].reps.map(rep => {
+      rep.good ? user_rep.ups++ : user_rep.downs++
+      user_rep.amount[rep.category]++
+      user_rep.repsByGame[rep.category].push(rep)
+    })
+
+  }
+    
+
+
+
+  return res.status(200).json({ info: 'success', message: 'got user reputation', rep: user_rep })
+
+
+  /*
   const rep = await Reputation.aggregate([
     { $match: { user: user._id  } },
     { $unwind: '$reps' }, 
@@ -34,7 +65,7 @@ exports.getReputation = async (req, res, next) => {
           _id: {
               id: '$_id',
               userId: '$userId',
-              username: '$username',
+              username: user.username,
               grade: '$grade',
               title: '$title',
           },
@@ -127,7 +158,7 @@ exports.getReputation = async (req, res, next) => {
     };
   }
 
-  return res.json({ status: 'success', rep: rep[0] });
+  return res.json({ status: 'success', rep: rep[0] });*/
 }
 
 exports.addReputation = async (req, res, next) => {
@@ -222,7 +253,7 @@ exports.getReputation_compact = async (req, res, next) => {
   let ups = 0, downs = 0
 
   const reputation = await Reputation.find({user: userId})
-  if (reputation.length <= 0) {
+  if (reputation.length < 1) {
     rep_compact = {
       ups: 0,
       downs: 0,
@@ -241,41 +272,5 @@ exports.getReputation_compact = async (req, res, next) => {
   }
 
   return res.status(200).json({info: "success", message: "returned user reputation", rep: rep_compact})
-  /*
-  const rep = await Reputation.aggregate([
-    { $match: { user: user._id } },
-    {
-      $project: {
-        _id: 0,
-        username: user.username,
-        title: 1,
-        grade: 1,
-        ups: {
-          $sum: {
-            $map: {
-              input: '$reps',
-              as: 'repobj',
-              in: { $cond: { if: { $eq: ['$$repobj.good', true] }, then: 1, else: 0 } }
-            }
-          }
-        },
-        downs: {
-          $sum: {
-            $map: {
-              input: '$reps',
-              as: 'repobj',
-              in: { $cond: { if: { $eq: ['$$repobj.good', false] }, then: 1, else: 0 } },
-            }
-          }
-        }
-      }
-    }
-  ])
-
-  req.rep = rep[0] || { 
-    ups: 0, 
-    downs: 0 
-  }
   
-  return res.json({})*/
 }
