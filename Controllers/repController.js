@@ -10,7 +10,6 @@ exports.getReputation = async (req, res, next) => {
   if (!user) return res.status(404).json({info: "no user", message: "user doesn't exist"})
 
   const reputation = await Reputation.find({user: userId})
-  
 
   let user_rep = {
     ups: 0,
@@ -25,20 +24,24 @@ exports.getReputation = async (req, res, next) => {
 
   if (reputation.length > 0){
 
-    reputation[0].reps.map(rep => {
+    reputation[0].reps.map(repu => {
+      const rep = repu.toObject()
+
       rep.good ? user_rep.ups++ : user_rep.downs++
       user_rep.amount.all++
       user_rep.amount[rep.category]++
 
+      rep.createdAt = rep.createdAt.toLocaleString()
       user_rep.repsByGame.all.push(rep)
       user_rep.repsByGame[rep.category].push(rep)
     })
 
+
+    // sort reps by date created for each category
+    // format date to string
+
   }
     
-
-
-
   return res.status(200).json({ info: 'success', message: 'got user reputation', rep: user_rep })
 
 

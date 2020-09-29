@@ -9771,3 +9771,323 @@
   level: 'info',
   timestamp: '2020-09-29T21:15:35.690Z'
 }
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-29T21:25:26.340Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-29T21:25:26.660Z'
+}
+{
+  metadata: Error: Reputation validation failed: reps.3.category: Path `category` is required.
+      at ValidationError.inspect (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\error\validation.js:47:26)
+      at formatValue (internal/util/inspect.js:563:31)
+      at formatProperty (internal/util/inspect.js:1406:11)
+      at formatRaw (internal/util/inspect.js:785:9)
+      at formatValue (internal/util/inspect.js:591:10)
+      at inspect (internal/util/inspect.js:221:10)
+      at Format.transform (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\logform\pretty-print.js:27:19)
+      at Format.transform (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\logform\combine.js:20:24)
+      at DerivedLogger._transform (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\lib\winston\logger.js:305:29)
+      at DerivedLogger.Transform._read (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\node_modules\readable-stream\lib\_stream_transform.js:177:10)
+      at DerivedLogger.Transform._write (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\node_modules\readable-stream\lib\_stream_transform.js:164:83)
+      at doWrite (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\node_modules\readable-stream\lib\_stream_writable.js:409:139)
+      at writeOrBuffer (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\node_modules\readable-stream\lib\_stream_writable.js:398:5)
+      at DerivedLogger.Writable.write (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\node_modules\readable-stream\lib\_stream_writable.js:307:11)
+      at DerivedLogger.log (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\lib\winston\logger.js:244:14)
+      at DerivedLogger.<computed> [as error] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\lib\winston\create-logger.js:95:19) {
+    errors: {
+      'reps.3.category': ValidatorError: Path `category` is required.
+          at validate (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1217:13)
+          at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1200:7
+          at Array.forEach (<anonymous>)
+          at SchemaString.SchemaType.doValidate (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1145:14)
+          at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\document.js:2408:18
+          at processTicksAndRejections (internal/process/task_queues.js:75:11) {
+        properties: {
+          validator: [Function],
+          message: 'Path `category` is required.',
+          type: 'required',
+          path: 'category',
+          value: undefined
+        },
+        kind: 'required',
+        path: 'category',
+        value: undefined,
+        reason: undefined,
+        [Symbol(mongoose:validatorError)]: true
+      }
+    },
+    _message: 'Reputation validation failed'
+  },
+  level: 'error',
+  message: 'Reputation validation failed: reps.3.category: Path `category` is required.',
+  timestamp: '2020-09-29T21:26:42.958Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-29T21:48:54.432Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-29T21:48:54.843Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-29T21:55:41.843Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-29T21:55:42.245Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-29T21:58:37.880Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-29T21:58:38.115Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-29T21:59:36.874Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-29T21:59:37.071Z'
+}
+{
+  metadata: Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+      at ServerResponse.setHeader (_http_outgoing.js:485:11)
+      at ServerResponse.header (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\response.js:771:10)
+      at ServerResponse.send (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\response.js:170:12)
+      at ServerResponse.json (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\response.js:267:15)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\Controllers\repController.js:33:30
+      at CoreDocumentArray.map (<anonymous>)
+      at CoreDocumentArray.map (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\types\documentarray.js:42:27)
+      at exports.getReputation (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\Controllers\repController.js:27:24)
+      at processTicksAndRejections (internal/process/task_queues.js:93:5) {
+    code: 'ERR_HTTP_HEADERS_SENT'
+  },
+  level: 'error',
+  message: 'Cannot set headers after they are sent to the client',
+  timestamp: '2020-09-29T21:59:38.403Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-29T21:59:50.879Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-29T21:59:51.210Z'
+}
+{
+  metadata: Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+      at ServerResponse.setHeader (_http_outgoing.js:485:11)
+      at ServerResponse.header (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\response.js:771:10)
+      at ServerResponse.send (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\response.js:170:12)
+      at ServerResponse.json (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\response.js:267:15)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\Controllers\repController.js:33:30
+      at CoreDocumentArray.map (<anonymous>)
+      at CoreDocumentArray.map (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\types\documentarray.js:42:27)
+      at exports.getReputation (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\Controllers\repController.js:27:24)
+      at processTicksAndRejections (internal/process/task_queues.js:93:5) {
+    code: 'ERR_HTTP_HEADERS_SENT'
+  },
+  level: 'error',
+  message: 'Cannot set headers after they are sent to the client',
+  timestamp: '2020-09-29T21:59:51.517Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-29T21:59:59.414Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-29T21:59:59.610Z'
+}
+{
+  metadata: Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+      at ServerResponse.setHeader (_http_outgoing.js:485:11)
+      at ServerResponse.header (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\response.js:771:10)
+      at ServerResponse.send (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\response.js:170:12)
+      at ServerResponse.json (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\response.js:267:15)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\Controllers\repController.js:33:30
+      at CoreDocumentArray.map (<anonymous>)
+      at CoreDocumentArray.map (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\types\documentarray.js:42:27)
+      at exports.getReputation (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\Controllers\repController.js:27:24)
+      at processTicksAndRejections (internal/process/task_queues.js:93:5) {
+    code: 'ERR_HTTP_HEADERS_SENT'
+  },
+  level: 'error',
+  message: 'Cannot set headers after they are sent to the client',
+  timestamp: '2020-09-29T22:00:00.216Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-29T22:00:49.240Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-29T22:01:39.676Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-29T22:01:39.973Z'
+}
+{
+  metadata: Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+      at ServerResponse.setHeader (_http_outgoing.js:485:11)
+      at ServerResponse.header (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\response.js:771:10)
+      at ServerResponse.send (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\response.js:170:12)
+      at ServerResponse.json (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\response.js:267:15)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\Controllers\repController.js:33:30
+      at CoreDocumentArray.map (<anonymous>)
+      at CoreDocumentArray.map (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\types\documentarray.js:42:27)
+      at exports.getReputation (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\Controllers\repController.js:27:24)
+      at processTicksAndRejections (internal/process/task_queues.js:93:5) {
+    code: 'ERR_HTTP_HEADERS_SENT'
+  },
+  level: 'error',
+  message: 'Cannot set headers after they are sent to the client',
+  timestamp: '2020-09-29T22:01:40.656Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-29T22:04:23.140Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-29T22:04:23.516Z'
+}
+{
+  metadata: Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+      at ServerResponse.setHeader (_http_outgoing.js:485:11)
+      at ServerResponse.header (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\response.js:771:10)
+      at ServerResponse.send (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\response.js:170:12)
+      at ServerResponse.json (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\response.js:267:15)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\Controllers\repController.js:34:30
+      at CoreDocumentArray.map (<anonymous>)
+      at CoreDocumentArray.map (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\types\documentarray.js:42:27)
+      at exports.getReputation (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\Controllers\repController.js:27:24)
+      at processTicksAndRejections (internal/process/task_queues.js:93:5) {
+    code: 'ERR_HTTP_HEADERS_SENT'
+  },
+  level: 'error',
+  message: 'Cannot set headers after they are sent to the client',
+  timestamp: '2020-09-29T22:04:23.807Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-29T22:04:33.761Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-29T22:04:33.959Z'
+}
+{
+  metadata: Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+      at ServerResponse.setHeader (_http_outgoing.js:485:11)
+      at ServerResponse.header (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\response.js:771:10)
+      at ServerResponse.send (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\response.js:170:12)
+      at ServerResponse.json (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\response.js:267:15)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\Controllers\repController.js:34:30
+      at CoreDocumentArray.map (<anonymous>)
+      at CoreDocumentArray.map (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\types\documentarray.js:42:27)
+      at exports.getReputation (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\Controllers\repController.js:27:24)
+      at processTicksAndRejections (internal/process/task_queues.js:93:5) {
+    code: 'ERR_HTTP_HEADERS_SENT'
+  },
+  level: 'error',
+  message: 'Cannot set headers after they are sent to the client',
+  timestamp: '2020-09-29T22:04:35.542Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-29T22:05:10.182Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-29T22:05:10.371Z'
+}
+{
+  metadata: Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+      at ServerResponse.setHeader (_http_outgoing.js:485:11)
+      at ServerResponse.header (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\response.js:771:10)
+      at ServerResponse.send (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\response.js:170:12)
+      at ServerResponse.json (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\response.js:267:15)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\Controllers\repController.js:34:30
+      at CoreDocumentArray.map (<anonymous>)
+      at CoreDocumentArray.map (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\types\documentarray.js:42:27)
+      at exports.getReputation (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\Controllers\repController.js:27:24)
+      at processTicksAndRejections (internal/process/task_queues.js:93:5) {
+    code: 'ERR_HTTP_HEADERS_SENT'
+  },
+  level: 'error',
+  message: 'Cannot set headers after they are sent to the client',
+  timestamp: '2020-09-29T22:05:11.184Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-29T22:05:55.104Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-29T22:05:55.425Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-29T22:06:01.010Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-29T22:06:01.199Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-29T22:07:56.145Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-29T22:07:56.526Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-29T22:08:11.912Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-29T22:08:12.092Z'
+}
