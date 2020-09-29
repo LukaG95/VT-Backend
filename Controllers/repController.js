@@ -240,7 +240,7 @@ exports.getReputation_compact = async (req, res, next) => {
     }
   }
 
-  return res.json({info: "success", message: "returned user reputation", rep: rep_compact})
+  return res.status(200).json({info: "success", message: "returned user reputation", rep: rep_compact})
   /*
   const rep = await Reputation.aggregate([
     { $match: { user: user._id } },
