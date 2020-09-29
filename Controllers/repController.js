@@ -43,13 +43,13 @@ exports.getReputation = async (req, res, next) => {
           ups: { $sum: { $cond: { if: { $eq: ['$reps.good', true] }, then: 1, else: 0 } } },
           downs: { $sum: { $cond: { if: { $eq: ['$reps.good', false] }, then: 1, else: 0 } } },
 
-          csgoCount: { $sum: { $cond: { if: { $eq: ['$reps.game', 'csgo'] }, then: 1, else: 0 } } },
-          rlCount: { $sum: { $cond: { if: { $eq: ['$reps.game', 'rl'] }, then: 1, else: 0 } } },
-          otherCount: { $sum: { $cond: { if: { $eq: ['$reps.game', 'other'] }, then: 1, else: 0 } } },
+          csgoCount: { $sum: { $cond: { if: { $eq: ['$reps.category', 'csgo'] }, then: 1, else: 0 } } },
+          rlCount: { $sum: { $cond: { if: { $eq: ['$reps.category', 'rl'] }, then: 1, else: 0 } } },
+          otherCount: { $sum: { $cond: { if: { $eq: ['$reps.category', 'other'] }, then: 1, else: 0 } } },
 
-          csgoReps: { $push: { $cond: { if: { $eq: ['$reps.game', 'csgo'] }, then: '$reps', else: null } } },
-          rlReps: { $push: { $cond: { if: { $eq: ['$reps.game', 'rl'] }, then: '$reps', else: null } } },
-          otherReps: { $push: { $cond: { if: { $eq: ['$reps.game', 'other'] }, then: '$reps', else: null } } },
+          csgoReps: { $push: { $cond: { if: { $eq: ['$reps.category', 'csgo'] }, then: '$reps', else: null } } },
+          rlReps: { $push: { $cond: { if: { $eq: ['$reps.category', 'rl'] }, then: '$reps', else: null } } },
+          otherReps: { $push: { $cond: { if: { $eq: ['$reps.category', 'other'] }, then: '$reps', else: null } } },
       },
     },
 
