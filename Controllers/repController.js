@@ -10,7 +10,7 @@ exports.getReputation = async (req, res, next) => {
   if (!user) return res.status(404).json({info: "no user", message: "user doesn't exist"})
 
   const rep = await Reputation.aggregate([
-    { $match: { userId } },
+    { $match: { user: user._id  } },
     { $unwind: '$reps' }, 
     { $sort: { 'reps.createdAt': -1 } },
     {
