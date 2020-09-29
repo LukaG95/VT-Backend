@@ -124,7 +124,6 @@ exports.getReputation = async (req, res, next) => {
 
   return res.status(200).json({ info: 'success', message: 'got user reputation', rep: rep[0] })
 
-  */
   /*
   const reputation = await Reputation.find({user: userId})
 
