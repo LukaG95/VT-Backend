@@ -9,53 +9,13 @@ exports.getReputation = async (req, res, next) => {
   const user = await User.findById(userId)
   if (!user) return res.status(404).json({info: "no user", message: "user doesn't exist"})
 
-  const reputation = await Reputation.find({user: userId})
-
-  let user_rep = {
-    ups: 0,
-    downs: 0,
-    grade: "1.0",
-    title: "Novice",
-    amount: { all: 0, rl: 0, csgo: 0, other: 0 },
-    repsByGame: { all: [], rl: [], csgo: [], other: [] },
-    userId: user._id,
-    username: user.username
-  }
-
-  if (reputation.length > 0){
-
-    reputation[0].reps.map(repu => {
-      const rep = repu.toObject()
-
-      rep.good ? user_rep.ups++ : user_rep.downs++
-      user_rep.amount.all++
-      user_rep.amount[rep.category]++
-
-      rep.createdAt = rep.createdAt.toLocaleString()
-      user_rep.repsByGame.all.push(rep)
-      user_rep.repsByGame[rep.category].push(rep)
-    })
-
-
-    // sort reps by date created for each category
-    // format date to string
-
-  }
-    
-  return res.status(200).json({ info: 'success', message: 'got user reputation', rep: user_rep })
-
-
-  /*
   const rep = await Reputation.aggregate([
-    { $match: { user: user._id  } },
-    { $unwind: '$reps' }, 
-    { $sort: { 'reps.createdAt': -1 } },
+    { $match: { user: user._id  } },              // search for the users rep
+    { $unwind: '$reps' },                         // unwind all reps
+    { $sort: { 'reps.createdAt': -1 } },          // sort all reps by date created
     {
-      $addFields: {
+      $addFields: {                               // date to string
           reps: {
-              good: '$reps.good',
-              createdBy: '$reps.createdBy',
-              feedback: '$reps.feedback',
               createdAt: {
                   $dateToString: {
                       date: '$reps.createdAt',
@@ -70,7 +30,7 @@ exports.getReputation = async (req, res, next) => {
       $group: {
           _id: {
               id: '$_id',
-              userId: '$userId',
+              userId: user._id,
               username: user.username,
               grade: '$grade',
               title: '$title',
@@ -78,12 +38,10 @@ exports.getReputation = async (req, res, next) => {
 
           reps: {
               $push: '$reps',
-
           },
 
           ups: { $sum: { $cond: { if: { $eq: ['$reps.good', true] }, then: 1, else: 0 } } },
           downs: { $sum: { $cond: { if: { $eq: ['$reps.good', false] }, then: 1, else: 0 } } },
-
 
           csgoCount: { $sum: { $cond: { if: { $eq: ['$reps.game', 'csgo'] }, then: 1, else: 0 } } },
           rlCount: { $sum: { $cond: { if: { $eq: ['$reps.game', 'rl'] }, then: 1, else: 0 } } },
@@ -96,7 +54,7 @@ exports.getReputation = async (req, res, next) => {
     },
 
     {
-        $addFields: {
+        $addFields: {                                         // add these fields just as count, later not adding them in $project
             csgoReps: {
                 $filter: {
                     input: '$csgoReps',
@@ -161,10 +119,48 @@ exports.getReputation = async (req, res, next) => {
       repsByGame: { all: [], rl: [], csgo: [], other: [] },
       userId: user._id,
       username: user.username,
-    };
+    }
   }
 
-  return res.json({ status: 'success', rep: rep[0] });*/
+  return res.status(200).json({ info: 'success', message: 'got user reputation', rep: rep[0] })
+
+  */
+  /*
+  const reputation = await Reputation.find({user: userId})
+
+  let user_rep = {
+    ups: 0,
+    downs: 0,
+    grade: "1.0",
+    title: "Novice",
+    amount: { all: 0, rl: 0, csgo: 0, other: 0 },
+    repsByGame: { all: [], rl: [], csgo: [], other: [] },
+    userId: user._id,
+    username: user.username
+  }
+
+  if (reputation.length > 0){
+
+    reputation[0].reps.map(repu => {
+      const rep = repu.toObject()
+
+      rep.good ? user_rep.ups++ : user_rep.downs++
+      user_rep.amount.all++
+      user_rep.amount[rep.category]++
+
+      rep.createdAt = rep.createdAt.toLocaleString()
+      user_rep.repsByGame.all.push(rep)
+      user_rep.repsByGame[rep.category].push(rep)
+    })
+
+
+    // sort reps by date created for each category
+    // format date to string
+
+  }
+    
+  return res.status(200).json({ info: 'success', message: 'got user reputation', rep: user_rep })
+*/
 }
 
 exports.addReputation = async (req, res, next) => {
