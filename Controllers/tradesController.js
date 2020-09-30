@@ -25,12 +25,12 @@ exports.getTrades = async (req, res, next) => {
 
 exports.getUserTrades = async (req, res, next) => {
   const user = await User.findById(req.user.id).select('-__v')
-
+ 
   const { searchId } = req.query
   if (!searchId || searchId.length !== 24) return res.status(400).json({info: "searchId", message: "Invalid searchId"})
 
   const trades = await TradeRL.find({ user: searchId }).populate('user')
-  if (!trades) return res.status(404).json({info: "no trades", message: "trades with given id don't exist"})
+  if (trades.length < 1) return res.status(404).json({info: "no trades", message: "trades with given id don't exist"})
 
   const idMatch = user._id.toHexString() === trades[0].user._id.toHexString()
 
