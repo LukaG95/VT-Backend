@@ -203,22 +203,22 @@ exports.getTop10 = async (req, res, next) => {
   const monthDate = new Date(Date.now() - 30 * oneDayInMs)
 
   const aggregation = function (Date) {
-    let match
+    let match = {}
 
-    if (!Date) {
-      match = {}
-    } else {
+    if (Date)
       match = { 'reps.createdAt': { $gte: Date } }
-    }
 
     return Reputation.aggregate([
       { $unwind: '$reps' }, // ungroup by reps
       { $match: match },    // sort by date
+      { 
+        $lookup: {from: 'users', localField: 'user', foreignField: '_id', as: 'owner'} 
+      },
       {
         $group: {           // regroup 
           _id: {
-            userId: '$userId',
-            username: '$username',
+            userId: '$user',
+            username: { $arrayElemAt: [ '$owner.username', 0 ]}
           },
           ups: { $sum: { $cond: { if: { $eq: ['$reps.good', true] }, then: 1, else: 0 } } },
           downs: { $sum: { $cond: { if: { $eq: ['$reps.good', false] }, then: 1, else: 0 } } }
@@ -226,8 +226,8 @@ exports.getTop10 = async (req, res, next) => {
       },
       {
         $addFields: {
-          repRating: { $subtract: ['$ups', '$downs'] },
-        },
+          repRating: { $subtract: ['$ups', '$downs'] }
+        }
       },
       { $sort: { repRating: -1 } },
       { $limit: 10 },

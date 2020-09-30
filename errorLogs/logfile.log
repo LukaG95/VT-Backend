@@ -10825,3 +10825,248 @@
   level: 'info',
   timestamp: '2020-09-30T17:37:21.722Z'
 }
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-30T20:18:48.389Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-30T20:18:48.750Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-30T20:19:16.076Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-30T20:19:16.270Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-30T20:38:04.319Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-30T20:38:04.634Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-30T20:38:18.396Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-30T20:38:18.590Z'
+}
+{
+  metadata: MongoError: Unrecognized expression '$lookup'
+      at Connection.<anonymous> (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\connection\pool.js:451:61)
+      at Connection.emit (events.js:210:5)
+      at processMessage (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\connection\connection.js:452:10)
+      at TLSSocket.<anonymous> (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\connection\connection.js:621:15)
+      at TLSSocket.emit (events.js:210:5)
+      at addChunk (_stream_readable.js:309:12)
+      at readableAddChunk (_stream_readable.js:290:11)
+      at TLSSocket.Readable.push (_stream_readable.js:224:10)
+      at TLSWrap.onStreamRead (internal/stream_base_commons.js:182:23) {
+    operationTime: Timestamp { _bsontype: 'Timestamp', low_: 16, high_: 1601498307 },
+    ok: 0,
+    code: 168,
+    codeName: 'InvalidPipelineOperator',
+    '$clusterTime': {
+      clusterTime: Timestamp { _bsontype: 'Timestamp', low_: 16, high_: 1601498307 },
+      signature: {
+        hash: Binary {
+          _bsontype: 'Binary',
+          sub_type: 0,
+          position: 20,
+          buffer: <Buffer 58 66 3b 69 ca 0a 4c 6b 16 f1 ec c0 7e 89 46 58 42 a6 f3 a9>
+        },
+        keyId: Long { _bsontype: 'Long', low_: 3, high_: 1597600936 }
+      }
+    },
+    name: 'MongoError'
+  },
+  level: 'error',
+  message: "Unrecognized expression '$lookup'",
+  timestamp: '2020-09-30T20:38:19.517Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-30T20:39:08.945Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-30T20:39:09.294Z'
+}
+{
+  metadata: MongoError: Unrecognized expression '$lookup'
+      at Connection.<anonymous> (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\connection\pool.js:451:61)
+      at Connection.emit (events.js:210:5)
+      at processMessage (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\connection\connection.js:452:10)
+      at TLSSocket.<anonymous> (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\connection\connection.js:621:15)
+      at TLSSocket.emit (events.js:210:5)
+      at addChunk (_stream_readable.js:309:12)
+      at readableAddChunk (_stream_readable.js:290:11)
+      at TLSSocket.Readable.push (_stream_readable.js:224:10)
+      at TLSWrap.onStreamRead (internal/stream_base_commons.js:182:23) {
+    operationTime: Timestamp { _bsontype: 'Timestamp', low_: 1, high_: 1601498359 },
+    ok: 0,
+    code: 168,
+    codeName: 'InvalidPipelineOperator',
+    '$clusterTime': {
+      clusterTime: Timestamp { _bsontype: 'Timestamp', low_: 1, high_: 1601498359 },
+      signature: {
+        hash: Binary {
+          _bsontype: 'Binary',
+          sub_type: 0,
+          position: 20,
+          buffer: <Buffer a2 94 eb 17 98 54 74 ac be 43 4c fb 44 81 4f 89 5d 03 bb e0>
+        },
+        keyId: Long { _bsontype: 'Long', low_: 3, high_: 1597600936 }
+      }
+    },
+    name: 'MongoError'
+  },
+  level: 'error',
+  message: "Unrecognized expression '$lookup'",
+  timestamp: '2020-09-30T20:39:10.249Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-30T20:50:31.336Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-30T20:50:31.665Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-30T20:50:44.083Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-30T20:50:44.280Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-30T20:52:01.898Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-30T20:52:02.158Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-30T20:53:42.736Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-30T20:53:43.066Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-30T20:54:03.563Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-30T20:54:03.783Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-30T20:54:10.887Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-30T20:54:11.076Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-30T20:54:23.129Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-30T20:54:23.373Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-30T20:54:29.548Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-30T20:54:29.730Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-30T20:56:36.908Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-30T20:56:37.238Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-30T20:57:06.530Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-30T20:57:06.735Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-30T20:57:16.885Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-30T20:57:17.094Z'
+}
+{
+  metadata: ReferenceError: newReputation is not defined
+      at exports.signup (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\Controllers\authController.js:92:61)
+      at runMicrotasks (<anonymous>)
+      at processTicksAndRejections (internal/process/task_queues.js:93:5),
+  level: 'error',
+  message: 'newReputation is not defined',
+  timestamp: '2020-09-30T21:27:32.678Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-30T21:28:15.194Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-30T21:28:15.510Z'
+}
