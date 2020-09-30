@@ -19,7 +19,7 @@ exports.getTrades = async (req, res, next) => {
 
   const trades = await advancedQuery.query.populate('user')
   const pages = Math.ceil((await TradeRL.countDocuments(advancedQuery.resetQuery().query)) / advancedQuery.limit)
-
+  console.log(trades)
   return res.json({ trades: readableCreatedAt(trades), pages })
 }
 

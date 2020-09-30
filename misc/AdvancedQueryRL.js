@@ -5,7 +5,7 @@ class AdvancedQueryRL {
     this.excludedFields = ['search', 'page', 'limit']
   }
 
-  filter() {
+ filter() {
     // deletes fields with "Any" filter attribute
     const queryObj = { ...this.queryString }  
     Object.keys(queryObj).forEach((q) => {
@@ -17,13 +17,16 @@ class AdvancedQueryRL {
     const queryStr = JSON.stringify(queryObj) // queryStr = `{"itemID": "12", "itemName": "Zomba", "cert": "Striker", "paint": "Black", "page": "1", "limit": "10"}`
 
     const tradeOption = (queryObj.search === 'I want to sell') ? 'want' : 'have'
-    const editedStr = queryStr.replace(/\b(itemID|itemType|cert|paint)\b/g, (match) => `${tradeOption}.${match}`)
+    const editedStr = queryStr.replace(/\b(itemID|itemType|cert|color)\b/g, (match) => `${tradeOption}.${match}`)
 
-    const editedObj = JSON.parse(editedStr) // editedObj = {"want.itemID": "12", "want.cert": "Striker", "want.paint": "Black", "page": "1", "limit": "10"}
+    const editedObj = JSON.parse(editedStr) // editedObj = {"want.itemID": "12", "want.cert": "Striker", "want.color": "Black", "page": "1", "limit": "10"}
 
     this.excludedFields.map((field) => delete editedObj[field])
 
     this.query = this.query.find(editedObj) 
+    //console.log(this.query)
+    //console.log(editedObj)
+    //console.log(this.query[0].have)
     return this
   }
 

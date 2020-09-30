@@ -10311,3 +10311,517 @@
   level: 'info',
   timestamp: '2020-09-29T22:50:36.361Z'
 }
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-30T11:25:50.628Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-30T11:25:50.880Z'
+}
+{
+  metadata: ReferenceError: res is not defined
+      at AdvancedQueryRL.filter (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\misc\AdvancedQueryRL.js:27:5)
+      at exports.getTrades (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\Controllers\tradesController.js:16:6)
+      at newFn (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express-async-errors\index.js:16:20)
+      at Layer.handle [as handle_request] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\layer.js:95:5)
+      at next (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\route.js:137:13)
+      at Route.dispatch (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\route.js:112:3)
+      at newFn (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express-async-errors\index.js:16:20)
+      at Layer.handle [as handle_request] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\layer.js:95:5)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:281:22
+      at Function.process_params (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:335:12)
+      at next (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:275:10)
+      at Function.handle (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:174:3)
+      at router (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:47:12)
+      at newFn (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express-async-errors\index.js:16:20)
+      at Layer.handle [as handle_request] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\layer.js:95:5)
+      at trim_prefix (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:317:13),
+  level: 'error',
+  message: 'res is not defined',
+  timestamp: '2020-09-30T11:25:56.936Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-30T11:26:14.823Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-30T11:26:15.005Z'
+}
+{
+  metadata: TypeError: Converting circular structure to JSON
+      --> starting at object with constructor 'ReplSet'
+      |     property 's' -> object with constructor 'Object'
+      |     property 'coreTopology' -> object with constructor 'ReplSet'
+      |     ...
+      |     property 's' -> object with constructor 'Object'
+      --- property 'topology' closes the circle
+      at JSON.stringify (<anonymous>)
+      at stringify (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\response.js:1123:12)
+      at ServerResponse.json (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\response.js:260:14)
+      at AdvancedQueryRL.filter (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\misc\AdvancedQueryRL.js:27:16)
+      at exports.getTrades (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\Controllers\tradesController.js:16:6)
+      at newFn (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express-async-errors\index.js:16:20)
+      at Layer.handle [as handle_request] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\layer.js:95:5)
+      at next (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\route.js:137:13)
+      at Route.dispatch (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\route.js:112:3)
+      at newFn (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express-async-errors\index.js:16:20)
+      at Layer.handle [as handle_request] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\layer.js:95:5)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:281:22
+      at Function.process_params (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:335:12)
+      at next (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:275:10)
+      at Function.handle (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:174:3)
+      at router (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:47:12),
+  level: 'error',
+  message: 'Converting circular structure to JSON\n' +
+    "    --> starting at object with constructor 'ReplSet'\n" +
+    "    |     property 's' -> object with constructor 'Object'\n" +
+    "    |     property 'coreTopology' -> object with constructor 'ReplSet'\n" +
+    '    |     ...\n' +
+    "    |     property 's' -> object with constructor 'Object'\n" +
+    "    --- property 'topology' closes the circle",
+  timestamp: '2020-09-30T11:26:16.376Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-30T11:26:38.869Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-30T11:26:39.060Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-30T11:27:52.120Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-30T11:27:52.373Z'
+}
+{
+  metadata: TypeError: (intermediate value).filter(...).paginate is not a function
+      at exports.getTrades (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\Controllers\tradesController.js:17:6)
+      at newFn (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express-async-errors\index.js:16:20)
+      at Layer.handle [as handle_request] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\layer.js:95:5)
+      at next (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\route.js:137:13)
+      at Route.dispatch (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\route.js:112:3)
+      at newFn (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express-async-errors\index.js:16:20)
+      at Layer.handle [as handle_request] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\layer.js:95:5)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:281:22
+      at Function.process_params (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:335:12)
+      at next (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:275:10)
+      at Function.handle (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:174:3)
+      at router (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:47:12)
+      at newFn (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express-async-errors\index.js:16:20)
+      at Layer.handle [as handle_request] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\layer.js:95:5)
+      at trim_prefix (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:317:13)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:284:7,
+  level: 'error',
+  message: '(intermediate value).filter(...).paginate is not a function',
+  timestamp: '2020-09-30T11:27:53.922Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-30T11:28:21.439Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-30T11:28:21.621Z'
+}
+{
+  metadata: TypeError: (intermediate value).filter(...).paginate is not a function
+      at exports.getTrades (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\Controllers\tradesController.js:17:6)
+      at newFn (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express-async-errors\index.js:16:20)
+      at Layer.handle [as handle_request] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\layer.js:95:5)
+      at next (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\route.js:137:13)
+      at Route.dispatch (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\route.js:112:3)
+      at newFn (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express-async-errors\index.js:16:20)
+      at Layer.handle [as handle_request] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\layer.js:95:5)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:281:22
+      at Function.process_params (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:335:12)
+      at next (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:275:10)
+      at Function.handle (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:174:3)
+      at router (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:47:12)
+      at newFn (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express-async-errors\index.js:16:20)
+      at Layer.handle [as handle_request] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\layer.js:95:5)
+      at trim_prefix (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:317:13)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:284:7,
+  level: 'error',
+  message: '(intermediate value).filter(...).paginate is not a function',
+  timestamp: '2020-09-30T11:28:22.267Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-30T11:28:45.270Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-30T11:28:45.454Z'
+}
+{
+  metadata: TypeError: (intermediate value).filter(...).paginate is not a function
+      at exports.getTrades (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\Controllers\tradesController.js:17:6)
+      at newFn (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express-async-errors\index.js:16:20)
+      at Layer.handle [as handle_request] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\layer.js:95:5)
+      at next (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\route.js:137:13)
+      at Route.dispatch (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\route.js:112:3)
+      at newFn (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express-async-errors\index.js:16:20)
+      at Layer.handle [as handle_request] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\layer.js:95:5)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:281:22
+      at Function.process_params (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:335:12)
+      at next (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:275:10)
+      at Function.handle (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:174:3)
+      at router (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:47:12)
+      at newFn (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express-async-errors\index.js:16:20)
+      at Layer.handle [as handle_request] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\layer.js:95:5)
+      at trim_prefix (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:317:13)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:284:7,
+  level: 'error',
+  message: '(intermediate value).filter(...).paginate is not a function',
+  timestamp: '2020-09-30T11:28:46.097Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-30T11:31:08.068Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-30T11:31:08.339Z'
+}
+{
+  metadata: TypeError: (intermediate value).filter(...).paginate is not a function
+      at exports.getTrades (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\Controllers\tradesController.js:17:6)
+      at newFn (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express-async-errors\index.js:16:20)
+      at Layer.handle [as handle_request] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\layer.js:95:5)
+      at next (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\route.js:137:13)
+      at Route.dispatch (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\route.js:112:3)
+      at newFn (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express-async-errors\index.js:16:20)
+      at Layer.handle [as handle_request] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\layer.js:95:5)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:281:22
+      at Function.process_params (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:335:12)
+      at next (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:275:10)
+      at Function.handle (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:174:3)
+      at router (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:47:12)
+      at newFn (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express-async-errors\index.js:16:20)
+      at Layer.handle [as handle_request] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\layer.js:95:5)
+      at trim_prefix (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:317:13)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:284:7,
+  level: 'error',
+  message: '(intermediate value).filter(...).paginate is not a function',
+  timestamp: '2020-09-30T11:31:08.742Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-30T11:31:27.126Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-30T11:31:27.313Z'
+}
+{
+  metadata: TypeError: (intermediate value).filter(...).paginate is not a function
+      at exports.getTrades (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\Controllers\tradesController.js:17:6)
+      at newFn (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express-async-errors\index.js:16:20)
+      at Layer.handle [as handle_request] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\layer.js:95:5)
+      at next (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\route.js:137:13)
+      at Route.dispatch (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\route.js:112:3)
+      at newFn (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express-async-errors\index.js:16:20)
+      at Layer.handle [as handle_request] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\layer.js:95:5)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:281:22
+      at Function.process_params (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:335:12)
+      at next (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:275:10)
+      at Function.handle (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:174:3)
+      at router (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:47:12)
+      at newFn (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express-async-errors\index.js:16:20)
+      at Layer.handle [as handle_request] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\layer.js:95:5)
+      at trim_prefix (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:317:13)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:284:7,
+  level: 'error',
+  message: '(intermediate value).filter(...).paginate is not a function',
+  timestamp: '2020-09-30T11:31:27.728Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-30T11:31:54.470Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-30T11:31:54.664Z'
+}
+{
+  metadata: TypeError: (intermediate value).filter(...).paginate is not a function
+      at exports.getTrades (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\Controllers\tradesController.js:17:6)
+      at newFn (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express-async-errors\index.js:16:20)
+      at Layer.handle [as handle_request] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\layer.js:95:5)
+      at next (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\route.js:137:13)
+      at Route.dispatch (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\route.js:112:3)
+      at newFn (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express-async-errors\index.js:16:20)
+      at Layer.handle [as handle_request] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\layer.js:95:5)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:281:22
+      at Function.process_params (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:335:12)
+      at next (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:275:10)
+      at Function.handle (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:174:3)
+      at router (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:47:12)
+      at newFn (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express-async-errors\index.js:16:20)
+      at Layer.handle [as handle_request] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\layer.js:95:5)
+      at trim_prefix (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:317:13)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:284:7,
+  level: 'error',
+  message: '(intermediate value).filter(...).paginate is not a function',
+  timestamp: '2020-09-30T11:31:55.596Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-30T11:32:36.331Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-30T11:32:36.582Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-30T17:31:30.685Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-30T17:31:30.989Z'
+}
+{
+  metadata: TypeError: (intermediate value).filter(...).paginate is not a function
+      at exports.getTrades (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\Controllers\tradesController.js:17:6)
+      at newFn (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express-async-errors\index.js:16:20)
+      at Layer.handle [as handle_request] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\layer.js:95:5)
+      at next (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\route.js:137:13)
+      at Route.dispatch (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\route.js:112:3)
+      at newFn (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express-async-errors\index.js:16:20)
+      at Layer.handle [as handle_request] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\layer.js:95:5)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:281:22
+      at Function.process_params (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:335:12)
+      at next (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:275:10)
+      at Function.handle (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:174:3)
+      at router (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:47:12)
+      at newFn (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express-async-errors\index.js:16:20)
+      at Layer.handle [as handle_request] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\layer.js:95:5)
+      at trim_prefix (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:317:13)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:284:7,
+  level: 'error',
+  message: '(intermediate value).filter(...).paginate is not a function',
+  timestamp: '2020-09-30T17:31:32.462Z'
+}
+{
+  metadata: TypeError: (intermediate value).filter(...).paginate is not a function
+      at exports.getTrades (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\Controllers\tradesController.js:17:6)
+      at newFn (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express-async-errors\index.js:16:20)
+      at Layer.handle [as handle_request] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\layer.js:95:5)
+      at next (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\route.js:137:13)
+      at Route.dispatch (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\route.js:112:3)
+      at newFn (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express-async-errors\index.js:16:20)
+      at Layer.handle [as handle_request] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\layer.js:95:5)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:281:22
+      at Function.process_params (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:335:12)
+      at next (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:275:10)
+      at Function.handle (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:174:3)
+      at router (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:47:12)
+      at newFn (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express-async-errors\index.js:16:20)
+      at Layer.handle [as handle_request] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\layer.js:95:5)
+      at trim_prefix (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:317:13)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:284:7,
+  level: 'error',
+  message: '(intermediate value).filter(...).paginate is not a function',
+  timestamp: '2020-09-30T17:33:07.967Z'
+}
+{
+  metadata: TypeError: (intermediate value).filter(...).paginate is not a function
+      at exports.getTrades (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\Controllers\tradesController.js:17:6)
+      at newFn (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express-async-errors\index.js:16:20)
+      at Layer.handle [as handle_request] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\layer.js:95:5)
+      at next (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\route.js:137:13)
+      at Route.dispatch (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\route.js:112:3)
+      at newFn (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express-async-errors\index.js:16:20)
+      at Layer.handle [as handle_request] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\layer.js:95:5)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:281:22
+      at Function.process_params (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:335:12)
+      at next (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:275:10)
+      at Function.handle (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:174:3)
+      at router (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:47:12)
+      at newFn (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express-async-errors\index.js:16:20)
+      at Layer.handle [as handle_request] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\layer.js:95:5)
+      at trim_prefix (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:317:13)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:284:7,
+  level: 'error',
+  message: '(intermediate value).filter(...).paginate is not a function',
+  timestamp: '2020-09-30T17:33:16.730Z'
+}
+{
+  metadata: TypeError: (intermediate value).filter(...).paginate is not a function
+      at exports.getTrades (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\Controllers\tradesController.js:17:6)
+      at newFn (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express-async-errors\index.js:16:20)
+      at Layer.handle [as handle_request] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\layer.js:95:5)
+      at next (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\route.js:137:13)
+      at Route.dispatch (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\route.js:112:3)
+      at newFn (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express-async-errors\index.js:16:20)
+      at Layer.handle [as handle_request] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\layer.js:95:5)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:281:22
+      at Function.process_params (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:335:12)
+      at next (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:275:10)
+      at Function.handle (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:174:3)
+      at router (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:47:12)
+      at newFn (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express-async-errors\index.js:16:20)
+      at Layer.handle [as handle_request] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\layer.js:95:5)
+      at trim_prefix (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:317:13)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:284:7,
+  level: 'error',
+  message: '(intermediate value).filter(...).paginate is not a function',
+  timestamp: '2020-09-30T17:33:34.156Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-30T17:33:42.798Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-30T17:33:43.166Z'
+}
+{
+  metadata: TypeError: (intermediate value).filter(...).paginate is not a function
+      at exports.getTrades (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\Controllers\tradesController.js:17:6)
+      at newFn (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express-async-errors\index.js:16:20)
+      at Layer.handle [as handle_request] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\layer.js:95:5)
+      at next (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\route.js:137:13)
+      at Route.dispatch (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\route.js:112:3)
+      at newFn (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express-async-errors\index.js:16:20)
+      at Layer.handle [as handle_request] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\layer.js:95:5)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:281:22
+      at Function.process_params (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:335:12)
+      at next (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:275:10)
+      at Function.handle (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:174:3)
+      at router (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:47:12)
+      at newFn (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express-async-errors\index.js:16:20)
+      at Layer.handle [as handle_request] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\layer.js:95:5)
+      at trim_prefix (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:317:13)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:284:7,
+  level: 'error',
+  message: '(intermediate value).filter(...).paginate is not a function',
+  timestamp: '2020-09-30T17:33:43.488Z'
+}
+{
+  metadata: TypeError: (intermediate value).filter(...).paginate is not a function
+      at exports.getTrades (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\Controllers\tradesController.js:17:6)
+      at newFn (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express-async-errors\index.js:16:20)
+      at Layer.handle [as handle_request] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\layer.js:95:5)
+      at next (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\route.js:137:13)
+      at Route.dispatch (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\route.js:112:3)
+      at newFn (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express-async-errors\index.js:16:20)
+      at Layer.handle [as handle_request] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\layer.js:95:5)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:281:22
+      at Function.process_params (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:335:12)
+      at next (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:275:10)
+      at Function.handle (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:174:3)
+      at router (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:47:12)
+      at newFn (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express-async-errors\index.js:16:20)
+      at Layer.handle [as handle_request] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\layer.js:95:5)
+      at trim_prefix (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:317:13)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:284:7,
+  level: 'error',
+  message: '(intermediate value).filter(...).paginate is not a function',
+  timestamp: '2020-09-30T17:34:14.069Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-30T17:34:17.126Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-30T17:34:17.316Z'
+}
+{
+  metadata: TypeError: (intermediate value).filter(...).paginate is not a function
+      at exports.getTrades (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\Controllers\tradesController.js:17:6)
+      at newFn (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express-async-errors\index.js:16:20)
+      at Layer.handle [as handle_request] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\layer.js:95:5)
+      at next (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\route.js:137:13)
+      at Route.dispatch (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\route.js:112:3)
+      at newFn (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express-async-errors\index.js:16:20)
+      at Layer.handle [as handle_request] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\layer.js:95:5)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:281:22
+      at Function.process_params (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:335:12)
+      at next (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:275:10)
+      at Function.handle (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:174:3)
+      at router (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:47:12)
+      at newFn (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express-async-errors\index.js:16:20)
+      at Layer.handle [as handle_request] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\layer.js:95:5)
+      at trim_prefix (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:317:13)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:284:7,
+  level: 'error',
+  message: '(intermediate value).filter(...).paginate is not a function',
+  timestamp: '2020-09-30T17:34:17.768Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-30T17:34:43.021Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-30T17:34:43.277Z'
+}
+{
+  metadata: TypeError: (intermediate value).filter(...).paginate is not a function
+      at exports.getTrades (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\Controllers\tradesController.js:17:6)
+      at newFn (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express-async-errors\index.js:16:20)
+      at Layer.handle [as handle_request] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\layer.js:95:5)
+      at next (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\route.js:137:13)
+      at Route.dispatch (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\route.js:112:3)
+      at newFn (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express-async-errors\index.js:16:20)
+      at Layer.handle [as handle_request] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\layer.js:95:5)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:281:22
+      at Function.process_params (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:335:12)
+      at next (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:275:10)
+      at Function.handle (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:174:3)
+      at router (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:47:12)
+      at newFn (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express-async-errors\index.js:16:20)
+      at Layer.handle [as handle_request] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\layer.js:95:5)
+      at trim_prefix (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:317:13)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:284:7,
+  level: 'error',
+  message: '(intermediate value).filter(...).paginate is not a function',
+  timestamp: '2020-09-30T17:34:43.744Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-30T17:37:21.440Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-30T17:37:21.722Z'
+}
