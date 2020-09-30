@@ -24,9 +24,6 @@ class AdvancedQueryRL {
     this.excludedFields.map((field) => delete editedObj[field])
 
     this.query = this.query.find(editedObj) 
-    //console.log(this.query)
-    //console.log(editedObj)
-    //console.log(this.query[0].have)
     return this
   }
 

@@ -89,7 +89,7 @@ exports.signup = async (req, res, next) => {
   if (!result) return res.status(400).json({info: "username", message: "this username is taken"})
 
   const newUser = await User.create({
-    username, email, password, passwordConfirm, reputation: newReputation._id
+    username, email, password, passwordConfirm
   })
 
   // await sendSignupEmail(newUser)
