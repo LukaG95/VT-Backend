@@ -60,6 +60,7 @@ exports.getUser = async (req, res, next) => {
 
 // GET api/auth/getUserByUsername
 exports.getUserByUsername = async (req, res, next) => { 
+  return res.json({test: req})
   const { username } = req.body
   // if (!username) return res ...
 
