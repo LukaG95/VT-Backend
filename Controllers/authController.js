@@ -60,9 +60,7 @@ exports.getUser = async (req, res, next) => {
 
 // GET api/auth/getUserByUsername
 exports.getUserByUsername = async (req, res, next) => { 
-  const test = req.body
-  return res.json({test})
-  const { username } = req.body
+  const { username } = req.params
   // if (!username) return res ...
 
   const user = await User.find({username}, {_id: 1})

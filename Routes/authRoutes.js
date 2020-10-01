@@ -11,7 +11,7 @@ router.use(cors())
 // router.use(passport.initialize())
 
 router.get('/getUser', authController.protect, authController.getUser)
-router.get('/getUserByUsername', authController.getUserByUsername)
+router.get('/getUserByUsername/:username', authController.getUserByUsername)
 
 router.post('/signup', limiter, authController.signup)
 router.post('/login', limiter, authController.login)
