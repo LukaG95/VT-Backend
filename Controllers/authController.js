@@ -52,11 +52,22 @@ exports.protect = async (req, res, next) => {
 }
 
 // GET api/auth/getUser
-exports.getUser = catchAsync(async (req, res, next) => { 
+exports.getUser = async (req, res, next) => { 
   const user = await User.findById(req.user.id).select('-__v')
   
   return res.status(200).json({info: "success", message: "successfully got user", user: user})
-})
+}
+
+// GET api/auth/getUserByUsername
+exports.getUserByUsername = async (req, res, next) => { 
+  const {username} = req.body
+  // if (!username) return res ...
+
+  const user = await User.find({username}).select('-__v')
+  // if (!user) return res ...
+  
+  return res.status(200).json({info: "success", message: "successfully got user", user: user[0]})
+}
 
 // POST api/auth/login
 exports.login = async (req, res, next) => {
@@ -95,52 +106,6 @@ exports.signup = async (req, res, next) => {
   // await sendSignupEmail(newUser)
   return createSendToken(newUser, res)
 }
-
-const sendSignupEmail = async (user) => {
-  const emailToken = await user.generateEmailToken()
-  await user.save()
-  const token = await createToken(user._id, emailToken)
-  const Email = new EmailingSystem({ email: user.email })
-    .sendSignup(token)
-  await Email
-}
-
-const sendPasswordResetEmail = async (user) => {
-  const emailToken = await user.generateEmailToken()
-  await user.save()
-  const token = await createToken(user._id, emailToken)
-  const Email = new EmailingSystem({ email: user.email })
-    .sendPasswordReset(token)
-  await Email
-}
-
-const sendEmailUpdateEmail = async (user, newEmail) => {
-  const emailToken = await user.generateEmailToken()
-  await user.save()
-  const token = await createToken(user._id, emailToken, newEmail)
-  const Email = new EmailingSystem({ email: user.email })
-    .sendEmailUpdate(token)
-  await Email
-}
-
-function parseEmail(email) {
-  var regex = /^[^\s@]+@[^\s@\.]+(\.[^\s@.]+)+$/
-
-  return regex.test(email)
-}
-
-function genNumber(times = 1) {
-  let num = ''
-
-  for (let i = 0; i < times; i++) {
-    let j = Math.round(Math.random() * (9 - 0) + 0)
-    num = num + j
-  }
-
-  return num
-}
-
-
 
 exports.passportLoginOrCreate = catchAsync(async (req, res, next) => {
   const { user } = req
@@ -301,6 +266,49 @@ exports.resetPassword = catchAsync(async (req, res, next) => {
   if (!user.confirmedEmail) return next(new AppError('invalid'))
 })
 
+async function  sendSignupEmail(user) {
+  const emailToken = await user.generateEmailToken()
+  await user.save()
+  const token = await createToken(user._id, emailToken)
+  const Email = new EmailingSystem({ email: user.email })
+    .sendSignup(token)
+  await Email
+}
+
+async function sendPasswordResetEmail(user) {
+  const emailToken = await user.generateEmailToken()
+  await user.save()
+  const token = await createToken(user._id, emailToken)
+  const Email = new EmailingSystem({ email: user.email })
+    .sendPasswordReset(token)
+  await Email
+}
+
+async function sendEmailUpdateEmail (user, newEmail) {
+  const emailToken = await user.generateEmailToken()
+  await user.save()
+  const token = await createToken(user._id, emailToken, newEmail)
+  const Email = new EmailingSystem({ email: user.email })
+    .sendEmailUpdate(token)
+  await Email
+}
+
+function parseEmail(email) {
+  var regex = /^[^\s@]+@[^\s@\.]+(\.[^\s@.]+)+$/
+
+  return regex.test(email)
+}
+
+function genNumber(times = 1) {
+  let num = ''
+
+  for (let i = 0; i < times; i++) {
+    let j = Math.round(Math.random() * (9 - 0) + 0)
+    num = num + j
+  }
+
+  return num
+}
 
 
 
