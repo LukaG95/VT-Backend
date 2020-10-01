@@ -176,6 +176,8 @@ exports.addReputation = async (req, res, next) => {
   const receiving_user = await User.findById(req.params.user).select('-__v')
   if (!receiving_user) return res.status(404).json({info: 'no user', message: 'user with the given id does not exist'})
 
+  if (receiving_user._id.toHexString() === user._id.toHexString()) return res.status(400).json({info: 'rep yourself', message: 'you can not rep yourself'})
+  
   // if user exists but has no rep yet (doesn't exist in Reputation collection), create a new one
   const user_repDB = await Reputation.findOne({ user: req.params.user })
   if (!user_repDB) {
@@ -184,10 +186,11 @@ exports.addReputation = async (req, res, next) => {
       reps: [rep]
     })
 
+    console.log(newRep)
     await newRep.save()
     // await Redis.cache(`${user._id}${userId}`, 1)
 
-    return res.status(200).json({ info: 'success', message: 'successfully added reputation' })
+    return res.status(200).json({ info: 'success', message: 'successfully added reputation to a new user' })
   }
 
   user_repDB.reps.push(rep) // or unshift for adding at the start

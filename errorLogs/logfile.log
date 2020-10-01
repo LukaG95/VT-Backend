@@ -11151,3 +11151,1150 @@
   level: 'info',
   timestamp: '2020-09-30T22:09:16.647Z'
 }
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-30T22:27:23.403Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-30T22:27:23.789Z'
+}
+{
+  metadata: MongoError: E11000 duplicate key error collection: vt.reputations index: userId_1 dup key: { userId: null }
+      at Function.create (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\error.js:57:12)
+      at toError (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\utils.js:123:22)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\operations\common_functions.js:265:39
+      at handler (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\topologies\replset.js:1204:22)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\connection\pool.js:405:18
+      at processTicksAndRejections (internal/process/task_queues.js:75:11) {
+    driver: true,
+    name: 'MongoError',
+    index: 0,
+    code: 11000,
+    keyPattern: { userId: 1 },
+    keyValue: { userId: null }
+  },
+  level: 'error',
+  message: 'E11000 duplicate key error collection: vt.reputations index: userId_1 dup key: { userId: null }',
+  timestamp: '2020-09-30T22:27:39.328Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-30T22:30:00.115Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-30T22:30:00.437Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-30T22:31:27.491Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-30T22:31:27.803Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-30T22:31:49.655Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-30T22:31:49.879Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-30T22:34:23.694Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-30T22:34:23.995Z'
+}
+{
+  metadata: MongoError: E11000 duplicate key error collection: vt.reputations index: userId_1 dup key: { userId: null }
+      at Function.create (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\error.js:57:12)
+      at toError (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\utils.js:123:22)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\operations\common_functions.js:265:39
+      at handler (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\topologies\replset.js:1204:22)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\connection\pool.js:405:18
+      at processTicksAndRejections (internal/process/task_queues.js:75:11) {
+    driver: true,
+    name: 'MongoError',
+    index: 0,
+    code: 11000,
+    keyPattern: { userId: 1 },
+    keyValue: { userId: null }
+  },
+  level: 'error',
+  message: 'E11000 duplicate key error collection: vt.reputations index: userId_1 dup key: { userId: null }',
+  timestamp: '2020-09-30T22:34:29.670Z'
+}
+{
+  metadata: MongoError: E11000 duplicate key error collection: vt.reputations index: userId_1 dup key: { userId: null }
+      at Function.create (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\error.js:57:12)
+      at toError (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\utils.js:123:22)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\operations\common_functions.js:265:39
+      at handler (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\topologies\replset.js:1204:22)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\connection\pool.js:405:18
+      at processTicksAndRejections (internal/process/task_queues.js:75:11) {
+    driver: true,
+    name: 'MongoError',
+    index: 0,
+    code: 11000,
+    keyPattern: { userId: 1 },
+    keyValue: { userId: null }
+  },
+  level: 'error',
+  message: 'E11000 duplicate key error collection: vt.reputations index: userId_1 dup key: { userId: null }',
+  timestamp: '2020-09-30T22:36:59.105Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-30T22:37:06.235Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-30T22:37:06.572Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-30T22:37:15.127Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-30T22:37:15.312Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-30T22:38:41.621Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-30T22:38:41.952Z'
+}
+{
+  metadata: MongoError: E11000 duplicate key error collection: vt.reputations index: userId_1 dup key: { userId: null }
+      at Function.create (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\error.js:57:12)
+      at toError (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\utils.js:123:22)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\operations\common_functions.js:265:39
+      at handler (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\topologies\replset.js:1204:22)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\connection\pool.js:405:18
+      at processTicksAndRejections (internal/process/task_queues.js:75:11) {
+    driver: true,
+    name: 'MongoError',
+    index: 0,
+    code: 11000,
+    keyPattern: { userId: 1 },
+    keyValue: { userId: null }
+  },
+  level: 'error',
+  message: 'E11000 duplicate key error collection: vt.reputations index: userId_1 dup key: { userId: null }',
+  timestamp: '2020-09-30T22:39:41.858Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-30T22:41:01.235Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-30T22:41:01.589Z'
+}
+{
+  metadata: MongoError: E11000 duplicate key error collection: vt.reputations index: userId_1 dup key: { userId: null }
+      at Function.create (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\error.js:57:12)
+      at toError (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\utils.js:123:22)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\operations\common_functions.js:265:39
+      at handler (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\topologies\replset.js:1204:22)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\connection\pool.js:405:18
+      at processTicksAndRejections (internal/process/task_queues.js:75:11) {
+    driver: true,
+    name: 'MongoError',
+    index: 0,
+    code: 11000,
+    keyPattern: { userId: 1 },
+    keyValue: { userId: null }
+  },
+  level: 'error',
+  message: 'E11000 duplicate key error collection: vt.reputations index: userId_1 dup key: { userId: null }',
+  timestamp: '2020-09-30T22:41:03.498Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-30T22:45:44.936Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-30T22:45:45.251Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-09-30T22:45:49.974Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-09-30T22:45:50.156Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-10-01T14:22:26.037Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-01T14:22:26.350Z'
+}
+{
+  metadata: MongoError: E11000 duplicate key error collection: vt.reputations index: userId_1 dup key: { userId: null }
+      at Function.create (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\error.js:57:12)
+      at toError (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\utils.js:123:22)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\operations\common_functions.js:265:39
+      at handler (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\topologies\replset.js:1204:22)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\connection\pool.js:405:18
+      at processTicksAndRejections (internal/process/task_queues.js:75:11) {
+    driver: true,
+    name: 'MongoError',
+    index: 0,
+    code: 11000,
+    keyPattern: { userId: 1 },
+    keyValue: { userId: null }
+  },
+  level: 'error',
+  message: 'E11000 duplicate key error collection: vt.reputations index: userId_1 dup key: { userId: null }',
+  timestamp: '2020-10-01T14:22:28.710Z'
+}
+{
+  metadata: Error: Reputation validation failed: reps.0.feedback: Path `feedback` is required., reps.0.category: Path `category` is required., reps.0.good: Path `good` is required.
+      at ValidationError.inspect (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\error\validation.js:47:26)
+      at formatValue (internal/util/inspect.js:563:31)
+      at formatProperty (internal/util/inspect.js:1406:11)
+      at formatRaw (internal/util/inspect.js:785:9)
+      at formatValue (internal/util/inspect.js:591:10)
+      at inspect (internal/util/inspect.js:221:10)
+      at Format.transform (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\logform\pretty-print.js:27:19)
+      at Format.transform (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\logform\combine.js:20:24)
+      at DerivedLogger._transform (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\lib\winston\logger.js:305:29)
+      at DerivedLogger.Transform._read (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\node_modules\readable-stream\lib\_stream_transform.js:177:10)
+      at DerivedLogger.Transform._write (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\node_modules\readable-stream\lib\_stream_transform.js:164:83)
+      at doWrite (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\node_modules\readable-stream\lib\_stream_writable.js:409:139)
+      at writeOrBuffer (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\node_modules\readable-stream\lib\_stream_writable.js:398:5)
+      at DerivedLogger.Writable.write (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\node_modules\readable-stream\lib\_stream_writable.js:307:11)
+      at DerivedLogger.log (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\lib\winston\logger.js:244:14)
+      at DerivedLogger.<computed> [as error] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\lib\winston\create-logger.js:95:19) {
+    errors: {
+      'reps.0.feedback': ValidatorError: Path `feedback` is required.
+          at validate (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1217:13)
+          at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1200:7
+          at Array.forEach (<anonymous>)
+          at SchemaString.SchemaType.doValidate (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1145:14)
+          at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\document.js:2408:18
+          at processTicksAndRejections (internal/process/task_queues.js:75:11) {
+        properties: {
+          validator: [Function],
+          message: 'Path `feedback` is required.',
+          type: 'required',
+          path: 'feedback',
+          value: undefined
+        },
+        kind: 'required',
+        path: 'feedback',
+        value: undefined,
+        reason: undefined,
+        [Symbol(mongoose:validatorError)]: true
+      },
+      'reps.0.category': ValidatorError: Path `category` is required.
+          at validate (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1217:13)
+          at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1200:7
+          at Array.forEach (<anonymous>)
+          at SchemaString.SchemaType.doValidate (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1145:14)
+          at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\document.js:2408:18
+          at processTicksAndRejections (internal/process/task_queues.js:75:11) {
+        properties: {
+          validator: [Function],
+          message: 'Path `category` is required.',
+          type: 'required',
+          path: 'category',
+          value: undefined
+        },
+        kind: 'required',
+        path: 'category',
+        value: undefined,
+        reason: undefined,
+        [Symbol(mongoose:validatorError)]: true
+      },
+      'reps.0.good': ValidatorError: Path `good` is required.
+          at validate (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1217:13)
+          at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1200:7
+          at Array.forEach (<anonymous>)
+          at SchemaBoolean.SchemaType.doValidate (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1145:14)
+          at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\document.js:2408:18
+          at processTicksAndRejections (internal/process/task_queues.js:75:11) {
+        properties: {
+          validator: [Function],
+          message: 'Path `good` is required.',
+          type: 'required',
+          path: 'good',
+          value: undefined
+        },
+        kind: 'required',
+        path: 'good',
+        value: undefined,
+        reason: undefined,
+        [Symbol(mongoose:validatorError)]: true
+      }
+    },
+    _message: 'Reputation validation failed'
+  },
+  level: 'error',
+  message: 'Reputation validation failed: reps.0.feedback: Path `feedback` is required., reps.0.category: Path `category` is required., reps.0.good: Path `good` is required.',
+  timestamp: '2020-10-01T14:24:35.588Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-10-01T14:24:53.473Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-01T14:24:53.808Z'
+}
+{
+  metadata: Error: Reputation validation failed: reps.0.feedback: Path `feedback` is required., reps.0.category: Path `category` is required., reps.0.good: Path `good` is required.
+      at ValidationError.inspect (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\error\validation.js:47:26)
+      at formatValue (internal/util/inspect.js:563:31)
+      at formatProperty (internal/util/inspect.js:1406:11)
+      at formatRaw (internal/util/inspect.js:785:9)
+      at formatValue (internal/util/inspect.js:591:10)
+      at inspect (internal/util/inspect.js:221:10)
+      at Format.transform (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\logform\pretty-print.js:27:19)
+      at Format.transform (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\logform\combine.js:20:24)
+      at DerivedLogger._transform (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\lib\winston\logger.js:305:29)
+      at DerivedLogger.Transform._read (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\node_modules\readable-stream\lib\_stream_transform.js:177:10)
+      at DerivedLogger.Transform._write (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\node_modules\readable-stream\lib\_stream_transform.js:164:83)
+      at doWrite (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\node_modules\readable-stream\lib\_stream_writable.js:409:139)
+      at writeOrBuffer (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\node_modules\readable-stream\lib\_stream_writable.js:398:5)
+      at DerivedLogger.Writable.write (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\node_modules\readable-stream\lib\_stream_writable.js:307:11)
+      at DerivedLogger.log (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\lib\winston\logger.js:244:14)
+      at DerivedLogger.<computed> [as error] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\lib\winston\create-logger.js:95:19) {
+    errors: {
+      'reps.0.feedback': ValidatorError: Path `feedback` is required.
+          at validate (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1217:13)
+          at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1200:7
+          at Array.forEach (<anonymous>)
+          at SchemaString.SchemaType.doValidate (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1145:14)
+          at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\document.js:2408:18
+          at processTicksAndRejections (internal/process/task_queues.js:75:11) {
+        properties: {
+          validator: [Function],
+          message: 'Path `feedback` is required.',
+          type: 'required',
+          path: 'feedback',
+          value: undefined
+        },
+        kind: 'required',
+        path: 'feedback',
+        value: undefined,
+        reason: undefined,
+        [Symbol(mongoose:validatorError)]: true
+      },
+      'reps.0.category': ValidatorError: Path `category` is required.
+          at validate (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1217:13)
+          at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1200:7
+          at Array.forEach (<anonymous>)
+          at SchemaString.SchemaType.doValidate (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1145:14)
+          at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\document.js:2408:18
+          at processTicksAndRejections (internal/process/task_queues.js:75:11) {
+        properties: {
+          validator: [Function],
+          message: 'Path `category` is required.',
+          type: 'required',
+          path: 'category',
+          value: undefined
+        },
+        kind: 'required',
+        path: 'category',
+        value: undefined,
+        reason: undefined,
+        [Symbol(mongoose:validatorError)]: true
+      },
+      'reps.0.good': ValidatorError: Path `good` is required.
+          at validate (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1217:13)
+          at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1200:7
+          at Array.forEach (<anonymous>)
+          at SchemaBoolean.SchemaType.doValidate (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1145:14)
+          at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\document.js:2408:18
+          at processTicksAndRejections (internal/process/task_queues.js:75:11) {
+        properties: {
+          validator: [Function],
+          message: 'Path `good` is required.',
+          type: 'required',
+          path: 'good',
+          value: undefined
+        },
+        kind: 'required',
+        path: 'good',
+        value: undefined,
+        reason: undefined,
+        [Symbol(mongoose:validatorError)]: true
+      }
+    },
+    _message: 'Reputation validation failed'
+  },
+  level: 'error',
+  message: 'Reputation validation failed: reps.0.feedback: Path `feedback` is required., reps.0.category: Path `category` is required., reps.0.good: Path `good` is required.',
+  timestamp: '2020-10-01T14:24:54.997Z'
+}
+{
+  metadata: MongoError: E11000 duplicate key error collection: vt.reputations index: userId_1 dup key: { userId: null }
+      at Function.create (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\error.js:57:12)
+      at toError (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\utils.js:123:22)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\operations\common_functions.js:265:39
+      at handler (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\topologies\replset.js:1204:22)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\connection\pool.js:405:18
+      at processTicksAndRejections (internal/process/task_queues.js:75:11) {
+    driver: true,
+    name: 'MongoError',
+    index: 0,
+    code: 11000,
+    keyPattern: { userId: 1 },
+    keyValue: { userId: null }
+  },
+  level: 'error',
+  message: 'E11000 duplicate key error collection: vt.reputations index: userId_1 dup key: { userId: null }',
+  timestamp: '2020-10-01T14:26:13.813Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-10-01T14:28:25.739Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-01T14:28:26.043Z'
+}
+{
+  metadata: MongoError: E11000 duplicate key error collection: vt.reputations index: userId_1 dup key: { userId: null }
+      at Function.create (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\error.js:57:12)
+      at toError (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\utils.js:123:22)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\operations\common_functions.js:265:39
+      at handler (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\topologies\replset.js:1204:22)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\connection\pool.js:405:18
+      at processTicksAndRejections (internal/process/task_queues.js:75:11) {
+    driver: true,
+    name: 'MongoError',
+    index: 0,
+    code: 11000,
+    keyPattern: { userId: 1 },
+    keyValue: { userId: null }
+  },
+  level: 'error',
+  message: 'E11000 duplicate key error collection: vt.reputations index: userId_1 dup key: { userId: null }',
+  timestamp: '2020-10-01T14:28:30.891Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-10-01T14:28:48.083Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-01T14:28:48.253Z'
+}
+{
+  metadata: MongoError: E11000 duplicate key error collection: vt.reputations index: userId_1 dup key: { userId: null }
+      at Function.create (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\error.js:57:12)
+      at toError (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\utils.js:123:22)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\operations\common_functions.js:265:39
+      at handler (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\topologies\replset.js:1204:22)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\connection\pool.js:405:18
+      at processTicksAndRejections (internal/process/task_queues.js:75:11) {
+    driver: true,
+    name: 'MongoError',
+    index: 0,
+    code: 11000,
+    keyPattern: { userId: 1 },
+    keyValue: { userId: null }
+  },
+  level: 'error',
+  message: 'E11000 duplicate key error collection: vt.reputations index: userId_1 dup key: { userId: null }',
+  timestamp: '2020-10-01T14:28:48.938Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-10-01T14:29:39.036Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-01T14:29:39.321Z'
+}
+{
+  metadata: MongoError: E11000 duplicate key error collection: vt.reputations index: userId_1 dup key: { userId: null }
+      at Function.create (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\error.js:57:12)
+      at toError (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\utils.js:123:22)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\operations\common_functions.js:265:39
+      at handler (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\topologies\replset.js:1204:22)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\connection\pool.js:405:18
+      at processTicksAndRejections (internal/process/task_queues.js:75:11) {
+    driver: true,
+    name: 'MongoError',
+    index: 0,
+    code: 11000,
+    keyPattern: { userId: 1 },
+    keyValue: { userId: null }
+  },
+  level: 'error',
+  message: 'E11000 duplicate key error collection: vt.reputations index: userId_1 dup key: { userId: null }',
+  timestamp: '2020-10-01T14:29:39.999Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-10-01T14:30:13.877Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-01T14:30:14.056Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-10-01T14:30:30.529Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-01T14:30:30.727Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-10-01T14:30:36.618Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-01T14:30:36.807Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-10-01T14:30:44.308Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-01T14:30:44.563Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-10-01T14:30:55.283Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-01T14:30:55.499Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-10-01T14:31:27.949Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-01T14:31:28.172Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-10-01T14:31:48.306Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-01T14:31:48.668Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-10-01T14:31:59.219Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-01T14:31:59.433Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-10-01T14:32:34.043Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-01T14:32:34.230Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-10-01T14:32:46.440Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-01T14:32:46.618Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-10-01T14:32:56.753Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-01T14:32:56.992Z'
+}
+{
+  metadata: MongoError: E11000 duplicate key error collection: vt.reputations index: userId_1 dup key: { userId: null }
+      at Function.create (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\error.js:57:12)
+      at toError (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\utils.js:123:22)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\operations\common_functions.js:265:39
+      at handler (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\topologies\replset.js:1204:22)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\connection\pool.js:405:18
+      at processTicksAndRejections (internal/process/task_queues.js:75:11) {
+    driver: true,
+    name: 'MongoError',
+    index: 0,
+    code: 11000,
+    keyPattern: { userId: 1 },
+    keyValue: { userId: null }
+  },
+  level: 'error',
+  message: 'E11000 duplicate key error collection: vt.reputations index: userId_1 dup key: { userId: null }',
+  timestamp: '2020-10-01T14:35:18.671Z'
+}
+{
+  metadata: MongoError: E11000 duplicate key error collection: vt.reputations index: userId_1 dup key: { userId: null }
+      at Function.create (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\error.js:57:12)
+      at toError (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\utils.js:123:22)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\operations\common_functions.js:265:39
+      at handler (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\topologies\replset.js:1204:22)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\connection\pool.js:405:18
+      at processTicksAndRejections (internal/process/task_queues.js:75:11) {
+    driver: true,
+    name: 'MongoError',
+    index: 0,
+    code: 11000,
+    keyPattern: { userId: 1 },
+    keyValue: { userId: null }
+  },
+  level: 'error',
+  message: 'E11000 duplicate key error collection: vt.reputations index: userId_1 dup key: { userId: null }',
+  timestamp: '2020-10-01T14:37:25.629Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-10-01T14:37:33.898Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-01T14:37:34.142Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-10-01T14:38:04.047Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-01T14:38:04.274Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-10-01T14:38:16.821Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-01T14:38:17.009Z'
+}
+{
+  metadata: MongoError: E11000 duplicate key error collection: vt.reputations index: userId_1 dup key: { userId: null }
+      at Function.create (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\error.js:57:12)
+      at toError (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\utils.js:123:22)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\operations\common_functions.js:265:39
+      at handler (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\topologies\replset.js:1204:22)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\connection\pool.js:405:18
+      at processTicksAndRejections (internal/process/task_queues.js:75:11) {
+    driver: true,
+    name: 'MongoError',
+    index: 0,
+    code: 11000,
+    keyPattern: { userId: 1 },
+    keyValue: { userId: null }
+  },
+  level: 'error',
+  message: 'E11000 duplicate key error collection: vt.reputations index: userId_1 dup key: { userId: null }',
+  timestamp: '2020-10-01T14:38:19.576Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-10-01T14:38:47.439Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-01T14:38:47.755Z'
+}
+{
+  metadata: MongoError: E11000 duplicate key error collection: vt.reputations index: userId_1 dup key: { userId: null }
+      at Function.create (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\error.js:57:12)
+      at toError (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\utils.js:123:22)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\operations\common_functions.js:265:39
+      at handler (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\topologies\replset.js:1204:22)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\connection\pool.js:405:18
+      at processTicksAndRejections (internal/process/task_queues.js:75:11) {
+    driver: true,
+    name: 'MongoError',
+    index: 0,
+    code: 11000,
+    keyPattern: { userId: 1 },
+    keyValue: { userId: null }
+  },
+  level: 'error',
+  message: 'E11000 duplicate key error collection: vt.reputations index: userId_1 dup key: { userId: null }',
+  timestamp: '2020-10-01T14:38:49.503Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-10-01T14:39:32.838Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-01T14:39:33.063Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-10-01T14:40:03.401Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-01T14:40:03.671Z'
+}
+{
+  metadata: MongoError: E11000 duplicate key error collection: vt.reputations index: userId_1 dup key: { userId: null }
+      at Function.create (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\error.js:57:12)
+      at toError (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\utils.js:123:22)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\operations\common_functions.js:265:39
+      at handler (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\topologies\replset.js:1204:22)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\connection\pool.js:405:18
+      at processTicksAndRejections (internal/process/task_queues.js:75:11) {
+    driver: true,
+    name: 'MongoError',
+    index: 0,
+    code: 11000,
+    keyPattern: { userId: 1 },
+    keyValue: { userId: null }
+  },
+  level: 'error',
+  message: 'E11000 duplicate key error collection: vt.reputations index: userId_1 dup key: { userId: null }',
+  timestamp: '2020-10-01T14:40:04.902Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-10-01T14:41:47.126Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-01T14:41:47.423Z'
+}
+{
+  metadata: MongoError: E11000 duplicate key error collection: vt.reputations index: userId_1 dup key: { userId: null }
+      at Function.create (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\error.js:57:12)
+      at toError (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\utils.js:123:22)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\operations\common_functions.js:265:39
+      at handler (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\topologies\replset.js:1204:22)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\connection\pool.js:405:18
+      at processTicksAndRejections (internal/process/task_queues.js:75:11) {
+    driver: true,
+    name: 'MongoError',
+    index: 0,
+    code: 11000,
+    keyPattern: { userId: 1 },
+    keyValue: { userId: null }
+  },
+  level: 'error',
+  message: 'E11000 duplicate key error collection: vt.reputations index: userId_1 dup key: { userId: null }',
+  timestamp: '2020-10-01T14:41:48.891Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-10-01T14:42:19.913Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-01T14:42:20.182Z'
+}
+{
+  metadata: MongoError: E11000 duplicate key error collection: vt.reputations index: userId_1 dup key: { userId: null }
+      at Function.create (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\error.js:57:12)
+      at toError (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\utils.js:123:22)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\operations\common_functions.js:265:39
+      at handler (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\topologies\replset.js:1204:22)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\connection\pool.js:405:18
+      at processTicksAndRejections (internal/process/task_queues.js:75:11) {
+    driver: true,
+    name: 'MongoError',
+    index: 0,
+    code: 11000,
+    keyPattern: { userId: 1 },
+    keyValue: { userId: null }
+  },
+  level: 'error',
+  message: 'E11000 duplicate key error collection: vt.reputations index: userId_1 dup key: { userId: null }',
+  timestamp: '2020-10-01T14:42:22.023Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-10-01T14:42:34.182Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-01T14:42:34.365Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-10-01T15:12:09.770Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-01T15:12:10.087Z'
+}
+{
+  metadata: MongoError: E11000 duplicate key error collection: vt.reputations index: userId_1 dup key: { userId: null }
+      at Function.create (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\error.js:57:12)
+      at toError (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\utils.js:123:22)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\operations\common_functions.js:265:39
+      at handler (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\topologies\replset.js:1204:22)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\connection\pool.js:405:18
+      at processTicksAndRejections (internal/process/task_queues.js:75:11) {
+    driver: true,
+    name: 'MongoError',
+    index: 0,
+    code: 11000,
+    keyPattern: { userId: 1 },
+    keyValue: { userId: null }
+  },
+  level: 'error',
+  message: 'E11000 duplicate key error collection: vt.reputations index: userId_1 dup key: { userId: null }',
+  timestamp: '2020-10-01T15:12:12.013Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-10-01T15:14:47.150Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-01T15:14:47.485Z'
+}
+{
+  metadata: Error: Reputation validation failed: user: Cast to ObjectId failed for value "heh" at path "user", reps.0.createdBy: Cast to ObjectId failed for value "heh" at path "createdBy"
+      at ValidationError.inspect (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\error\validation.js:47:26)
+      at formatValue (internal/util/inspect.js:563:31)
+      at formatProperty (internal/util/inspect.js:1406:11)
+      at formatRaw (internal/util/inspect.js:785:9)
+      at formatValue (internal/util/inspect.js:591:10)
+      at inspect (internal/util/inspect.js:221:10)
+      at Format.transform (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\logform\pretty-print.js:27:19)
+      at Format.transform (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\logform\combine.js:20:24)
+      at DerivedLogger._transform (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\lib\winston\logger.js:305:29)
+      at DerivedLogger.Transform._read (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\node_modules\readable-stream\lib\_stream_transform.js:177:10)
+      at DerivedLogger.Transform._write (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\node_modules\readable-stream\lib\_stream_transform.js:164:83)
+      at doWrite (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\node_modules\readable-stream\lib\_stream_writable.js:409:139)
+      at writeOrBuffer (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\node_modules\readable-stream\lib\_stream_writable.js:398:5)
+      at DerivedLogger.Writable.write (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\node_modules\readable-stream\lib\_stream_writable.js:307:11)
+      at DerivedLogger.log (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\lib\winston\logger.js:244:14)
+      at DerivedLogger.<computed> [as error] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\lib\winston\create-logger.js:95:19) {
+    errors: {
+      user: CastError: Cast to ObjectId failed for value "heh" at path "user"
+          at ObjectId.cast (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schema\objectid.js:269:11)
+          at ObjectId.SchemaType.applySetters (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1070:12)
+          at model.$set (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\document.js:1227:20)
+          at model._handleIndex (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\document.js:996:14)
+          at model.$set (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\document.js:937:22)
+          at model.Document (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\document.js:146:12)
+          at model.Model (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\model.js:106:12)
+          at new model (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\model.js:4675:15)
+          at exports.addReputation (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\Controllers\repController.js:184:20)
+          at processTicksAndRejections (internal/process/task_queues.js:93:5) {
+        stringValue: '"heh"',
+        messageFormat: undefined,
+        kind: 'ObjectId',
+        value: 'heh',
+        path: 'user',
+        reason: Error: Argument passed in must be a single String of 12 bytes or a string of 24 hex characters
+            at new ObjectID (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\bson\lib\bson\objectid.js:59:11)
+            at castObjectId (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\cast\objectid.js:25:12)
+            at ObjectId.cast (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schema\objectid.js:267:12)
+            at ObjectId.SchemaType.applySetters (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1070:12)
+            at model.$set (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\document.js:1227:20)
+            at model._handleIndex (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\document.js:996:14)
+            at model.$set (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\document.js:937:22)
+            at model.Document (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\document.js:146:12)
+            at model.Model (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\model.js:106:12)
+            at new model (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\model.js:4675:15)
+            at exports.addReputation (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\Controllers\repController.js:184:20)
+            at processTicksAndRejections (internal/process/task_queues.js:93:5)
+      },
+      'reps.0.createdBy': CastError: Cast to ObjectId failed for value "heh" at path "createdBy"
+          at ObjectId.cast (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schema\objectid.js:269:11)
+          at ObjectId.SchemaType.applySetters (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1070:12)
+          at EmbeddedDocument.$set (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\document.js:1227:20)
+          at EmbeddedDocument._handleIndex (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\document.js:996:14)
+          at EmbeddedDocument.$set (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\document.js:937:22)
+          at EmbeddedDocument.Document (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\document.js:146:12)
+          at EmbeddedDocument [as constructor] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\types\embedded.js:42:12)
+          at new EmbeddedDocument (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schema\documentarray.js:115:17)
+          at DocumentArrayPath.cast (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schema\documentarray.js:447:22)
+          at DocumentArrayPath.SchemaType.applySetters (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1070:12)
+          at model.$set (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\document.js:1227:20)
+          at model._handleIndex (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\document.js:996:14)
+          at model.$set (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\document.js:937:22)
+          at model.Document (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\document.js:146:12)
+          at model.Model (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\model.js:106:12)
+          at new model (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\model.js:4675:15) {
+        stringValue: '"heh"',
+        messageFormat: undefined,
+        kind: 'ObjectId',
+        value: 'heh',
+        path: 'createdBy',
+        reason: Error: Argument passed in must be a single String of 12 bytes or a string of 24 hex characters
+            at new ObjectID (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\bson\lib\bson\objectid.js:59:11)
+            at castObjectId (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\cast\objectid.js:25:12)
+            at ObjectId.cast (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schema\objectid.js:267:12)
+            at ObjectId.SchemaType.applySetters (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1070:12)
+            at EmbeddedDocument.$set (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\document.js:1227:20)
+            at EmbeddedDocument._handleIndex (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\document.js:996:14)
+            at EmbeddedDocument.$set (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\document.js:937:22)
+            at EmbeddedDocument.Document (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\document.js:146:12)
+            at EmbeddedDocument [as constructor] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\types\embedded.js:42:12)
+            at new EmbeddedDocument (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schema\documentarray.js:115:17)
+            at DocumentArrayPath.cast (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schema\documentarray.js:447:22)
+            at DocumentArrayPath.SchemaType.applySetters (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1070:12)
+            at model.$set (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\document.js:1227:20)
+            at model._handleIndex (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\document.js:996:14)
+            at model.$set (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\document.js:937:22)
+            at model.Document (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\document.js:146:12)
+      }
+    },
+    _message: 'Reputation validation failed'
+  },
+  level: 'error',
+  message: 'Reputation validation failed: user: Cast to ObjectId failed for value "heh" at path "user", reps.0.createdBy: Cast to ObjectId failed for value "heh" at path "createdBy"',
+  timestamp: '2020-10-01T15:14:49.811Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-10-01T15:15:14.373Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-01T15:15:14.592Z'
+}
+{
+  metadata: MongoError: E11000 duplicate key error collection: vt.reputations index: userId_1 dup key: { userId: null }
+      at Function.create (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\error.js:57:12)
+      at toError (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\utils.js:123:22)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\operations\common_functions.js:265:39
+      at handler (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\topologies\replset.js:1204:22)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\connection\pool.js:405:18
+      at processTicksAndRejections (internal/process/task_queues.js:75:11) {
+    driver: true,
+    name: 'MongoError',
+    index: 0,
+    code: 11000,
+    keyPattern: { userId: 1 },
+    keyValue: { userId: null }
+  },
+  level: 'error',
+  message: 'E11000 duplicate key error collection: vt.reputations index: userId_1 dup key: { userId: null }',
+  timestamp: '2020-10-01T15:15:15.496Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-10-01T15:15:50.038Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-01T15:15:50.305Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-10-01T15:15:57.712Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-01T15:15:57.910Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-10-01T15:18:14.499Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-01T15:18:14.907Z'
+}
+{
+  metadata: MongoError: E11000 duplicate key error collection: vt.reputations index: userId_1 dup key: { userId: null }
+      at Function.create (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\error.js:57:12)
+      at toError (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\utils.js:123:22)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\operations\common_functions.js:265:39
+      at handler (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\topologies\replset.js:1204:22)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\connection\pool.js:405:18
+      at processTicksAndRejections (internal/process/task_queues.js:75:11) {
+    driver: true,
+    name: 'MongoError',
+    index: 0,
+    code: 11000,
+    keyPattern: { userId: 1 },
+    keyValue: { userId: null }
+  },
+  level: 'error',
+  message: 'E11000 duplicate key error collection: vt.reputations index: userId_1 dup key: { userId: null }',
+  timestamp: '2020-10-01T15:18:16.326Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-10-01T15:22:24.779Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-01T15:22:25.112Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-10-01T15:22:59.344Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-01T15:22:59.546Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-10-01T15:23:07.745Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-01T15:23:07.965Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-10-01T15:23:14.472Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-01T15:23:14.655Z'
+}
+{
+  metadata: MongoError: E11000 duplicate key error collection: vt.reputations index: userId_1 dup key: { userId: null }
+      at Function.create (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\error.js:57:12)
+      at toError (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\utils.js:123:22)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\operations\common_functions.js:265:39
+      at handler (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\topologies\replset.js:1204:22)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\connection\pool.js:405:18
+      at processTicksAndRejections (internal/process/task_queues.js:75:11) {
+    driver: true,
+    name: 'MongoError',
+    index: 0,
+    code: 11000,
+    keyPattern: { userId: 1 },
+    keyValue: { userId: null }
+  },
+  level: 'error',
+  message: 'E11000 duplicate key error collection: vt.reputations index: userId_1 dup key: { userId: null }',
+  timestamp: '2020-10-01T15:23:16.331Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-10-01T15:24:55.552Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-01T15:24:55.863Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-10-01T15:25:06.471Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-01T15:25:06.657Z'
+}

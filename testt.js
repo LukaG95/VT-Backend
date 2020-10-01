@@ -1,6 +1,4 @@
-let x = new Date()
+let x = null
 
-console.log(x)
-x = x.toLocaleString()
-
-console.log(x)
+if (!x)
+  console.log("heh")
