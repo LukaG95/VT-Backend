@@ -60,10 +60,10 @@ exports.getUser = async (req, res, next) => {
 
 // GET api/auth/getUserByUsername
 exports.getUserByUsername = async (req, res, next) => { 
-  const {username} = req.body
+  const { username } = req.body
   // if (!username) return res ...
 
-  const user = await User.find({username}).select('-__v')
+  const user = await User.find({username}, {_id: 1})
   if (user.length < 1) return res.status(400).json({info: "no user", message: `user was not found by the name of ${username}`})
   
   return res.status(200).json({info: "success", message: "successfully got user", user: user[0]})
