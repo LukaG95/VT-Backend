@@ -64,7 +64,7 @@ exports.getUserByUsername = async (req, res, next) => {
   // if (!username) return res ...
 
   const user = await User.find({username}).select('-__v')
-  // if (!user) return res ...
+  if (user.length < 1) return res.status(400).json({info: "no user", message: `user was not found by the name of ${username}`})
   
   return res.status(200).json({info: "success", message: "successfully got user", user: user[0]})
 }
