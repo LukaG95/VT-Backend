@@ -63,7 +63,8 @@ exports.getUserByUsername = async (req, res, next) => {
   const { username } = req.params
   // if (!username) return res ...
 
-  const user = await User.find({username}, {_id: 1})
+  let regex = new RegExp(["^", username, "$"].join(""), "i") // make the search case insensitive
+  const user = await User.find({username: regex}, {_id: 1})
   if (user.length < 1) return res.status(400).json({info: "no user", message: `user was not found by the name of ${username}`})
   
   return res.status(200).json({info: "success", message: "successfully got user", user: user[0]})
