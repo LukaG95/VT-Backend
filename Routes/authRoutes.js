@@ -4,6 +4,7 @@ const cors = require('cors')
 const limiter = require('../misc/rateLimiter')
 const passport = require('../misc/passport') 
 const authController = require('../Controllers/authController')
+const testUserController = require('../Controllers/testUserController')
 
 const router = express.Router()
 
@@ -12,9 +13,12 @@ router.use(cors())
 
 router.get('/getUser', authController.protect, authController.getUser)
 router.get('/getUserByUsername/:username', authController.getUserByUsername)
+router.get('/getTestUsers', authController.protect, authController.adminOnly, authController.getTestUsers)
 
 router.post('/signup', limiter, authController.signup)
 router.post('/login', limiter, authController.login)
+router.post('/createTestUser', authController.protect, authController.adminOnly, authController.createTestUser)
+router.delete('/deleteTestUser', authController.protect, authController.adminOnly, authController.deleteTestUser)
 
 router.delete('/logout', authController.protect, authController.logout)
 

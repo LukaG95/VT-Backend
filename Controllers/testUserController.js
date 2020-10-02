@@ -48,27 +48,6 @@ exports.protect = catchAsync(async (req, res, next) => {
   }
 })
 
-exports.createUser = catchAsync(async (req, res, next) => {
-  const { username } = req.body
-
-  const password = crypto.randomBytes(8).toString('hex')
-
-  const user = new TestUser({ username, password })
-  await user.save()
-
-  return res.json({ status: 'success' })
-})
-
-exports.deleteUser = catchAsync(async (req, res, next) => {
-  const { username } = req.body
-
-  await TestUser.deleteOne({ username })
-   // .then(result => res.json({ status: `Deleted ${result.deletedCount} item.`}))
-   // .catch(err => res.json({ status: `Delete failed with error: ${err}`}))
-      
-  return res.json({ status: 'success', info: username, test: "heh", test2: typeof username})
-})
-
 exports.login = catchAsync(async (req, res, next) => {
   const { username, password } = req.body
   const user = await TestUser.findOne({ username })
@@ -84,18 +63,3 @@ exports.getTestUser = catchAsync(async (req, res, next) => {
   return res.status(200).json({info: "success", message: "successfully got test user", user: test_user})
 })
 
-
-exports.adminOnly = catchAsync(async (req, res, next) => {
-  const test_user = await TestUser.findById(req.user.id).select('-__v')
-  
-  if (test_user.role !== 'admin') 
-  return res.status(403).json({info: "forbidden", message: "looks like you don't have the permission to access this floor"})
-
-  next()
-})
-
-exports.aggregateUsers = catchAsync(async (req, res, next) => {
-  const testers = await TestUser.find({ }).select('-_id -__v')
-
-  return res.json({testers})
-})

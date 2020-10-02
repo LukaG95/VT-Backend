@@ -5,6 +5,7 @@ const EmailingSystem = require('../misc/EmailingSystem')
 const catchAsync = require('../misc/catchAsync')
 const AppError = require('../misc/AppError')
 const { User, validateSignup, validateLogin } = require('../Models/userModel')
+const TestUser = require("../Models/testUserModel")
 const Reputation = require('../Models/repModel')
 const user = require('../Models/userModel') // this is here because of jest tests
 
@@ -106,6 +107,46 @@ exports.signup = async (req, res, next) => {
 
   // await sendSignupEmail(newUser)
   return createSendToken(newUser, res)
+}
+
+// POST api/auth/createTestUser
+exports.createTestUser = async (req, res, next) => {
+  const { username } = req.body
+
+  const password = crypto.randomBytes(8).toString('hex')
+
+  const user = new TestUser({ username, password })
+  await user.save()
+
+  return res.json({ status: 'success', message: 'successfully created a test user' })
+}
+
+// GET api/auth/getTestUsers
+exports.getTestUsers = async (req, res, next) => {
+  const testers = await TestUser.find({ }).select('-_id -__v')
+
+  return res.status(200).json({info: "success", message: "successfully got all test user", testers})
+}
+
+// DELETE api/auth/deleteTestUser
+exports.deleteTestUser = async (req, res, next) => {
+  const { username } = req.body
+
+  await TestUser.deleteOne({ username })
+   // .then(result => res.json({ status: `Deleted ${result.deletedCount} item.`}))
+   // .catch(err => res.json({ status: `Delete failed with error: ${err}`}))
+      
+  return res.json({ status: 'success', info: `test user ${username} was deleted`})
+}
+
+// MIDDLEWARE
+exports.adminOnly = async (req, res, next) => {
+  const user = await User.findById(req.user.id).select('-__v')
+  
+  if (user.role !== 'admin') 
+  return res.status(403).json({info: "forbidden", message: "looks like you don't have the permission to access this floor"})
+
+  next()
 }
 
 exports.passportLoginOrCreate = catchAsync(async (req, res, next) => {

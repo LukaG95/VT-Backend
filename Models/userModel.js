@@ -48,6 +48,11 @@ const userSchema = new mongoose.Schema({
     }
   },
 
+  role: {
+    type: String,
+    default: 'user'
+  },
+
   isPremium: {
     type: Boolean,
     default: false
@@ -84,7 +89,7 @@ const userSchema = new mongoose.Schema({
 
   createdAt: { 
     type: Date,
-    default: Date.now()
+    default: Date.now
   },
 
   __v: { 

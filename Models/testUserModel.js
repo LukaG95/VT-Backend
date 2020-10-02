@@ -6,12 +6,6 @@ const userSchema = new mongoose.Schema({
     required: true,
     unique: true
   },
-
-  role: {
-    type: String,
-    enum: ['admin', 'moderator', 'support', 'user'],
-    default: 'user'
-  },
   
   password: {
     type: String,
@@ -21,9 +15,5 @@ const userSchema = new mongoose.Schema({
 })
 
 const TestUser = mongoose.model('TestUser', userSchema)
-
-// const user = new TestUser({ username: 'NikForce', password: '12345678' })
-
-// user.save()
 
 module.exports = TestUser
