@@ -6,7 +6,7 @@ const EmailingSystem = require('../misc/EmailingSystem')
 const catchAsync = require('../misc/catchAsync')
 const AppError = require('../misc/AppError')
 const { User, validateSignup, validateLogin } = require('../Models/userModel')
-const TestUser = require("../Models/testUserModel")
+const {TestUser} = require("../Models/testUserModel")
 const Reputation = require('../Models/repModel')
 const user = require('../Models/userModel') // this is here because of jest tests
 

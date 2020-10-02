@@ -9,11 +9,15 @@ const repSchema = new mongoose.Schema({
 
   title: {
     type: String,
+    minlength: 1,
+    maxlength: 255,
     default: 'Novice' // should be get?
   },
 
   grade: {
     type: String,
+    minlength: 1,
+    maxlength: 255,
     default: '1.0' // should be get?
   },
 
@@ -32,6 +36,8 @@ const repSchema = new mongoose.Schema({
 
       feedback: {
         type: String,
+        minlength: 5,
+        maxlength: 100,
         required: true
       },
 

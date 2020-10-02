@@ -13,36 +13,50 @@ const tradesRLSchema = new mongoose.Schema({
 
       itemID: {
         type: Number,
+        min: 0,
+        max: 10000,
         required: true
       },
 
       itemName: {
         type: String,
+        minlength: 1,
+        maxlength: 50,
         required: true
       },
 
       color: {
         type: String,
+        minlength: 1,
+        maxlength: 50,
         required: true
       },
 
       colorID: {
         type: String,
+        minlength: 1,
+        maxlength: 50,
         required: true
       },
 
       cert: {
         type: String,
+        minlength: 1,
+        maxlength: 50,
         required: true
       },
 
       itemType: {
         type: String,
+        minlength: 1,
+        maxlength: 50,
         required: true
       },
 
       amount: {
         type: Number,
+        min: 1,
+        max: 100,
         required: true
       }
     }
@@ -54,36 +68,50 @@ const tradesRLSchema = new mongoose.Schema({
 
       itemID: {
         type: Number,
+        min: 0,
+        max: 10000,
         required: true
       },
 
       itemName: {
         type: String,
+        minlength: 1,
+        maxlength: 50,
         required: true
       },
 
       color: {
         type: String,
+        minlength: 1,
+        maxlength: 50,
         required: true
       },
 
       colorID: {
         type: String,
+        minlength: 1,
+        maxlength: 50,
         required: true
       },
 
       cert: {
         type: String,
+        minlength: 1,
+        maxlength: 50,
         required: true
       },
 
       itemType: {
         type: String,
+        minlength: 1,
+        maxlength: 50,
         required: true
       },
 
       amount: {
         type: Number,
+        min: 1,
+        max: 100,
         required: true
       }
     }
@@ -91,6 +119,8 @@ const tradesRLSchema = new mongoose.Schema({
 
   platform: {
     type: String,
+    minlength: 1,
+    maxlength: 10,
     enum: ['Steam', 'XBOX', 'PS4', 'SWITCH'],
     required: true
   },
@@ -110,6 +140,8 @@ const tradesRLSchema = new mongoose.Schema({
 
   notes: {
     type: 'String',
+    minlength: 0,
+    maxlength: 255,
     default: ""
   },
 

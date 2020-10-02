@@ -1,6 +1,4 @@
-const crypto = require("crypto")
-
-const TestUser = require("../Models/testUserModel")
+const {TestUser} = require("../Models/testUserModel")
 
 const catchAsync = require('../misc/catchAsync')
 

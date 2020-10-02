@@ -50,6 +50,8 @@ const userSchema = new mongoose.Schema({
 
   role: {
     type: String,
+    minlength: 1,
+    maxlength: 255,
     default: 'user'
   },
 

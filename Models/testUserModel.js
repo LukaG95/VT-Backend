@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const Joi = require('joi')
 
 const userSchema = new mongoose.Schema({
   username: {
@@ -14,6 +15,4 @@ const userSchema = new mongoose.Schema({
   }
 })
 
-const TestUser = mongoose.model('TestUser', userSchema)
-
-module.exports = TestUser
+exports.TestUser = mongoose.model('TestUser', userSchema)
