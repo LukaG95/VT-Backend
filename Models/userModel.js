@@ -84,6 +84,14 @@ const userSchema = new mongoose.Schema({
     }
   },
 
+  /*
+  reported: [{
+    user: 
+    reason:
+    trade:
+  }]
+*/
+  
   discord: {
     type: String,
     maxlength: 255,

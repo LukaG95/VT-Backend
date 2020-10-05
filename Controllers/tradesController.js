@@ -23,7 +23,7 @@ exports.getUserTrades = async (req, res, next) => {
   const user = await User.findById(req.user.id).select('-__v')
  
   const { searchId } = req.query
-  if (!searchId || searchId.length !== 24) return res.status(400).json({info: "searchId", message: "Invalid searchId"})
+  if (!tradeId || tradeId.length !== 24 || typeof tradeId !== "String") return res.status(400).json({info: "tradeId", message: "Invalid searchId"})
 
   const trades = await TradeRL.find({ user: searchId }).populate('user')
   if (trades.length < 1) return res.status(404).json({info: "no trades", message: "trades with given id don't exist"})
@@ -37,7 +37,7 @@ exports.getTrade = async (req, res, next) => {
   const user = await User.findById(req.user.id).select('-__v')
 
   const { tradeId } = req.params
-  if (!tradeId || tradeId.length !== 24) return res.status(400).json({info: "tradeId", message: "Invalid tradeId"})
+  if (!tradeId || tradeId.length !== 24 || typeof tradeId !== "String") return res.status(400).json({info: "tradeId", message: "Invalid tradeId"})
 
   const trade = await TradeRL.findById(tradeId)
   if (!trade) return res.status(404).json({info: "no trade", message: "trade with given id doesn't exist"})
@@ -46,7 +46,6 @@ exports.getTrade = async (req, res, next) => {
 
   return res.json({ info: 'success', idMatch: idMatch, trade })
 }
-
 
 exports.createTrade = async (req, res, next) => {
   const user = await User.findById(req.user.id).select('-__v')
@@ -76,6 +75,7 @@ exports.editTrade = async (req, res, next) => {
   if (error) return res.status(400).json({info: "invalid credentials", message: error.details[0].message})
 
   const { tradeId } = req.query
+  if (!tradeId || tradeId.length !== 24 || typeof tradeId !== "String") return res.status(400).json({info: "tradeId", message: "Invalid tradeId"})
 
   const trade = await TradeRL.findById(tradeId)
   if (!trade) return res.status(404).json({info: "no trade", message: "trade with given id doesn't exist"})
@@ -98,9 +98,10 @@ exports.bumpTrade = async (req, res, next) => {
   const user = await User.findById(req.user.id).select('-__v')
 
   const { tradeId } = req.query
-  if (!tradeId || tradeId.length !== 24) return res.status(400).json('Invalid tradeId')
+  if (!tradeId || tradeId.length !== 24 || typeof tradeId !== "String") return res.status(400).json({info: "tradeId", message: "Invalid tradeId"})
 
   const trade = await TradeRL.findById(tradeId)
+  if (!trade) return res.status(404).json({info: "no trade", message: "trade with given id doesn't exist"})
   if (trade.user.toHexString() !== user._id.toHexString()) return res.status(401).json({info: "unauthorized", message: "can't bump others trades"})
 
   trade.bumpedAt = Date.now()
@@ -113,9 +114,10 @@ exports.deleteTrade = async (req, res, next) => {
   const user = await User.findById(req.user.id).select('-__v')
 
   const { tradeId } = req.query
-  if (!tradeId || tradeId.length !== 24) return res.status(400).json('Invalid tradeId')
+  if (!tradeId || tradeId.length !== 24 || typeof tradeId !== "String") return res.status(400).json({info: "tradeId", message: "Invalid tradeId"})
 
   const trade = await TradeRL.findById(tradeId)
+  if (!trade) return res.status(404).json({info: "no trade", message: "trade with given id doesn't exist"})
   if (trade.user.toHexString() !== user._id.toHexString()) return res.status(401).json({info: "unauthorized", message: "can't delete others trades"})
 
   await trade.deleteOne()
