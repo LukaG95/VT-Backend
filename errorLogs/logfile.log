@@ -12555,3 +12555,414 @@
   message: 'crypto is not defined',
   timestamp: '2020-10-02T21:37:55.694Z'
 }
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-10-04T22:48:35.685Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-04T22:48:36.014Z'
+}
+{
+  metadata: ReferenceError: TradeRL is not defined
+      at exports.validateTrade (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\Models\tradesRLModel.js:160:18)
+      at exports.createTrade (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\Controllers\tradesController.js:55:27)
+      at processTicksAndRejections (internal/process/task_queues.js:93:5),
+  level: 'error',
+  message: 'TradeRL is not defined',
+  timestamp: '2020-10-04T22:49:31.047Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-10-04T22:49:57.158Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-04T22:49:57.419Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-10-04T22:51:01.475Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-04T22:51:01.778Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-10-04T22:51:59.217Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-04T22:51:59.420Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-10-04T22:52:03.343Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-04T22:52:03.611Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-10-04T22:52:55.348Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-04T22:52:55.785Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-10-04T22:53:50.157Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-04T22:53:50.521Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-10-04T22:53:54.874Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-04T22:53:55.057Z'
+}
+{
+  metadata: SyntaxError: Unexpected token ] in JSON at position 3666
+      at JSON.parse (<anonymous>)
+      at parse (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\body-parser\lib\types\json.js:89:19)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\body-parser\lib\read.js:121:18
+      at invokeCallback (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\raw-body\index.js:224:16)
+      at done (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\raw-body\index.js:213:7)
+      at IncomingMessage.onEnd (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\raw-body\index.js:273:7)
+      at IncomingMessage.emit (events.js:215:7)
+      at endReadableNT (_stream_readable.js:1184:12)
+      at processTicksAndRejections (internal/process/task_queues.js:80:21) {
+    expose: true,
+    statusCode: 400,
+    status: 400,
+    body: '{\r\n' +
+      '    "have": [\r\n' +
+      '                {\r\n' +
+      '                    "itemID": 30,\r\n' +
+      '                    "itemName": "Merc", \r\n' +
+      '                    "color": "Black",\r\n' +
+      '                    "colorID": "3",\r\n' +
+      '                    "cert": "None",\r\n' +
+      '                    "itemType": "item",\r\n' +
+      '                    "amount": 1\r\n' +
+      '                },\r\n' +
+      '                {\r\n' +
+      '                    "itemID": 30,\r\n' +
+      '                    "itemName": "Merc", \r\n' +
+      '                    "color": "Black",\r\n' +
+      '                    "colorID": "3",\r\n' +
+      '                    "cert": "None",\r\n' +
+      '                    "itemType": "item",\r\n' +
+      '                    "amount": 1\r\n' +
+      '                },\r\n' +
+      '                {\r\n' +
+      '                    "itemID": 30,\r\n' +
+      '                    "itemName": "Merc", \r\n' +
+      '                    "color": "Black",\r\n' +
+      '                    "colorID": "3",\r\n' +
+      '                    "cert": "None",\r\n' +
+      '                    "itemType": "item",\r\n' +
+      '                    "amount": 1\r\n' +
+      '                },\r\n' +
+      '                {\r\n' +
+      '                    "itemID": 30,\r\n' +
+      '                    "itemName": "Merc", \r\n' +
+      '                    "color": "Black",\r\n' +
+      '                    "colorID": "3",\r\n' +
+      '                    "cert": "None",\r\n' +
+      '                    "itemType": "item",\r\n' +
+      '                    "amount": 1\r\n' +
+      '                },\r\n' +
+      '                {\r\n' +
+      '                    "itemID": 30,\r\n' +
+      '                    "itemName": "Merc", \r\n' +
+      '                    "color": "Black",\r\n' +
+      '                    "colorID": "3",\r\n' +
+      '                    "cert": "None",\r\n' +
+      '                    "itemType": "item",\r\n' +
+      '                    "amount": 1\r\n' +
+      '                },\r\n' +
+      '                {\r\n' +
+      '                    "itemID": 30,\r\n' +
+      '                    "itemName": "Merc", \r\n' +
+      '                    "color": "Black",\r\n' +
+      '                    "colorID": "3",\r\n' +
+      '                    "cert": "None",\r\n' +
+      '                    "itemType": "item",\r\n' +
+      '                    "amount": 1\r\n' +
+      '                },\r\n' +
+      '                {\r\n' +
+      '                    "itemID": 30,\r\n' +
+      '                    "itemName": "Merc", \r\n' +
+      '                    "color": "Black",\r\n' +
+      '                    "colorID": "3",\r\n' +
+      '                    "cert": "None",\r\n' +
+      '                    "itemType": "item",\r\n' +
+      '                    "amount": 1\r\n' +
+      '                },\r\n' +
+      '                {\r\n' +
+      '                    "itemID": 30,\r\n' +
+      '                    "itemName": "Merc", \r\n' +
+      '                    "color": "Black",\r\n' +
+      '                    "colorID": "3",\r\n' +
+      '                    "cert": "None",\r\n' +
+      '                    "itemType": "item",\r\n' +
+      '                    "amount": 1\r\n' +
+      '                },\r\n' +
+      '                {\r\n' +
+      '                    "itemID": 30,\r\n' +
+      '                    "itemName": "Merc", \r\n' +
+      '                    "color": "Black",\r\n' +
+      '                    "colorID": "3",\r\n' +
+      '                    "cert": "None",\r\n' +
+      '                    "itemType": "item",\r\n' +
+      '                    "amount": 1\r\n' +
+      '                },\r\n' +
+      '                {\r\n' +
+      '                    "itemID": 30,\r\n' +
+      '                    "itemName": "Merc", \r\n' +
+      '                    "color": "Black",\r\n' +
+      '                    "colorID": "3",\r\n' +
+      '                    "cert": "None",\r\n' +
+      '                    "itemType": "item",\r\n' +
+      '                    "amount": 1\r\n' +
+      '                },\r\n' +
+      '                {\r\n' +
+      '                    "itemID": 30,\r\n' +
+      '                    "itemName": "Merc", \r\n' +
+      '                    "color": "Black",\r\n' +
+      '                    "colorID": "3",\r\n' +
+      '                    "cert": "None",\r\n' +
+      '                    "itemType": "item",\r\n' +
+      '                    "amount": 1\r\n' +
+      '                },\r\n' +
+      '                {\r\n' +
+      '                    "itemID": 30,\r\n' +
+      '                    "itemName": "Merc", \r\n' +
+      '                    "color": "Black",\r\n' +
+      '                    "colorID": "3",\r\n' +
+      '                    "cert": "None",\r\n' +
+      '                    "itemType": "item",\r\n' +
+      '                    "amount": 1\r\n' +
+      '                },\r\n' +
+      '            ],\r\n' +
+      '    "want": [\r\n' +
+      '                 {\r\n' +
+      '                    "itemID": 30,\r\n' +
+      '                    "itemName": "Merc", \r\n' +
+      '                    "color": "Black",\r\n' +
+      '                    "colorID": "3",\r\n' +
+      '                    "cert": "None",\r\n' +
+      '                    "itemType": "item",\r\n' +
+      '                    "amount": 1\r\n' +
+      '                }\r\n' +
+      '            ],\r\n' +
+      '    "platform": "Steam",\r\n' +
+      '    "notes": ""\r\n' +
+      '}',
+    type: 'entity.parse.failed'
+  },
+  level: 'error',
+  message: 'Unexpected token ] in JSON at position 3666',
+  timestamp: '2020-10-04T22:54:59.252Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-10-04T23:00:13.043Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-04T23:00:13.407Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-10-05T08:58:28.301Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-05T08:58:28.645Z'
+}
+{
+  metadata: TypeError: Joi.number(...).value is not a function
+      at exports.validateTrade (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\Models\tradesRLModel.js:177:26)
+      at processTicksAndRejections (internal/process/task_queues.js:93:5)
+      at async exports.createTrade (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\Controllers\tradesController.js:55:21),
+  level: 'error',
+  message: 'Joi.number(...).value is not a function',
+  timestamp: '2020-10-05T08:58:59.653Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-10-05T08:59:47.530Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-05T08:59:47.839Z'
+}
+{
+  metadata: TypeError: Joi.number(...).value is not a function
+      at exports.validateTrade (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\Models\tradesRLModel.js:177:26)
+      at processTicksAndRejections (internal/process/task_queues.js:93:5)
+      at async exports.createTrade (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\Controllers\tradesController.js:55:21),
+  level: 'error',
+  message: 'Joi.number(...).value is not a function',
+  timestamp: '2020-10-05T08:59:50.990Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-10-05T09:00:18.548Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-05T09:00:18.737Z'
+}
+{
+  metadata: TypeError: Joi.string(...).value is not a function
+      at exports.validateTrade (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\Models\tradesRLModel.js:178:28)
+      at processTicksAndRejections (internal/process/task_queues.js:93:5)
+      at async exports.createTrade (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\Controllers\tradesController.js:55:21),
+  level: 'error',
+  message: 'Joi.string(...).value is not a function',
+  timestamp: '2020-10-05T09:00:19.891Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-10-05T09:00:47.450Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-05T09:00:47.629Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-10-05T09:01:24.900Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-05T09:01:25.134Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-10-05T09:16:58.916Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-05T09:16:59.277Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-10-05T09:17:06.558Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-05T09:17:06.748Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-10-05T09:17:38.235Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-05T09:17:38.425Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-10-05T09:18:42.666Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-05T09:18:42.934Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-10-05T09:19:12.589Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-05T09:19:12.769Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-10-05T09:20:20.450Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-05T09:20:20.698Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-10-05T09:21:34.494Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-05T09:21:34.782Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-10-05T09:24:45.806Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-05T09:24:46.229Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-10-05T09:25:12.408Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-05T09:25:12.597Z'
+}

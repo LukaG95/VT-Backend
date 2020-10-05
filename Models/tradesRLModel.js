@@ -1,4 +1,7 @@
 const mongoose = require('mongoose')
+const Joi = require('joi')
+
+const infoRL = require('../info/infoRL.json')
 
 const tradesRLSchema = new mongoose.Schema({
   user: {
@@ -140,71 +143,63 @@ const tradesRLSchema = new mongoose.Schema({
 
   notes: {
     type: 'String',
-    minlength: 0,
-    maxlength: 255,
+    maxlength: 300,
     default: ""
   },
 
   __v: { type: Number, select: false }
 })
 
-
-// const trade = {
-//     userId: '155930243234791424',
-//     userName: 'NikForce',
-//     userUps: 15,
-//     userDowns: 1,
-//     Have: [{
-//         itemID: 1580, Name: 'Zomba', Paint: 'Titanium White', Cert: 'None', itemType: 'Wheels',
-//     },
-//     {
-//         itemID: 1435, Name: 'Heatwave', Paint: 'None', Cert: 'None', itemType: 'Decal',
-//     },
-//     {
-//         itemID: 363, Name: 'Dieci', Paint: 'Black', Cert: 'Striker', itemType: 'Wheels',
-//     },
-//     {
-//         itemID: 2854, Name: 'Dissolver', Paint: 'None', Cert: 'None', itemType: 'Decal',
-//     },
-//     {
-//         itemID: 23, Name: 'Octane', Paint: 'Saffron', Cert: 'None', itemType: 'Body',
-//     },
-//     {
-//         itemID: 23, Name: 'Octane', Paint: 'Grey', Cert: 'Playmaker', itemType: 'Body',
-//     }],
-//     Want: [{
-//         itemID: 4743, Name: 'Credits', Paint: 'None', Cert: 'None', itemType: 'Special', Quantity: 10000,
-//     }, {
-//         itemID: 4743, Name: 'Credits', Paint: 'None', Cert: 'None', itemType: 'Special', Quantity: 10000,
-//     },
-//     {
-//         itemID: 4743, Name: 'Credits', Paint: 'None', Cert: 'None', itemType: 'Special', Quantity: 10000,
-//     },
-//     {
-//         itemID: 4743, Name: 'Credits', Paint: 'None', Cert: 'None', itemType: 'Special', Quantity: 10000,
-//     },
-//     {
-//         itemID: 4743, Name: 'Credits', Paint: 'None', Cert: 'None', itemType: 'Special', Quantity: 10000,
-//     },
-//     {
-//         itemID: 4743, Name: 'Credits', Paint: 'None', Cert: 'None', itemType: 'Special', Quantity: 10000,
-//     }],
-//     Platform: 'PC',
-// };
-
-
 const TradeRL = mongoose.model('Trades', tradesRLSchema)
 
-// function Repeat(x) {
-//     for (let a = 0; a < x; a++) {
-//         setTimeout(() => {
-//             const newTrade = new Trade(trade);
-//             newTrade.save().then(() => console.log('Saved'));
-//         }, 4000);
-//     }
-// }
+exports.TradeRL = TradeRL
 
-// Repeat(5);
+exports.validateTrade = async (trade, user, req) => {
+  const tradeLimit = user.isPremium ? 20 : 15
+  const itemsLimit = user.isPremium ? 12 : 10
 
+  if (trade.notes.match(/\b(?:http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+(?:[\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(?::[0-9]{1,5})?(?:\/.*)?\b/gm))
+    return {error: {details: [{message: 'No links allowed'}]}}
 
-module.exports = TradeRL
+  const trades = await TradeRL.find({ user: req.user.id })
+    if (trades.length >= tradeLimit) return {error: {details: [{message: 'Trade amount limit'}]}} // because that's how Joi returns the error
+
+  let allItemIDs = [], allItemNames = [], checker = 0
+
+  infoRL.Slots.map(Slot => Slot.Items.map(item => {
+    if (item.Tradable){
+      allItemIDs.push(item.ItemID)
+      allItemNames.push(item.Name)
+
+      for (let i = 0; i < trade.have.length; i++) // this checks if itemID and itemName are related
+        if (trade.have[i].itemID === item.ItemID)
+          if (trade.have[i].itemName === item.Name)
+           checker++
+
+      for (let i = 0; i < trade.want.length; i++)
+        if (trade.want[i].itemID === item.ItemID)
+          if (trade.want[i].itemName === item.Name)
+            checker++
+    }
+  }))
+  if (checker !==  trade.want.length + trade.have.length) return {error: {details: [{message: "itemID doesn't match with itemName"}]}} 
+
+  const hwValidation = Joi.object({
+    itemID: Joi.number().valid(...allItemIDs).required(), 
+    itemName: Joi.string().valid(...allItemNames).required(),
+    color: Joi.string().valid('None', 'Crimson', 'Lime', 'Black', 'Sky Blue', 'Cobalt', 'Burnt Sienna', 'Forest Green', 'Purple', 'Pink', 'Orange', 'Grey', 'Titanium White', 'Saffron').required(),
+    colorID: Joi.string().valid('0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13').required(),
+    cert: Joi.string().valid('None', 'Playmaker', 'Acrobat', 'Aviator', 'Goalkeeper', 'Guardian', 'Juggler', 'Paragon', 'Scorer', 'Show-Off', 'Sniper', 'Striker', 'Sweeper', 'Tactician', 'Turtle', 'Victor').required(),
+    itemType: Joi.string().valid('item', 'blueprint').required(),
+    amount: Joi.number().min(1).max(100)
+  })
+
+  const schema = Joi.object({
+    have: Joi.array().items(hwValidation).min(1).max(itemsLimit).required(),
+    want: Joi.array().items(hwValidation).min(1).max(itemsLimit).required(),
+    platform: Joi.string().min(1).max(10).valid('Steam', 'XBOX', 'PS4', 'SWITCH').required(),
+    notes: Joi.string().max(300).allow('').required()
+  })
+
+  return schema.validate(trade)
+}

@@ -3,9 +3,6 @@ const bcrypt = require('bcrypt')
 const crypto = require('crypto')
 const { promisify } = require('util')
 const Joi = require('joi')
-const validator = require('validator')
-
-// var uniqueValidator = require('mongoose-unique-validator')
 
 const userSchema = new mongoose.Schema({
   username: {
@@ -58,6 +55,33 @@ const userSchema = new mongoose.Schema({
   isPremium: {
     type: Boolean,
     default: false
+  },
+
+  restricted: {
+    isMuted: {
+      type: Boolean,
+      default: false
+    },
+    isBanned: {
+      type: Boolean,
+      default: false
+    },
+    mutedBy: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User'
+    },
+    unMutedBy: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User'
+    },
+    bannedBy: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User'
+    },
+    unBannedBy: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User'
+    }
   },
 
   discord: {

@@ -1,13 +1,9 @@
-const { promisify } = require('util')
-const TradeRL = require('../Models/tradesRLModel')
 
+const { TradeRL, validateTrade } = require('../Models/tradesRLModel')
 const AdvancedQueryRL = require('../misc/AdvancedQueryRL')
-const catchAsync = require('../misc/catchAsync')
-const AppError = require('../misc/AppError')
-const {readableCreatedAt} = require('../misc/time')
 const { User } = require('../Models/userModel')
-
-const items = require('../misc/items.json')
+const {readableCreatedAt} = require('../misc/time')
+const { promisify } = require('util')
 
 exports.getTrades = async (req, res, next) => {
   const { query } = req
@@ -56,15 +52,11 @@ exports.createTrade = async (req, res, next) => {
   const user = await User.findById(req.user.id).select('-__v')
   const { have, want, platform, notes } = req.body
 
-  const trades = await TradeRL.find({ user: req.user.id })
-  if (trades.length >= 15) return res.status(400).json({info: "trade limit", message: "You reached the limit of 15 trades"}) 
-
-  if (have.length > 12 || want.length > 12) return res.status(400).json({info: ">items", message: "Too many items added"})
-  if (have.length <= 0 || want.length <= 0) return res.status(400).json({info: "<items", message: "Not enough items added"})
+  const { error } = await validateTrade(req.body, user, req)
+  if (error) return res.status(400).json({info: "invalid credentials", message: error.details[0].message})
 
   const tradeDetails = {
     user: user._id,
-    // reputation: user._id, 
     have: have,
     want: want,
     platform: platform,
@@ -78,9 +70,15 @@ exports.createTrade = async (req, res, next) => {
 
 exports.editTrade = async (req, res, next) => {
   const user = await User.findById(req.user.id).select('-__v')
-  
   const { have, want, platform, notes } = req.body
+
+  const { error } = await validateTrade(req.body, user, req)
+  if (error) return res.status(400).json({info: "invalid credentials", message: error.details[0].message})
+
   const { tradeId } = req.query
+
+  const trade = await TradeRL.findById(tradeId)
+  if (!trade) return res.status(404).json({info: "no trade", message: "trade with given id doesn't exist"})
 
   const tradeDetails = {
     have: have,
@@ -89,14 +87,6 @@ exports.editTrade = async (req, res, next) => {
     notes: notes,
     editedAt: Date.now()
   }
-
-  if (have.length > 12 || want.length > 12) return res.status(400).json({info: ">items", message: "Too many items added"})
-  if (have.length <= 0 || want.length <= 0) return res.status(400).json({info: "<items", message: "Not enough items added"})
-
-  if (!tradeId || tradeId.length !== 24) return res.status(400).json({info: "tradeID", message: "Invalid tradeID"})
-
-  const trade = await TradeRL.findById(tradeId)
-  if (!trade) return res.status(404).json({info: "no trade", message: "trade with given id doesn't exist"})
 
   if (trade.user.toHexString() !== user._id.toHexString()) return res.status(401).json({info: "forbidden", message: "can't edit others trades"})
 
