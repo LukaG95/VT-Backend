@@ -13016,3 +13016,31 @@
   level: 'info',
   timestamp: '2020-10-05T11:11:00.323Z'
 }
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-10-05T15:17:06.764Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-05T15:17:07.099Z'
+}
+{
+  metadata: ReferenceError: tradeId is not defined
+      at exports.getUserTrades (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\Controllers\tradesController.js:26:3)
+      at processTicksAndRejections (internal/process/task_queues.js:93:5),
+  level: 'error',
+  message: 'tradeId is not defined',
+  timestamp: '2020-10-05T15:17:10.519Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-10-05T15:17:50.889Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-05T15:17:51.080Z'
+}
