@@ -18,16 +18,18 @@ function dateToAgo(date) {
     return timeAgo
 }
  
-function readableCreatedAt(trades){
+function readableActiveAt(trades){
 
   const editedTrades = trades.map((trade) => {
     const editedTrade = trade.toObject()
     editedTrade.createdAt = dateToAgo(editedTrade.createdAt)
+    if (editedTrade.bumpedAt) 
+      editedTrade.bumpedAt = dateToAgo(editedTrade.bumpedAt)
     return editedTrade
   })
 
   return editedTrades
 }
 
-exports.readableCreatedAt = readableCreatedAt
+exports.readableActiveAt = readableActiveAt
 exports.dateToAgo = dateToAgo
