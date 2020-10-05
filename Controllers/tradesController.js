@@ -1,3 +1,4 @@
+const mongoose = require('mongoose')
 
 const { TradeRL, validateTrade, validateTradeQuery } = require('../Models/tradesRLModel')
 const AdvancedQueryRL = require('../misc/AdvancedQueryRL')
@@ -26,7 +27,7 @@ exports.getUserTrades = async (req, res, next) => {
   const user = await User.findById(req.user.id).select('-__v')
  
   const { searchId } = req.query
-  if (!searchId || searchId.length !== 24 || typeof searchId !== "string") return res.status(400).json({info: "searchId", message: "Invalid searchId"})
+  if (!mongoose.Types.ObjectId.isValid(searchId)) return res.status(400).json({info: "searchId", message: "Invalid searchId"})
 
   const trades = await TradeRL.find({ user: searchId }).populate('user').sort('-bumpedAt')
   if (trades.length < 1) return res.status(404).json({info: "no trades", message: "trades with given id don't exist"})
@@ -40,7 +41,7 @@ exports.getTrade = async (req, res, next) => {
   const user = await User.findById(req.user.id).select('-__v')
 
   const { tradeId } = req.params
-  if (!tradeId || tradeId.length !== 24 || typeof tradeId !== "string") return res.status(400).json({info: "tradeId", message: "Invalid tradeId"})
+  if (!mongoose.Types.ObjectId.isValid(tradeId)) return res.status(400).json({info: "tradeId", message: "Invalid tradeId"})
 
   const trade = await TradeRL.findById(tradeId)
   if (!trade) return res.status(404).json({info: "no trade", message: "trade with given id doesn't exist"})
@@ -78,7 +79,7 @@ exports.editTrade = async (req, res, next) => {
   if (error) return res.status(400).json({info: "invalid credentials", message: error.details[0].message})
 
   const { tradeId } = req.query
-  if (!tradeId || tradeId.length !== 24 || typeof tradeId !== "string") return res.status(400).json({info: "tradeId", message: "Invalid tradeId"})
+  if (!mongoose.Types.ObjectId.isValid(tradeId)) return res.status(400).json({info: "tradeId", message: "Invalid tradeId"})
 
   const trade = await TradeRL.findById(tradeId)
   if (!trade) return res.status(404).json({info: "no trade", message: "trade with given id doesn't exist"})
@@ -101,7 +102,7 @@ exports.bumpTrade = async (req, res, next) => {
   const user = await User.findById(req.user.id).select('-__v')
 
   const { tradeId } = req.query
-  if (!tradeId || tradeId.length !== 24 || typeof tradeId !== "string") return res.status(400).json({info: "tradeId", message: "Invalid tradeId"})
+  if (!mongoose.Types.ObjectId.isValid(tradeId)) return res.status(400).json({info: "tradeId", message: "Invalid tradeId"})
 
   const trade = await TradeRL.findById(tradeId)
   if (!trade) return res.status(404).json({info: "no trade", message: "trade with given id doesn't exist"})

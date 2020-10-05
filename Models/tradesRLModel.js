@@ -59,7 +59,7 @@ const tradesRLSchema = new mongoose.Schema({
       amount: {
         type: Number,
         min: 1,
-        max: 100,
+        max: 100000,
         required: true
       }
     }
@@ -114,7 +114,7 @@ const tradesRLSchema = new mongoose.Schema({
       amount: {
         type: Number,
         min: 1,
-        max: 100,
+        max: 100000,
         required: true
       }
     }
@@ -185,6 +185,7 @@ exports.validateTrade = async (trade, user, req) => {
   }))
   if (checker !==  trade.want.length + trade.have.length) return {error: {details: [{message: "itemID doesn't match with itemName"}]}} 
 
+
   const hwValidation = Joi.object({
     itemID: Joi.number().valid(...allItemIDs).required(), 
     itemName: Joi.string().valid(...allItemNames).required(),
@@ -192,7 +193,7 @@ exports.validateTrade = async (trade, user, req) => {
     colorID: Joi.number().valid(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13).required(),
     cert: Joi.string().valid('None', 'Playmaker', 'Acrobat', 'Aviator', 'Goalkeeper', 'Guardian', 'Juggler', 'Paragon', 'Scorer', 'Show-Off', 'Sniper', 'Striker', 'Sweeper', 'Tactician', 'Turtle', 'Victor').required(),
     itemType: Joi.string().valid('item', 'blueprint').required(),
-    amount: Joi.number().min(1).max(100)
+    amount: Joi.when('itemID', { is: 4743, then: Joi.number().min(1).max(100000).required(), otherwise: Joi.number().min(1).max(100).required() })
   })
 
   const schema = Joi.object({
