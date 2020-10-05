@@ -36,7 +36,7 @@ const tradesRLSchema = new mongoose.Schema({
       },
 
       colorID: {
-        type: String,
+        type: Number,
         minlength: 1,
         maxlength: 50,
         required: true
@@ -91,7 +91,7 @@ const tradesRLSchema = new mongoose.Schema({
       },
 
       colorID: {
-        type: String,
+        type: Number,
         minlength: 1,
         maxlength: 50,
         required: true
@@ -188,7 +188,7 @@ exports.validateTrade = async (trade, user, req) => {
     itemID: Joi.number().valid(...allItemIDs).required(), 
     itemName: Joi.string().valid(...allItemNames).required(),
     color: Joi.string().valid('None', 'Crimson', 'Lime', 'Black', 'Sky Blue', 'Cobalt', 'Burnt Sienna', 'Forest Green', 'Purple', 'Pink', 'Orange', 'Grey', 'Titanium White', 'Saffron').required(),
-    colorID: Joi.string().valid('0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13').required(),
+    colorID: Joi.number().valid(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13).required(),
     cert: Joi.string().valid('None', 'Playmaker', 'Acrobat', 'Aviator', 'Goalkeeper', 'Guardian', 'Juggler', 'Paragon', 'Scorer', 'Show-Off', 'Sniper', 'Striker', 'Sweeper', 'Tactician', 'Turtle', 'Victor').required(),
     itemType: Joi.string().valid('item', 'blueprint').required(),
     amount: Joi.number().min(1).max(100)
