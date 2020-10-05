@@ -1,12 +1,15 @@
 
-const { TradeRL, validateTrade } = require('../Models/tradesRLModel')
+const { TradeRL, validateTrade, validateTradeQuery } = require('../Models/tradesRLModel')
 const AdvancedQueryRL = require('../misc/AdvancedQueryRL')
 const { User } = require('../Models/userModel')
 const {readableCreatedAt} = require('../misc/time')
-const { promisify } = require('util')
 
 exports.getTrades = async (req, res, next) => {
   const { query } = req
+  if (!query) return res.status(400).json({info: "query", message: "No query given"})
+
+  const { error } = validateTradeQuery(query)
+  if (error) return res.status(400).json({info: "invalid credentials", message: error.details[0].message})
 
   const advancedQuery = new AdvancedQueryRL(TradeRL.find(), query)
     .filter()
@@ -15,8 +18,8 @@ exports.getTrades = async (req, res, next) => {
 
   const trades = await advancedQuery.query.populate('user')
   const pages = Math.ceil((await TradeRL.countDocuments(advancedQuery.resetQuery().query)) / advancedQuery.limit)
-  console.log(trades)
-  return res.json({ trades: readableCreatedAt(trades), pages })
+
+  return res.status(200).json({ info: 'success', message: 'successfully got trades', trades: readableCreatedAt(trades), pages })
 }
 
 exports.getUserTrades = async (req, res, next) => {

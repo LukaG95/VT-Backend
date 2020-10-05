@@ -197,9 +197,32 @@ exports.validateTrade = async (trade, user, req) => {
   const schema = Joi.object({
     have: Joi.array().items(hwValidation).min(1).max(itemsLimit).required(),
     want: Joi.array().items(hwValidation).min(1).max(itemsLimit).required(),
-    platform: Joi.string().min(1).max(10).valid('Steam', 'XBOX', 'PS4', 'SWITCH').required(),
+    platform: Joi.string().valid('Steam', 'XBOX', 'PS4', 'SWITCH').required(),
     notes: Joi.string().max(300).allow('').required()
   })
 
   return schema.validate(trade)
+}
+
+exports.validateTradeQuery = (query) => {
+  let allItemIDs = ['Any'], allItemNames = ['Any']
+
+  infoRL.Slots.map(Slot => Slot.Items.map(item => {
+    if (item.Tradable){
+      allItemIDs.push(item.ItemID)
+      allItemNames.push(item.Name)
+    }
+  }))
+
+  const schema = Joi.object({
+    search: Joi.string().valid('Any', 'I want to buy', 'I want to sell').required(),
+    itemID: Joi.number().valid(...allItemIDs).required(), 
+    itemType: Joi.string().valid('Any', 'items', 'blueprints').required(),
+    cert: Joi.string().valid('Any', 'None', 'Playmaker', 'Acrobat', 'Aviator', 'Goalkeeper', 'Guardian', 'Juggler', 'Paragon', 'Scorer', 'Show-Off', 'Sniper', 'Striker', 'Sweeper', 'Tactician', 'Turtle', 'Victor').required(),
+    color: Joi.string().valid('Any', 'None', 'Crimson', 'Lime', 'Black', 'Sky Blue', 'Cobalt', 'Burnt Sienna', 'Forest Green', 'Purple', 'Pink', 'Orange', 'Grey', 'Titanium White', 'Saffron').required(),
+    page: Joi.number().min(1).required(),
+    limit: Joi.number().valid(10, 15, 20).required()
+  })
+
+  return schema.validate(query)
 }
