@@ -40,7 +40,7 @@ class AdvancedQueryRL {
   }
 
   sortByLatest() {
-    this.query.sort('-createdAt')
+    this.query.sort('-bumpedAt')
     return this
   }
 

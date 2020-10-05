@@ -138,7 +138,8 @@ const tradesRLSchema = new mongoose.Schema({
   },
 
   bumpedAt: {
-    type: Date
+    type: Date,
+    default: Date.now
   },
 
   notes: {
