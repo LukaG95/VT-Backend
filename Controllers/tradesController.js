@@ -30,7 +30,7 @@ exports.getUserTrades = async (req, res, next) => {
   if (!mongoose.Types.ObjectId.isValid(searchId)) return res.status(400).json({info: "searchId", message: "Invalid searchId"})
 
   const trades = await TradeRL.find({ user: searchId }).populate('user').sort('-bumpedAt')
-  if (trades.length < 1) return res.status(404).json({info: "no trades", message: "trades with given id don't exist"})
+  if (trades.length < 1) return res.status(200).json({info: "no trades", message: "trades with given id don't exist"})
 
   const idMatch = user._id.toHexString() === trades[0].user._id.toHexString()
 

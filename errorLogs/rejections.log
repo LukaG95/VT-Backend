@@ -6270,3 +6270,151 @@
   ],
   timestamp: '2020-10-06T08:05:20.378Z'
 }
+{
+  error: MongoError: Index with name: bumpedAt_1 already exists with different options
+      at Connection.<anonymous> (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\connection\pool.js:451:61)
+      at Connection.emit (events.js:210:5)
+      at processMessage (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\connection\connection.js:452:10)
+      at TLSSocket.<anonymous> (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\connection\connection.js:621:15)
+      at TLSSocket.emit (events.js:210:5)
+      at addChunk (_stream_readable.js:309:12)
+      at readableAddChunk (_stream_readable.js:290:11)
+      at TLSSocket.Readable.push (_stream_readable.js:224:10)
+      at TLSWrap.onStreamRead (internal/stream_base_commons.js:182:23) {
+    operationTime: Timestamp { _bsontype: 'Timestamp', low_: 9, high_: 1601973441 },
+    ok: 0,
+    code: 85,
+    codeName: 'IndexOptionsConflict',
+    '$clusterTime': {
+      clusterTime: Timestamp { _bsontype: 'Timestamp', low_: 9, high_: 1601973441 },
+      signature: {
+        hash: Binary {
+          _bsontype: 'Binary',
+          sub_type: 0,
+          position: 20,
+          buffer: <Buffer 76 af ba 32 aa e3 bd 4a 2c 76 a6 ff 6f dd 95 16 f3 24 eb d4>
+        },
+        keyId: Long { _bsontype: 'Long', low_: 3, high_: 1597600936 }
+      }
+    },
+    name: 'MongoError'
+  },
+  level: 'error',
+  message: 'unhandledRejection: Index with name: bumpedAt_1 already exists with different options\n' +
+    'MongoError: Index with name: bumpedAt_1 already exists with different options\n' +
+    '    at Connection.<anonymous> (C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\node_modules\\mongodb\\lib\\core\\connection\\pool.js:451:61)\n' +
+    '    at Connection.emit (events.js:210:5)\n' +
+    '    at processMessage (C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\node_modules\\mongodb\\lib\\core\\connection\\connection.js:452:10)\n' +
+    '    at TLSSocket.<anonymous> (C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\node_modules\\mongodb\\lib\\core\\connection\\connection.js:621:15)\n' +
+    '    at TLSSocket.emit (events.js:210:5)\n' +
+    '    at addChunk (_stream_readable.js:309:12)\n' +
+    '    at readableAddChunk (_stream_readable.js:290:11)\n' +
+    '    at TLSSocket.Readable.push (_stream_readable.js:224:10)\n' +
+    '    at TLSWrap.onStreamRead (internal/stream_base_commons.js:182:23)',
+  stack: 'MongoError: Index with name: bumpedAt_1 already exists with different options\n' +
+    '    at Connection.<anonymous> (C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\node_modules\\mongodb\\lib\\core\\connection\\pool.js:451:61)\n' +
+    '    at Connection.emit (events.js:210:5)\n' +
+    '    at processMessage (C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\node_modules\\mongodb\\lib\\core\\connection\\connection.js:452:10)\n' +
+    '    at TLSSocket.<anonymous> (C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\node_modules\\mongodb\\lib\\core\\connection\\connection.js:621:15)\n' +
+    '    at TLSSocket.emit (events.js:210:5)\n' +
+    '    at addChunk (_stream_readable.js:309:12)\n' +
+    '    at readableAddChunk (_stream_readable.js:290:11)\n' +
+    '    at TLSSocket.Readable.push (_stream_readable.js:224:10)\n' +
+    '    at TLSWrap.onStreamRead (internal/stream_base_commons.js:182:23)',
+  exception: true,
+  date: 'Tue Oct 06 2020 10:37:07 GMT+0200 (GMT+02:00)',
+  process: {
+    pid: 17032,
+    uid: null,
+    gid: null,
+    cwd: 'C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop',
+    execPath: 'C:\\Program Files\\nodejs\\node.exe',
+    version: 'v12.13.1',
+    argv: [
+      'C:\\Program Files\\nodejs\\node.exe',
+      'C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\index.js'
+    ],
+    memoryUsage: {
+      rss: 65261568,
+      heapTotal: 55091200,
+      heapUsed: 20801000,
+      external: 19632659
+    }
+  },
+  os: { loadavg: [ 0, 0, 0 ], uptime: 643527 },
+  trace: [
+    {
+      column: 61,
+      file: 'C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\node_modules\\mongodb\\lib\\core\\connection\\pool.js',
+      function: null,
+      line: 451,
+      method: null,
+      native: false
+    },
+    {
+      column: 5,
+      file: 'events.js',
+      function: 'Connection.emit',
+      line: 210,
+      method: 'emit',
+      native: false
+    },
+    {
+      column: 10,
+      file: 'C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\node_modules\\mongodb\\lib\\core\\connection\\connection.js',
+      function: 'processMessage',
+      line: 452,
+      method: null,
+      native: false
+    },
+    {
+      column: 15,
+      file: 'C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\node_modules\\mongodb\\lib\\core\\connection\\connection.js',
+      function: null,
+      line: 621,
+      method: null,
+      native: false
+    },
+    {
+      column: 5,
+      file: 'events.js',
+      function: 'TLSSocket.emit',
+      line: 210,
+      method: 'emit',
+      native: false
+    },
+    {
+      column: 12,
+      file: '_stream_readable.js',
+      function: 'addChunk',
+      line: 309,
+      method: null,
+      native: false
+    },
+    {
+      column: 11,
+      file: '_stream_readable.js',
+      function: 'readableAddChunk',
+      line: 290,
+      method: null,
+      native: false
+    },
+    {
+      column: 10,
+      file: '_stream_readable.js',
+      function: 'TLSSocket.Readable.push',
+      line: 224,
+      method: 'push',
+      native: false
+    },
+    {
+      column: 23,
+      file: 'internal/stream_base_commons.js',
+      function: 'TLSWrap.onStreamRead',
+      line: 182,
+      method: 'onStreamRead',
+      native: false
+    }
+  ],
+  timestamp: '2020-10-06T08:37:07.726Z'
+}

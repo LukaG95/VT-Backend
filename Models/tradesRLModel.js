@@ -153,11 +153,12 @@ const tradesRLSchema = new mongoose.Schema({
 
 const TradeRL = mongoose.model('Trades', tradesRLSchema)
 
+/*
 TradeRL.collection.dropIndexes(function (err, results) {
   // Handle errors
 })
-
-TradeRL.collection.createIndex({"bumpedAt": 1 },{ expireAfterSeconds: 55 })
+*/
+TradeRL.collection.createIndex({"bumpedAt": 1 },{ expireAfterSeconds: 10 })
 
 exports.TradeRL = TradeRL
 
