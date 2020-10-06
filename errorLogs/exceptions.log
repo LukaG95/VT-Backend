@@ -6418,3 +6418,518 @@
   ],
   timestamp: '2020-10-06T08:37:07.726Z'
 }
+{
+  error: C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\misc\time.js:27
+      editedTrade.expiresIn = Math.floor(new Date() - trade.bumpedAt) / (1000 * 3600 * 24))
+                                                                                          ^
+  
+  SyntaxError: Unexpected token ')'
+      at Module._compile (internal/modules/cjs/loader.js:895:18)
+      at Object.Module._extensions..js (internal/modules/cjs/loader.js:995:10)
+      at Module.load (internal/modules/cjs/loader.js:815:32)
+      at Function.Module._load (internal/modules/cjs/loader.js:727:14)
+      at Module.require (internal/modules/cjs/loader.js:852:19)
+      at require (internal/modules/cjs/helpers.js:74:18)
+      at Object.<anonymous> (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\Controllers\tradesController.js:6:28)
+      at Module._compile (internal/modules/cjs/loader.js:959:30)
+      at Object.Module._extensions..js (internal/modules/cjs/loader.js:995:10)
+      at Module.load (internal/modules/cjs/loader.js:815:32)
+      at Function.Module._load (internal/modules/cjs/loader.js:727:14)
+      at Module.require (internal/modules/cjs/loader.js:852:19)
+      at require (internal/modules/cjs/helpers.js:74:18)
+      at Object.<anonymous> (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\Routes\tradeRoutes.js:4:26)
+      at Module._compile (internal/modules/cjs/loader.js:959:30)
+      at Object.Module._extensions..js (internal/modules/cjs/loader.js:995:10),
+  level: 'error',
+  message: "uncaughtException: Unexpected token ')'\n" +
+    'C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\misc\\time.js:27\n' +
+    '    editedTrade.expiresIn = Math.floor(new Date() - trade.bumpedAt) / (1000 * 3600 * 24))\n' +
+    '                                                                                        ^\n' +
+    '\n' +
+    "SyntaxError: Unexpected token ')'\n" +
+    '    at Module._compile (internal/modules/cjs/loader.js:895:18)\n' +
+    '    at Object.Module._extensions..js (internal/modules/cjs/loader.js:995:10)\n' +
+    '    at Module.load (internal/modules/cjs/loader.js:815:32)\n' +
+    '    at Function.Module._load (internal/modules/cjs/loader.js:727:14)\n' +
+    '    at Module.require (internal/modules/cjs/loader.js:852:19)\n' +
+    '    at require (internal/modules/cjs/helpers.js:74:18)\n' +
+    '    at Object.<anonymous> (C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\Controllers\\tradesController.js:6:28)\n' +
+    '    at Module._compile (internal/modules/cjs/loader.js:959:30)\n' +
+    '    at Object.Module._extensions..js (internal/modules/cjs/loader.js:995:10)\n' +
+    '    at Module.load (internal/modules/cjs/loader.js:815:32)\n' +
+    '    at Function.Module._load (internal/modules/cjs/loader.js:727:14)\n' +
+    '    at Module.require (internal/modules/cjs/loader.js:852:19)\n' +
+    '    at require (internal/modules/cjs/helpers.js:74:18)\n' +
+    '    at Object.<anonymous> (C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\Routes\\tradeRoutes.js:4:26)\n' +
+    '    at Module._compile (internal/modules/cjs/loader.js:959:30)\n' +
+    '    at Object.Module._extensions..js (internal/modules/cjs/loader.js:995:10)',
+  stack: 'C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\misc\\time.js:27\n' +
+    '    editedTrade.expiresIn = Math.floor(new Date() - trade.bumpedAt) / (1000 * 3600 * 24))\n' +
+    '                                                                                        ^\n' +
+    '\n' +
+    "SyntaxError: Unexpected token ')'\n" +
+    '    at Module._compile (internal/modules/cjs/loader.js:895:18)\n' +
+    '    at Object.Module._extensions..js (internal/modules/cjs/loader.js:995:10)\n' +
+    '    at Module.load (internal/modules/cjs/loader.js:815:32)\n' +
+    '    at Function.Module._load (internal/modules/cjs/loader.js:727:14)\n' +
+    '    at Module.require (internal/modules/cjs/loader.js:852:19)\n' +
+    '    at require (internal/modules/cjs/helpers.js:74:18)\n' +
+    '    at Object.<anonymous> (C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\Controllers\\tradesController.js:6:28)\n' +
+    '    at Module._compile (internal/modules/cjs/loader.js:959:30)\n' +
+    '    at Object.Module._extensions..js (internal/modules/cjs/loader.js:995:10)\n' +
+    '    at Module.load (internal/modules/cjs/loader.js:815:32)\n' +
+    '    at Function.Module._load (internal/modules/cjs/loader.js:727:14)\n' +
+    '    at Module.require (internal/modules/cjs/loader.js:852:19)\n' +
+    '    at require (internal/modules/cjs/helpers.js:74:18)\n' +
+    '    at Object.<anonymous> (C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\Routes\\tradeRoutes.js:4:26)\n' +
+    '    at Module._compile (internal/modules/cjs/loader.js:959:30)\n' +
+    '    at Object.Module._extensions..js (internal/modules/cjs/loader.js:995:10)',
+  exception: true,
+  date: 'Tue Oct 06 2020 18:23:58 GMT+0200 (GMT+02:00)',
+  process: {
+    pid: 20796,
+    uid: null,
+    gid: null,
+    cwd: 'C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop',
+    execPath: 'C:\\Program Files\\nodejs\\node.exe',
+    version: 'v12.13.1',
+    argv: [
+      'C:\\Program Files\\nodejs\\node.exe',
+      'C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\index.js'
+    ],
+    memoryUsage: {
+      rss: 64249856,
+      heapTotal: 55312384,
+      heapUsed: 26242088,
+      external: 20721342
+    }
+  },
+  os: { loadavg: [ 0, 0, 0 ], uptime: 671537 },
+  trace: [
+    {
+      column: 18,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module._compile',
+      line: 895,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 10,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module._extensions..js',
+      line: 995,
+      method: '.js',
+      native: false
+    },
+    {
+      column: 32,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module.load',
+      line: 815,
+      method: 'load',
+      native: false
+    },
+    {
+      column: 14,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module._load',
+      line: 727,
+      method: '_load',
+      native: false
+    },
+    {
+      column: 19,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module.require',
+      line: 852,
+      method: 'require',
+      native: false
+    },
+    {
+      column: 18,
+      file: 'internal/modules/cjs/helpers.js',
+      function: 'require',
+      line: 74,
+      method: null,
+      native: false
+    },
+    {
+      column: 28,
+      file: 'C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\Controllers\\tradesController.js',
+      function: null,
+      line: 6,
+      method: null,
+      native: false
+    },
+    {
+      column: 30,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module._compile',
+      line: 959,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 10,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module._extensions..js',
+      line: 995,
+      method: '.js',
+      native: false
+    },
+    {
+      column: 32,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module.load',
+      line: 815,
+      method: 'load',
+      native: false
+    },
+    {
+      column: 14,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module._load',
+      line: 727,
+      method: '_load',
+      native: false
+    },
+    {
+      column: 19,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module.require',
+      line: 852,
+      method: 'require',
+      native: false
+    },
+    {
+      column: 18,
+      file: 'internal/modules/cjs/helpers.js',
+      function: 'require',
+      line: 74,
+      method: null,
+      native: false
+    },
+    {
+      column: 26,
+      file: 'C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\Routes\\tradeRoutes.js',
+      function: null,
+      line: 4,
+      method: null,
+      native: false
+    },
+    {
+      column: 30,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module._compile',
+      line: 959,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 10,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module._extensions..js',
+      line: 995,
+      method: '.js',
+      native: false
+    }
+  ],
+  timestamp: '2020-10-06T16:23:58.130Z'
+}
+{
+  error: MongoError: Index with name: bumpedAt_1 already exists with different options
+      at Connection.<anonymous> (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\connection\pool.js:451:61)
+      at Connection.emit (events.js:210:5)
+      at processMessage (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\connection\connection.js:452:10)
+      at TLSSocket.<anonymous> (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\connection\connection.js:621:15)
+      at TLSSocket.emit (events.js:210:5)
+      at addChunk (_stream_readable.js:309:12)
+      at readableAddChunk (_stream_readable.js:290:11)
+      at TLSSocket.Readable.push (_stream_readable.js:224:10)
+      at TLSWrap.onStreamRead (internal/stream_base_commons.js:182:23) {
+    operationTime: Timestamp { _bsontype: 'Timestamp', low_: 21, high_: 1602002510 },
+    ok: 0,
+    code: 85,
+    codeName: 'IndexOptionsConflict',
+    '$clusterTime': {
+      clusterTime: Timestamp { _bsontype: 'Timestamp', low_: 21, high_: 1602002510 },
+      signature: {
+        hash: Binary {
+          _bsontype: 'Binary',
+          sub_type: 0,
+          position: 20,
+          buffer: <Buffer c1 ea b2 3e a4 7a 5f f5 44 b1 e7 9f 95 b3 84 2d f4 25 74 93>
+        },
+        keyId: Long { _bsontype: 'Long', low_: 3, high_: 1597600936 }
+      }
+    },
+    name: 'MongoError'
+  },
+  level: 'error',
+  message: 'unhandledRejection: Index with name: bumpedAt_1 already exists with different options\n' +
+    'MongoError: Index with name: bumpedAt_1 already exists with different options\n' +
+    '    at Connection.<anonymous> (C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\node_modules\\mongodb\\lib\\core\\connection\\pool.js:451:61)\n' +
+    '    at Connection.emit (events.js:210:5)\n' +
+    '    at processMessage (C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\node_modules\\mongodb\\lib\\core\\connection\\connection.js:452:10)\n' +
+    '    at TLSSocket.<anonymous> (C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\node_modules\\mongodb\\lib\\core\\connection\\connection.js:621:15)\n' +
+    '    at TLSSocket.emit (events.js:210:5)\n' +
+    '    at addChunk (_stream_readable.js:309:12)\n' +
+    '    at readableAddChunk (_stream_readable.js:290:11)\n' +
+    '    at TLSSocket.Readable.push (_stream_readable.js:224:10)\n' +
+    '    at TLSWrap.onStreamRead (internal/stream_base_commons.js:182:23)',
+  stack: 'MongoError: Index with name: bumpedAt_1 already exists with different options\n' +
+    '    at Connection.<anonymous> (C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\node_modules\\mongodb\\lib\\core\\connection\\pool.js:451:61)\n' +
+    '    at Connection.emit (events.js:210:5)\n' +
+    '    at processMessage (C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\node_modules\\mongodb\\lib\\core\\connection\\connection.js:452:10)\n' +
+    '    at TLSSocket.<anonymous> (C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\node_modules\\mongodb\\lib\\core\\connection\\connection.js:621:15)\n' +
+    '    at TLSSocket.emit (events.js:210:5)\n' +
+    '    at addChunk (_stream_readable.js:309:12)\n' +
+    '    at readableAddChunk (_stream_readable.js:290:11)\n' +
+    '    at TLSSocket.Readable.push (_stream_readable.js:224:10)\n' +
+    '    at TLSWrap.onStreamRead (internal/stream_base_commons.js:182:23)',
+  exception: true,
+  date: 'Tue Oct 06 2020 18:41:37 GMT+0200 (GMT+02:00)',
+  process: {
+    pid: 20264,
+    uid: null,
+    gid: null,
+    cwd: 'C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop',
+    execPath: 'C:\\Program Files\\nodejs\\node.exe',
+    version: 'v12.13.1',
+    argv: [
+      'C:\\Program Files\\nodejs\\node.exe',
+      'C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\index.js'
+    ],
+    memoryUsage: {
+      rss: 64585728,
+      heapTotal: 54829056,
+      heapUsed: 20861064,
+      external: 19632659
+    }
+  },
+  os: { loadavg: [ 0, 0, 0 ], uptime: 672596 },
+  trace: [
+    {
+      column: 61,
+      file: 'C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\node_modules\\mongodb\\lib\\core\\connection\\pool.js',
+      function: null,
+      line: 451,
+      method: null,
+      native: false
+    },
+    {
+      column: 5,
+      file: 'events.js',
+      function: 'Connection.emit',
+      line: 210,
+      method: 'emit',
+      native: false
+    },
+    {
+      column: 10,
+      file: 'C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\node_modules\\mongodb\\lib\\core\\connection\\connection.js',
+      function: 'processMessage',
+      line: 452,
+      method: null,
+      native: false
+    },
+    {
+      column: 15,
+      file: 'C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\node_modules\\mongodb\\lib\\core\\connection\\connection.js',
+      function: null,
+      line: 621,
+      method: null,
+      native: false
+    },
+    {
+      column: 5,
+      file: 'events.js',
+      function: 'TLSSocket.emit',
+      line: 210,
+      method: 'emit',
+      native: false
+    },
+    {
+      column: 12,
+      file: '_stream_readable.js',
+      function: 'addChunk',
+      line: 309,
+      method: null,
+      native: false
+    },
+    {
+      column: 11,
+      file: '_stream_readable.js',
+      function: 'readableAddChunk',
+      line: 290,
+      method: null,
+      native: false
+    },
+    {
+      column: 10,
+      file: '_stream_readable.js',
+      function: 'TLSSocket.Readable.push',
+      line: 224,
+      method: 'push',
+      native: false
+    },
+    {
+      column: 23,
+      file: 'internal/stream_base_commons.js',
+      function: 'TLSWrap.onStreamRead',
+      line: 182,
+      method: 'onStreamRead',
+      native: false
+    }
+  ],
+  timestamp: '2020-10-06T16:41:37.074Z'
+}
+{
+  error: MongoError: Index with name: bumpedAt_1 already exists with different options
+      at Connection.<anonymous> (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\connection\pool.js:451:61)
+      at Connection.emit (events.js:210:5)
+      at processMessage (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\connection\connection.js:452:10)
+      at TLSSocket.<anonymous> (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\connection\connection.js:621:15)
+      at TLSSocket.emit (events.js:210:5)
+      at addChunk (_stream_readable.js:309:12)
+      at readableAddChunk (_stream_readable.js:290:11)
+      at TLSSocket.Readable.push (_stream_readable.js:224:10)
+      at TLSWrap.onStreamRead (internal/stream_base_commons.js:182:23) {
+    operationTime: Timestamp { _bsontype: 'Timestamp', low_: 17, high_: 1602002610 },
+    ok: 0,
+    code: 85,
+    codeName: 'IndexOptionsConflict',
+    '$clusterTime': {
+      clusterTime: Timestamp { _bsontype: 'Timestamp', low_: 17, high_: 1602002610 },
+      signature: {
+        hash: Binary {
+          _bsontype: 'Binary',
+          sub_type: 0,
+          position: 20,
+          buffer: <Buffer bb ab 4d c4 08 62 e4 a2 33 16 e1 b3 69 18 53 8f 76 f9 51 ec>
+        },
+        keyId: Long { _bsontype: 'Long', low_: 3, high_: 1597600936 }
+      }
+    },
+    name: 'MongoError'
+  },
+  level: 'error',
+  message: 'unhandledRejection: Index with name: bumpedAt_1 already exists with different options\n' +
+    'MongoError: Index with name: bumpedAt_1 already exists with different options\n' +
+    '    at Connection.<anonymous> (C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\node_modules\\mongodb\\lib\\core\\connection\\pool.js:451:61)\n' +
+    '    at Connection.emit (events.js:210:5)\n' +
+    '    at processMessage (C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\node_modules\\mongodb\\lib\\core\\connection\\connection.js:452:10)\n' +
+    '    at TLSSocket.<anonymous> (C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\node_modules\\mongodb\\lib\\core\\connection\\connection.js:621:15)\n' +
+    '    at TLSSocket.emit (events.js:210:5)\n' +
+    '    at addChunk (_stream_readable.js:309:12)\n' +
+    '    at readableAddChunk (_stream_readable.js:290:11)\n' +
+    '    at TLSSocket.Readable.push (_stream_readable.js:224:10)\n' +
+    '    at TLSWrap.onStreamRead (internal/stream_base_commons.js:182:23)',
+  stack: 'MongoError: Index with name: bumpedAt_1 already exists with different options\n' +
+    '    at Connection.<anonymous> (C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\node_modules\\mongodb\\lib\\core\\connection\\pool.js:451:61)\n' +
+    '    at Connection.emit (events.js:210:5)\n' +
+    '    at processMessage (C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\node_modules\\mongodb\\lib\\core\\connection\\connection.js:452:10)\n' +
+    '    at TLSSocket.<anonymous> (C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\node_modules\\mongodb\\lib\\core\\connection\\connection.js:621:15)\n' +
+    '    at TLSSocket.emit (events.js:210:5)\n' +
+    '    at addChunk (_stream_readable.js:309:12)\n' +
+    '    at readableAddChunk (_stream_readable.js:290:11)\n' +
+    '    at TLSSocket.Readable.push (_stream_readable.js:224:10)\n' +
+    '    at TLSWrap.onStreamRead (internal/stream_base_commons.js:182:23)',
+  exception: true,
+  date: 'Tue Oct 06 2020 18:43:16 GMT+0200 (GMT+02:00)',
+  process: {
+    pid: 15736,
+    uid: null,
+    gid: null,
+    cwd: 'C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop',
+    execPath: 'C:\\Program Files\\nodejs\\node.exe',
+    version: 'v12.13.1',
+    argv: [
+      'C:\\Program Files\\nodejs\\node.exe',
+      'C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\index.js'
+    ],
+    memoryUsage: {
+      rss: 64421888,
+      heapTotal: 55091200,
+      heapUsed: 20805184,
+      external: 19632659
+    }
+  },
+  os: { loadavg: [ 0, 0, 0 ], uptime: 672696 },
+  trace: [
+    {
+      column: 61,
+      file: 'C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\node_modules\\mongodb\\lib\\core\\connection\\pool.js',
+      function: null,
+      line: 451,
+      method: null,
+      native: false
+    },
+    {
+      column: 5,
+      file: 'events.js',
+      function: 'Connection.emit',
+      line: 210,
+      method: 'emit',
+      native: false
+    },
+    {
+      column: 10,
+      file: 'C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\node_modules\\mongodb\\lib\\core\\connection\\connection.js',
+      function: 'processMessage',
+      line: 452,
+      method: null,
+      native: false
+    },
+    {
+      column: 15,
+      file: 'C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\node_modules\\mongodb\\lib\\core\\connection\\connection.js',
+      function: null,
+      line: 621,
+      method: null,
+      native: false
+    },
+    {
+      column: 5,
+      file: 'events.js',
+      function: 'TLSSocket.emit',
+      line: 210,
+      method: 'emit',
+      native: false
+    },
+    {
+      column: 12,
+      file: '_stream_readable.js',
+      function: 'addChunk',
+      line: 309,
+      method: null,
+      native: false
+    },
+    {
+      column: 11,
+      file: '_stream_readable.js',
+      function: 'readableAddChunk',
+      line: 290,
+      method: null,
+      native: false
+    },
+    {
+      column: 10,
+      file: '_stream_readable.js',
+      function: 'TLSSocket.Readable.push',
+      line: 224,
+      method: 'push',
+      native: false
+    },
+    {
+      column: 23,
+      file: 'internal/stream_base_commons.js',
+      function: 'TLSWrap.onStreamRead',
+      line: 182,
+      method: 'onStreamRead',
+      native: false
+    }
+  ],
+  timestamp: '2020-10-06T16:43:16.770Z'
+}
