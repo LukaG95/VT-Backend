@@ -138,7 +138,8 @@ const tradesRLSchema = new mongoose.Schema({
   },
 
   bumpedAt: {
-    type: Date
+    type: Date,
+    default: Date.now
   },
 
   notes: {
@@ -151,6 +152,10 @@ const tradesRLSchema = new mongoose.Schema({
 })
 
 const TradeRL = mongoose.model('Trades', tradesRLSchema)
+
+TradeRL.collection.dropIndex({ "bumpedAt": 1 },function(err,result) {
+	TradeRL.collection.createIndex({"bumpedAt": 1 },{ expireAfterSeconds: 864000 })
+});
 
 exports.TradeRL = TradeRL
 

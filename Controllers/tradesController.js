@@ -63,7 +63,8 @@ exports.createTrade = async (req, res, next) => {
     want: want,
     platform: platform,
     notes: notes,
-    createdAt: Date.now()
+    createdAt: Date.now(),
+	bumpedAt: Date.now()
   }
 
   await new TradeRL(tradeDetails).save()
