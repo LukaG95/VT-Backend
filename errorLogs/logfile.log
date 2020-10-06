@@ -14852,3 +14852,13 @@
   level: 'info',
   timestamp: '2020-10-06T17:07:38.197Z'
 }
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-10-06T17:15:29.733Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-06T17:15:30.072Z'
+}

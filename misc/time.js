@@ -24,7 +24,7 @@ function readableActiveAt(trades){
     const editedTrade = trade.toObject()
     editedTrade.createdAt = dateToAgo(editedTrade.createdAt)
     editedTrade.expiresIn = {
-      days: Math.floor(10 - (new Date("10/10/2020") - editedTrade.bumpedAt) / (1000 * 3600 * 24)),
+      days: Math.floor(10 - (new Date() - editedTrade.bumpedAt) / (1000 * 3600 * 24)),
       at: `${editedTrade.bumpedAt.getHours()}:${editedTrade.bumpedAt.getMinutes()}`
     }
     editedTrade.bumpedAt = dateToAgo(editedTrade.bumpedAt)
