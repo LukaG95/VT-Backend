@@ -64,7 +64,8 @@ exports.createTrade = async (req, res, next) => {
     want: want,
     platform: platform,
     notes: notes,
-    createdAt: Date.now()
+    createdAt: Date.now(),
+	bumpedAt: Date.now()
   }
 
   await new TradeRL(tradeDetails).save()
@@ -118,7 +119,7 @@ exports.deleteTrade = async (req, res, next) => {
   const user = await User.findById(req.user.id).select('-__v')
 
   const { tradeId } = req.query
-  if (!tradeId || tradeId.length !== 24 || typeof tradeId !== "string") return res.status(400).json({info: "tradeId", message: "Invalid tradeId"})
+  if (!mongoose.Types.ObjectId.isValid(tradeId)) return res.status(400).json({info: "tradeId", message: "Invalid tradeId"})
 
   const trade = await TradeRL.findById(tradeId)
   if (!trade) return res.status(404).json({info: "no trade", message: "trade with given id doesn't exist"})
