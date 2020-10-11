@@ -1,19 +1,14 @@
-const express = require('express');
+const express = require('express')
+const router = express.Router()
 
-const router = express.Router();
+const authController = require('../Controllers/authController')
+const repController = require('../Controllers/repController')
 
-const authController = require('../Controllers/authController');
-const repController = require('../Controllers/repController');
+router.get('/top10', repController.getTop10)
+router.get('/compact/:user', repController.getReputation_compact)
+router.get('/:user', repController.getReputation)
 
-router.route('/top10')
-    .get(repController.getTop10);
-
-router.route('/:user')
-    .get(repController.getReputation);
-
-
-router.route('/addRep/:user')
-    .post(authController.protect, repController.addReputation);
+router.post('/addRep/:user', authController.protect, repController.addReputation)
 
 
-module.exports = router;
+module.exports = router

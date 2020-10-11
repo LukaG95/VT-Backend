@@ -1,26 +1,21 @@
-const express = require('express');
+const express = require('express')
 
-const router = express.Router();
+const authController = require('../Controllers/authController')
+const tradesController = require('../Controllers/tradesController')
+const repController = require('../Controllers/repController')
 
-const authController = require('../Controllers/authController');
-const tradesController = require('../Controllers/tradesController');
-const repController = require('../Controllers/repController');
+const router = express.Router()
 
-router.route('/getTrades')
-    .get(tradesController.getTrades);
+router.get('/getTrades', tradesController.getTrades)
+router.get('/getUserTrades', authController.protect, tradesController.getUserTrades)
+router.get('/getTrade/:tradeId', authController.protect, tradesController.getTrade)
 
-router.route('/getTrade/:id')
-    .get(tradesController.getTrade);
+router.post('/createTrade', authController.protect, tradesController.createTrade)
+router.post('/editTrade', authController.protect, tradesController.editTrade)
 
-router.route('/createTrade')
-    .post(authController.protect, repController.getRepMiddleware,
-        tradesController.createTrade);
+router.put('/bumpTrade', authController.protect, tradesController.bumpTrade)
 
-router.route('/deleteTrade/')
-    .delete(authController.protect, tradesController.deleteTrade);
+router.delete('/deleteTrade', authController.protect, tradesController.deleteTrade)
+router.delete('/deleteTrades', authController.protect, tradesController.deleteTrades)
 
-router.route('/bumpTrade/:id')
-    .put(authController.protect, tradesController.bumpTrade);
-
-
-module.exports = router;
+module.exports = router

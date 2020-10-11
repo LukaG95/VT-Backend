@@ -1,61 +1,63 @@
-const mongoose = require('mongoose');
-
+const mongoose = require('mongoose')
 
 const repSchema = new mongoose.Schema({
-    userId: {
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+    required: true
+  },
+
+  title: {
+    type: String,
+    minlength: 1,
+    maxlength: 255,
+    default: 'Novice' // should be get?
+  },
+
+  grade: {
+    type: String,
+    minlength: 1,
+    maxlength: 255,
+    default: '1.0' // should be get?
+  },
+
+  reps: [
+    {
+      good: {
+        type: Boolean,
+        required: true
+      },
+
+      category: {
         type: String,
-        unique: true,
-        required: true,
-    },
-    title: {
+        enum: ['rl', 'csgo', 'other'],
+        required: true
+      },
+
+      feedback: {
         type: String,
-        default: 'Veteran',
-    },
-    username: {
-        type: String,
-        required: true,
-    },
+        minlength: 5,
+        maxlength: 100,
+        required: true
+      },
 
-    grade: {
-        type: String,
-        default: '5.0',
-    },
+      createdBy: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        required: true
+      },
 
-    reps: [
-        {
-            good: {
-                type: Boolean,
-                required: true,
-            },
-            createdBy: {
-                type: String,
-                required: true,
-            },
-            createdAt: {
-                type: Date,
-                default: Date.now(),
-            },
-            feedback: {
-                type: String,
-                required: true,
-            },
-            game: {
-                type: String,
-                required: true,
-                enum: ['rl', 'csgo', 'other'],
-            },
-        },
-    ],
+      createdAt: {
+        type: Date,
+        default: Date.now
+      }
+      
+    }
+  ],
 
-    __v: { type: Number, select: false },
-});
+  __v: { type: Number, select: false }
+})
 
+const repModel = mongoose.model('Reputation', repSchema)
 
-const repModel = mongoose.model('Reputation', repSchema);
-
-
-
-// const func = () => repModel.find({ reps.createdBy: '5eaa006355a0d8265ea8530e' }).then((data) => console.log(data));
-
-// func();
-module.exports = repModel;
+module.exports = repModel

@@ -1,9 +1,18 @@
 # Node modules
-node_modules
+node_modules/
 package-lock.json
 
+#Error Logs
+errorLogs/*.log
 
+# React build (only push to production)
+# build/
 
 # Environment variables, never commit this file
-config.env
+/*.env
+
+# Other
+tests/
+testt.js
+insertManyDocsTEST.js
 

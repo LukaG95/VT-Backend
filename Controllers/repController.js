@@ -1,281 +1,283 @@
-const Reputation = require('../Models/repModel');
-const User = require('../Models/userModel');
-const catchAsync = require('../misc/catchAsync');
+const Redis = require('../misc/redisCaching')
 
-const AppError = require('../misc/AppError');
+const Reputation = require('../Models/repModel')
+const { User } = require('../Models/userModel')
 
-const Redis = require('../misc/redisCaching');
+exports.getReputation = async (req, res, next) => {
+  const userId = req.params.user // Joi
 
+  const user = await User.findById(userId)
+  if (!user) return res.status(404).json({ info: "no user", message: "user doesn't exist" })
 
-exports.getReputation = catchAsync(async (req, res, next) => {
-    const userId = req.params.user;
-
-    if (userId.length !== 24) return next(new AppError('invalid'));
-
-    const user = await User.findById(userId);
-
-    if (!user) return next(new AppError('invalid'));
-
-    const rep = await Reputation.aggregate([
-        { $match: { userId } },
-        { $unwind: '$reps' },
-        { $sort: { 'reps.createdAt': -1 } },
-        {
-            $addFields: {
-                reps: {
-                    good: '$reps.good',
-                    createdBy: '$reps.createdBy',
-                    feedback: '$reps.feedback',
-                    createdAt: {
-                        $dateToString: {
-                            date: '$reps.createdAt',
-                            format: '%Y-%m-%d %H:%M',
-                        },
-                    },
-                },
+  const rep = await Reputation.aggregate([
+    { $match: { user: user._id } },              // search for the users rep
+    { $unwind: '$reps' },                         // unwind all reps
+    { $sort: { 'reps.createdAt': -1 } },          // sort all reps by date created
+    {
+      $addFields: {                               // date to string
+        reps: {
+          createdAt: {
+            $dateToString: {
+              date: '$reps.createdAt',
+              format: '%Y-%m-%d %H:%M',
             },
+          },
         },
-        {
-            $group: {
-                _id: {
-                    id: '$_id',
-                    userId: '$userId',
-                    username: '$username',
-                    grade: '$grade',
-                    title: '$title',
-                },
+      },
+    },
 
-                reps: {
-                    $push: '$reps',
-
-                },
-
-                ups: { $sum: { $cond: { if: { $eq: ['$reps.good', true] }, then: 1, else: 0 } } },
-                downs: { $sum: { $cond: { if: { $eq: ['$reps.good', false] }, then: 1, else: 0 } } },
-
-
-                csgoCount: { $sum: { $cond: { if: { $eq: ['$reps.game', 'csgo'] }, then: 1, else: 0 } } },
-                rlCount: { $sum: { $cond: { if: { $eq: ['$reps.game', 'rl'] }, then: 1, else: 0 } } },
-                otherCount: { $sum: { $cond: { if: { $eq: ['$reps.game', 'other'] }, then: 1, else: 0 } } },
-
-                csgoReps: { $push: { $cond: { if: { $eq: ['$reps.game', 'csgo'] }, then: '$reps', else: null } } },
-                rlReps: { $push: { $cond: { if: { $eq: ['$reps.game', 'rl'] }, then: '$reps', else: null } } },
-                otherReps: { $push: { $cond: { if: { $eq: ['$reps.game', 'other'] }, then: '$reps', else: null } } },
-            },
-
-
+    {
+      $group: {
+        _id: {
+          id: '$_id',
+          userId: user._id,
+          username: user.username,
+          grade: '$grade',
+          title: '$title',
         },
 
-
-        {
-            $addFields: {
-                csgoReps: {
-                    $filter: {
-                        input: '$csgoReps',
-                        as: 'rep',
-                        cond: {
-                            $ne: ['$$rep', null],
-                        },
-                    },
-                },
-                rlReps: {
-                    $filter: {
-                        input: '$rlReps',
-                        as: 'rep',
-                        cond: {
-                            $ne: ['$$rep', null],
-                        },
-                    },
-                },
-                otherReps: {
-                    $filter: {
-                        input: '$otherReps',
-                        as: 'rep',
-                        cond: {
-                            $ne: ['$$rep', null],
-                        },
-                    },
-                },
-            },
-        },
-        {
-            $project: {
-                _id: 0,
-                userId: '$_id.userId',
-                username: '$_id.username',
-                title: '$_id.title',
-                grade: '$_id.grade',
-                ups: '$ups',
-                downs: '$downs',
-                amount: {
-                    all: { $sum: ['$ups', '$downs'] },
-                    rl: '$rlCount',
-                    csgo: '$csgoCount',
-                    other: '$otherCount',
-                },
-                repsByGame: {
-                    all: '$reps',
-                    rl: '$rlReps',
-                    csgo: '$csgoReps',
-                    other: '$otherReps',
-                },
-
-
-            },
+        reps: {
+          $push: '$reps',
         },
 
+        ups: { $sum: { $cond: { if: { $eq: ['$reps.good', true] }, then: 1, else: 0 } } },
+        downs: { $sum: { $cond: { if: { $eq: ['$reps.good', false] }, then: 1, else: 0 } } },
 
-    ]);
+        csgoCount: { $sum: { $cond: { if: { $eq: ['$reps.category', 'csgo'] }, then: 1, else: 0 } } },
+        rlCount: { $sum: { $cond: { if: { $eq: ['$reps.category', 'rl'] }, then: 1, else: 0 } } },
+        otherCount: { $sum: { $cond: { if: { $eq: ['$reps.category', 'other'] }, then: 1, else: 0 } } },
 
-    if (rep.length < 1) {
-        rep[0] = {
-            ups: 0,
-            downs: 0,
-            grade: "1.0",
-            title: "Novice",
-            amount: { all: 0, rl: 0, csgo: 0, other: 0 },
-            repsByGame: { all: [], rl: [], csgo: [], other: [] },
-            userId: user._id,
-            username: user.username,
-        };
-    }
+        csgoReps: { $push: { $cond: { if: { $eq: ['$reps.category', 'csgo'] }, then: '$reps', else: null } } },
+        rlReps: { $push: { $cond: { if: { $eq: ['$reps.category', 'rl'] }, then: '$reps', else: null } } },
+        otherReps: { $push: { $cond: { if: { $eq: ['$reps.category', 'other'] }, then: '$reps', else: null } } },
+      },
+    },
 
-    return res.json({ status: 'success', rep: rep[0] });
-});
-
-
-exports.addReputation = catchAsync(async (req, res, next) => {
-    const { user } = req;
-    const userId = req.params.user;
-    const { rep } = req.body;
-
-    if (!userId || userId.length !== 24 || !rep || userId == user._id) return next(new AppError('invalid'));
-
-    // Check if user has already given a rep within 24 hours
-    const repCheck = await Redis.isCached(`${user._id}${userId}`);
-    if (repCheck) return next(new AppError('hours24'));
-    //
-
-
-    rep.createdBy = user._id;
-
-    // const rep = {
-    //     good: false,
-    //     createdBy: '44444',
-    //     feedback: 'Bad trade!',
-    //     game: 'csgo',
-    // };
-    const dbUser = await User.findById(userId);
-    if (!dbUser) return next(new AppError('error'));
-
-    const repDB = await Reputation.findOne({ userId });
-
-
-    if (!repDB) {
-        const newRep = new Reputation({ userId, username: dbUser.username, reps: [rep] });
-        await newRep.save();
-        await Redis.cache(`${user._id}${userId}`, 1)
-        return res.json({ status: 'success' });
-    }
-
-    repDB.reps.unshift(rep);
-    await repDB.save();
-    await Redis.cache(`${user._id}${userId}`, 1);
-    return res.json({ status: 'success' });
-});
-
-exports.getTop10 = catchAsync(async (req, res, next) => {
-
-    const oneDayInMs = (1 * 24 * 3600 * 1000);
-    const weekDate = new Date(Date.now() - 7 * oneDayInMs);
-    const monthDate = new Date(Date.now() - 30 * oneDayInMs);
-
-    const aggregation = function (Date) {
-        let match;
-
-        if (!Date) {
-            match = {}
-        } else {
-            match = { 'reps.createdAt': { $gte: Date } }
+    {
+      $addFields: {                                         // add these fields just as count, later not adding them in $project
+        csgoReps: {
+          $filter: {
+            input: '$csgoReps',
+            as: 'rep',
+            cond: {
+              $ne: ['$$rep', null],
+            },
+          },
+        },
+        rlReps: {
+          $filter: {
+            input: '$rlReps',
+            as: 'rep',
+            cond: {
+              $ne: ['$$rep', null],
+            },
+          },
+        },
+        otherReps: {
+          $filter: {
+            input: '$otherReps',
+            as: 'rep',
+            cond: {
+              $ne: ['$$rep', null],
+            },
+          },
+        },
+      },
+    },
+    {
+      $project: {
+        _id: 0,
+        userId: '$_id.userId',
+        username: '$_id.username',
+        title: '$_id.title',
+        grade: '$_id.grade',
+        ups: '$ups',
+        downs: '$downs',
+        amount: {
+          all: { $sum: ['$ups', '$downs'] },
+          rl: '$rlCount',
+          csgo: '$csgoCount',
+          other: '$otherCount'
+        },
+        repsByGame: {
+          all: '$reps',
+          rl: '$rlReps',
+          csgo: '$csgoReps',
+          other: '$otherReps'
         }
-
-        return Reputation.aggregate([
-            { $unwind: '$reps' },
-            { $match: match },
-            {
-                $group: {
-                    _id: {
-                        userId: '$userId',
-                        username: '$username',
-                    },
-
-                    ups: { $sum: { $cond: { if: { $eq: ['$reps.good', true] }, then: 1, else: 0 } } },
-                    downs: { $sum: { $cond: { if: { $eq: ['$reps.good', false] }, then: 1, else: 0 } } },
-                },
-            },
-            {
-                $addFields: {
-                    repRating: { $subtract: ['$ups', '$downs'] },
-                },
-            },
-            { $sort: { repRating: -1 } },
-            { $limit: 10 },
-            {
-                $project: {
-                    _id: 0,
-                    userId: '$_id.userId',
-                    username: '$_id.username',
-                    repRating: '$repRating',
-                },
-            },
-        ]);
+      }
     }
+  ])
+
+  if (rep.length < 1) {
+    rep[0] = {
+      ups: 0,
+      downs: 0,
+      grade: "1.0",
+      title: "Novice",
+      amount: { all: 0, rl: 0, csgo: 0, other: 0 },
+      repsByGame: { all: [], rl: [], csgo: [], other: [] },
+      userId: user._id,
+      username: user.username,
+    }
+  }
+
+  return res.status(200).json({ info: 'success', message: 'got user reputation', rep: rep[0] })
+
+  /*
+  const reputation = await Reputation.find({user: userId})
+
+  let user_rep = {
+    ups: 0,
+    downs: 0,
+    grade: "1.0",
+    title: "Novice",
+    amount: { all: 0, rl: 0, csgo: 0, other: 0 },
+    repsByGame: { all: [], rl: [], csgo: [], other: [] },
+    userId: user._id,
+    username: user.username
+  }
+
+  if (reputation.length > 0){
+
+    reputation[0].reps.map(repu => {
+      const rep = repu.toObject()
+
+      rep.good ? user_rep.ups++ : user_rep.downs++
+      user_rep.amount.all++
+      user_rep.amount[rep.category]++
+
+      rep.createdAt = rep.createdAt.toLocaleString()
+      user_rep.repsByGame.all.push(rep)
+      user_rep.repsByGame[rep.category].push(rep)
+    })
+
+
+    // sort reps by date created for each category
+    // format date to string
+
+  }
+    
+  return res.status(200).json({ info: 'success', message: 'got user reputation', rep: user_rep })
+*/
+}
+
+exports.addReputation = async (req, res, next) => {
+  const user = await User.findById(req.user.id).select('-__v')
+
+  const rep = req.body // Joi
+  rep.createdBy = user._id
+
+
+  // Check if user has already given a rep within 24 hours
+  const repCheck = await Redis.isCached(`${user._id}${req.params.user}`)
+  if (repCheck) return res.status(400).json({ info: 'hours24', message: "You can rep only once in 24 hours!" })
+
+
+  const receiving_user = await User.findById(req.params.user).select('-__v')
+  if (!receiving_user) return res.status(404).json({ info: 'no user', message: 'user with the given id does not exist' })
+
+  if (receiving_user._id.toHexString() === user._id.toHexString()) return res.status(400).json({ info: 'rep yourself', message: 'you can not rep yourself' })
+
+  // if user exists but has no rep yet (doesn't exist in Reputation collection), create a new one
+  const user_repDB = await Reputation.findOne({ user: req.params.user })
+  if (!user_repDB) {
+    const newRep = new Reputation({
+      user: receiving_user._id,
+      reps: [rep]
+    })
+
+    console.log(newRep)
+    await newRep.save()
 
 
 
-    const All = await aggregation();
-    const Month = await aggregation(monthDate);
-    const Week = await aggregation(weekDate);
+    return res.status(200).json({ info: 'success', message: 'successfully added reputation to a new user' })
+  }
 
+  user_repDB.reps.push(rep) // or unshift for adding at the start
+  await user_repDB.save()
 
-    return res.json({ status: 'success', top10: { All, Month, Week } });
-});
+  await Redis.cache(`${user._id}${req.params.user}`, 1)
 
+  return res.status(200).json({ info: 'success', message: 'successfully added reputation' })
+}
 
-exports.getRepMiddleware = catchAsync(async (req, res, next) => {
-    const { user } = req;
+exports.getTop10 = async (req, res, next) => {
+  const oneDayInMs = (1 * 24 * 3600 * 1000)
+  const weekDate = new Date(Date.now() - 7 * oneDayInMs)
+  const monthDate = new Date(Date.now() - 30 * oneDayInMs)
 
-    const rep = await Reputation.aggregate([
-        { $match: { userId: `${user._id}` } },
-        {
-            $project: {
-                _id: 0,
-                username: 1,
-                title: 1,
-                grade: 1,
-                ups: {
-                    $sum: {
-                        $map: {
-                            input: '$reps',
-                            as: 'repobj',
-                            in: { $cond: { if: { $eq: ['$$repobj.good', true] }, then: 1, else: 0 } },
-                        },
-                    },
-                },
-                downs: {
-                    $sum: {
-                        $map: {
-                            input: '$reps',
-                            as: 'repobj',
-                            in: { $cond: { if: { $eq: ['$$repobj.good', false] }, then: 1, else: 0 } },
-                        },
-                    },
-                },
-            },
-        },
-    ]);
+  const aggregation = function (Date) {
+    let match = {}
 
+    if (Date)
+      match = { 'reps.createdAt': { $gte: Date } }
 
-    req.rep = rep[0] || { ups: 0, downs: 0 };
-    next();
-});
+    return Reputation.aggregate([
+      { $unwind: '$reps' }, // ungroup by reps
+      { $match: match },    // sort by date
+      {
+        $lookup: { from: 'users', localField: 'user', foreignField: '_id', as: 'owner' }
+      },
+      {
+        $group: {           // regroup 
+          _id: {
+            userId: '$user',
+            username: { $arrayElemAt: ['$owner.username', 0] }
+          },
+          ups: { $sum: { $cond: { if: { $eq: ['$reps.good', true] }, then: 1, else: 0 } } },
+          downs: { $sum: { $cond: { if: { $eq: ['$reps.good', false] }, then: 1, else: 0 } } }
+        }
+      },
+      {
+        $addFields: {
+          repRating: { $subtract: ['$ups', '$downs'] }
+        }
+      },
+      { $sort: { repRating: -1 } },
+      { $limit: 10 },
+      {
+        $project: {
+          _id: 0,
+          userId: '$_id.userId',
+          username: '$_id.username',
+          repRating: '$repRating',
+        }
+      }
+    ])
+  }
+
+  const All = await aggregation()
+  const Month = await aggregation(monthDate)
+  const Week = await aggregation(weekDate)
+
+  return res.json({ status: 'success', top10: { All, Month, Week } })
+}
+
+exports.getReputation_compact = async (req, res, next) => {
+  const userId = req.params.user
+  let ups = 0, downs = 0
+
+  const reputation = await Reputation.find({ user: userId })
+  if (reputation.length < 1) {
+    rep_compact = {
+      ups: 0,
+      downs: 0,
+      grade: "1.0",
+      title: "novice"
+    }
+  }
+  else {
+    reputation[0].reps.map(rep => rep.good ? ups++ : downs++)
+    rep_compact = {
+      ups,
+      downs,
+      grade: reputation[0].grade,
+      title: reputation[0].title
+    }
+  }
+
+  return res.status(200).json({ info: "success", message: "returned user reputation", rep: rep_compact })
+
+}

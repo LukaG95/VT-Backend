@@ -1,6 +1,6 @@
 /* eslint-disable no-trailing-spaces */
-const nodemailer = require('nodemailer');
 
+const nodemailer = require('nodemailer');
 
 class EmailingSystem {
     constructor(options) {
@@ -35,7 +35,6 @@ class EmailingSystem {
         return this.transporter;
     }
 
-
     async sendEmail(subject, text) {
         const transporter = this.newTransporter();
         const messageOptions = {
@@ -62,14 +61,11 @@ class EmailingSystem {
 
     async sendPasswordReset(code) {
         await this.sendEmail('Password reset', `Your password reset link is ${this.url}/password/reset/${code}`);
-
     }
 
     async sendEmailUpdate(code) {
         await this.sendEmail('Email update', `Your email updading link is ${this.url}/email/update/${code}`);
-
     }
 }
-
 
 module.exports = EmailingSystem;

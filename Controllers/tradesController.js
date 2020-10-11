@@ -1,200 +1,137 @@
-const { promisify } = require('util');
-const TradeRL = require('../Models/tradesRLModel');
+const mongoose = require('mongoose')
 
-const AdvancedQueryRL = require('../misc/AdvancedQueryRL');
-const catchAsync = require('../misc/catchAsync');
-const AppError = require('../misc/AppError');
-const dateToAgo = require('../misc/dateToAgo');
+const { TradeRL, validateTrade, validateTradeQuery } = require('../Models/tradesRLModel')
+const AdvancedQueryRL = require('../misc/AdvancedQueryRL')
+const { User } = require('../Models/userModel')
+const {readableActiveAt} = require('../misc/time')
 
-const items = require('../misc/items.json');
+exports.getTrades = async (req, res, next) => {
+  const { query } = req
+  if (!query) return res.status(400).json({info: "query", message: "No query given"})
 
-const paintIds = {
-    None: 0,
-    Crimson: 1,
-    Lime: 2,
-    Black: 3,
-    'Sky Blue': 4,
-    Cobalt: 5,
-    'Burnt Sienna': 6,
-    'Forest Green': 7,
-    Purple: 8,
-    Pink: 9,
-    Orange: 10,
-    Grey: 11,
-    'Titanium White': 12,
-    Saffron: 13,
-};
+  const { error } = validateTradeQuery(query)
+  if (error) return res.status(400).json({info: "invalid credentials", message: error.details[0].message})
 
-const certIds = {
-    None: 0,
-    Playmaker: 1,
-    Acrobat: 2,
-    Aviator: 3,
-    Goalkeeper: 4,
-    Guardian: 5,
-    Juggler: 6,
-    Paragon: 7,
-    Scorer: 8,
-    'Show-Off': 9,
-    Sniper: 10,
-    Striker: 11,
-    Sweeper: 12,
-    Tactician: 13,
-    Turtle: 14,
-    Victor: 15,
-};
+  const advancedQuery = new AdvancedQueryRL(TradeRL.find(), query)
+    .filter()
+    .paginate()
+    .sortByLatest()
 
+  const trades = await advancedQuery.query.populate('user')
+  const pages = Math.ceil((await TradeRL.countDocuments(advancedQuery.resetQuery().query)) / advancedQuery.limit)
 
-exports.getTrades = catchAsync(async (req, res, next) => {
-    const { query } = req;
-    const advancedQuery = new AdvancedQueryRL(TradeRL.find(), query)
-        .filter()
-        .paginate()
-        .sortByLatest();
+  return res.status(200).json({ info: 'success', message: 'successfully got trades', trades: readableActiveAt(trades), pages })
+}
 
+exports.getUserTrades = async (req, res, next) => {
+  const user = await User.findById(req.user.id).select('-__v')
+ 
+  const { searchId } = req.query
+  if (!mongoose.Types.ObjectId.isValid(searchId)) return res.status(400).json({info: "searchId", message: "Invalid searchId"})
 
-    const trades = await advancedQuery.query.select({ old: 0 });
-    const pages = Math.ceil((await TradeRL.countDocuments(advancedQuery.resetQuery().query)) / advancedQuery.limit);
+  const trades = await TradeRL.find({ user: searchId }).populate('user').sort('-bumpedAt')
+  if (trades.length < 1) return res.status(200).json({info: "no trades", message: "user has no trades created", trades: []})
 
-    const editedTrades = trades.map((trade) => {
-        const editedTrade = trade.toObject();
-        editedTrade.createdAt = dateToAgo(editedTrade.createdAt);
-        return editedTrade;
-    });
+  const idMatch = user._id.toHexString() === trades[0].user._id.toHexString()
 
+  return res.status(200).json({ info: 'success', idMatch: idMatch, trades: readableActiveAt(trades)})
+}
 
-    return res.json({ trades: editedTrades, pages });
-});
+exports.getTrade = async (req, res, next) => {
+  const user = await User.findById(req.user.id).select('-__v')
 
-exports.getTrade = catchAsync(async (req, res, next) => {
-    const { id } = req.params;
+  const { tradeId } = req.params
+  if (!mongoose.Types.ObjectId.isValid(tradeId)) return res.status(400).json({info: "tradeId", message: "Invalid tradeId"})
 
-    const trade = await TradeRL.findById(id, { platform: 1, old: 1, notes: 1 });
+  const trade = await TradeRL.findById(tradeId)
+  if (!trade) return res.status(404).json({info: "no trade", message: "trade with given id doesn't exist"})
 
+  const idMatch = user._id.toHexString() === trade.user._id.toHexString()
 
-    return res.json({ status: 'success', trade });
-});
+  return res.json({ info: 'success', idMatch: idMatch, trade })
+}
 
+exports.createTrade = async (req, res, next) => {
+  const user = await User.findById(req.user.id).select('-__v')
+  const { have, want, platform, notes } = req.body
 
-exports.createTrade = catchAsync(async (req, res, next) => {
-    const { user } = req;
-    const { edit } = req.query;
-    const {
-        have, want, platform, notes, old,
-    } = req.body;
+  const { error } = await validateTrade(req.body, user, req)
+  if (error) return res.status(400).json({info: "invalid credentials", message: error.details[0].message})
 
-    // const maxTrades = 15;
+  const tradeDetails = {
+    user: user._id,
+    have: have,
+    want: want,
+    platform: platform,
+    notes: notes,
+    createdAt: Date.now(),
+	bumpedAt: Date.now()
+  }
 
+  await new TradeRL(tradeDetails).save()
+  return res.status(200).json({info: "success", message: "trade was created"})
+}
 
-    const userRep = req.rep;
+exports.editTrade = async (req, res, next) => {
+  const user = await User.findById(req.user.id).select('-__v')
+  const { have, want, platform, notes } = req.body
 
-    const steamAccount = (user.steam) ? `https://steamcommunity.com/profiles/${user.steam}` : null;
+  const { error } = await validateTrade(req.body, user, req)
+  if (error) return res.status(400).json({info: "invalid credentials", message: error.details[0].message})
 
-    // const totalTrades = await TradeRL.find({ userId: user._id }).length;
-    // console.log(totalTrades);
+  const { tradeId } = req.query
+  if (!mongoose.Types.ObjectId.isValid(tradeId)) return res.status(400).json({info: "tradeId", message: "Invalid tradeId"})
 
-    if (have.length > 12 || want.length > 12 || !steamAccount) return next(new AppError('invalid'));
+  const trade = await TradeRL.findById(tradeId)
+  if (!trade) return res.status(404).json({info: "no trade", message: "trade with given id doesn't exist"})
 
-    // return res.json({ status: 'invalid' });
-    function getItemNamesAndUrls(arr) {
-        let err = 0;
+  const tradeDetails = {
+    have: have,
+    want: want,
+    platform: platform,
+    notes: notes,
+    editedAt: Date.now()
+  }
 
-        arr.forEach((item, i) => {
-            let itemName;
-            items.Slots.forEach((type) => type.Items.forEach((item1) => {
-                if (item1.ItemID === item.itemID) {
-                    itemName = item1.Name;
-                }
-            }));
+  if (trade.user.toHexString() !== user._id.toHexString()) return res.status(401).json({info: "forbidden", message: "can't edit others trades"})
 
-            const paintId = paintIds[item.paint];
-            const certId = certIds[item.cert];
+  await TradeRL.findOneAndUpdate({ _id: trade._id }, tradeDetails, { useFindAndModify: false })
+  return res.status(200).json({info: "success", message: "trade was edited"})
+}
 
+exports.bumpTrade = async (req, res, next) => {
+  const user = await User.findById(req.user.id).select('-__v')
 
-            arr[i].itemName = itemName;
-            arr[i].url = `${item.itemID}.${paintId}.webp`;
+  const { tradeId } = req.query
+  if (!mongoose.Types.ObjectId.isValid(tradeId)) return res.status(400).json({info: "tradeId", message: "Invalid tradeId"})
 
-            if (!arr[i].itemName || paintId == undefined || certId == undefined) return err = 1;
-        });
-        return err;
-    }
+  const trade = await TradeRL.findById(tradeId)
+  if (!trade) return res.status(404).json({info: "no trade", message: "trade with given id doesn't exist"})
+  if (trade.user.toHexString() !== user._id.toHexString()) return res.status(401).json({info: "unauthorized", message: "can't bump others trades"})
 
+  trade.bumpedAt = Date.now()
+  await trade.save()
 
-    const h = getItemNamesAndUrls(have);
-    const w = getItemNamesAndUrls(want);
+  return res.status(200).json({ info: 'success', message: 'trade was bumped' })
+}
 
-    if (h === 1 || w === 1) return next(new AppError('invalid'));
+exports.deleteTrade = async (req, res, next) => {
+  const user = await User.findById(req.user.id).select('-__v')
 
-    const tradeDetails = {
-        username: user.username,
-        reputation: {
-            ups: userRep.ups,
-            downs: userRep.downs,
-        },
-        steamAccount,
-        have,
-        want,
-        platform,
-        notes,
-        old,
+  const { tradeId } = req.query
+  if (!mongoose.Types.ObjectId.isValid(tradeId)) return res.status(400).json({info: "tradeId", message: "Invalid tradeId"})
 
-    };
+  const trade = await TradeRL.findById(tradeId)
+  if (!trade) return res.status(404).json({info: "no trade", message: "trade with given id doesn't exist"})
+  if (trade.user.toHexString() !== user._id.toHexString()) return res.status(401).json({info: "unauthorized", message: "can't delete others trades"})
 
+  await trade.deleteOne()
+  return res.status(200).json({ info: 'success', message: 'trade was deleted' })
+}
 
-    if (edit) {
-        if (edit.length !== 24) return next(new AppError());
+exports.deleteTrades = async (req, res, next) => {
+  const user = await User.findById(req.user.id).select('-__v')
 
-        const trade = await TradeRL.findById(edit);
-
-        if (trade.userId != user._id) return next(new AppError());
-
-
-        await TradeRL.findOneAndUpdate({ _id: trade._id }, tradeDetails, { useFindAndModify: false });
-
-        return res.json({ status: 'success' });
-    }
-
-    tradeDetails.userId = user._id;
-    tradeDetails.createdAt = Date.now();
-
-
-    const newTrade = await new TradeRL(tradeDetails).save();
-    return res.json({ status: 'success' });
-});
-
-exports.bumpTrade = catchAsync(async (req, res, next) => {
-    const { user } = req;
-    const { id } = req.params;
-
-    const trade = await TradeRL.findById(id);
-    if (trade.userId != user._id) return next(new AppError());
-
-
-    trade.createdAt = Date.now();
-    await trade.save();
-
-    return res.json({ status: 'success' });
-
-})
-
-
-exports.deleteTrade = catchAsync(async (req, res, next) => {
-    const tradeId = req.query.id;
-    const { all } = req.query;
-    const { user } = req;
-
-    if (all === 'true') {
-        await TradeRL.deleteMany({ userId: user._id });
-        return res.json({ status: 'success' });
-    }
-
-    if (!tradeId || tradeId.length !== 24) return next(new AppError('invalid'));
-
-    const trade = await TradeRL.findById(tradeId);
-
-    if (trade.userId != user._id) return next(new AppError('invalid'));
-
-    await TradeRL.findOneAndDelete({ _id: tradeId });
-
-    return res.json({ status: 'success' });
-});
+  await TradeRL.deleteMany({ user: user._id })
+  return res.status(200).json({ info: 'success', message: 'deleted all trades' })
+}

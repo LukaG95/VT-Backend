@@ -1,75 +1,46 @@
-const express = require('express');
-const cors = require('cors');
-const limiter = require('../misc/rateLimiter');
+const express = require('express')
+const cors = require('cors')
 
-const router = express.Router();
+const limiter = require('../misc/rateLimiter')
+const passport = require('../misc/passport')
+const authController = require('../Controllers/authController')
+const testUserController = require('../Controllers/testUserController')
 
-const passport = require('../misc/passport');
+const router = express.Router()
 
+router.use(cors())
+router.use(passport.initialize())
 
-const authController = require('../Controllers/authController');
+router.get('/getUser', authController.protect, authController.getUser)
+router.get('/getUserByUsername/:username', authController.getUserByUsername)
+router.get('/getTestUsers', authController.protect, authController.adminOnly, authController.getTestUsers)
 
-router.use(cors());
-router.use(passport.initialize());
+router.post('/signup', limiter, authController.signup)
+router.post('/login', limiter, authController.login)
+router.post('/createTestUser', authController.protect, authController.adminOnly, authController.createTestUser)
+router.delete('/deleteTestUser', authController.protect, authController.adminOnly, authController.deleteTestUser)
 
-router.route('/signup')
-    .post(limiter, authController.signup);
+router.delete('/logout', authController.protect, authController.logout)
 
+router.put('/updateUsername', authController.protect, authController.updateUsername)
+router.put('/updatePassword', authController.protect, authController.updatePassword)
+router.put('/updateEmail', authController.protect, authController.updateEmail)
 
-router.route('/login')
-    .post(limiter, authController.login);
+router.get('/steam', passport.authenticate('steam'))
+router.get('/steam/return', passport.authenticate('steam'), authController.passportLoginOrCreate)
 
-router.route('/logout')
-    .delete(authController.protect, authController.logout);
+router.get('/discord', passport.authenticate('discord'))
+router.get('/discord/callback', passport.authenticate('discord'), authController.passportLoginOrCreate)
 
+router.put('/confirmEmail/', authController.confirmEmail)
 
+router.post('/sendResetPasswordToken', authController.sendResetToken)
 
+router.put('/resetPassword', authController.resetPassword)
 
-router.route('/updateUsername')
-    .put(authController.protect, authController.updateUsername);
-
-
-router.route('/updatePassword')
-    .put(authController.protect, authController.updatePassword);
-
-
-router.route('/steam')
-    .get(passport.authenticate('steam'));
-
-router.route('/steam/return')
-    .get(passport.authenticate('steam'), authController.passportLoginOrCreate);
-
-
-router.route('/discord')
-    .get(passport.authenticate('discord'));
-
-router.route('/discord/callback')
-    .get(passport.authenticate('discord'), authController.passportLoginOrCreate);
+router.post('/sendResetEmailToken', authController.protect, authController.sendResetEmail)
 
 
-router.route('/getUser')
-    .get(authController.protect, authController.getUser);
+// router.post('/resendCode', authController.protect, authController.resendCode)
 
-
-
-router.route('/confirmEmail/')
-    .put(authController.confirmEmail);
-
-router.route('/sendResetPasswordToken')
-    .post(authController.sendResetToken);
-
-router.route('/resetPassword')
-    .put(authController.resetPassword);
-
-
-router.route('/sendResetEmailToken')
-    .post(authController.protect, authController.sendResetEmail)
-
-
-router.route('/updateEmail')
-    .put(authController.protect, authController.updateEmail);
-
-// router.route('/resendCode')
-//     .post(authController.protect, authController.resendCode);
-
-module.exports = router;
+module.exports = router
