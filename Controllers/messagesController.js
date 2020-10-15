@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const { Messages, validateMessage, validateMessageQuery } = require('../Models/MessagesModel')
+const { Messages, validateMessage, validateMessageQuery } = require('../Models/messagesModel')
 const { User } = require('../Models/userModel')
 const {readableActiveAt} = require('../misc/time')
 
