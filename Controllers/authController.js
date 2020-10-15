@@ -279,14 +279,17 @@ exports.updatePassword = catchAsync(async (req, res, next) => {
   const { password, passwordConfirm, newPassword } = req.body
   const userDB = await User.findById(user._id).select('+password')
 
-  if (newPassword.match(/^[\!@#$%^&*()\\[\]{}\-_+=~`|:"'<>,./?a-zA-Z0-9]{4,30}$/gm) && (await userDB.correctPassword(password, userDB.password))) {
-    userDB.password = newPassword
-    await userDB.save()
+  if (!newPassword.match(/^[\!@#$%^&*()\\[\]{}\-_+=~`|:;"'<>,./?a-zA-Z0-9]{6,30}$/m))
+  return res.status(200).json({ info: 'regex', message: 'password contains innapropriate characters' })
+  
+  if (await userDB.correctPassword(password, userDB.password) === false)
+  return res.status(200).json({ info: 'wrongpass', message: 'current password doesn\'t match' })
 
-    return res.json({ status: 'success' })
-  }
+  userDB.password = newPassword
+  await userDB.save()
 
-  return next(new AppError('error'))
+  return res.status(200).json({ info: 'success', message: 'successfully updated password' })
+
 })
 
 // POST api/auth/sendResetPasswordToken
