@@ -15367,3 +15367,33 @@
   level: 'info',
   timestamp: '2020-10-15T18:05:41.255Z'
 }
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-10-15T21:41:07.285Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-15T21:41:07.680Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-10-15T21:44:51.119Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-15T21:44:51.371Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-10-15T21:58:21.436Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-15T21:58:21.739Z'
+}
