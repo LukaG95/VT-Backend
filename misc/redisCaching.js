@@ -3,7 +3,6 @@ const util = require('util')
 
 //const redisUrl = 'redis://127.0.0.1:6379'
 const redisUrl = process.env.REDIS_URL
-console.log(redisUrl)
 const client = redis.createClient(redisUrl)
 // const client = redis.createClient(6379)
 
