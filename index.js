@@ -1,3 +1,4 @@
+/* Socket.io 
 const path = require('path')
 const express = require('express')
 const app = express()
@@ -25,8 +26,8 @@ const socket = require('./startup/socket')(app, server);
 
 module.exports = server
 
+*/
 
-/* Socket.io 
 
 const path = require('path')
 const express = require('express')
@@ -62,7 +63,7 @@ const server = http.listen(port, ()=> logger.info(`Listening on port ${port}...`
 
 module.exports = server
 
-
+/*
 var app = require('express')();
 var http = require('http').createServer(app);
 var io = require('socket.io')(http);
@@ -81,8 +82,8 @@ io.on('connection', (socket) => {
 http.listen(5000, () => {
   console.log('listening on *:5000');
 });
-
 */
+
 
 
 
