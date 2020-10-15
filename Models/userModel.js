@@ -52,6 +52,24 @@ const userSchema = new mongoose.Schema({
     default: 'user'
   },
 
+  tags: [{
+    name: {
+      type: String,
+      minlength: 1,
+      maxlength: 255,
+    },
+    color: {
+      type: String,
+      minlength: 1,
+      maxlength: 255,
+    },
+    bg: {
+      type: String,
+      minlength: 1,
+      maxlength: 255,
+    }
+  }],
+
   isPremium: {
     type: Boolean,
     default: false
@@ -91,6 +109,7 @@ const userSchema = new mongoose.Schema({
     trade:
   }]
 */
+
   discord: {
     type: String,
     maxlength: 255,
