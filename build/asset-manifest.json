@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/static/css/main.66168b2d.chunk.css",
-    "main.js": "/static/js/main.2283b947.chunk.js",
-    "main.js.map": "/static/js/main.2283b947.chunk.js.map",
+    "main.css": "/static/css/main.c6f5eb03.chunk.css",
+    "main.js": "/static/js/main.1e7b4a92.chunk.js",
+    "main.js.map": "/static/js/main.1e7b4a92.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.e1daef6b.js",
     "runtime-main.js.map": "/static/js/runtime-main.e1daef6b.js.map",
     "static/css/2.d34346ea.chunk.css": "/static/css/2.d34346ea.chunk.css",
-    "static/js/2.0287bfb0.chunk.js": "/static/js/2.0287bfb0.chunk.js",
-    "static/js/2.0287bfb0.chunk.js.map": "/static/js/2.0287bfb0.chunk.js.map",
+    "static/js/2.953dd6de.chunk.js": "/static/js/2.953dd6de.chunk.js",
+    "static/js/2.953dd6de.chunk.js.map": "/static/js/2.953dd6de.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.bc46f14d3faf729a42b8a160c817308d.js": "/precache-manifest.bc46f14d3faf729a42b8a160c817308d.js",
+    "precache-manifest.709e66e8c0df46e6a22423e84973ac5d.js": "/precache-manifest.709e66e8c0df46e6a22423e84973ac5d.js",
     "service-worker.js": "/service-worker.js",
     "static/css/2.d34346ea.chunk.css.map": "/static/css/2.d34346ea.chunk.css.map",
-    "static/css/main.66168b2d.chunk.css.map": "/static/css/main.66168b2d.chunk.css.map",
-    "static/js/2.0287bfb0.chunk.js.LICENSE.txt": "/static/js/2.0287bfb0.chunk.js.LICENSE.txt",
+    "static/css/main.c6f5eb03.chunk.css.map": "/static/css/main.c6f5eb03.chunk.css.map",
+    "static/js/2.953dd6de.chunk.js.LICENSE.txt": "/static/js/2.953dd6de.chunk.js.LICENSE.txt",
     "static/media/1.0.webp": "/static/media/1.0.7b5ec1e6.webp",
     "static/media/1000.0.webp": "/static/media/1000.0.5b8f7116.webp",
     "static/media/1008.0.webp": "/static/media/1008.0.c6858944.webp",
@@ -8036,6 +8036,7 @@
     "static/media/917.0.webp": "/static/media/917.0.50a6ad6d.webp",
     "static/media/918.0.webp": "/static/media/918.0.be75f1dc.webp",
     "static/media/927.0.webp": "/static/media/927.0.be2e936b.webp",
+    "static/media/No trades found.png": "/static/media/No trades found.cd748eff.png",
     "static/media/SWITCH icon.png": "/static/media/SWITCH icon.64ff59a6.png",
     "static/media/XBOX icon.png": "/static/media/XBOX icon.0f24f2b0.png",
     "static/media/bellWhite.a14641fd.svg": "/static/media/bellWhite.a14641fd.svg",
@@ -8049,8 +8050,8 @@
   "entrypoints": [
     "static/js/runtime-main.e1daef6b.js",
     "static/css/2.d34346ea.chunk.css",
-    "static/js/2.0287bfb0.chunk.js",
-    "static/css/main.66168b2d.chunk.css",
-    "static/js/main.2283b947.chunk.js"
+    "static/js/2.953dd6de.chunk.js",
+    "static/css/main.c6f5eb03.chunk.css",
+    "static/js/main.1e7b4a92.chunk.js"
   ]
 }

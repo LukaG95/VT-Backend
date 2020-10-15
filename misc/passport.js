@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 /*
+=======
+
+>>>>>>> efa3ece8a8f1979145e4cec11cdf937611aac9a1
 const passport = require('passport');
 
 const SteamStrategy = require('passport-steam').Strategy;
@@ -15,6 +19,7 @@ passport.deserializeUser((obj, done) => {
 });
 
 passport.use(new SteamStrategy({
+<<<<<<< HEAD
     returnURL: `${envURL}auth/steam/return`,
     realm: `${envURL}`,
     apiKey: process.env.STEAM_API_KEY,
@@ -44,3 +49,33 @@ passport.use(new DiscordStrategy({
 
 module.exports = passport;
 */
+=======
+  returnURL: `${envURL}api/auth/steam/return`,
+  realm: `${envURL}`,
+  apiKey: process.env.STEAM_API_KEY,
+},
+
+  (identifier, profile, done) => {
+    profile.method = 'steam';
+    profile.username = profile.displayName;
+
+    return done(null, profile);
+  })
+)
+
+passport.use(new DiscordStrategy({
+  clientID: process.env.DISCORD_CLIENT_ID,
+  clientSecret: process.env.DISCORD_CLIENT_SECRET,
+  callbackURL: `${envURL}api/auth/discord/callback`,
+  scope: ['identify'],
+},
+  ((accessToken, refreshToken, profile, cb) => {
+    profile.method = 'discord';
+
+
+    return cb(null, profile);
+  })));
+
+
+module.exports = passport;
+>>>>>>> efa3ece8a8f1979145e4cec11cdf937611aac9a1

@@ -5,8 +5,8 @@ const { promisify } = require('util')
 const EmailingSystem = require('../misc/EmailingSystem')
 const catchAsync = require('../misc/catchAsync')
 const AppError = require('../misc/AppError')
-const { User, validateSignup, validateLogin } = require('../Models/userModel')
-const {TestUser} = require("../Models/testUserModel")
+const { User, validateSignup, validateLogin, validateUsername } = require('../Models/userModel')
+const { TestUser } = require("../Models/testUserModel")
 const Reputation = require('../Models/repModel')
 const user = require('../Models/userModel') // this is here because of jest tests
 
@@ -39,11 +39,11 @@ const createSendToken = (user, res, option) => {
   return res.status(200).json({ info: 'success', message: 'successfully added jwt cookie' })
 }
 
-exports.protect = async (req, res, next) => { 
+exports.protect = async (req, res, next) => {
   const token = req.cookies.jwt
-  if (!token) return res.status(401).json({info: "unauthorized", message: "No token provided"})
+  if (!token) return res.status(401).json({ info: "unauthorized", message: "No token provided" })
 
-  try{
+  try {
     const decoded = await decodeToken(token)
     req.user = decoded
 
@@ -54,22 +54,22 @@ exports.protect = async (req, res, next) => {
 }
 
 // GET api/auth/getUser
-exports.getUser = async (req, res, next) => { 
+exports.getUser = async (req, res, next) => {
   const user = await User.findById(req.user.id).select('-__v')
-  
-  return res.status(200).json({info: "success", message: "successfully got user", user: user})
+
+  return res.status(200).json({ info: "success", message: "successfully got user", user: user })
 }
 
 // GET api/auth/getUserByUsername
-exports.getUserByUsername = async (req, res, next) => { 
+exports.getUserByUsername = async (req, res, next) => {
   const { username } = req.params
   // if (!username) return res ...
 
   let regex = new RegExp(["^", username, "$"].join(""), "i") // make the search case insensitive
-  const user = await User.find({username: regex}, {_id: 1})
-  if (user.length < 1) return res.status(400).json({info: "no user", message: `user was not found by the name of ${username}`})
-  
-  return res.status(200).json({info: "success", message: "successfully got user", user: user[0]})
+  const user = await User.find({ username: regex }, { _id: 1 })
+  if (user.length < 1) return res.status(400).json({ info: "no user", message: `user was not found by the name of ${username}` })
+
+  return res.status(200).json({ info: "success", message: "successfully got user", user: user[0] })
 }
 
 // POST api/auth/login
@@ -77,30 +77,30 @@ exports.login = async (req, res, next) => {
   const { email, password } = req.body
 
   const { error } = validateLogin(req.body)
-  if (error) return res.status(400).json({info: "invalid credentials", message: error.details[0].message})
+  if (error) return res.status(400).json({ info: "invalid credentials", message: error.details[0].message })
 
   const query = parseEmail(email) === true ? { email } : { username: email }
   const user = await User.findOne(query).select('+password')
- 
-  if (!user || !(await user.correctPassword(password, user.password))){
-    return res.status(400).json({info: "logorpass", message: "credentials don't match any users"})
+
+  if (!user || !(await user.correctPassword(password, user.password))) {
+    return res.status(400).json({ info: "logorpass", message: "credentials don't match any users" })
   }
-    
+
   return createSendToken(user, res)
 }
 
 // POST api/auth/signup
 exports.signup = async (req, res, next) => {
   let { username, email, password, passwordConfirm } = req.body
-  
+
   const { error } = validateSignup(req.body)
-  if (error) return res.status(400).json({info: "invalid credentials", message: error.details[0].message})
+  if (error) return res.status(400).json({ info: "invalid credentials", message: error.details[0].message })
 
   let result = await user.validateEmail(email)
-  if (!result) return res.status(400).json({info: "email", message: "this email is taken"})
+  if (!result) return res.status(400).json({ info: "email", message: "this email is taken" })
 
   result = await user.validateUsername(username)
-  if (!result) return res.status(400).json({info: "username", message: "this username is taken"})
+  if (!result) return res.status(400).json({ info: "username", message: "this username is taken" })
 
   const newUser = await User.create({
     username, email, password, passwordConfirm
@@ -124,9 +124,9 @@ exports.createTestUser = async (req, res, next) => {
 
 // GET api/auth/getTestUsers
 exports.getTestUsers = async (req, res, next) => {
-  const testers = await TestUser.find({ }).select('-_id -__v')
+  const testers = await TestUser.find({}).select('-_id -__v')
 
-  return res.status(200).json({info: "success", message: "successfully got all test user", testers})
+  return res.status(200).json({ info: "success", message: "successfully got all test user", testers })
 }
 
 // DELETE api/auth/deleteTestUser
@@ -134,46 +134,53 @@ exports.deleteTestUser = async (req, res, next) => {
   const { username } = req.body
 
   await TestUser.deleteOne({ username })
-   // .then(result => res.json({ status: `Deleted ${result.deletedCount} item.`}))
-   // .catch(err => res.json({ status: `Delete failed with error: ${err}`}))
-      
-  return res.json({ status: 'success', info: `test user ${username} was deleted`})
+  // .then(result => res.json({ status: `Deleted ${result.deletedCount} item.`}))
+  // .catch(err => res.json({ status: `Delete failed with error: ${err}`}))
+
+  return res.json({ status: 'success', info: `test user ${username} was deleted` })
 }
 
 // MIDDLEWARE
 exports.adminOnly = async (req, res, next) => {
   const user = await User.findById(req.user.id).select('-__v')
-  
-  if (user.role !== 'admin') 
-  return res.status(403).json({info: "forbidden", message: "looks like you don't have the permission to access this floor"})
+
+  if (user.role !== 'admin')
+    return res.status(403).json({ info: "forbidden", message: "looks like you don't have the permission to access this floor" })
 
   next()
 }
 
-exports.passportLoginOrCreate = catchAsync(async (req, res, next) => {
+exports.passportLoginOrCreate = async (req, res, next) => {
   const { user } = req
   let passportUser
   let loginMethod = user.method
   let username = user.username
 
-  // returnResponse - sets JWT token in cookie
-  const returnResponse = createSendToken(passportUser, res, 'redirect')
 
   // Checks if user already exists in DataBase
-  passportUser = await User.findOne({ loginMethod: user.id })
-  if (passportUser) return returnResponse
+  passportUser = await User.findOne({ [loginMethod]: user.id })
+
+
+  if (passportUser) {
+    return createSendToken(passportUser, res, 'redirect')
+  }
 
   // Checks if username is available
-  registeredUser = await User.findOne({ username: username }).collation({ locale: "en", strength: 2 })
+  let registeredUser = await validateUsername(username)
 
-  // If not, Slice username to 13 char + add 3 random numbers
-  if (registeredUser) username = username.slice(0, 13) + genNumber(3)
+  // If not, Slice username to 12 char + add 4 random numbers
+  if (!registeredUser) username = username.slice(0, 12) + genNumber(4)
+
+
+  // Checks if its still available after adding 4 random numbers. Just in case
+  registeredUser = await validateUsername(username)
+  if (!registeredUser) return res.status(400).json({ info: "error", message: "Taken username. Please try again!" });
 
   // Create user
-  passportUser = await User.create({ loginMethod: user.id, username })
+  passportUser = await User.create({ [loginMethod]: user.id, username, activatedAccount: true })
 
-  return returnResponse
-})
+  return createSendToken(passportUser, res, 'redirect')
+}
 
 // PUT api/auth/confirmEmail
 exports.confirmEmail = catchAsync(async (req, res, next) => {
@@ -258,7 +265,7 @@ exports.sendResetEmail = catchAsync(async (req, res, next) => {
   if (takenEmail) return next(new AppError('email'))
 
   if (!newEmail || !parseEmail(newEmail)) {
-      return next(new AppError('error'))
+    return next(new AppError('error'))
   }
 
   await sendEmailUpdateEmail(user, newEmail)
@@ -276,10 +283,10 @@ exports.updatePassword = catchAsync(async (req, res, next) => {
     userDB.password = newPassword
     await userDB.save()
 
-    return res.status(200).json({ info: 'success', message: 'password was reset successfully'})
+    return res.json({ status: 'success' })
   }
 
-  return res.status(200).json({ info: 'wrongpass', message: 'current password doesn\'t match'})
+  return next(new AppError('error'))
 })
 
 // POST api/auth/sendResetPasswordToken
@@ -309,7 +316,7 @@ exports.resetPassword = catchAsync(async (req, res, next) => {
   if (!user.confirmedEmail) return next(new AppError('invalid'))
 })
 
-async function  sendSignupEmail(user) {
+async function sendSignupEmail(user) {
   const emailToken = await user.generateEmailToken()
   await user.save()
   const token = await createToken(user._id, emailToken)
@@ -327,7 +334,7 @@ async function sendPasswordResetEmail(user) {
   await Email
 }
 
-async function sendEmailUpdateEmail (user, newEmail) {
+async function sendEmailUpdateEmail(user, newEmail) {
   const emailToken = await user.generateEmailToken()
   await user.save()
   const token = await createToken(user._id, emailToken, newEmail)

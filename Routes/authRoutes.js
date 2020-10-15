@@ -2,14 +2,14 @@ const express = require('express')
 const cors = require('cors')
 
 const limiter = require('../misc/rateLimiter')
-const passport = require('../misc/passport') 
+const passport = require('../misc/passport')
 const authController = require('../Controllers/authController')
 const testUserController = require('../Controllers/testUserController')
 
 const router = express.Router()
 
 router.use(cors())
-// router.use(passport.initialize())
+router.use(passport.initialize())
 
 router.get('/getUser', authController.protect, authController.getUser)
 router.get('/getUserByUsername/:username', authController.getUserByUsername)
@@ -26,11 +26,11 @@ router.put('/updateUsername', authController.protect, authController.updateUsern
 router.put('/updatePassword', authController.protect, authController.updatePassword)
 router.put('/updateEmail', authController.protect, authController.updateEmail)
 
-// router.get('/steam', passport.authenticate('steam'))
-// router.get('/steam/return', passport.authenticate('steam'), authController.passportLoginOrCreate)
+router.get('/steam', passport.authenticate('steam'))
+router.get('/steam/return', passport.authenticate('steam'), authController.passportLoginOrCreate)
 
-// router.get('/discord', passport.authenticate('discord'))
-// router.get('/discord/callback', passport.authenticate('discord'), authController.passportLoginOrCreate)
+router.get('/discord', passport.authenticate('discord'))
+router.get('/discord/callback', passport.authenticate('discord'), authController.passportLoginOrCreate)
 
 router.put('/confirmEmail/', authController.confirmEmail)
 
