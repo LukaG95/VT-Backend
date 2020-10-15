@@ -18,17 +18,10 @@ const userSchema = new mongoose.Schema({
     maxlength: 255,
     sparse: true,
     unique: true,
-<<<<<<< HEAD
-    required: true
-  },
-
-  confirmedEmail: {
-=======
     required: function () { return !(this.steam || this.discord) }
   },
 
   activatedAccount: {
->>>>>>> efa3ece8a8f1979145e4cec11cdf937611aac9a1
     type: Boolean,
     maxlength: 255,
     default: false
@@ -39,11 +32,7 @@ const userSchema = new mongoose.Schema({
     minlength: 6,
     maxlength: 255,
     select: false,
-<<<<<<< HEAD
-    required: true
-=======
     required: function () { return !(this.steam || this.discord) }
->>>>>>> efa3ece8a8f1979145e4cec11cdf937611aac9a1
   },
 
   passwordConfirm: {
@@ -102,11 +91,6 @@ const userSchema = new mongoose.Schema({
     trade:
   }]
 */
-<<<<<<< HEAD
-  
-=======
-
->>>>>>> efa3ece8a8f1979145e4cec11cdf937611aac9a1
   discord: {
     type: String,
     maxlength: 255,
@@ -127,11 +111,7 @@ const userSchema = new mongoose.Schema({
     select: false
   },
 
-<<<<<<< HEAD
-  tokenCreatedAt: { 
-=======
   tokenCreatedAt: {
->>>>>>> efa3ece8a8f1979145e4cec11cdf937611aac9a1
     type: Date,
     default: Date.now
   },
@@ -140,24 +120,14 @@ const userSchema = new mongoose.Schema({
     type: Date
   },
 
-<<<<<<< HEAD
-  createdAt: { 
-=======
   createdAt: {
->>>>>>> efa3ece8a8f1979145e4cec11cdf937611aac9a1
     type: Date,
     default: Date.now
   },
 
-<<<<<<< HEAD
-  __v: { 
-    type: Number, 
-    select: false 
-=======
   __v: {
     type: Number,
     select: false
->>>>>>> efa3ece8a8f1979145e4cec11cdf937611aac9a1
   }
 })
 
@@ -188,11 +158,7 @@ userSchema.methods.compareTokens = async function (Token, HashedToken) {
 }
 
 userSchema.index({ username: 1, email: 1 }, { collation: { locale: 'en', strength: 2 } })
-<<<<<<< HEAD
-=======
-userSchema.set('autoIndex', true);
->>>>>>> efa3ece8a8f1979145e4cec11cdf937611aac9a1
-// Read this - https://mongoosejs.com/docs/guide.html - userSchema.set('autoIndex', true)
+userSchema.set('autoIndex', true); // Read this - https://mongoosejs.com/docs/guide.html
 
 const User = mongoose.model('User', userSchema)
 
@@ -229,36 +195,17 @@ exports.validateEmail = async (email) => {
     if (user.confirmedEmail === false && user.tokenCreatedAt.getTime() < (Date.now() - 15 * 60 * 1000)) {
       await User.deleteOne({ _id: user._id })
       return true
-<<<<<<< HEAD
-    } 
-    else return false
-
-  }
-  
-=======
     }
     else return false
 
   }
 
->>>>>>> efa3ece8a8f1979145e4cec11cdf937611aac9a1
   return true
 }
 
 exports.validateUsername = async (username) => {
   const user = await User.findOne({ username }).collation({ locale: "en", strength: 2 })
   if (user) {
-<<<<<<< HEAD
-    
-    if (user.confirmedEmail === false && user.tokenCreatedAt.getTime() < (Date.now() - 15 * 60 * 1000)) {
-      await User.deleteOne({ _id: user._id })
-      return true
-    } 
-    else return false
-
-  }
-  
-=======
 
     if (user.confirmedEmail === false && user.tokenCreatedAt.getTime() < (Date.now() - 15 * 60 * 1000)) {
       await User.deleteOne({ _id: user._id })
@@ -268,7 +215,6 @@ exports.validateUsername = async (username) => {
 
   }
 
->>>>>>> efa3ece8a8f1979145e4cec11cdf937611aac9a1
   return true
 }
 
