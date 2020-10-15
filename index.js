@@ -33,9 +33,6 @@ const path = require('path')
 const express = require('express')
 const app = express()
 
-var http = require('http').createServer(app)
-var io = require('socket.io')(http)
-
 const logger = require('./startup/logging')
 
 require('./startup/config')()
@@ -51,15 +48,8 @@ app.get('/*', function(req, res) {
 })
 
 
-io.on('connection', (socket) => {
-  console.log('a user connected', socket.id);
-  socket.on('disconnect', () => {
-    console.log('user disconnected');
-  });
-})
-
 const port = process.env.PORT || 5000
-const server = http.listen(port, ()=> logger.info(`Listening on port ${port}...`))
+const server = app.listen(port, ()=> logger.info(`Listening on port ${port}...`))
 
 module.exports = server
 
