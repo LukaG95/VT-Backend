@@ -276,10 +276,10 @@ exports.updatePassword = catchAsync(async (req, res, next) => {
     userDB.password = newPassword
     await userDB.save()
 
-    return res.json({ status: 'success' })
+    return res.status(200).json({ info: 'success', message: 'password was reset successfully'})
   }
 
-  return next(new AppError('error'))
+  return res.status(200).json({ info: 'wrongpass', message: 'current password doesn\'t match'})
 })
 
 // POST api/auth/sendResetPasswordToken
