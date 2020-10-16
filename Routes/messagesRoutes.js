@@ -5,7 +5,9 @@ const messagesController = require('../Controllers/messagesController')
 
 const router = express.Router()
 
-router.get('/:recipientId', authController.protect, messagesController.getMessages)
+router.get('/', authController.protect, messagesController.getMessages)
+
+router.get('/:recipientId', authController.protect, messagesController.getMessagesWithUser)
 
 router.post('/message', authController.protect, messagesController.sendMessage)
 

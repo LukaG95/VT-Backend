@@ -12,22 +12,31 @@ const messagesSchema = new mongoose.Schema({
 			type: mongoose.Schema.Types.ObjectId,
 			ref: 'User',
 			required: true
+		},
+	},
+	
+	messages: [
+		{
+			sender: {
+				type: Number,
+				min: 0,
+				max: 1,
+				required: true
+			},
+			
+			message: {
+				type: String,
+				minlength: 1,
+				maxlength: 100,
+				required: true
+			},
+			
+			sendAt: {
+				type: Date,
+				default: Date.now
+			}
 		}
-	},
-	
-	sender: {
-		type: Number,
-		min: 0,
-		max: 1,
-		required: true
-	},
-	
-	message: {
-		type: String,
-		minlength: 1,
-		maxlength: 100,
-		required: true
-	},
+	],
 	
 	createdAt: {
 		type: Date,
@@ -44,8 +53,11 @@ const messagesSchema = new mongoose.Schema({
 
 const Messages = mongoose.model('Messages', messagesSchema)
 
-Messages.collection.dropIndex({ "createdAt": 1 },function(err,result) {
+/*Messages.collection.dropIndex({ "createdAt": 1 },function(err,result) {
 	Messages.collection.createIndex({"createdAt": 1 },{ expireAfterSeconds: 864000 })
+});*/
+Messages.collection.dropIndex({ "participants": 1 },function(err,result) {
+	Messages.collection.createIndex({ "participants": 1 }, { unique: true });
 });
 
 exports.Messages = Messages

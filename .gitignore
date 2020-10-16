@@ -3,10 +3,10 @@ node_modules/
 package-lock.json
 
 #Error Logs
-errorLogs/*.log
+errorLogs/*
 
 # React build (only push to production)
-# build/
+# build/*
 
 # Environment variables, never commit this file
 /*.env
