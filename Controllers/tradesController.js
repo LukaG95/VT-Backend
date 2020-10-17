@@ -30,7 +30,7 @@ exports.getUserTrades = async (req, res, next) => {
   if (!mongoose.Types.ObjectId.isValid(searchId)) return res.status(400).json({info: "searchId", message: "Invalid searchId"})
 
   const search_user = await User.findById(searchId)
-  if (search_user) return res.status(404).json({info: "no user", message: "that user doesn't exist"})
+  if (!search_user) return res.status(404).json({info: "no user", message: "that user doesn't exist"})
 
   const trades = await TradeRL.find({ user: searchId }).populate('user').sort('-bumpedAt')
   if (trades.length < 1) return res.status(200).json({info: "no trades", message: "user has no trades created", trades: [], username: search_user.username})
