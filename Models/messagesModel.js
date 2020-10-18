@@ -48,6 +48,15 @@ const messagesSchema = new mongoose.Schema({
 		default: Date.now
 	},
 	
+	blockedBy0: {
+		type: Boolean,
+		default: false
+	},
+	blockedBy1: {
+		type: Boolean,
+		default: false
+	},
+	
 	__v: { type: Number, select: false }
 })
 
