@@ -174,7 +174,7 @@ exports.addReputation = async (req, res, next) => {
 
   // Check if user has already given a rep within 24 hours
   const repCheck = await Redis.isCached(`${user._id}${req.params.user}`)
-  if (repCheck) return res.status(400).json({ info: 'hours24', message: "You can rep only once in 24 hours!" })
+  if (repCheck) return res.status(200).json({ info: 'hours24', message: "You already repped this user today" })
 
   const receiving_user = await User.findById(req.params.user).select('-__v')
   if (!receiving_user) return res.status(404).json({ info: 'no user', message: 'user with the given id does not exist' })
