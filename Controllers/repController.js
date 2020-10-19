@@ -13,8 +13,8 @@ exports.getReputation = async (req, res, next) => {
     { $match: { user: user._id } },              // search for the users rep
     { $unwind: '$reps' },                        // unwind all reps
     {
-      $lookup: { from: 'users', localField: 'user', foreignField: '_id', as: 'owner' }
-    },                         
+      $lookup: { from: 'users', localField: 'reps.createdBy', foreignField: '_id', as: 'owner' }
+    },                    
     { $sort: { 'reps.createdAt': -1 } },          // sort all reps by date created
     {
       $addFields: {                               // date to string
