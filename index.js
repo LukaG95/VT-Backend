@@ -26,7 +26,7 @@ const socket = require('./startup/socket')(app, server);
 module.exports = server
 
 
-/* Socket.io 
+ /* Socket.io 
 
 const path = require('path')
 const express = require('express')
@@ -60,9 +60,9 @@ const port = process.env.PORT || 5000
 const server = http.listen(port, ()=> logger.info(`Listening on port ${port}...`))
 
 module.exports = server
+*/
 
-
-
+/*
 var app = require('express')();
 
 var http = require('http').createServer(app);
