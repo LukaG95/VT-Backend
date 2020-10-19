@@ -15512,3 +15512,234 @@
   level: 'info',
   timestamp: '2020-10-18T20:04:30.995Z'
 }
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-10-19T21:19:29.420Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-19T21:19:29.685Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-10-19T21:20:42.652Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-19T21:20:42.957Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-10-19T21:21:35.258Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-19T21:21:35.428Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-10-19T21:22:46.701Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-19T21:22:46.959Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-10-19T21:27:17.595Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-19T21:27:17.877Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-10-19T21:28:25.275Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-19T21:28:25.575Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-10-19T21:30:24.001Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-19T21:30:24.259Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-10-19T21:31:33.914Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-19T21:31:34.171Z'
+}
+{
+  metadata: Error: Reputation validation failed: reps.0.category: Path `category` is required.
+      at ValidationError.inspect (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\error\validation.js:47:26)
+      at formatValue (internal/util/inspect.js:563:31)
+      at formatProperty (internal/util/inspect.js:1406:11)
+      at formatRaw (internal/util/inspect.js:785:9)
+      at formatValue (internal/util/inspect.js:591:10)
+      at inspect (internal/util/inspect.js:221:10)
+      at Format.transform (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\logform\pretty-print.js:27:19)
+      at Format.transform (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\logform\combine.js:20:24)
+      at DerivedLogger._transform (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\lib\winston\logger.js:305:29)
+      at DerivedLogger.Transform._read (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\node_modules\readable-stream\lib\_stream_transform.js:177:10)
+      at DerivedLogger.Transform._write (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\node_modules\readable-stream\lib\_stream_transform.js:164:83)
+      at doWrite (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\node_modules\readable-stream\lib\_stream_writable.js:409:139)
+      at writeOrBuffer (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\node_modules\readable-stream\lib\_stream_writable.js:398:5)
+      at DerivedLogger.Writable.write (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\node_modules\readable-stream\lib\_stream_writable.js:307:11)
+      at DerivedLogger.log (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\lib\winston\logger.js:244:14)
+      at DerivedLogger.<computed> [as error] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\lib\winston\create-logger.js:95:19) {
+    errors: {
+      'reps.0.category': ValidatorError: Path `category` is required.
+          at validate (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1217:13)
+          at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1200:7
+          at Array.forEach (<anonymous>)
+          at SchemaString.SchemaType.doValidate (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1145:14)
+          at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\document.js:2408:18
+          at processTicksAndRejections (internal/process/task_queues.js:75:11) {
+        properties: {
+          validator: [Function],
+          message: 'Path `category` is required.',
+          type: 'required',
+          path: 'category',
+          value: undefined
+        },
+        kind: 'required',
+        path: 'category',
+        value: undefined,
+        reason: undefined,
+        [Symbol(mongoose:validatorError)]: true
+      }
+    },
+    _message: 'Reputation validation failed'
+  },
+  level: 'error',
+  message: 'Reputation validation failed: reps.0.category: Path `category` is required.',
+  timestamp: '2020-10-19T21:33:40.023Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-10-19T21:35:50.907Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-19T21:35:51.220Z'
+}
+{
+  metadata: Error: Reputation validation failed: reps.2.createdBy: Cast to ObjectId failed for value "Ryu" at path "createdBy"
+      at ValidationError.inspect (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\error\validation.js:47:26)
+      at formatValue (internal/util/inspect.js:563:31)
+      at formatProperty (internal/util/inspect.js:1406:11)
+      at formatRaw (internal/util/inspect.js:785:9)
+      at formatValue (internal/util/inspect.js:591:10)
+      at inspect (internal/util/inspect.js:221:10)
+      at Format.transform (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\logform\pretty-print.js:27:19)
+      at Format.transform (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\logform\combine.js:20:24)
+      at DerivedLogger._transform (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\lib\winston\logger.js:305:29)
+      at DerivedLogger.Transform._read (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\node_modules\readable-stream\lib\_stream_transform.js:177:10)
+      at DerivedLogger.Transform._write (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\node_modules\readable-stream\lib\_stream_transform.js:164:83)
+      at doWrite (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\node_modules\readable-stream\lib\_stream_writable.js:409:139)
+      at writeOrBuffer (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\node_modules\readable-stream\lib\_stream_writable.js:398:5)
+      at DerivedLogger.Writable.write (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\node_modules\readable-stream\lib\_stream_writable.js:307:11)
+      at DerivedLogger.log (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\lib\winston\logger.js:244:14)
+      at DerivedLogger.<computed> [as error] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\lib\winston\create-logger.js:95:19) {
+    errors: {
+      'reps.2.createdBy': CastError: Cast to ObjectId failed for value "Ryu" at path "createdBy"
+          at ObjectId.cast (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schema\objectid.js:269:11)
+          at ObjectId.SchemaType.applySetters (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1070:12)
+          at EmbeddedDocument.$set (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\document.js:1227:20)
+          at EmbeddedDocument._handleIndex (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\document.js:996:14)
+          at EmbeddedDocument.$set (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\document.js:937:22)
+          at EmbeddedDocument.Document (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\document.js:146:12)
+          at EmbeddedDocument [as constructor] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\types\embedded.js:42:12)
+          at new EmbeddedDocument (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schema\documentarray.js:115:17)
+          at CoreDocumentArray._cast (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\types\documentarray.js:109:12)
+          at CoreDocumentArray._mapCast (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\types\core_array.js:272:17)
+          at Arguments.map (<anonymous>)
+          at CoreDocumentArray.push (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\types\core_array.js:670:21)
+          at CoreDocumentArray.push (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\types\documentarray.js:210:28)
+          at exports.addReputation (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\Controllers\repController.js:196:19)
+          at processTicksAndRejections (internal/process/task_queues.js:93:5) {
+        stringValue: '"Ryu"',
+        messageFormat: undefined,
+        kind: 'ObjectId',
+        value: 'Ryu',
+        path: 'createdBy',
+        reason: Error: Argument passed in must be a single String of 12 bytes or a string of 24 hex characters
+            at new ObjectID (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\bson\lib\bson\objectid.js:59:11)
+            at castObjectId (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\cast\objectid.js:25:12)
+            at ObjectId.cast (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schema\objectid.js:267:12)
+            at ObjectId.SchemaType.applySetters (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1070:12)
+            at EmbeddedDocument.$set (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\document.js:1227:20)
+            at EmbeddedDocument._handleIndex (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\document.js:996:14)
+            at EmbeddedDocument.$set (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\document.js:937:22)
+            at EmbeddedDocument.Document (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\document.js:146:12)
+            at EmbeddedDocument [as constructor] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\types\embedded.js:42:12)
+            at new EmbeddedDocument (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schema\documentarray.js:115:17)
+            at CoreDocumentArray._cast (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\types\documentarray.js:109:12)
+            at CoreDocumentArray._mapCast (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\types\core_array.js:272:17)
+            at Arguments.map (<anonymous>)
+            at CoreDocumentArray.push (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\types\core_array.js:670:21)
+            at CoreDocumentArray.push (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\types\documentarray.js:210:28)
+            at exports.addReputation (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\Controllers\repController.js:196:19)
+      }
+    },
+    _message: 'Reputation validation failed'
+  },
+  level: 'error',
+  message: 'Reputation validation failed: reps.2.createdBy: Cast to ObjectId failed for value "Ryu" at path "createdBy"',
+  timestamp: '2020-10-19T21:35:53.240Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-10-19T21:45:44.661Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-19T21:45:45.040Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-10-19T21:46:04.450Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-19T21:46:04.639Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-10-19T21:47:31.102Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-19T21:47:31.365Z'
+}

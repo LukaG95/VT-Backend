@@ -11,7 +11,10 @@ exports.getReputation = async (req, res, next) => {
 
   const rep = await Reputation.aggregate([
     { $match: { user: user._id } },              // search for the users rep
-    { $unwind: '$reps' },                         // unwind all reps
+    { $unwind: '$reps' },                        // unwind all reps
+    {
+      $lookup: { from: 'users', localField: 'user', foreignField: '_id', as: 'owner' }
+    },                         
     { $sort: { 'reps.createdAt': -1 } },          // sort all reps by date created
     {
       $addFields: {                               // date to string
@@ -22,6 +25,7 @@ exports.getReputation = async (req, res, next) => {
               format: '%Y-%m-%d %H:%M',
             },
           },
+          username: {$arrayElemAt: ['$owner.username', 0]}
         },
       },
     },
@@ -166,13 +170,11 @@ exports.addReputation = async (req, res, next) => {
   const user = await User.findById(req.user.id).select('-__v')
 
   const rep = req.body // Joi
-  rep.createdBy = user.username
-
+  rep.createdBy = user._id
 
   // Check if user has already given a rep within 24 hours
   const repCheck = await Redis.isCached(`${user._id}${req.params.user}`)
   if (repCheck) return res.status(400).json({ info: 'hours24', message: "You can rep only once in 24 hours!" })
-
 
   const receiving_user = await User.findById(req.params.user).select('-__v')
   if (!receiving_user) return res.status(404).json({ info: 'no user', message: 'user with the given id does not exist' })
@@ -187,8 +189,9 @@ exports.addReputation = async (req, res, next) => {
       reps: [rep]
     })
 
-    console.log(newRep)
     await newRep.save()
+
+    await Redis.cache(`${user._id}${req.params.user}`, 1)
 
     return res.status(200).json({ info: 'success', message: 'successfully added reputation to a new user' })
   }
