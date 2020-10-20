@@ -7731,3 +7731,97 @@
   ],
   timestamp: '2020-10-19T21:19:31.479Z'
 }
+{
+  error: Error: Redis connection to 127.0.0.1:6379 failed - connect ECONNREFUSED 127.0.0.1:6379
+      at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1129:14) {
+    errno: 'ECONNREFUSED',
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 6379
+  },
+  level: 'error',
+  message: 'uncaughtException: Redis connection to 127.0.0.1:6379 failed - connect ECONNREFUSED 127.0.0.1:6379\n' +
+    'Error: Redis connection to 127.0.0.1:6379 failed - connect ECONNREFUSED 127.0.0.1:6379\n' +
+    '    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1129:14)',
+  stack: 'Error: Redis connection to 127.0.0.1:6379 failed - connect ECONNREFUSED 127.0.0.1:6379\n' +
+    '    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1129:14)',
+  exception: true,
+  date: 'Tue Oct 20 2020 10:31:07 GMT+0200 (GMT+02:00)',
+  process: {
+    pid: 18700,
+    uid: null,
+    gid: null,
+    cwd: 'C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop',
+    execPath: 'C:\\Program Files\\nodejs\\node.exe',
+    version: 'v12.13.1',
+    argv: [
+      'C:\\Program Files\\nodejs\\node.exe',
+      'C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\index.js'
+    ],
+    memoryUsage: {
+      rss: 85385216,
+      heapTotal: 60674048,
+      heapUsed: 33221072,
+      external: 20626419
+    }
+  },
+  os: { loadavg: [ 0, 0, 0 ], uptime: 429832 },
+  trace: [
+    {
+      column: 14,
+      file: 'net.js',
+      function: 'TCPConnectWrap.afterConnect [as oncomplete]',
+      line: 1129,
+      method: 'afterConnect [as oncomplete]',
+      native: false
+    }
+  ],
+  timestamp: '2020-10-20T08:31:07.241Z'
+}
+{
+  error: Error: Redis connection to ec2-54-246-108-153.eu-west-1.compute.amazonaws.com:30089 failed - read ECONNRESET
+      at TCP.onStreamRead (internal/stream_base_commons.js:201:27) {
+    errno: 'ECONNRESET',
+    code: 'ECONNRESET',
+    syscall: 'read'
+  },
+  level: 'error',
+  message: 'uncaughtException: Redis connection to ec2-54-246-108-153.eu-west-1.compute.amazonaws.com:30089 failed - read ECONNRESET\n' +
+    'Error: Redis connection to ec2-54-246-108-153.eu-west-1.compute.amazonaws.com:30089 failed - read ECONNRESET\n' +
+    '    at TCP.onStreamRead (internal/stream_base_commons.js:201:27)',
+  stack: 'Error: Redis connection to ec2-54-246-108-153.eu-west-1.compute.amazonaws.com:30089 failed - read ECONNRESET\n' +
+    '    at TCP.onStreamRead (internal/stream_base_commons.js:201:27)',
+  exception: true,
+  date: 'Tue Oct 20 2020 13:25:44 GMT+0200 (GMT+02:00)',
+  process: {
+    pid: 13296,
+    uid: null,
+    gid: null,
+    cwd: 'C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop',
+    execPath: 'C:\\Program Files\\nodejs\\node.exe',
+    version: 'v12.13.1',
+    argv: [
+      'C:\\Program Files\\nodejs\\node.exe',
+      'C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\index.js'
+    ],
+    memoryUsage: {
+      rss: 17043456,
+      heapTotal: 31604736,
+      heapUsed: 28572848,
+      external: 19652564
+    }
+  },
+  os: { loadavg: [ 0, 0, 0 ], uptime: 440309 },
+  trace: [
+    {
+      column: 27,
+      file: 'internal/stream_base_commons.js',
+      function: 'TCP.onStreamRead',
+      line: 201,
+      method: 'onStreamRead',
+      native: false
+    }
+  ],
+  timestamp: '2020-10-20T11:25:44.389Z'
+}
