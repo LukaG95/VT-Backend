@@ -67,6 +67,8 @@ exports.sendMessage = async (req, res, next) => {
 		messages.editedAt = Date.now();
 		await messages.save();
 	}
+	let socket = req.app.get('socket');
+	socket.sendMessage(selfid, recipientId, message);
 	return res.status(200).json({info: "success", message: "message was send"});
 }
 
