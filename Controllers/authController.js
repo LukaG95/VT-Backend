@@ -53,6 +53,16 @@ exports.protect = async (req, res, next) => {
   }
 }
 
+exports.getUserIdFromJwt = async (jwt, next) => {
+  if (!jwt) return next(false);
+
+  try {
+    return next(await decodeToken(token));
+  } catch {
+    return next(false);
+  }
+}
+
 // GET api/auth/getUser
 exports.getUser = async (req, res, next) => {
   const user = await User.findById(req.user.id).select('-__v')

@@ -18,17 +18,21 @@ module.exports = function(app, port){
 	  socket.shouldDisconnect = true;
 	  setTimeout(() => { if(socket.shouldDisconnect) socket.disconnect(); }, 10 * 1000);
 	  
-	  socket.on('auth', (cookies) => {
+	  socket.on('auth', (jwt) => {
 		  try{
-			  authController.protect({user: cookies.user, cookies: cookies}, null, () => {
+			  authController.getUserIdFromJwt(jwt, (userId) => {
+				  if(!userId){
+					socket.emit('auth', 'failure');
+					return socket.disconnect();
+				  }
 				  socket.shouldDisconnect = false;
-				  socket.join(cookies.user);
+				  socket.join(userId);
 				  socket.emit('auth', 'success');
 			  });
 		  }
 		  catch{
 			socket.emit('auth', 'failure');
-			socket.disconnect();
+			return socket.disconnect();
 		  }
 	  });
 	});
