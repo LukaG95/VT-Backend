@@ -7,34 +7,23 @@ module.exports = function(app, port){
 
 	io.sendMessage = sendMessage;
 	
-	io.on('connection', (socket) => {
-	  //io.connections['test'] = socket;
-	  console.log('a user connected');
-	  //console.log(socket);
-	  socket.on('disconnect', () => {
-		console.log('user disconnected');
-	  });
+	io.on('connection', async (socket) => {
+		//io.connections['test'] = socket;
+		console.log('a user connected');
+		//console.log(socket);
+		socket.on('disconnect', () => {
+			console.log('user disconnected');
+		});
 	  
-	  socket.shouldDisconnect = true;
-	  setTimeout(() => { if(socket.shouldDisconnect) socket.disconnect(); }, 10 * 1000);
-	  
-	  socket.on('auth', (jwt) => {
-		  try{
-			  authController.getUserIdFromJwt(jwt, (userId) => {
-				  if(!userId){
-					socket.emit('auth', 'failure');
-					return socket.disconnect();
-				  }
-				  socket.shouldDisconnect = false;
-				  socket.join(userId);
-				  socket.emit('auth', 'success');
-			  });
-		  }
-		  catch{
+		const cookies = parseCookie(socket.handshake.headers.cookie);
+		const userId = await authController.getUserIdFromJwt(cookies.jwt);
+		if(!userId){
 			socket.emit('auth', 'failure');
 			return socket.disconnect();
-		  }
-	  });
+		}
+		socket.shouldDisconnect = false;
+		socket.join(userId);
+		socket.emit('auth', 'success');
 	});
 
 	http.listen(port, () => {
@@ -47,4 +36,17 @@ module.exports = function(app, port){
 
 function sendMessage(senderId, recipientId, message){
 	this.to(recipientId).emit('message/new', {senderId: senderId, message: message});
+}
+
+function parseCookie(cookie){
+    cookie = cookie.split("; ").join(";");
+    cookie = cookie.split(" =").join("=");
+    cookie = cookie.split(";");
+
+    var object = {};
+    for(var i=0; i<cookie.length; i++){
+        cookie[i] = cookie[i].split('=');
+        object[cookie[i][0]] = decodeURIComponent(cookie[i][1]);
+    }
+    return object;
 }

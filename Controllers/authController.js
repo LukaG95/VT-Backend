@@ -53,13 +53,14 @@ exports.protect = async (req, res, next) => {
   }
 }
 
-exports.getUserIdFromJwt = async (jwt, next) => {
-  if (!jwt) return next(false);
+exports.getUserIdFromJwt = async (jwt) => {
+  if (!jwt) return false;
 
   try {
-    return next(await decodeToken(token));
-  } catch {
-    return next(false);
+    return (await decodeToken(jwt)).id;
+  } catch(e) {
+	//console.error(e);
+    return false;
   }
 }
 
