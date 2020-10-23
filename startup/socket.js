@@ -10,7 +10,7 @@ module.exports = function(app, port){
 	io.on('connection', (socket) => {
 	  //io.connections['test'] = socket;
 	  console.log('a user connected');
-	  console.log(socket);
+	  //console.log(socket);
 	  socket.on('disconnect', () => {
 		console.log('user disconnected');
 	  });
