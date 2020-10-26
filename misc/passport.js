@@ -17,6 +17,7 @@ passport.use(new SteamStrategy({
   returnURL: `${envURL}api/auth/steam/return`,
   realm: `${envURL}`,
   apiKey: process.env.STEAM_API_KEY,
+
 },
 
   (identifier, profile, done) => {
@@ -32,6 +33,7 @@ passport.use(new DiscordStrategy({
   clientSecret: process.env.DISCORD_CLIENT_SECRET,
   callbackURL: `${envURL}api/auth/discord/callback`,
   scope: ['identify'],
+
 },
   ((accessToken, refreshToken, profile, cb) => {
     profile.method = 'discord';
