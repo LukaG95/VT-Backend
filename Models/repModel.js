@@ -37,7 +37,7 @@ const repSchema = new mongoose.Schema({
       feedback: {
         type: String,
         minlength: 5,
-        maxlength: 100,
+        maxlength: 300,
         required: true
       },
 
