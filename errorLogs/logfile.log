@@ -16632,3 +16632,109 @@
   timestamp: '2020-11-05T17:14:32.893Z'
 >>>>>>> bb21dd9a9751dc1bcf835198946fdbfbc26bcc33
 }
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-11-05T17:24:34.549Z'
+}
+{
+  message: 'Connected to mongodb+srv://nikforce:isS1P3va0kkUMZyA@cluster0-m3ga3.mongodb.net/virtrade?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-11-05T17:24:35.765Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-11-05T17:25:05.313Z'
+}
+{
+  message: 'Connected to mongodb+srv://nikforce:isS1P3va0kkUMZyA@cluster0-m3ga3.mongodb.net/virtrade?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-11-05T17:25:06.153Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-11-05T17:29:44.114Z'
+}
+{
+  message: 'Connected to mongodb+srv://nikforce:isS1P3va0kkUMZyA@cluster0-m3ga3.mongodb.net/virtrade?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-11-05T17:29:45.330Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-11-05T17:31:54.937Z'
+}
+{
+  message: 'Connected to mongodb+srv://nikforce:isS1P3va0kkUMZyA@cluster0-m3ga3.mongodb.net/virtrade?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-11-05T17:31:55.964Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-11-05T17:32:44.160Z'
+}
+{
+  message: 'Connected to mongodb+srv://nikforce:isS1P3va0kkUMZyA@cluster0-m3ga3.mongodb.net/virtrade?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-11-05T17:32:45.032Z'
+}
+{
+  metadata: InternalOpenIDError: Failed to verify assertion
+      at C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\@passport-next\passport-openid\lib\passport-openid\strategy.js:184:36
+      at C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\openid\openid.js:989:12
+      at C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\openid\openid.js:1159:16
+      at C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\openid\openid.js:1277:16
+      at Request._callback (C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\openid\http.js:55:9)
+      at Request.self.callback (C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\request\request.js:185:22)
+      at Request.emit (events.js:305:20)
+      at Request.<anonymous> (C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\request\request.js:1154:10)
+      at Request.emit (events.js:305:20)
+      at IncomingMessage.<anonymous> (C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\request\request.js:1076:12)
+      at Object.onceWrapper (events.js:411:28)
+      at IncomingMessage.emit (events.js:317:22)
+      at endReadableNT (_stream_readable.js:1215:12)
+      at processTicksAndRejections (internal/process/task_queues.js:84:21) {
+    name: 'InternalOpenIDError',
+    message: 'Failed to verify assertion',
+    openidError: { message: 'Invalid signature' }
+  },
+  level: 'error',
+  message: 'Failed to verify assertion',
+  timestamp: '2020-11-05T17:32:46.125Z'
+}
+{
+  metadata: TypeError: Cannot read property 'steam' of undefined
+      at exports.passportLinkingPlatforms (C:\Users\Station\Desktop\vir last\VT-Backend\Controllers\authController.js:222:21)
+      at newFn (C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\express-async-errors\index.js:16:20)
+      at Layer.handle [as handle_request] (C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\express\lib\router\layer.js:95:5)
+      at next (C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\express\lib\router\route.js:137:13)
+      at exports.passportProtect (C:\Users\Station\Desktop\vir last\VT-Backend\Controllers\authController.js:189:36)
+      at newFn (C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\express-async-errors\index.js:16:20)
+      at Layer.handle [as handle_request] (C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\express\lib\router\layer.js:95:5)
+      at next (C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\express\lib\router\route.js:137:13)
+      at complete (C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\passport\lib\middleware\authenticate.js:268:13)
+      at C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\passport\lib\middleware\authenticate.js:275:15
+      at pass (C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\passport\lib\authenticator.js:431:14)
+      at Authenticator.transformAuthInfo (C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\passport\lib\authenticator.js:453:5)
+      at C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\passport\lib\middleware\authenticate.js:272:22
+      at C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\passport\lib\http\request.js:52:7
+      at C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\passport\lib\sessionmanager.js:26:5
+      at pass (C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\passport\lib\authenticator.js:277:43),
+  level: 'error',
+  message: "Cannot read property 'steam' of undefined",
+  timestamp: '2020-11-05T17:32:54.489Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-11-05T17:33:16.208Z'
+}
+{
+  message: 'Connected to mongodb+srv://nikforce:isS1P3va0kkUMZyA@cluster0-m3ga3.mongodb.net/virtrade?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-11-05T17:33:17.496Z'
+}

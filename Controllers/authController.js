@@ -186,10 +186,11 @@ exports.passportLoginOrCreate = async (req, res, next) => {
 
 
 exports.passportProtect = async (req, res, next) => {
-  if (!req.query.link === 1) return next();
+  if (req.query.link !== 1) return next();
+  console.log(req.query.link);
 
   const token = req.cookies.jwt
-  if (!token) return res.status(401).json({ info: "unauthorized", message: "No token provided" })
+  if (!token) return res.status(401).json({ info: "unauthorized", message: "No token provided1" })
 
   try {
     const decoded = await decodeToken(token)
@@ -210,7 +211,7 @@ exports.passportProtect = async (req, res, next) => {
 
 exports.passportLinkingPlatforms = async (req, res, next) => {
 
-  if (!req.query.link === 1) return next()
+  if (req.query.link !== 1) return next()
 
   const { registeredUser } = req
   const { user } = req
