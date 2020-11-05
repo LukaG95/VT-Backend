@@ -7273,6 +7273,7 @@
   timestamp: '2020-10-15T15:30:10.152Z'
 }
 {
+<<<<<<< HEAD
   error: Error: Redis connection to 127.0.0.1:6379 failed - connect ECONNREFUSED 127.0.0.1:6379
       at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1129:14) {
     errno: 'ECONNREFUSED',
@@ -7413,6 +7414,96 @@
       file: 'internal/modules/cjs/loader.js',
       function: 'Module._compile',
       line: 895,
+=======
+  error: ReferenceError: request is not defined
+      at Object.<anonymous> (C:\Users\Station\Desktop\vir last\VT-Backend\Routes\authRoutes.js:30:11)
+      at Module._compile (internal/modules/cjs/loader.js:1139:30)
+      at Object.Module._extensions..js (internal/modules/cjs/loader.js:1159:10)
+      at Module.load (internal/modules/cjs/loader.js:988:32)
+      at Function.Module._load (internal/modules/cjs/loader.js:896:14)
+      at Module.require (internal/modules/cjs/loader.js:1028:19)
+      at require (internal/modules/cjs/helpers.js:72:18)
+      at Object.<anonymous> (C:\Users\Station\Desktop\vir last\VT-Backend\startup\routes.js:6:20)
+      at Module._compile (internal/modules/cjs/loader.js:1139:30)
+      at Object.Module._extensions..js (internal/modules/cjs/loader.js:1159:10)
+      at Module.load (internal/modules/cjs/loader.js:988:32)
+      at Function.Module._load (internal/modules/cjs/loader.js:896:14)
+      at Module.require (internal/modules/cjs/loader.js:1028:19)
+      at require (internal/modules/cjs/helpers.js:72:18)
+      at Object.<anonymous> (C:\Users\Station\Desktop\vir last\VT-Backend\index.js:8:1)
+      at Module._compile (internal/modules/cjs/loader.js:1139:30),
+  level: 'error',
+  message: 'uncaughtException: request is not defined\n' +
+    'ReferenceError: request is not defined\n' +
+    '    at Object.<anonymous> (C:\\Users\\Station\\Desktop\\vir last\\VT-Backend\\Routes\\authRoutes.js:30:11)\n' +
+    '    at Module._compile (internal/modules/cjs/loader.js:1139:30)\n' +
+    '    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1159:10)\n' +
+    '    at Module.load (internal/modules/cjs/loader.js:988:32)\n' +
+    '    at Function.Module._load (internal/modules/cjs/loader.js:896:14)\n' +
+    '    at Module.require (internal/modules/cjs/loader.js:1028:19)\n' +
+    '    at require (internal/modules/cjs/helpers.js:72:18)\n' +
+    '    at Object.<anonymous> (C:\\Users\\Station\\Desktop\\vir last\\VT-Backend\\startup\\routes.js:6:20)\n' +
+    '    at Module._compile (internal/modules/cjs/loader.js:1139:30)\n' +
+    '    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1159:10)\n' +
+    '    at Module.load (internal/modules/cjs/loader.js:988:32)\n' +
+    '    at Function.Module._load (internal/modules/cjs/loader.js:896:14)\n' +
+    '    at Module.require (internal/modules/cjs/loader.js:1028:19)\n' +
+    '    at require (internal/modules/cjs/helpers.js:72:18)\n' +
+    '    at Object.<anonymous> (C:\\Users\\Station\\Desktop\\vir last\\VT-Backend\\index.js:8:1)\n' +
+    '    at Module._compile (internal/modules/cjs/loader.js:1139:30)',
+  stack: 'ReferenceError: request is not defined\n' +
+    '    at Object.<anonymous> (C:\\Users\\Station\\Desktop\\vir last\\VT-Backend\\Routes\\authRoutes.js:30:11)\n' +
+    '    at Module._compile (internal/modules/cjs/loader.js:1139:30)\n' +
+    '    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1159:10)\n' +
+    '    at Module.load (internal/modules/cjs/loader.js:988:32)\n' +
+    '    at Function.Module._load (internal/modules/cjs/loader.js:896:14)\n' +
+    '    at Module.require (internal/modules/cjs/loader.js:1028:19)\n' +
+    '    at require (internal/modules/cjs/helpers.js:72:18)\n' +
+    '    at Object.<anonymous> (C:\\Users\\Station\\Desktop\\vir last\\VT-Backend\\startup\\routes.js:6:20)\n' +
+    '    at Module._compile (internal/modules/cjs/loader.js:1139:30)\n' +
+    '    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1159:10)\n' +
+    '    at Module.load (internal/modules/cjs/loader.js:988:32)\n' +
+    '    at Function.Module._load (internal/modules/cjs/loader.js:896:14)\n' +
+    '    at Module.require (internal/modules/cjs/loader.js:1028:19)\n' +
+    '    at require (internal/modules/cjs/helpers.js:72:18)\n' +
+    '    at Object.<anonymous> (C:\\Users\\Station\\Desktop\\vir last\\VT-Backend\\index.js:8:1)\n' +
+    '    at Module._compile (internal/modules/cjs/loader.js:1139:30)',
+  exception: true,
+  date: 'Mon Oct 26 2020 17:56:34 GMT+0300 (Moscow Standard Time)',
+  process: {
+    pid: 17984,
+    uid: null,
+    gid: null,
+    cwd: 'C:\\Users\\Station\\Desktop\\vir last\\VT-Backend',
+    execPath: 'C:\\Program Files\\nodejs\\node.exe',
+    version: 'v13.5.0',
+    argv: [
+      'C:\\Program Files\\nodejs\\node.exe',
+      'C:\\Users\\Station\\Desktop\\vir last\\VT-Backend\\index.js'
+    ],
+    memoryUsage: {
+      rss: 79421440,
+      heapTotal: 57229312,
+      heapUsed: 36523976,
+      external: 20318318
+    }
+  },
+  os: { loadavg: [ 0, 0, 0 ], uptime: 641515 },
+  trace: [
+    {
+      column: 11,
+      file: 'C:\\Users\\Station\\Desktop\\vir last\\VT-Backend\\Routes\\authRoutes.js',
+      function: null,
+      line: 30,
+      method: null,
+      native: false
+    },
+    {
+      column: 30,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module._compile',
+      line: 1139,
+>>>>>>> bb21dd9a9751dc1bcf835198946fdbfbc26bcc33
       method: '_compile',
       native: false
     },
@@ -7420,7 +7511,11 @@
       column: 10,
       file: 'internal/modules/cjs/loader.js',
       function: 'Module._extensions..js',
+<<<<<<< HEAD
       line: 995,
+=======
+      line: 1159,
+>>>>>>> bb21dd9a9751dc1bcf835198946fdbfbc26bcc33
       method: '.js',
       native: false
     },
@@ -7428,7 +7523,11 @@
       column: 32,
       file: 'internal/modules/cjs/loader.js',
       function: 'Module.load',
+<<<<<<< HEAD
       line: 815,
+=======
+      line: 988,
+>>>>>>> bb21dd9a9751dc1bcf835198946fdbfbc26bcc33
       method: 'load',
       native: false
     },
@@ -7436,7 +7535,11 @@
       column: 14,
       file: 'internal/modules/cjs/loader.js',
       function: 'Module._load',
+<<<<<<< HEAD
       line: 727,
+=======
+      line: 896,
+>>>>>>> bb21dd9a9751dc1bcf835198946fdbfbc26bcc33
       method: '_load',
       native: false
     },
@@ -7444,7 +7547,11 @@
       column: 19,
       file: 'internal/modules/cjs/loader.js',
       function: 'Module.require',
+<<<<<<< HEAD
       line: 852,
+=======
+      line: 1028,
+>>>>>>> bb21dd9a9751dc1bcf835198946fdbfbc26bcc33
       method: 'require',
       native: false
     },
@@ -7452,15 +7559,26 @@
       column: 18,
       file: 'internal/modules/cjs/helpers.js',
       function: 'require',
+<<<<<<< HEAD
       line: 74,
+=======
+      line: 72,
+>>>>>>> bb21dd9a9751dc1bcf835198946fdbfbc26bcc33
       method: null,
       native: false
     },
     {
+<<<<<<< HEAD
       column: 26,
       file: 'C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\Routes\\tradeRoutes.js',
       function: null,
       line: 4,
+=======
+      column: 20,
+      file: 'C:\\Users\\Station\\Desktop\\vir last\\VT-Backend\\startup\\routes.js',
+      function: null,
+      line: 6,
+>>>>>>> bb21dd9a9751dc1bcf835198946fdbfbc26bcc33
       method: null,
       native: false
     },
@@ -7468,7 +7586,11 @@
       column: 30,
       file: 'internal/modules/cjs/loader.js',
       function: 'Module._compile',
+<<<<<<< HEAD
       line: 959,
+=======
+      line: 1139,
+>>>>>>> bb21dd9a9751dc1bcf835198946fdbfbc26bcc33
       method: '_compile',
       native: false
     },
@@ -7476,7 +7598,11 @@
       column: 10,
       file: 'internal/modules/cjs/loader.js',
       function: 'Module._extensions..js',
+<<<<<<< HEAD
       line: 995,
+=======
+      line: 1159,
+>>>>>>> bb21dd9a9751dc1bcf835198946fdbfbc26bcc33
       method: '.js',
       native: false
     },
@@ -7484,7 +7610,11 @@
       column: 32,
       file: 'internal/modules/cjs/loader.js',
       function: 'Module.load',
+<<<<<<< HEAD
       line: 815,
+=======
+      line: 988,
+>>>>>>> bb21dd9a9751dc1bcf835198946fdbfbc26bcc33
       method: 'load',
       native: false
     },
@@ -7492,7 +7622,11 @@
       column: 14,
       file: 'internal/modules/cjs/loader.js',
       function: 'Module._load',
+<<<<<<< HEAD
       line: 727,
+=======
+      line: 896,
+>>>>>>> bb21dd9a9751dc1bcf835198946fdbfbc26bcc33
       method: '_load',
       native: false
     },
@@ -7500,7 +7634,11 @@
       column: 19,
       file: 'internal/modules/cjs/loader.js',
       function: 'Module.require',
+<<<<<<< HEAD
       line: 852,
+=======
+      line: 1028,
+>>>>>>> bb21dd9a9751dc1bcf835198946fdbfbc26bcc33
       method: 'require',
       native: false
     },
@@ -7508,15 +7646,26 @@
       column: 18,
       file: 'internal/modules/cjs/helpers.js',
       function: 'require',
+<<<<<<< HEAD
       line: 74,
+=======
+      line: 72,
+>>>>>>> bb21dd9a9751dc1bcf835198946fdbfbc26bcc33
       method: null,
       native: false
     },
     {
+<<<<<<< HEAD
       column: 21,
       file: 'C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\startup\\routes.js',
       function: null,
       line: 5,
+=======
+      column: 1,
+      file: 'C:\\Users\\Station\\Desktop\\vir last\\VT-Backend\\index.js',
+      function: null,
+      line: 8,
+>>>>>>> bb21dd9a9751dc1bcf835198946fdbfbc26bcc33
       method: null,
       native: false
     },
@@ -7524,6 +7673,7 @@
       column: 30,
       file: 'internal/modules/cjs/loader.js',
       function: 'Module._compile',
+<<<<<<< HEAD
       line: 959,
       method: '_compile',
       native: false
@@ -7824,4 +7974,732 @@
     }
   ],
   timestamp: '2020-10-20T11:25:44.389Z'
+=======
+      line: 1139,
+      method: '_compile',
+      native: false
+    }
+  ],
+  timestamp: '2020-10-26T14:56:34.227Z'
+}
+{
+  error: ReferenceError: request is not defined
+      at Object.<anonymous> (C:\Users\Station\Desktop\vir last\VT-Backend\Routes\authRoutes.js:30:11)
+      at Module._compile (internal/modules/cjs/loader.js:1139:30)
+      at Object.Module._extensions..js (internal/modules/cjs/loader.js:1159:10)
+      at Module.load (internal/modules/cjs/loader.js:988:32)
+      at Function.Module._load (internal/modules/cjs/loader.js:896:14)
+      at Module.require (internal/modules/cjs/loader.js:1028:19)
+      at require (internal/modules/cjs/helpers.js:72:18)
+      at Object.<anonymous> (C:\Users\Station\Desktop\vir last\VT-Backend\startup\routes.js:6:20)
+      at Module._compile (internal/modules/cjs/loader.js:1139:30)
+      at Object.Module._extensions..js (internal/modules/cjs/loader.js:1159:10)
+      at Module.load (internal/modules/cjs/loader.js:988:32)
+      at Function.Module._load (internal/modules/cjs/loader.js:896:14)
+      at Module.require (internal/modules/cjs/loader.js:1028:19)
+      at require (internal/modules/cjs/helpers.js:72:18)
+      at Object.<anonymous> (C:\Users\Station\Desktop\vir last\VT-Backend\index.js:8:1)
+      at Module._compile (internal/modules/cjs/loader.js:1139:30),
+  level: 'error',
+  message: 'uncaughtException: request is not defined\n' +
+    'ReferenceError: request is not defined\n' +
+    '    at Object.<anonymous> (C:\\Users\\Station\\Desktop\\vir last\\VT-Backend\\Routes\\authRoutes.js:30:11)\n' +
+    '    at Module._compile (internal/modules/cjs/loader.js:1139:30)\n' +
+    '    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1159:10)\n' +
+    '    at Module.load (internal/modules/cjs/loader.js:988:32)\n' +
+    '    at Function.Module._load (internal/modules/cjs/loader.js:896:14)\n' +
+    '    at Module.require (internal/modules/cjs/loader.js:1028:19)\n' +
+    '    at require (internal/modules/cjs/helpers.js:72:18)\n' +
+    '    at Object.<anonymous> (C:\\Users\\Station\\Desktop\\vir last\\VT-Backend\\startup\\routes.js:6:20)\n' +
+    '    at Module._compile (internal/modules/cjs/loader.js:1139:30)\n' +
+    '    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1159:10)\n' +
+    '    at Module.load (internal/modules/cjs/loader.js:988:32)\n' +
+    '    at Function.Module._load (internal/modules/cjs/loader.js:896:14)\n' +
+    '    at Module.require (internal/modules/cjs/loader.js:1028:19)\n' +
+    '    at require (internal/modules/cjs/helpers.js:72:18)\n' +
+    '    at Object.<anonymous> (C:\\Users\\Station\\Desktop\\vir last\\VT-Backend\\index.js:8:1)\n' +
+    '    at Module._compile (internal/modules/cjs/loader.js:1139:30)',
+  stack: 'ReferenceError: request is not defined\n' +
+    '    at Object.<anonymous> (C:\\Users\\Station\\Desktop\\vir last\\VT-Backend\\Routes\\authRoutes.js:30:11)\n' +
+    '    at Module._compile (internal/modules/cjs/loader.js:1139:30)\n' +
+    '    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1159:10)\n' +
+    '    at Module.load (internal/modules/cjs/loader.js:988:32)\n' +
+    '    at Function.Module._load (internal/modules/cjs/loader.js:896:14)\n' +
+    '    at Module.require (internal/modules/cjs/loader.js:1028:19)\n' +
+    '    at require (internal/modules/cjs/helpers.js:72:18)\n' +
+    '    at Object.<anonymous> (C:\\Users\\Station\\Desktop\\vir last\\VT-Backend\\startup\\routes.js:6:20)\n' +
+    '    at Module._compile (internal/modules/cjs/loader.js:1139:30)\n' +
+    '    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1159:10)\n' +
+    '    at Module.load (internal/modules/cjs/loader.js:988:32)\n' +
+    '    at Function.Module._load (internal/modules/cjs/loader.js:896:14)\n' +
+    '    at Module.require (internal/modules/cjs/loader.js:1028:19)\n' +
+    '    at require (internal/modules/cjs/helpers.js:72:18)\n' +
+    '    at Object.<anonymous> (C:\\Users\\Station\\Desktop\\vir last\\VT-Backend\\index.js:8:1)\n' +
+    '    at Module._compile (internal/modules/cjs/loader.js:1139:30)',
+  exception: true,
+  date: 'Mon Oct 26 2020 17:57:07 GMT+0300 (Moscow Standard Time)',
+  process: {
+    pid: 17376,
+    uid: null,
+    gid: null,
+    cwd: 'C:\\Users\\Station\\Desktop\\vir last\\VT-Backend',
+    execPath: 'C:\\Program Files\\nodejs\\node.exe',
+    version: 'v13.5.0',
+    argv: [
+      'C:\\Program Files\\nodejs\\node.exe',
+      'C:\\Users\\Station\\Desktop\\vir last\\VT-Backend\\index.js'
+    ],
+    memoryUsage: {
+      rss: 79405056,
+      heapTotal: 57229312,
+      heapUsed: 36671896,
+      external: 20318318
+    }
+  },
+  os: { loadavg: [ 0, 0, 0 ], uptime: 641549 },
+  trace: [
+    {
+      column: 11,
+      file: 'C:\\Users\\Station\\Desktop\\vir last\\VT-Backend\\Routes\\authRoutes.js',
+      function: null,
+      line: 30,
+      method: null,
+      native: false
+    },
+    {
+      column: 30,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module._compile',
+      line: 1139,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 10,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module._extensions..js',
+      line: 1159,
+      method: '.js',
+      native: false
+    },
+    {
+      column: 32,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module.load',
+      line: 988,
+      method: 'load',
+      native: false
+    },
+    {
+      column: 14,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module._load',
+      line: 896,
+      method: '_load',
+      native: false
+    },
+    {
+      column: 19,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module.require',
+      line: 1028,
+      method: 'require',
+      native: false
+    },
+    {
+      column: 18,
+      file: 'internal/modules/cjs/helpers.js',
+      function: 'require',
+      line: 72,
+      method: null,
+      native: false
+    },
+    {
+      column: 20,
+      file: 'C:\\Users\\Station\\Desktop\\vir last\\VT-Backend\\startup\\routes.js',
+      function: null,
+      line: 6,
+      method: null,
+      native: false
+    },
+    {
+      column: 30,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module._compile',
+      line: 1139,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 10,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module._extensions..js',
+      line: 1159,
+      method: '.js',
+      native: false
+    },
+    {
+      column: 32,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module.load',
+      line: 988,
+      method: 'load',
+      native: false
+    },
+    {
+      column: 14,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module._load',
+      line: 896,
+      method: '_load',
+      native: false
+    },
+    {
+      column: 19,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module.require',
+      line: 1028,
+      method: 'require',
+      native: false
+    },
+    {
+      column: 18,
+      file: 'internal/modules/cjs/helpers.js',
+      function: 'require',
+      line: 72,
+      method: null,
+      native: false
+    },
+    {
+      column: 1,
+      file: 'C:\\Users\\Station\\Desktop\\vir last\\VT-Backend\\index.js',
+      function: null,
+      line: 8,
+      method: null,
+      native: false
+    },
+    {
+      column: 30,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module._compile',
+      line: 1139,
+      method: '_compile',
+      native: false
+    }
+  ],
+  timestamp: '2020-10-26T14:57:07.732Z'
+}
+{
+  error: ReferenceError: request is not defined
+      at Object.<anonymous> (C:\Users\Station\Desktop\vir last\VT-Backend\misc\passport.js:20:9)
+      at Module._compile (internal/modules/cjs/loader.js:1139:30)
+      at Object.Module._extensions..js (internal/modules/cjs/loader.js:1159:10)
+      at Module.load (internal/modules/cjs/loader.js:988:32)
+      at Function.Module._load (internal/modules/cjs/loader.js:896:14)
+      at Module.require (internal/modules/cjs/loader.js:1028:19)
+      at require (internal/modules/cjs/helpers.js:72:18)
+      at Object.<anonymous> (C:\Users\Station\Desktop\vir last\VT-Backend\Routes\authRoutes.js:5:18)
+      at Module._compile (internal/modules/cjs/loader.js:1139:30)
+      at Object.Module._extensions..js (internal/modules/cjs/loader.js:1159:10)
+      at Module.load (internal/modules/cjs/loader.js:988:32)
+      at Function.Module._load (internal/modules/cjs/loader.js:896:14)
+      at Module.require (internal/modules/cjs/loader.js:1028:19)
+      at require (internal/modules/cjs/helpers.js:72:18)
+      at Object.<anonymous> (C:\Users\Station\Desktop\vir last\VT-Backend\startup\routes.js:6:20)
+      at Module._compile (internal/modules/cjs/loader.js:1139:30),
+  level: 'error',
+  message: 'uncaughtException: request is not defined\n' +
+    'ReferenceError: request is not defined\n' +
+    '    at Object.<anonymous> (C:\\Users\\Station\\Desktop\\vir last\\VT-Backend\\misc\\passport.js:20:9)\n' +
+    '    at Module._compile (internal/modules/cjs/loader.js:1139:30)\n' +
+    '    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1159:10)\n' +
+    '    at Module.load (internal/modules/cjs/loader.js:988:32)\n' +
+    '    at Function.Module._load (internal/modules/cjs/loader.js:896:14)\n' +
+    '    at Module.require (internal/modules/cjs/loader.js:1028:19)\n' +
+    '    at require (internal/modules/cjs/helpers.js:72:18)\n' +
+    '    at Object.<anonymous> (C:\\Users\\Station\\Desktop\\vir last\\VT-Backend\\Routes\\authRoutes.js:5:18)\n' +
+    '    at Module._compile (internal/modules/cjs/loader.js:1139:30)\n' +
+    '    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1159:10)\n' +
+    '    at Module.load (internal/modules/cjs/loader.js:988:32)\n' +
+    '    at Function.Module._load (internal/modules/cjs/loader.js:896:14)\n' +
+    '    at Module.require (internal/modules/cjs/loader.js:1028:19)\n' +
+    '    at require (internal/modules/cjs/helpers.js:72:18)\n' +
+    '    at Object.<anonymous> (C:\\Users\\Station\\Desktop\\vir last\\VT-Backend\\startup\\routes.js:6:20)\n' +
+    '    at Module._compile (internal/modules/cjs/loader.js:1139:30)',
+  stack: 'ReferenceError: request is not defined\n' +
+    '    at Object.<anonymous> (C:\\Users\\Station\\Desktop\\vir last\\VT-Backend\\misc\\passport.js:20:9)\n' +
+    '    at Module._compile (internal/modules/cjs/loader.js:1139:30)\n' +
+    '    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1159:10)\n' +
+    '    at Module.load (internal/modules/cjs/loader.js:988:32)\n' +
+    '    at Function.Module._load (internal/modules/cjs/loader.js:896:14)\n' +
+    '    at Module.require (internal/modules/cjs/loader.js:1028:19)\n' +
+    '    at require (internal/modules/cjs/helpers.js:72:18)\n' +
+    '    at Object.<anonymous> (C:\\Users\\Station\\Desktop\\vir last\\VT-Backend\\Routes\\authRoutes.js:5:18)\n' +
+    '    at Module._compile (internal/modules/cjs/loader.js:1139:30)\n' +
+    '    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1159:10)\n' +
+    '    at Module.load (internal/modules/cjs/loader.js:988:32)\n' +
+    '    at Function.Module._load (internal/modules/cjs/loader.js:896:14)\n' +
+    '    at Module.require (internal/modules/cjs/loader.js:1028:19)\n' +
+    '    at require (internal/modules/cjs/helpers.js:72:18)\n' +
+    '    at Object.<anonymous> (C:\\Users\\Station\\Desktop\\vir last\\VT-Backend\\startup\\routes.js:6:20)\n' +
+    '    at Module._compile (internal/modules/cjs/loader.js:1139:30)',
+  exception: true,
+  date: 'Mon Oct 26 2020 17:57:45 GMT+0300 (Moscow Standard Time)',
+  process: {
+    pid: 14224,
+    uid: null,
+    gid: null,
+    cwd: 'C:\\Users\\Station\\Desktop\\vir last\\VT-Backend',
+    execPath: 'C:\\Program Files\\nodejs\\node.exe',
+    version: 'v13.5.0',
+    argv: [
+      'C:\\Program Files\\nodejs\\node.exe',
+      'C:\\Users\\Station\\Desktop\\vir last\\VT-Backend\\index.js'
+    ],
+    memoryUsage: {
+      rss: 79122432,
+      heapTotal: 57229312,
+      heapUsed: 36356288,
+      external: 20318318
+    }
+  },
+  os: { loadavg: [ 0, 0, 0 ], uptime: 641587 },
+  trace: [
+    {
+      column: 9,
+      file: 'C:\\Users\\Station\\Desktop\\vir last\\VT-Backend\\misc\\passport.js',
+      function: null,
+      line: 20,
+      method: null,
+      native: false
+    },
+    {
+      column: 30,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module._compile',
+      line: 1139,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 10,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module._extensions..js',
+      line: 1159,
+      method: '.js',
+      native: false
+    },
+    {
+      column: 32,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module.load',
+      line: 988,
+      method: 'load',
+      native: false
+    },
+    {
+      column: 14,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module._load',
+      line: 896,
+      method: '_load',
+      native: false
+    },
+    {
+      column: 19,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module.require',
+      line: 1028,
+      method: 'require',
+      native: false
+    },
+    {
+      column: 18,
+      file: 'internal/modules/cjs/helpers.js',
+      function: 'require',
+      line: 72,
+      method: null,
+      native: false
+    },
+    {
+      column: 18,
+      file: 'C:\\Users\\Station\\Desktop\\vir last\\VT-Backend\\Routes\\authRoutes.js',
+      function: null,
+      line: 5,
+      method: null,
+      native: false
+    },
+    {
+      column: 30,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module._compile',
+      line: 1139,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 10,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module._extensions..js',
+      line: 1159,
+      method: '.js',
+      native: false
+    },
+    {
+      column: 32,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module.load',
+      line: 988,
+      method: 'load',
+      native: false
+    },
+    {
+      column: 14,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module._load',
+      line: 896,
+      method: '_load',
+      native: false
+    },
+    {
+      column: 19,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module.require',
+      line: 1028,
+      method: 'require',
+      native: false
+    },
+    {
+      column: 18,
+      file: 'internal/modules/cjs/helpers.js',
+      function: 'require',
+      line: 72,
+      method: null,
+      native: false
+    },
+    {
+      column: 20,
+      file: 'C:\\Users\\Station\\Desktop\\vir last\\VT-Backend\\startup\\routes.js',
+      function: null,
+      line: 6,
+      method: null,
+      native: false
+    },
+    {
+      column: 30,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module._compile',
+      line: 1139,
+      method: '_compile',
+      native: false
+    }
+  ],
+  timestamp: '2020-10-26T14:57:45.564Z'
+}
+{
+  error: C:\Users\Station\Desktop\vir last\VT-Backend\Controllers\authController.js:187
+  exports.passportLinkingPlatforms = async (req, res, next) {
+                                                            ^
+  
+  SyntaxError: Unexpected token '{'
+      at wrapSafe (internal/modules/cjs/loader.js:1055:16)
+      at Module._compile (internal/modules/cjs/loader.js:1103:27)
+      at Object.Module._extensions..js (internal/modules/cjs/loader.js:1159:10)
+      at Module.load (internal/modules/cjs/loader.js:988:32)
+      at Function.Module._load (internal/modules/cjs/loader.js:896:14)
+      at Module.require (internal/modules/cjs/loader.js:1028:19)
+      at require (internal/modules/cjs/helpers.js:72:18)
+      at Object.<anonymous> (C:\Users\Station\Desktop\vir last\VT-Backend\Routes\tradeRoutes.js:3:24)
+      at Module._compile (internal/modules/cjs/loader.js:1139:30)
+      at Object.Module._extensions..js (internal/modules/cjs/loader.js:1159:10),
+  level: 'error',
+  message: "uncaughtException: Unexpected token '{'\n" +
+    'C:\\Users\\Station\\Desktop\\vir last\\VT-Backend\\Controllers\\authController.js:187\n' +
+    'exports.passportLinkingPlatforms = async (req, res, next) {\n' +
+    '                                                          ^\n' +
+    '\n' +
+    "SyntaxError: Unexpected token '{'\n" +
+    '    at wrapSafe (internal/modules/cjs/loader.js:1055:16)\n' +
+    '    at Module._compile (internal/modules/cjs/loader.js:1103:27)\n' +
+    '    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1159:10)\n' +
+    '    at Module.load (internal/modules/cjs/loader.js:988:32)\n' +
+    '    at Function.Module._load (internal/modules/cjs/loader.js:896:14)\n' +
+    '    at Module.require (internal/modules/cjs/loader.js:1028:19)\n' +
+    '    at require (internal/modules/cjs/helpers.js:72:18)\n' +
+    '    at Object.<anonymous> (C:\\Users\\Station\\Desktop\\vir last\\VT-Backend\\Routes\\tradeRoutes.js:3:24)\n' +
+    '    at Module._compile (internal/modules/cjs/loader.js:1139:30)\n' +
+    '    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1159:10)',
+  stack: 'C:\\Users\\Station\\Desktop\\vir last\\VT-Backend\\Controllers\\authController.js:187\n' +
+    'exports.passportLinkingPlatforms = async (req, res, next) {\n' +
+    '                                                          ^\n' +
+    '\n' +
+    "SyntaxError: Unexpected token '{'\n" +
+    '    at wrapSafe (internal/modules/cjs/loader.js:1055:16)\n' +
+    '    at Module._compile (internal/modules/cjs/loader.js:1103:27)\n' +
+    '    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1159:10)\n' +
+    '    at Module.load (internal/modules/cjs/loader.js:988:32)\n' +
+    '    at Function.Module._load (internal/modules/cjs/loader.js:896:14)\n' +
+    '    at Module.require (internal/modules/cjs/loader.js:1028:19)\n' +
+    '    at require (internal/modules/cjs/helpers.js:72:18)\n' +
+    '    at Object.<anonymous> (C:\\Users\\Station\\Desktop\\vir last\\VT-Backend\\Routes\\tradeRoutes.js:3:24)\n' +
+    '    at Module._compile (internal/modules/cjs/loader.js:1139:30)\n' +
+    '    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1159:10)',
+  exception: true,
+  date: 'Mon Oct 26 2020 18:30:25 GMT+0300 (Moscow Standard Time)',
+  process: {
+    pid: 7088,
+    uid: null,
+    gid: null,
+    cwd: 'C:\\Users\\Station\\Desktop\\vir last\\VT-Backend',
+    execPath: 'C:\\Program Files\\nodejs\\node.exe',
+    version: 'v13.5.0',
+    argv: [
+      'C:\\Program Files\\nodejs\\node.exe',
+      'C:\\Users\\Station\\Desktop\\vir last\\VT-Backend\\index.js'
+    ],
+    memoryUsage: {
+      rss: 47710208,
+      heapTotal: 29708288,
+      heapUsed: 13122056,
+      external: 19656562
+    }
+  },
+  os: { loadavg: [ 0, 0, 0 ], uptime: 643547 },
+  trace: [
+    {
+      column: 16,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'wrapSafe',
+      line: 1055,
+      method: null,
+      native: false
+    },
+    {
+      column: 27,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module._compile',
+      line: 1103,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 10,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module._extensions..js',
+      line: 1159,
+      method: '.js',
+      native: false
+    },
+    {
+      column: 32,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module.load',
+      line: 988,
+      method: 'load',
+      native: false
+    },
+    {
+      column: 14,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module._load',
+      line: 896,
+      method: '_load',
+      native: false
+    },
+    {
+      column: 19,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module.require',
+      line: 1028,
+      method: 'require',
+      native: false
+    },
+    {
+      column: 18,
+      file: 'internal/modules/cjs/helpers.js',
+      function: 'require',
+      line: 72,
+      method: null,
+      native: false
+    },
+    {
+      column: 24,
+      file: 'C:\\Users\\Station\\Desktop\\vir last\\VT-Backend\\Routes\\tradeRoutes.js',
+      function: null,
+      line: 3,
+      method: null,
+      native: false
+    },
+    {
+      column: 30,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module._compile',
+      line: 1139,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 10,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module._extensions..js',
+      line: 1159,
+      method: '.js',
+      native: false
+    }
+  ],
+  timestamp: '2020-10-26T15:30:26.014Z'
+}
+{
+  error: C:\Users\Station\Desktop\vir last\VT-Backend\Controllers\authController.js:187
+  exports.passportLinkingPlatforms = async (req, res, next) {
+                                                            ^
+  
+  SyntaxError: Unexpected token '{'
+      at wrapSafe (internal/modules/cjs/loader.js:1055:16)
+      at Module._compile (internal/modules/cjs/loader.js:1103:27)
+      at Object.Module._extensions..js (internal/modules/cjs/loader.js:1159:10)
+      at Module.load (internal/modules/cjs/loader.js:988:32)
+      at Function.Module._load (internal/modules/cjs/loader.js:896:14)
+      at Module.require (internal/modules/cjs/loader.js:1028:19)
+      at require (internal/modules/cjs/helpers.js:72:18)
+      at Object.<anonymous> (C:\Users\Station\Desktop\vir last\VT-Backend\Routes\tradeRoutes.js:3:24)
+      at Module._compile (internal/modules/cjs/loader.js:1139:30)
+      at Object.Module._extensions..js (internal/modules/cjs/loader.js:1159:10),
+  level: 'error',
+  message: "uncaughtException: Unexpected token '{'\n" +
+    'C:\\Users\\Station\\Desktop\\vir last\\VT-Backend\\Controllers\\authController.js:187\n' +
+    'exports.passportLinkingPlatforms = async (req, res, next) {\n' +
+    '                                                          ^\n' +
+    '\n' +
+    "SyntaxError: Unexpected token '{'\n" +
+    '    at wrapSafe (internal/modules/cjs/loader.js:1055:16)\n' +
+    '    at Module._compile (internal/modules/cjs/loader.js:1103:27)\n' +
+    '    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1159:10)\n' +
+    '    at Module.load (internal/modules/cjs/loader.js:988:32)\n' +
+    '    at Function.Module._load (internal/modules/cjs/loader.js:896:14)\n' +
+    '    at Module.require (internal/modules/cjs/loader.js:1028:19)\n' +
+    '    at require (internal/modules/cjs/helpers.js:72:18)\n' +
+    '    at Object.<anonymous> (C:\\Users\\Station\\Desktop\\vir last\\VT-Backend\\Routes\\tradeRoutes.js:3:24)\n' +
+    '    at Module._compile (internal/modules/cjs/loader.js:1139:30)\n' +
+    '    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1159:10)',
+  stack: 'C:\\Users\\Station\\Desktop\\vir last\\VT-Backend\\Controllers\\authController.js:187\n' +
+    'exports.passportLinkingPlatforms = async (req, res, next) {\n' +
+    '                                                          ^\n' +
+    '\n' +
+    "SyntaxError: Unexpected token '{'\n" +
+    '    at wrapSafe (internal/modules/cjs/loader.js:1055:16)\n' +
+    '    at Module._compile (internal/modules/cjs/loader.js:1103:27)\n' +
+    '    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1159:10)\n' +
+    '    at Module.load (internal/modules/cjs/loader.js:988:32)\n' +
+    '    at Function.Module._load (internal/modules/cjs/loader.js:896:14)\n' +
+    '    at Module.require (internal/modules/cjs/loader.js:1028:19)\n' +
+    '    at require (internal/modules/cjs/helpers.js:72:18)\n' +
+    '    at Object.<anonymous> (C:\\Users\\Station\\Desktop\\vir last\\VT-Backend\\Routes\\tradeRoutes.js:3:24)\n' +
+    '    at Module._compile (internal/modules/cjs/loader.js:1139:30)\n' +
+    '    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1159:10)',
+  exception: true,
+  date: 'Mon Oct 26 2020 18:30:36 GMT+0300 (Moscow Standard Time)',
+  process: {
+    pid: 4080,
+    uid: null,
+    gid: null,
+    cwd: 'C:\\Users\\Station\\Desktop\\vir last\\VT-Backend',
+    execPath: 'C:\\Program Files\\nodejs\\node.exe',
+    version: 'v13.5.0',
+    argv: [
+      'C:\\Program Files\\nodejs\\node.exe',
+      'C:\\Users\\Station\\Desktop\\vir last\\VT-Backend\\index.js'
+    ],
+    memoryUsage: {
+      rss: 47595520,
+      heapTotal: 29184000,
+      heapUsed: 13167208,
+      external: 19664838
+    }
+  },
+  os: { loadavg: [ 0, 0, 0 ], uptime: 643558 },
+  trace: [
+    {
+      column: 16,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'wrapSafe',
+      line: 1055,
+      method: null,
+      native: false
+    },
+    {
+      column: 27,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module._compile',
+      line: 1103,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 10,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module._extensions..js',
+      line: 1159,
+      method: '.js',
+      native: false
+    },
+    {
+      column: 32,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module.load',
+      line: 988,
+      method: 'load',
+      native: false
+    },
+    {
+      column: 14,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module._load',
+      line: 896,
+      method: '_load',
+      native: false
+    },
+    {
+      column: 19,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module.require',
+      line: 1028,
+      method: 'require',
+      native: false
+    },
+    {
+      column: 18,
+      file: 'internal/modules/cjs/helpers.js',
+      function: 'require',
+      line: 72,
+      method: null,
+      native: false
+    },
+    {
+      column: 24,
+      file: 'C:\\Users\\Station\\Desktop\\vir last\\VT-Backend\\Routes\\tradeRoutes.js',
+      function: null,
+      line: 3,
+      method: null,
+      native: false
+    },
+    {
+      column: 30,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module._compile',
+      line: 1139,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 10,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module._extensions..js',
+      line: 1159,
+      method: '.js',
+      native: false
+    }
+  ],
+  timestamp: '2020-10-26T15:30:36.988Z'
+>>>>>>> bb21dd9a9751dc1bcf835198946fdbfbc26bcc33
 }

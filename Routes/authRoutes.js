@@ -26,11 +26,20 @@ router.put('/updateUsername', authController.protect, authController.updateUsern
 router.put('/updatePassword', authController.protect, authController.updatePassword)
 router.put('/updateEmail', authController.protect, authController.updateEmail)
 
-router.get('/steam', passport.authenticate('steam'))
-router.get('/steam/return', passport.authenticate('steam'), authController.passportLoginOrCreate)
 
-router.get('/discord', passport.authenticate('discord'))
-router.get('/discord/callback', passport.authenticate('discord'), authController.passportLoginOrCreate)
+
+router.get('/steam', (req, res, next) => {
+    return passport.authenticate('steam', { link: req.query.link })(req, res, next)
+})
+router.get('/steam/return', passport.authenticate('steam'), authController.passportProtect, authController.passportLinkingPlatforms, authController.passportLoginOrCreate)
+
+
+router.get('/discord', (req, res, next) => {
+    return passport.authenticate('discord', { link: req.query.link })(req, res, next)
+})
+router.get('/discord/callback', passport.authenticate('discord'), authController.passportProtect, authController.passportLinkingPlatforms, authController.passportLoginOrCreate)
+
+
 
 router.put('/confirmEmail/', authController.confirmEmail)
 

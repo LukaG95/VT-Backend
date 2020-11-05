@@ -15358,6 +15358,7 @@
   timestamp: '2020-10-15T15:30:24.942Z'
 }
 {
+<<<<<<< HEAD
   message: 'Listening on port 5000...',
   level: 'info',
   timestamp: '2020-10-15T18:05:40.953Z'
@@ -15436,10 +15437,96 @@
   message: 'Listening on port 5000...',
   level: 'info',
   timestamp: '2020-10-15T22:50:31.724Z'
+=======
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-10-26T13:40:58.803Z'
+}
+{
+  message: 'Connected to mongodb+srv://nikforce:isS1P3va0kkUMZyA@cluster0-m3ga3.mongodb.net/virtrade?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-26T13:40:59.873Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-10-26T13:54:00.569Z'
+}
+{
+  message: 'Connected to mongodb+srv://nikforce:isS1P3va0kkUMZyA@cluster0-m3ga3.mongodb.net/virtrade?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-26T13:54:01.552Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-10-26T14:13:46.704Z'
+}
+{
+  message: 'Connected to mongodb+srv://nikforce:isS1P3va0kkUMZyA@cluster0-m3ga3.mongodb.net/virtrade?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-26T14:13:47.798Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-10-26T14:14:00.500Z'
+}
+{
+  message: 'Connected to mongodb+srv://nikforce:isS1P3va0kkUMZyA@cluster0-m3ga3.mongodb.net/virtrade?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-26T14:14:01.256Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-10-26T14:17:59.820Z'
+}
+{
+  message: 'Connected to mongodb+srv://nikforce:isS1P3va0kkUMZyA@cluster0-m3ga3.mongodb.net/virtrade?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-26T14:18:01.039Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-10-26T14:21:23.198Z'
+}
+{
+  message: 'Connected to mongodb+srv://nikforce:isS1P3va0kkUMZyA@cluster0-m3ga3.mongodb.net/virtrade?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-26T14:21:24.272Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-10-26T14:21:29.477Z'
+}
+{
+  message: 'Connected to mongodb+srv://nikforce:isS1P3va0kkUMZyA@cluster0-m3ga3.mongodb.net/virtrade?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-26T14:21:30.291Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-10-26T14:40:22.025Z'
+}
+{
+  message: 'Connected to mongodb+srv://nikforce:isS1P3va0kkUMZyA@cluster0-m3ga3.mongodb.net/virtrade?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-26T14:40:23.335Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-10-26T14:41:18.151Z'
+>>>>>>> bb21dd9a9751dc1bcf835198946fdbfbc26bcc33
 }
 {
   message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2020-10-15T22:50:31.898Z'
 }
 {
@@ -15822,4 +15909,726 @@
   message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
   level: 'info',
   timestamp: '2020-10-20T08:36:43.778Z'
+=======
+  timestamp: '2020-10-26T14:41:18.832Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-10-26T14:42:27.879Z'
+}
+{
+  message: 'Connected to mongodb+srv://nikforce:isS1P3va0kkUMZyA@cluster0-m3ga3.mongodb.net/virtrade?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-26T14:42:28.950Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-10-26T14:49:22.938Z'
+}
+{
+  message: 'Connected to mongodb+srv://nikforce:isS1P3va0kkUMZyA@cluster0-m3ga3.mongodb.net/virtrade?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-26T14:49:24.128Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-10-26T14:49:33.556Z'
+}
+{
+  message: 'Connected to mongodb+srv://nikforce:isS1P3va0kkUMZyA@cluster0-m3ga3.mongodb.net/virtrade?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-26T14:49:34.473Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-10-26T14:57:34.984Z'
+}
+{
+  message: 'Connected to mongodb+srv://nikforce:isS1P3va0kkUMZyA@cluster0-m3ga3.mongodb.net/virtrade?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-26T14:57:36.075Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-10-26T14:58:22.764Z'
+}
+{
+  message: 'Connected to mongodb+srv://nikforce:isS1P3va0kkUMZyA@cluster0-m3ga3.mongodb.net/virtrade?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-26T14:58:23.685Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-10-26T14:58:43.487Z'
+}
+{
+  message: 'Connected to mongodb+srv://nikforce:isS1P3va0kkUMZyA@cluster0-m3ga3.mongodb.net/virtrade?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-26T14:58:44.497Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-10-26T14:59:01.797Z'
+}
+{
+  message: 'Connected to mongodb+srv://nikforce:isS1P3va0kkUMZyA@cluster0-m3ga3.mongodb.net/virtrade?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-26T14:59:02.646Z'
+}
+{
+  metadata: TypeError: cb is not a function
+      at Strategy._verify (C:\Users\Station\Desktop\vir last\VT-Backend\misc\passport.js:42:12)
+      at C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\passport-oauth2\lib\strategy.js:195:24
+      at C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\passport-discord\lib\strategy.js:99:24
+      at Strategy.checkScope (C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\passport-discord\lib\strategy.js:118:9)
+      at C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\passport-discord\lib\strategy.js:94:18
+      at Strategy.checkScope (C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\passport-discord\lib\strategy.js:118:9)
+      at C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\passport-discord\lib\strategy.js:91:14
+      at passBackControl (C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\oauth\lib\oauth2.js:134:9)
+      at IncomingMessage.<anonymous> (C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\oauth\lib\oauth2.js:157:7)
+      at IncomingMessage.emit (events.js:317:22)
+      at endReadableNT (_stream_readable.js:1215:12)
+      at processTicksAndRejections (internal/process/task_queues.js:84:21),
+  level: 'error',
+  message: 'cb is not a function',
+  timestamp: '2020-10-26T14:59:18.320Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-10-26T15:01:20.160Z'
+}
+{
+  message: 'Connected to mongodb+srv://nikforce:isS1P3va0kkUMZyA@cluster0-m3ga3.mongodb.net/virtrade?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-26T15:01:21.419Z'
+}
+{
+  metadata: TokenError: Invalid "code" in request.
+      at Strategy.OAuth2Strategy.parseErrorResponse (C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\passport-oauth2\lib\strategy.js:358:12)
+      at Strategy.OAuth2Strategy._createOAuthError (C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\passport-oauth2\lib\strategy.js:405:16)
+      at C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\passport-oauth2\lib\strategy.js:175:45
+      at C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\oauth\lib\oauth2.js:191:18
+      at passBackControl (C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\oauth\lib\oauth2.js:132:9)
+      at IncomingMessage.<anonymous> (C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\oauth\lib\oauth2.js:157:7)
+      at IncomingMessage.emit (events.js:317:22)
+      at endReadableNT (_stream_readable.js:1215:12)
+      at processTicksAndRejections (internal/process/task_queues.js:84:21) {
+    name: 'TokenError',
+    message: 'Invalid "code" in request.',
+    code: 'invalid_request',
+    uri: undefined,
+    status: 500
+  },
+  level: 'error',
+  message: 'Invalid "code" in request.',
+  timestamp: '2020-10-26T15:01:23.748Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-10-26T15:10:40.148Z'
+}
+{
+  message: 'Connected to mongodb+srv://nikforce:isS1P3va0kkUMZyA@cluster0-m3ga3.mongodb.net/virtrade?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-26T15:10:41.171Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-10-26T15:11:17.134Z'
+}
+{
+  message: 'Connected to mongodb+srv://nikforce:isS1P3va0kkUMZyA@cluster0-m3ga3.mongodb.net/virtrade?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-26T15:11:17.962Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-10-26T15:11:44.223Z'
+}
+{
+  message: 'Connected to mongodb+srv://nikforce:isS1P3va0kkUMZyA@cluster0-m3ga3.mongodb.net/virtrade?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-26T15:11:45.337Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-10-26T15:13:18.802Z'
+}
+{
+  message: 'Connected to mongodb+srv://nikforce:isS1P3va0kkUMZyA@cluster0-m3ga3.mongodb.net/virtrade?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-26T15:13:19.920Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-10-26T15:13:34.723Z'
+}
+{
+  message: 'Connected to mongodb+srv://nikforce:isS1P3va0kkUMZyA@cluster0-m3ga3.mongodb.net/virtrade?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-26T15:13:35.571Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-10-26T15:15:11.598Z'
+}
+{
+  message: 'Connected to mongodb+srv://nikforce:isS1P3va0kkUMZyA@cluster0-m3ga3.mongodb.net/virtrade?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-26T15:15:12.676Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-10-26T15:16:34.077Z'
+}
+{
+  message: 'Connected to mongodb+srv://nikforce:isS1P3va0kkUMZyA@cluster0-m3ga3.mongodb.net/virtrade?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-26T15:16:35.139Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-10-26T15:17:51.436Z'
+}
+{
+  message: 'Connected to mongodb+srv://nikforce:isS1P3va0kkUMZyA@cluster0-m3ga3.mongodb.net/virtrade?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-26T15:17:52.513Z'
+}
+{
+  metadata: TypeError: authenticator is not a function
+      at C:\Users\Station\Desktop\vir last\VT-Backend\Routes\authRoutes.js:39:5
+      at newFn (C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\express-async-errors\index.js:16:20)
+      at Layer.handle [as handle_request] (C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\express\lib\router\layer.js:95:5)
+      at next (C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\express\lib\router\route.js:137:13)
+      at Route.dispatch (C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\express\lib\router\route.js:112:3)
+      at newFn (C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\express-async-errors\index.js:16:20)
+      at Layer.handle [as handle_request] (C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\express\lib\router\layer.js:95:5)
+      at C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\express\lib\router\index.js:281:22
+      at Function.process_params (C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\express\lib\router\index.js:335:12)
+      at next (C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\express\lib\router\index.js:275:10)
+      at initialize (C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\passport\lib\middleware\initialize.js:53:5)
+      at newFn (C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\express-async-errors\index.js:16:20)
+      at Layer.handle [as handle_request] (C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\express\lib\router\layer.js:95:5)
+      at trim_prefix (C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\express\lib\router\index.js:317:13)
+      at C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\express\lib\router\index.js:284:7
+      at Function.process_params (C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\express\lib\router\index.js:335:12),
+  level: 'error',
+  message: 'authenticator is not a function',
+  timestamp: '2020-10-26T15:17:56.525Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-10-26T15:19:01.900Z'
+}
+{
+  message: 'Connected to mongodb+srv://nikforce:isS1P3va0kkUMZyA@cluster0-m3ga3.mongodb.net/virtrade?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-26T15:19:03.105Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-10-26T15:21:03.592Z'
+}
+{
+  message: 'Connected to mongodb+srv://nikforce:isS1P3va0kkUMZyA@cluster0-m3ga3.mongodb.net/virtrade?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-26T15:21:04.620Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-10-26T15:21:46.826Z'
+}
+{
+  message: 'Connected to mongodb+srv://nikforce:isS1P3va0kkUMZyA@cluster0-m3ga3.mongodb.net/virtrade?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-26T15:21:47.635Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-10-26T15:22:48.442Z'
+}
+{
+  message: 'Connected to mongodb+srv://nikforce:isS1P3va0kkUMZyA@cluster0-m3ga3.mongodb.net/virtrade?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-26T15:22:49.462Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-10-26T15:23:08.395Z'
+}
+{
+  message: 'Connected to mongodb+srv://nikforce:isS1P3va0kkUMZyA@cluster0-m3ga3.mongodb.net/virtrade?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-26T15:23:09.280Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-10-26T15:23:43.001Z'
+}
+{
+  message: 'Connected to mongodb+srv://nikforce:isS1P3va0kkUMZyA@cluster0-m3ga3.mongodb.net/virtrade?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-26T15:23:43.810Z'
+}
+{
+  metadata: TypeError: Cannot read property 'query' of undefined
+      at Strategy.OAuth2Strategy.authenticate (C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\passport-oauth2\lib\strategy.js:133:11)
+      at attempt (C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\passport\lib\middleware\authenticate.js:366:16)
+      at authenticate (C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\passport\lib\middleware\authenticate.js:367:7)
+      at C:\Users\Station\Desktop\vir last\VT-Backend\Routes\authRoutes.js:38:70
+      at newFn (C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\express-async-errors\index.js:16:20)
+      at Layer.handle [as handle_request] (C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\express\lib\router\layer.js:95:5)
+      at next (C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\express\lib\router\route.js:137:13)
+      at Route.dispatch (C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\express\lib\router\route.js:112:3)
+      at newFn (C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\express-async-errors\index.js:16:20)
+      at Layer.handle [as handle_request] (C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\express\lib\router\layer.js:95:5)
+      at C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\express\lib\router\index.js:281:22
+      at Function.process_params (C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\express\lib\router\index.js:335:12)
+      at next (C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\express\lib\router\index.js:275:10)
+      at initialize (C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\passport\lib\middleware\initialize.js:53:5)
+      at newFn (C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\express-async-errors\index.js:16:20)
+      at Layer.handle [as handle_request] (C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\express\lib\router\layer.js:95:5),
+  level: 'error',
+  message: "Cannot read property 'query' of undefined",
+  timestamp: '2020-10-26T15:23:47.105Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-10-26T15:23:54.036Z'
+}
+{
+  message: 'Connected to mongodb+srv://nikforce:isS1P3va0kkUMZyA@cluster0-m3ga3.mongodb.net/virtrade?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-26T15:23:55.080Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-10-26T15:24:13.377Z'
+}
+{
+  message: 'Connected to mongodb+srv://nikforce:isS1P3va0kkUMZyA@cluster0-m3ga3.mongodb.net/virtrade?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-26T15:24:14.238Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-10-26T15:24:34.444Z'
+}
+{
+  message: 'Connected to mongodb+srv://nikforce:isS1P3va0kkUMZyA@cluster0-m3ga3.mongodb.net/virtrade?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-26T15:24:35.244Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-10-26T15:31:04.087Z'
+}
+{
+  message: 'Connected to mongodb+srv://nikforce:isS1P3va0kkUMZyA@cluster0-m3ga3.mongodb.net/virtrade?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-26T15:31:05.158Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-10-26T15:37:37.770Z'
+}
+{
+  message: 'Connected to mongodb+srv://nikforce:isS1P3va0kkUMZyA@cluster0-m3ga3.mongodb.net/virtrade?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-26T15:37:38.819Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-10-26T15:40:24.375Z'
+}
+{
+  message: 'Connected to mongodb+srv://nikforce:isS1P3va0kkUMZyA@cluster0-m3ga3.mongodb.net/virtrade?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-26T15:40:25.450Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-10-26T15:42:29.642Z'
+}
+{
+  message: 'Connected to mongodb+srv://nikforce:isS1P3va0kkUMZyA@cluster0-m3ga3.mongodb.net/virtrade?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-26T15:42:30.662Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-10-26T15:45:27.046Z'
+}
+{
+  message: 'Connected to mongodb+srv://nikforce:isS1P3va0kkUMZyA@cluster0-m3ga3.mongodb.net/virtrade?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-26T15:45:28.268Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-10-26T15:45:44.771Z'
+}
+{
+  message: 'Connected to mongodb+srv://nikforce:isS1P3va0kkUMZyA@cluster0-m3ga3.mongodb.net/virtrade?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-26T15:45:45.588Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-10-26T15:47:05.494Z'
+}
+{
+  message: 'Connected to mongodb+srv://nikforce:isS1P3va0kkUMZyA@cluster0-m3ga3.mongodb.net/virtrade?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-26T15:47:06.591Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-10-26T15:48:34.558Z'
+}
+{
+  message: 'Connected to mongodb+srv://nikforce:isS1P3va0kkUMZyA@cluster0-m3ga3.mongodb.net/virtrade?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-26T15:48:35.621Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-10-26T15:50:10.811Z'
+}
+{
+  message: 'Connected to mongodb+srv://nikforce:isS1P3va0kkUMZyA@cluster0-m3ga3.mongodb.net/virtrade?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-26T15:50:11.918Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-10-26T15:50:36.177Z'
+}
+{
+  message: 'Connected to mongodb+srv://nikforce:isS1P3va0kkUMZyA@cluster0-m3ga3.mongodb.net/virtrade?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-26T15:50:37.036Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-10-26T15:51:09.639Z'
+}
+{
+  message: 'Connected to mongodb+srv://nikforce:isS1P3va0kkUMZyA@cluster0-m3ga3.mongodb.net/virtrade?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-26T15:51:10.536Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-10-26T15:51:39.549Z'
+}
+{
+  metadata: TokenError: Invalid "code" in request.
+      at Strategy.OAuth2Strategy.parseErrorResponse (C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\passport-oauth2\lib\strategy.js:358:12)
+      at Strategy.OAuth2Strategy._createOAuthError (C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\passport-oauth2\lib\strategy.js:405:16)
+      at C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\passport-oauth2\lib\strategy.js:175:45
+      at C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\oauth\lib\oauth2.js:191:18
+      at passBackControl (C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\oauth\lib\oauth2.js:132:9)
+      at IncomingMessage.<anonymous> (C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\oauth\lib\oauth2.js:157:7)
+      at IncomingMessage.emit (events.js:317:22)
+      at endReadableNT (_stream_readable.js:1215:12)
+      at processTicksAndRejections (internal/process/task_queues.js:84:21) {
+    name: 'TokenError',
+    message: 'Invalid "code" in request.',
+    code: 'invalid_request',
+    uri: undefined,
+    status: 500
+  },
+  level: 'error',
+  message: 'Invalid "code" in request.',
+  timestamp: '2020-10-26T15:51:40.088Z'
+}
+{
+  message: 'Connected to mongodb+srv://nikforce:isS1P3va0kkUMZyA@cluster0-m3ga3.mongodb.net/virtrade?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-26T15:51:40.580Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-10-26T15:52:00.831Z'
+}
+{
+  metadata: TokenError: Invalid "code" in request.
+      at Strategy.OAuth2Strategy.parseErrorResponse (C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\passport-oauth2\lib\strategy.js:358:12)
+      at Strategy.OAuth2Strategy._createOAuthError (C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\passport-oauth2\lib\strategy.js:405:16)
+      at C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\passport-oauth2\lib\strategy.js:175:45
+      at C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\oauth\lib\oauth2.js:191:18
+      at passBackControl (C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\oauth\lib\oauth2.js:132:9)
+      at IncomingMessage.<anonymous> (C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\oauth\lib\oauth2.js:157:7)
+      at IncomingMessage.emit (events.js:317:22)
+      at endReadableNT (_stream_readable.js:1215:12)
+      at processTicksAndRejections (internal/process/task_queues.js:84:21) {
+    name: 'TokenError',
+    message: 'Invalid "code" in request.',
+    code: 'invalid_request',
+    uri: undefined,
+    status: 500
+  },
+  level: 'error',
+  message: 'Invalid "code" in request.',
+  timestamp: '2020-10-26T15:52:01.193Z'
+}
+{
+  message: 'Connected to mongodb+srv://nikforce:isS1P3va0kkUMZyA@cluster0-m3ga3.mongodb.net/virtrade?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-26T15:52:01.707Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-10-26T15:52:24.314Z'
+}
+{
+  message: 'Connected to mongodb+srv://nikforce:isS1P3va0kkUMZyA@cluster0-m3ga3.mongodb.net/virtrade?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-26T15:52:25.320Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-10-26T15:53:24.995Z'
+}
+{
+  metadata: TokenError: Invalid "code" in request.
+      at Strategy.OAuth2Strategy.parseErrorResponse (C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\passport-oauth2\lib\strategy.js:358:12)
+      at Strategy.OAuth2Strategy._createOAuthError (C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\passport-oauth2\lib\strategy.js:405:16)
+      at C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\passport-oauth2\lib\strategy.js:175:45
+      at C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\oauth\lib\oauth2.js:191:18
+      at passBackControl (C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\oauth\lib\oauth2.js:132:9)
+      at IncomingMessage.<anonymous> (C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\oauth\lib\oauth2.js:157:7)
+      at IncomingMessage.emit (events.js:317:22)
+      at endReadableNT (_stream_readable.js:1215:12)
+      at processTicksAndRejections (internal/process/task_queues.js:84:21) {
+    name: 'TokenError',
+    message: 'Invalid "code" in request.',
+    code: 'invalid_request',
+    uri: undefined,
+    status: 500
+  },
+  level: 'error',
+  message: 'Invalid "code" in request.',
+  timestamp: '2020-10-26T15:53:25.537Z'
+}
+{
+  message: 'Connected to mongodb+srv://nikforce:isS1P3va0kkUMZyA@cluster0-m3ga3.mongodb.net/virtrade?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-26T15:53:26.146Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-10-26T15:53:35.320Z'
+}
+{
+  message: 'Connected to mongodb+srv://nikforce:isS1P3va0kkUMZyA@cluster0-m3ga3.mongodb.net/virtrade?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-26T15:53:36.216Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-10-26T15:53:41.673Z'
+}
+{
+  message: 'Connected to mongodb+srv://nikforce:isS1P3va0kkUMZyA@cluster0-m3ga3.mongodb.net/virtrade?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-26T15:53:42.454Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-10-26T15:56:17.163Z'
+}
+{
+  metadata: TokenError: Invalid "code" in request.
+      at Strategy.OAuth2Strategy.parseErrorResponse (C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\passport-oauth2\lib\strategy.js:358:12)
+      at Strategy.OAuth2Strategy._createOAuthError (C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\passport-oauth2\lib\strategy.js:405:16)
+      at C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\passport-oauth2\lib\strategy.js:175:45
+      at C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\oauth\lib\oauth2.js:191:18
+      at passBackControl (C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\oauth\lib\oauth2.js:132:9)
+      at IncomingMessage.<anonymous> (C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\oauth\lib\oauth2.js:157:7)
+      at IncomingMessage.emit (events.js:317:22)
+      at endReadableNT (_stream_readable.js:1215:12)
+      at processTicksAndRejections (internal/process/task_queues.js:84:21) {
+    name: 'TokenError',
+    message: 'Invalid "code" in request.',
+    code: 'invalid_request',
+    uri: undefined,
+    status: 500
+  },
+  level: 'error',
+  message: 'Invalid "code" in request.',
+  timestamp: '2020-10-26T15:56:17.721Z'
+}
+{
+  message: 'Connected to mongodb+srv://nikforce:isS1P3va0kkUMZyA@cluster0-m3ga3.mongodb.net/virtrade?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-26T15:56:18.204Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-10-26T15:57:02.630Z'
+}
+{
+  message: 'Connected to mongodb+srv://nikforce:isS1P3va0kkUMZyA@cluster0-m3ga3.mongodb.net/virtrade?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-26T15:57:03.521Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-10-26T15:59:21.172Z'
+}
+{
+  metadata: TokenError: Invalid "code" in request.
+      at Strategy.OAuth2Strategy.parseErrorResponse (C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\passport-oauth2\lib\strategy.js:358:12)
+      at Strategy.OAuth2Strategy._createOAuthError (C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\passport-oauth2\lib\strategy.js:405:16)
+      at C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\passport-oauth2\lib\strategy.js:175:45
+      at C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\oauth\lib\oauth2.js:191:18
+      at passBackControl (C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\oauth\lib\oauth2.js:132:9)
+      at IncomingMessage.<anonymous> (C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\oauth\lib\oauth2.js:157:7)
+      at IncomingMessage.emit (events.js:317:22)
+      at endReadableNT (_stream_readable.js:1215:12)
+      at processTicksAndRejections (internal/process/task_queues.js:84:21) {
+    name: 'TokenError',
+    message: 'Invalid "code" in request.',
+    code: 'invalid_request',
+    uri: undefined,
+    status: 500
+  },
+  level: 'error',
+  message: 'Invalid "code" in request.',
+  timestamp: '2020-10-26T15:59:21.726Z'
+}
+{
+  message: 'Connected to mongodb+srv://nikforce:isS1P3va0kkUMZyA@cluster0-m3ga3.mongodb.net/virtrade?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-26T15:59:22.405Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-10-26T15:59:28.105Z'
+}
+{
+  message: 'Connected to mongodb+srv://nikforce:isS1P3va0kkUMZyA@cluster0-m3ga3.mongodb.net/virtrade?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-26T15:59:28.988Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-10-26T16:00:24.560Z'
+}
+{
+  metadata: TokenError: Invalid "code" in request.
+      at Strategy.OAuth2Strategy.parseErrorResponse (C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\passport-oauth2\lib\strategy.js:358:12)
+      at Strategy.OAuth2Strategy._createOAuthError (C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\passport-oauth2\lib\strategy.js:405:16)
+      at C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\passport-oauth2\lib\strategy.js:175:45
+      at C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\oauth\lib\oauth2.js:191:18
+      at passBackControl (C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\oauth\lib\oauth2.js:132:9)
+      at IncomingMessage.<anonymous> (C:\Users\Station\Desktop\vir last\VT-Backend\node_modules\oauth\lib\oauth2.js:157:7)
+      at IncomingMessage.emit (events.js:317:22)
+      at endReadableNT (_stream_readable.js:1215:12)
+      at processTicksAndRejections (internal/process/task_queues.js:84:21) {
+    name: 'TokenError',
+    message: 'Invalid "code" in request.',
+    code: 'invalid_request',
+    uri: undefined,
+    status: 500
+  },
+  level: 'error',
+  message: 'Invalid "code" in request.',
+  timestamp: '2020-10-26T16:00:25.054Z'
+}
+{
+  message: 'Connected to mongodb+srv://nikforce:isS1P3va0kkUMZyA@cluster0-m3ga3.mongodb.net/virtrade?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-26T16:00:25.474Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-10-26T16:07:00.315Z'
+}
+{
+  message: 'Connected to mongodb+srv://nikforce:isS1P3va0kkUMZyA@cluster0-m3ga3.mongodb.net/virtrade?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-26T16:07:01.515Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-10-26T16:08:22.231Z'
+}
+{
+  message: 'Connected to mongodb+srv://nikforce:isS1P3va0kkUMZyA@cluster0-m3ga3.mongodb.net/virtrade?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-26T16:08:23.431Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-10-26T16:08:44.358Z'
+}
+{
+  message: 'Connected to mongodb+srv://nikforce:isS1P3va0kkUMZyA@cluster0-m3ga3.mongodb.net/virtrade?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-10-26T16:08:45.247Z'
+}
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-11-05T17:14:31.830Z'
+}
+{
+  message: 'Connected to mongodb+srv://nikforce:isS1P3va0kkUMZyA@cluster0-m3ga3.mongodb.net/virtrade?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-11-05T17:14:32.893Z'
+>>>>>>> bb21dd9a9751dc1bcf835198946fdbfbc26bcc33
 }

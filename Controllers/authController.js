@@ -150,6 +150,7 @@ exports.adminOnly = async (req, res, next) => {
   next()
 }
 
+
 exports.passportLoginOrCreate = async (req, res, next) => {
   const { user } = req
   let passportUser
@@ -161,6 +162,7 @@ exports.passportLoginOrCreate = async (req, res, next) => {
   passportUser = await User.findOne({ [loginMethod]: user.id })
 
 
+  // If so, log in the user
   if (passportUser) {
     return createSendToken(passportUser, res, 'redirect')
   }
@@ -181,6 +183,62 @@ exports.passportLoginOrCreate = async (req, res, next) => {
 
   return createSendToken(passportUser, res, 'redirect')
 }
+
+
+exports.passportProtect = async (req, res, next) => {
+  if (!req.query.link === 1) return next();
+
+  const token = req.cookies.jwt
+  if (!token) return res.status(401).json({ info: "unauthorized", message: "No token provided" })
+
+  try {
+    const decoded = await decodeToken(token)
+
+    const registeredUser = await User.findById(decoded.id).select('-__v')
+
+    req.registeredUser = registeredUser
+
+    next()
+
+
+  } catch {
+    return res.status(400).json({ info: "error", message: "Please try again!" })
+  }
+
+
+}
+
+exports.passportLinkingPlatforms = async (req, res, next) => {
+
+  if (!req.query.link === 1) return next()
+
+  const { registeredUser } = req
+  const { user } = req
+  const loginMethod = user.method
+
+
+  // Check if user already has this platform linked 
+  if (registeredUser[loginMethod]) {
+    return res.status(400).json({ info: "error", message: `Your ${loginMethod} is already linked!` })
+  }
+
+  // Check if this platform is available for linking (Not being used by other virtrade accounts)
+  const passportUser = await User.findOne({ [loginMethod]: user.id })
+
+  if (passportUser) {
+    return res.status(400).json({ info: "error", message: `This ${loginMethod} account belongs to another user` })
+  }
+
+  // Link platform to user's account and send response
+  registeredUser[loginMethod] = user.id;
+  await registeredUser.save()
+
+  return res.status(200).json({ info: "success", message: `Successfully linked your ${loginMethod} account!` })
+
+
+
+}
+
 
 // PUT api/auth/confirmEmail
 exports.confirmEmail = catchAsync(async (req, res, next) => {
@@ -280,10 +338,10 @@ exports.updatePassword = catchAsync(async (req, res, next) => {
   const userDB = await User.findById(user._id).select('+password')
 
   if (!newPassword.match(/^[\!@#$%^&*()\\[\]{}\-_+=~`|:;"'<>,./?a-zA-Z0-9]{6,30}$/m))
-  return res.status(200).json({ info: 'regex', message: 'password contains innapropriate characters' })
-  
+    return res.status(200).json({ info: 'regex', message: 'password contains innapropriate characters' })
+
   if (await userDB.correctPassword(password, userDB.password) === false)
-  return res.status(200).json({ info: 'wrongpass', message: 'current password doesn\'t match' })
+    return res.status(200).json({ info: 'wrongpass', message: 'current password doesn\'t match' })
 
   userDB.password = newPassword
   await userDB.save()
