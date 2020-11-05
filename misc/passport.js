@@ -3,7 +3,11 @@ const passport = require('passport');
 const SteamStrategy = require('passport-steam').Strategy;
 const DiscordStrategy = require('passport-discord').Strategy;
 
-const envURL = (process.env.NODE_ENV === 'production') ? 'https://justlearningfront.website/' : 'http://localhost:3000/';
+
+// For production
+// const envURL = (process.env.NODE_ENV === 'production') ? 'https://virtrade.gg' : 'http://localhost:3000/';
+
+const envURL = (process.env.HOST === 'heroku') ? 'https://virtrade-backend.herokuapp.com/' : 'http://localhost:3000/';
 
 passport.serializeUser((user, done) => {
   done(null, user);
@@ -36,7 +40,8 @@ passport.use(new DiscordStrategy({
 
 },
   ((accessToken, refreshToken, profile, cb) => {
-    profile.method = 'discord';
+    profile.link =
+      profile.method = 'discord';
 
 
     return cb(null, profile);

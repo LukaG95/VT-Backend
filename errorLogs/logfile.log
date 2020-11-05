@@ -16156,3 +16156,13 @@
   level: 'info',
   timestamp: '2020-10-26T16:08:45.247Z'
 }
+{
+  message: 'Listening on port 3000...',
+  level: 'info',
+  timestamp: '2020-11-05T17:14:31.830Z'
+}
+{
+  message: 'Connected to mongodb+srv://nikforce:isS1P3va0kkUMZyA@cluster0-m3ga3.mongodb.net/virtrade?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-11-05T17:14:32.893Z'
+}
