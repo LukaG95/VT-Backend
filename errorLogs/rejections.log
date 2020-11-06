@@ -8703,3 +8703,51 @@
   timestamp: '2020-10-26T15:30:36.988Z'
 >>>>>>> bb21dd9a9751dc1bcf835198946fdbfbc26bcc33
 }
+{
+  error: Error: Redis connection to 127.0.0.1:6379 failed - connect ECONNREFUSED 127.0.0.1:6379
+      at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1129:14) {
+    errno: 'ECONNREFUSED',
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 6379
+  },
+  level: 'error',
+  message: 'uncaughtException: Redis connection to 127.0.0.1:6379 failed - connect ECONNREFUSED 127.0.0.1:6379\n' +
+    'Error: Redis connection to 127.0.0.1:6379 failed - connect ECONNREFUSED 127.0.0.1:6379\n' +
+    '    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1129:14)',
+  stack: 'Error: Redis connection to 127.0.0.1:6379 failed - connect ECONNREFUSED 127.0.0.1:6379\n' +
+    '    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1129:14)',
+  exception: true,
+  date: 'Fri Nov 06 2020 09:31:32 GMT+0100 (GMT+01:00)',
+  process: {
+    pid: 3924,
+    uid: null,
+    gid: null,
+    cwd: 'C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop',
+    execPath: 'C:\\Program Files\\nodejs\\node.exe',
+    version: 'v12.13.1',
+    argv: [
+      'C:\\Program Files\\nodejs\\node.exe',
+      'C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\index.js'
+    ],
+    memoryUsage: {
+      rss: 84688896,
+      heapTotal: 60411904,
+      heapUsed: 32952432,
+      external: 20643271
+    }
+  },
+  os: { loadavg: [ 0, 0, 0 ], uptime: 303810 },
+  trace: [
+    {
+      column: 14,
+      file: 'net.js',
+      function: 'TCPConnectWrap.afterConnect [as oncomplete]',
+      line: 1129,
+      method: 'afterConnect [as oncomplete]',
+      native: false
+    }
+  ],
+  timestamp: '2020-11-06T08:31:33.067Z'
+}
