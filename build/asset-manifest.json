@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/static/css/main.1ba79c13.chunk.css",
-    "main.js": "/static/js/main.b8c456f6.chunk.js",
-    "main.js.map": "/static/js/main.b8c456f6.chunk.js.map",
+    "main.css": "/static/css/main.ec4df54a.chunk.css",
+    "main.js": "/static/js/main.1b1a8cc3.chunk.js",
+    "main.js.map": "/static/js/main.1b1a8cc3.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.e1daef6b.js",
     "runtime-main.js.map": "/static/js/runtime-main.e1daef6b.js.map",
     "static/css/2.d34346ea.chunk.css": "/static/css/2.d34346ea.chunk.css",
-    "static/js/2.954c11c7.chunk.js": "/static/js/2.954c11c7.chunk.js",
-    "static/js/2.954c11c7.chunk.js.map": "/static/js/2.954c11c7.chunk.js.map",
+    "static/js/2.fdf8210e.chunk.js": "/static/js/2.fdf8210e.chunk.js",
+    "static/js/2.fdf8210e.chunk.js.map": "/static/js/2.fdf8210e.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.8d9d56084b30477c047402afa0cbea7c.js": "/precache-manifest.8d9d56084b30477c047402afa0cbea7c.js",
+    "precache-manifest.773d43cafd648592ec3ef4b7c49039ef.js": "/precache-manifest.773d43cafd648592ec3ef4b7c49039ef.js",
     "service-worker.js": "/service-worker.js",
     "static/css/2.d34346ea.chunk.css.map": "/static/css/2.d34346ea.chunk.css.map",
-    "static/css/main.1ba79c13.chunk.css.map": "/static/css/main.1ba79c13.chunk.css.map",
-    "static/js/2.954c11c7.chunk.js.LICENSE.txt": "/static/js/2.954c11c7.chunk.js.LICENSE.txt",
+    "static/css/main.ec4df54a.chunk.css.map": "/static/css/main.ec4df54a.chunk.css.map",
+    "static/js/2.fdf8210e.chunk.js.LICENSE.txt": "/static/js/2.fdf8210e.chunk.js.LICENSE.txt",
     "static/media/1.0.webp": "/static/media/1.0.7b5ec1e6.webp",
     "static/media/1000.0.webp": "/static/media/1000.0.5b8f7116.webp",
     "static/media/1008.0.webp": "/static/media/1008.0.c6858944.webp",
@@ -8040,6 +8040,7 @@
     "static/media/SWITCH icon.png": "/static/media/SWITCH icon.64ff59a6.png",
     "static/media/XBOX icon.png": "/static/media/XBOX icon.0f24f2b0.png",
     "static/media/bellWhite.a14641fd.svg": "/static/media/bellWhite.a14641fd.svg",
+    "static/media/check.png": "/static/media/check.d1826015.png",
     "static/media/crown.svg": "/static/media/crown.bd6d6393.svg",
     "static/media/profile.101a6f1a.svg": "/static/media/profile.101a6f1a.svg",
     "static/media/question.webp": "/static/media/question.d1c88148.webp",
@@ -8051,8 +8052,8 @@
   "entrypoints": [
     "static/js/runtime-main.e1daef6b.js",
     "static/css/2.d34346ea.chunk.css",
-    "static/js/2.954c11c7.chunk.js",
-    "static/css/main.1ba79c13.chunk.css",
-    "static/js/main.b8c456f6.chunk.js"
+    "static/js/2.fdf8210e.chunk.js",
+    "static/css/main.ec4df54a.chunk.css",
+    "static/js/main.1b1a8cc3.chunk.js"
   ]
 }
