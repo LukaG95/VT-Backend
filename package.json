@@ -1,11 +1,12 @@
 {
-  "name": "vir_backend",
+  "name": "virtrade-backend",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
   "scripts": {
     "start": "node index.js",
-    "test": "jest --testEnvironment=node --runInBand --watchAll --verbose"
+    "test": "jest --testEnvironment=node --runInBand --watchAll --verbose",
+    "prettier": "prettier --write \"**/*.js\""
   },
   "author": "",
   "license": "ISC",
@@ -45,6 +46,7 @@
     "eslint-config-airbnb-base": "^14.1.0",
     "eslint-plugin-import": "^2.20.1",
     "jest": "^26.4.2",
+    "prettier": "^2.1.2",
     "supertest": "^4.0.2"
   }
 }
