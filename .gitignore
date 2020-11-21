@@ -5,6 +5,7 @@ package-lock.json
 
 #Error Logs
 errorLogs/*.log
+*.log
 
 # React build (only push to production)
 # build/
