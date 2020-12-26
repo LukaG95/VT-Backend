@@ -4,34 +4,43 @@ const mongoose = require('mongoose')
 const Joi = require('joi')
 
 const messagesSchema = new mongoose.Schema({
-  sender: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
-
-  message:{
-    text: { 
-      type: String, 
-      required: true 
-    }
-    /*
-    image: {
-      ...
-    }
-    */
-  },
-  
-  recipients:[{
-    user: { 
-      type: mongoose.Schema.Types.ObjectId, 
-      ref: 'User', 
-      required: true 
-    }
-  }],
-  
-  read: { 
-    type: Boolean,
-    default: false
-  },
-
-  createdAt: {
+	participants: {
+		0: {
+			type: mongoose.Schema.Types.ObjectId,
+			ref: 'User',
+			required: true
+		},
+		1: {
+			type: mongoose.Schema.Types.ObjectId,
+			ref: 'User',
+			required: true
+		},
+	},
+	
+	messages: [
+		{
+			sender: {
+				type: Number,
+				min: 0,
+				max: 1,
+				required: true
+			},
+			
+			message: {
+				type: String,
+				minlength: 1,
+				maxlength: 100,
+				required: true
+			},
+			
+			sendAt: {
+				type: Date,
+				default: Date.now
+			}
+		}
+	],
+	
+	createdAt: {
 		type: Date,
 		default: Date.now 
 	},
@@ -41,10 +50,26 @@ const messagesSchema = new mongoose.Schema({
 		default: Date.now
 	},
 	
+	blockedBy0: {
+		type: Boolean,
+		default: false
+	},
+	blockedBy1: {
+		type: Boolean,
+		default: false
+	},
+	
 	__v: { type: Number, select: false }
 });
 
 const Messages = mongoose.model('Messages', messagesSchema)
+
+/*Messages.collection.dropIndex({ "createdAt": 1 },function(err,result) {
+	Messages.collection.createIndex({"createdAt": 1 },{ expireAfterSeconds: 864000 })
+});*/
+Messages.collection.dropIndex({ "participants": 1 },function(err,result) {
+	Messages.collection.createIndex({ "participants": 1 }, { unique: true });
+});
 
 exports.Messages = Messages
 

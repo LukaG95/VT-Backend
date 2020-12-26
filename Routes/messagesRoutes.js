@@ -8,7 +8,7 @@ const router = express.Router()
 
 router.get('/', authController.protect, messagesController.getMessages)
 
-// router.get('/:recipientId', authController.protect, messagesController.getMessagesWithUser)
+router.get('/:recipientId', authController.protect, messagesController.getMessagesWithUser)
 
 router.post('/message', authController.protect, limiter, messagesController.sendMessage)
 router.post('/blockUser', authController.protect, limiter, messagesController.blockUser)
