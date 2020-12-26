@@ -16748,3 +16748,557 @@
   level: 'info',
   timestamp: '2020-11-06T08:31:31.379Z'
 }
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-11-18T22:55:17.228Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-11-18T22:55:17.537Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-11-18T22:57:36.460Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-11-18T22:57:36.737Z'
+}
+{
+  metadata: MongoError: E11000 duplicate key error collection: vt.messages index: participants_1 dup key: { participants: { 0: ObjectId('5f7b9b3b558462001766cd51'), 1: ObjectId('5f80c4bf9ea8ec353c864fe1') } }
+      at Function.create (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\error.js:57:12)
+      at toError (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\utils.js:123:22)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\operations\common_functions.js:265:39
+      at handler (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\topologies\replset.js:1204:22)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\connection\pool.js:405:18
+      at processTicksAndRejections (internal/process/task_queues.js:75:11) {
+    driver: true,
+    name: 'MongoError',
+    index: 0,
+    code: 11000,
+    keyPattern: { participants: 1 },
+    keyValue: {
+      participants: { '0': 5f7b9b3b558462001766cd51, '1': 5f80c4bf9ea8ec353c864fe1 }
+    }
+  },
+  level: 'error',
+  message: "E11000 duplicate key error collection: vt.messages index: participants_1 dup key: { participants: { 0: ObjectId('5f7b9b3b558462001766cd51'), 1: ObjectId('5f80c4bf9ea8ec353c864fe1') } }",
+  timestamp: '2020-11-18T23:17:08.364Z'
+}
+{
+  metadata: MongoError: E11000 duplicate key error collection: vt.messages index: participants_1 dup key: { participants: { 0: ObjectId('5f7b9b3b558462001766cd51'), 1: ObjectId('5f80c4bf9ea8ec353c864fe1') } }
+      at Function.create (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\error.js:57:12)
+      at toError (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\utils.js:123:22)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\operations\common_functions.js:265:39
+      at handler (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\topologies\replset.js:1204:22)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\connection\pool.js:405:18
+      at processTicksAndRejections (internal/process/task_queues.js:75:11) {
+    driver: true,
+    name: 'MongoError',
+    index: 0,
+    code: 11000,
+    keyPattern: { participants: 1 },
+    keyValue: {
+      participants: { '0': 5f7b9b3b558462001766cd51, '1': 5f80c4bf9ea8ec353c864fe1 }
+    }
+  },
+  level: 'error',
+  message: "E11000 duplicate key error collection: vt.messages index: participants_1 dup key: { participants: { 0: ObjectId('5f7b9b3b558462001766cd51'), 1: ObjectId('5f80c4bf9ea8ec353c864fe1') } }",
+  timestamp: '2020-11-18T23:28:17.467Z'
+}
+{
+  metadata: MongoError: E11000 duplicate key error collection: vt.messages index: participants_1 dup key: { participants: { 0: ObjectId('5f7b9b3b558462001766cd51'), 1: ObjectId('5f80c4bf9ea8ec353c864fe1') } }
+      at Function.create (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\error.js:57:12)
+      at toError (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\utils.js:123:22)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\operations\common_functions.js:265:39
+      at handler (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\topologies\replset.js:1204:22)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\connection\pool.js:405:18
+      at processTicksAndRejections (internal/process/task_queues.js:75:11) {
+    driver: true,
+    name: 'MongoError',
+    index: 0,
+    code: 11000,
+    keyPattern: { participants: 1 },
+    keyValue: {
+      participants: { '0': 5f7b9b3b558462001766cd51, '1': 5f80c4bf9ea8ec353c864fe1 }
+    }
+  },
+  level: 'error',
+  message: "E11000 duplicate key error collection: vt.messages index: participants_1 dup key: { participants: { 0: ObjectId('5f7b9b3b558462001766cd51'), 1: ObjectId('5f80c4bf9ea8ec353c864fe1') } }",
+  timestamp: '2020-11-18T23:28:29.143Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-11-19T10:20:38.417Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-11-19T10:20:38.692Z'
+}
+{
+  metadata: Error: Messages validation failed: message.text: Path `message.text` is required., recipients.0.user: Path `user` is required.
+      at ValidationError.inspect (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\error\validation.js:47:26)
+      at formatValue (internal/util/inspect.js:563:31)
+      at formatProperty (internal/util/inspect.js:1406:11)
+      at formatRaw (internal/util/inspect.js:785:9)
+      at formatValue (internal/util/inspect.js:591:10)
+      at inspect (internal/util/inspect.js:221:10)
+      at Format.transform (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\logform\pretty-print.js:27:19)
+      at Format.transform (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\logform\combine.js:20:24)
+      at DerivedLogger._transform (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\lib\winston\logger.js:305:29)
+      at DerivedLogger.Transform._read (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\node_modules\readable-stream\lib\_stream_transform.js:177:10)
+      at DerivedLogger.Transform._write (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\node_modules\readable-stream\lib\_stream_transform.js:164:83)
+      at doWrite (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\node_modules\readable-stream\lib\_stream_writable.js:409:139)
+      at writeOrBuffer (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\node_modules\readable-stream\lib\_stream_writable.js:398:5)
+      at DerivedLogger.Writable.write (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\node_modules\readable-stream\lib\_stream_writable.js:307:11)
+      at DerivedLogger.log (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\lib\winston\logger.js:244:14)
+      at DerivedLogger.<computed> [as error] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\lib\winston\create-logger.js:95:19) {
+    errors: {
+      'message.text': ValidatorError: Path `message.text` is required.
+          at validate (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1217:13)
+          at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1200:7
+          at Array.forEach (<anonymous>)
+          at SchemaString.SchemaType.doValidate (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1145:14)
+          at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\document.js:2408:18
+          at processTicksAndRejections (internal/process/task_queues.js:75:11) {
+        properties: {
+          validator: [Function],
+          message: 'Path `message.text` is required.',
+          type: 'required',
+          path: 'message.text',
+          value: undefined
+        },
+        kind: 'required',
+        path: 'message.text',
+        value: undefined,
+        reason: undefined,
+        [Symbol(mongoose:validatorError)]: true
+      },
+      'recipients.0.user': ValidatorError: Path `user` is required.
+          at validate (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1217:13)
+          at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1200:7
+          at Array.forEach (<anonymous>)
+          at ObjectId.SchemaType.doValidate (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1145:14)
+          at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\document.js:2408:18
+          at processTicksAndRejections (internal/process/task_queues.js:75:11) {
+        properties: {
+          validator: [Function],
+          message: 'Path `user` is required.',
+          type: 'required',
+          path: 'user',
+          value: undefined
+        },
+        kind: 'required',
+        path: 'user',
+        value: undefined,
+        reason: undefined,
+        [Symbol(mongoose:validatorError)]: true
+      }
+    },
+    _message: 'Messages validation failed'
+  },
+  level: 'error',
+  message: 'Messages validation failed: message.text: Path `message.text` is required., recipients.0.user: Path `user` is required.',
+  timestamp: '2020-11-19T10:20:52.080Z'
+}
+{
+  metadata: TypeError: message.message.match is not a function
+      at exports.validateMessage (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\Models\messagesModel.js:47:23)
+      at exports.sendMessage (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\Controllers\messagesController.js:27:27)
+      at processTicksAndRejections (internal/process/task_queues.js:93:5),
+  level: 'error',
+  message: 'message.message.match is not a function',
+  timestamp: '2020-11-19T10:26:06.624Z'
+}
+{
+  metadata: TypeError: message.message.match is not a function
+      at exports.validateMessage (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\Models\messagesModel.js:47:23)
+      at exports.sendMessage (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\Controllers\messagesController.js:27:27)
+      at processTicksAndRejections (internal/process/task_queues.js:93:5),
+  level: 'error',
+  message: 'message.message.match is not a function',
+  timestamp: '2020-11-19T10:26:56.058Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-11-19T10:27:00.186Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-11-19T10:27:00.467Z'
+}
+{
+  metadata: TypeError: Cannot read property 'match' of undefined
+      at exports.validateMessage (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\Models\messagesModel.js:47:20)
+      at exports.sendMessage (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\Controllers\messagesController.js:27:27)
+      at processTicksAndRejections (internal/process/task_queues.js:93:5),
+  level: 'error',
+  message: "Cannot read property 'match' of undefined",
+  timestamp: '2020-11-19T10:27:00.847Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-11-19T10:27:48.758Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-11-19T10:27:48.936Z'
+}
+{
+  metadata: TypeError: Cannot read property 'match' of undefined
+      at exports.validateMessage (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\Models\messagesModel.js:47:20)
+      at exports.sendMessage (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\Controllers\messagesController.js:27:27)
+      at processTicksAndRejections (internal/process/task_queues.js:93:5),
+  level: 'error',
+  message: "Cannot read property 'match' of undefined",
+  timestamp: '2020-11-19T10:27:50.985Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-11-19T10:28:11.518Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-11-19T10:28:11.784Z'
+}
+{
+  metadata: TypeError: Cannot read property 'match' of undefined
+      at exports.validateMessage (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\Models\messagesModel.js:47:20)
+      at exports.sendMessage (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\Controllers\messagesController.js:27:27)
+      at processTicksAndRejections (internal/process/task_queues.js:93:5),
+  level: 'error',
+  message: "Cannot read property 'match' of undefined",
+  timestamp: '2020-11-19T10:28:13.164Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-11-19T10:29:04.859Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-11-19T10:29:05.045Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-11-19T10:30:43.067Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-11-19T10:30:43.418Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-11-19T10:52:54.781Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-11-19T10:52:55.084Z'
+}
+{
+  metadata: Error: Messages validation failed: recipients.0.user: Path `user` is required.
+      at ValidationError.inspect (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\error\validation.js:47:26)
+      at formatValue (internal/util/inspect.js:563:31)
+      at formatProperty (internal/util/inspect.js:1406:11)
+      at formatRaw (internal/util/inspect.js:785:9)
+      at formatValue (internal/util/inspect.js:591:10)
+      at inspect (internal/util/inspect.js:221:10)
+      at Format.transform (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\logform\pretty-print.js:27:19)
+      at Format.transform (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\logform\combine.js:20:24)
+      at DerivedLogger._transform (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\lib\winston\logger.js:305:29)
+      at DerivedLogger.Transform._read (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\node_modules\readable-stream\lib\_stream_transform.js:177:10)
+      at DerivedLogger.Transform._write (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\node_modules\readable-stream\lib\_stream_transform.js:164:83)
+      at doWrite (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\node_modules\readable-stream\lib\_stream_writable.js:409:139)
+      at writeOrBuffer (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\node_modules\readable-stream\lib\_stream_writable.js:398:5)
+      at DerivedLogger.Writable.write (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\node_modules\readable-stream\lib\_stream_writable.js:307:11)
+      at DerivedLogger.log (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\lib\winston\logger.js:244:14)
+      at DerivedLogger.<computed> [as error] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\lib\winston\create-logger.js:95:19) {
+    errors: {
+      'recipients.0.user': ValidatorError: Path `user` is required.
+          at validate (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1217:13)
+          at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1200:7
+          at Array.forEach (<anonymous>)
+          at ObjectId.SchemaType.doValidate (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1145:14)
+          at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\document.js:2408:18
+          at processTicksAndRejections (internal/process/task_queues.js:75:11) {
+        properties: {
+          validator: [Function],
+          message: 'Path `user` is required.',
+          type: 'required',
+          path: 'user',
+          value: undefined
+        },
+        kind: 'required',
+        path: 'user',
+        value: undefined,
+        reason: undefined,
+        [Symbol(mongoose:validatorError)]: true
+      }
+    },
+    _message: 'Messages validation failed'
+  },
+  level: 'error',
+  message: 'Messages validation failed: recipients.0.user: Path `user` is required.',
+  timestamp: '2020-11-19T10:52:57.339Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-11-19T10:54:33.588Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-11-19T10:54:33.889Z'
+}
+{
+  metadata: Error: Messages validation failed: recipients.0.user: Path `user` is required.
+      at ValidationError.inspect (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\error\validation.js:47:26)
+      at formatValue (internal/util/inspect.js:563:31)
+      at formatProperty (internal/util/inspect.js:1406:11)
+      at formatRaw (internal/util/inspect.js:785:9)
+      at formatValue (internal/util/inspect.js:591:10)
+      at inspect (internal/util/inspect.js:221:10)
+      at Format.transform (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\logform\pretty-print.js:27:19)
+      at Format.transform (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\logform\combine.js:20:24)
+      at DerivedLogger._transform (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\lib\winston\logger.js:305:29)
+      at DerivedLogger.Transform._read (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\node_modules\readable-stream\lib\_stream_transform.js:177:10)
+      at DerivedLogger.Transform._write (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\node_modules\readable-stream\lib\_stream_transform.js:164:83)
+      at doWrite (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\node_modules\readable-stream\lib\_stream_writable.js:409:139)
+      at writeOrBuffer (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\node_modules\readable-stream\lib\_stream_writable.js:398:5)
+      at DerivedLogger.Writable.write (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\node_modules\readable-stream\lib\_stream_writable.js:307:11)
+      at DerivedLogger.log (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\lib\winston\logger.js:244:14)
+      at DerivedLogger.<computed> [as error] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\lib\winston\create-logger.js:95:19) {
+    errors: {
+      'recipients.0.user': ValidatorError: Path `user` is required.
+          at validate (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1217:13)
+          at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1200:7
+          at Array.forEach (<anonymous>)
+          at ObjectId.SchemaType.doValidate (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1145:14)
+          at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\document.js:2408:18
+          at processTicksAndRejections (internal/process/task_queues.js:75:11) {
+        properties: {
+          validator: [Function],
+          message: 'Path `user` is required.',
+          type: 'required',
+          path: 'user',
+          value: undefined
+        },
+        kind: 'required',
+        path: 'user',
+        value: undefined,
+        reason: undefined,
+        [Symbol(mongoose:validatorError)]: true
+      }
+    },
+    _message: 'Messages validation failed'
+  },
+  level: 'error',
+  message: 'Messages validation failed: recipients.0.user: Path `user` is required.',
+  timestamp: '2020-11-19T10:54:34.897Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-11-19T10:54:40.462Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-11-19T10:54:40.646Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-11-19T11:05:35.124Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-11-19T11:05:35.466Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-11-19T11:06:48.983Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-11-19T11:06:49.245Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-11-19T11:09:34.231Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-11-19T11:09:34.522Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-11-19T11:11:58.038Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-11-19T11:11:58.296Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-11-19T11:12:37.781Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-11-19T11:12:37.946Z'
+}
+{
+  metadata: MongoError: E11000 duplicate key error collection: vt.messages index: participants_1 dup key: { participants: null }
+      at Function.create (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\error.js:57:12)
+      at toError (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\utils.js:123:22)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\operations\common_functions.js:265:39
+      at handler (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\topologies\replset.js:1204:22)
+      at C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongodb\lib\core\connection\pool.js:405:18
+      at processTicksAndRejections (internal/process/task_queues.js:75:11) {
+    driver: true,
+    name: 'MongoError',
+    index: 0,
+    code: 11000,
+    keyPattern: { participants: 1 },
+    keyValue: { participants: null }
+  },
+  level: 'error',
+  message: 'E11000 duplicate key error collection: vt.messages index: participants_1 dup key: { participants: null }',
+  timestamp: '2020-11-19T11:13:55.445Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-11-19T11:18:28.183Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-11-19T11:18:28.473Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-11-19T11:18:36.170Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-11-19T11:18:36.351Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-11-19T11:23:06.140Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-11-19T11:23:06.406Z'
+}
+{
+  metadata: Error: Messages validation failed: recipients: Cast to embedded failed for value "2" at path "recipients"
+      at ValidationError.inspect (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\error\validation.js:47:26)
+      at formatValue (internal/util/inspect.js:563:31)
+      at formatProperty (internal/util/inspect.js:1406:11)
+      at formatRaw (internal/util/inspect.js:785:9)
+      at formatValue (internal/util/inspect.js:591:10)
+      at inspect (internal/util/inspect.js:221:10)
+      at Format.transform (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\logform\pretty-print.js:27:19)
+      at Format.transform (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\logform\combine.js:20:24)
+      at DerivedLogger._transform (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\lib\winston\logger.js:305:29)
+      at DerivedLogger.Transform._read (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\node_modules\readable-stream\lib\_stream_transform.js:177:10)
+      at DerivedLogger.Transform._write (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\node_modules\readable-stream\lib\_stream_transform.js:164:83)
+      at doWrite (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\node_modules\readable-stream\lib\_stream_writable.js:409:139)
+      at writeOrBuffer (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\node_modules\readable-stream\lib\_stream_writable.js:398:5)
+      at DerivedLogger.Writable.write (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\node_modules\readable-stream\lib\_stream_writable.js:307:11)
+      at DerivedLogger.log (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\lib\winston\logger.js:244:14)
+      at DerivedLogger.<computed> [as error] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\winston\lib\winston\create-logger.js:95:19) {
+    errors: {
+      recipients: CastError: Cast to embedded failed for value "2" at path "recipients"
+          at DocumentArrayPath.cast (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schema\documentarray.js:454:19)
+          at DocumentArrayPath.cast (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schema\documentarray.js:383:17)
+          at DocumentArrayPath.SchemaType.applySetters (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1070:12)
+          at model.$set (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\document.js:1227:20)
+          at model._handleIndex (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\document.js:996:14)
+          at model.$set (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\document.js:937:22)
+          at model.Document (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\document.js:146:12)
+          at model.Model (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\model.js:106:12)
+          at new model (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\model.js:4675:15)
+          at exports.sendMessage (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\Controllers\messagesController.js:38:9)
+          at processTicksAndRejections (internal/process/task_queues.js:93:5) {
+        stringValue: '"2"',
+        messageFormat: undefined,
+        kind: 'embedded',
+        value: '2',
+        path: 'recipients',
+        reason: ObjectParameterError: Parameter "obj" to Document() must be an object, got 2
+            at EmbeddedDocument.Document (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\document.js:97:11)
+            at EmbeddedDocument [as constructor] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\types\embedded.js:42:12)
+            at new EmbeddedDocument (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schema\documentarray.js:115:17)
+            at DocumentArrayPath.cast (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schema\documentarray.js:447:22)
+            at DocumentArrayPath.cast (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schema\documentarray.js:383:17)
+            at DocumentArrayPath.SchemaType.applySetters (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\schematype.js:1070:12)
+            at model.$set (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\document.js:1227:20)
+            at model._handleIndex (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\document.js:996:14)
+            at model.$set (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\document.js:937:22)
+            at model.Document (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\document.js:146:12)
+            at model.Model (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\model.js:106:12)
+            at new model (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\mongoose\lib\model.js:4675:15)
+            at exports.sendMessage (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\Controllers\messagesController.js:38:9)
+            at processTicksAndRejections (internal/process/task_queues.js:93:5)
+      }
+    },
+    _message: 'Messages validation failed'
+  },
+  level: 'error',
+  message: 'Messages validation failed: recipients: Cast to embedded failed for value "2" at path "recipients"',
+  timestamp: '2020-11-19T11:23:09.912Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-11-19T11:23:41.418Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-11-19T11:23:41.586Z'
+}
+{
+  message: 'Listening on port 5000...',
+  level: 'info',
+  timestamp: '2020-11-20T11:36:01.125Z'
+}
+{
+  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
+  level: 'info',
+  timestamp: '2020-11-20T11:36:01.390Z'
+}

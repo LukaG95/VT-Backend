@@ -8751,3 +8751,707 @@
   ],
   timestamp: '2020-11-06T08:31:33.067Z'
 }
+{
+  error: Error: Redis connection to 127.0.0.1:6379 failed - connect ECONNREFUSED 127.0.0.1:6379
+      at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1129:14) {
+    errno: 'ECONNREFUSED',
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 6379
+  },
+  level: 'error',
+  message: 'uncaughtException: Redis connection to 127.0.0.1:6379 failed - connect ECONNREFUSED 127.0.0.1:6379\n' +
+    'Error: Redis connection to 127.0.0.1:6379 failed - connect ECONNREFUSED 127.0.0.1:6379\n' +
+    '    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1129:14)',
+  stack: 'Error: Redis connection to 127.0.0.1:6379 failed - connect ECONNREFUSED 127.0.0.1:6379\n' +
+    '    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1129:14)',
+  exception: true,
+  date: 'Wed Nov 18 2020 23:55:19 GMT+0100 (GMT+01:00)',
+  process: {
+    pid: 20724,
+    uid: null,
+    gid: null,
+    cwd: 'C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop',
+    execPath: 'C:\\Program Files\\nodejs\\node.exe',
+    version: 'v12.13.1',
+    argv: [
+      'C:\\Program Files\\nodejs\\node.exe',
+      'C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\index.js'
+    ],
+    memoryUsage: {
+      rss: 92327936,
+      heapTotal: 62771200,
+      heapUsed: 31261928,
+      external: 20514272
+    }
+  },
+  os: { loadavg: [ 0, 0, 0 ], uptime: 585775 },
+  trace: [
+    {
+      column: 14,
+      file: 'net.js',
+      function: 'TCPConnectWrap.afterConnect [as oncomplete]',
+      line: 1129,
+      method: 'afterConnect [as oncomplete]',
+      native: false
+    }
+  ],
+  timestamp: '2020-11-18T22:55:19.322Z'
+}
+{
+  error: C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\Controllers\messagesController.js:30
+    const recipients = {}
+          ^
+  
+  SyntaxError: Identifier 'recipients' has already been declared
+      at Module._compile (internal/modules/cjs/loader.js:895:18)
+      at Object.Module._extensions..js (internal/modules/cjs/loader.js:995:10)
+      at Module.load (internal/modules/cjs/loader.js:815:32)
+      at Function.Module._load (internal/modules/cjs/loader.js:727:14)
+      at Module.require (internal/modules/cjs/loader.js:852:19)
+      at require (internal/modules/cjs/helpers.js:74:18)
+      at Object.<anonymous> (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\Routes\messagesRoutes.js:4:28)
+      at Module._compile (internal/modules/cjs/loader.js:959:30)
+      at Object.Module._extensions..js (internal/modules/cjs/loader.js:995:10)
+      at Module.load (internal/modules/cjs/loader.js:815:32)
+      at Function.Module._load (internal/modules/cjs/loader.js:727:14)
+      at Module.require (internal/modules/cjs/loader.js:852:19)
+      at require (internal/modules/cjs/helpers.js:74:18)
+      at Object.<anonymous> (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\startup\routes.js:8:24)
+      at Module._compile (internal/modules/cjs/loader.js:959:30)
+      at Object.Module._extensions..js (internal/modules/cjs/loader.js:995:10),
+  level: 'error',
+  message: "uncaughtException: Identifier 'recipients' has already been declared\n" +
+    'C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\Controllers\\messagesController.js:30\n' +
+    '  const recipients = {}\n' +
+    '        ^\n' +
+    '\n' +
+    "SyntaxError: Identifier 'recipients' has already been declared\n" +
+    '    at Module._compile (internal/modules/cjs/loader.js:895:18)\n' +
+    '    at Object.Module._extensions..js (internal/modules/cjs/loader.js:995:10)\n' +
+    '    at Module.load (internal/modules/cjs/loader.js:815:32)\n' +
+    '    at Function.Module._load (internal/modules/cjs/loader.js:727:14)\n' +
+    '    at Module.require (internal/modules/cjs/loader.js:852:19)\n' +
+    '    at require (internal/modules/cjs/helpers.js:74:18)\n' +
+    '    at Object.<anonymous> (C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\Routes\\messagesRoutes.js:4:28)\n' +
+    '    at Module._compile (internal/modules/cjs/loader.js:959:30)\n' +
+    '    at Object.Module._extensions..js (internal/modules/cjs/loader.js:995:10)\n' +
+    '    at Module.load (internal/modules/cjs/loader.js:815:32)\n' +
+    '    at Function.Module._load (internal/modules/cjs/loader.js:727:14)\n' +
+    '    at Module.require (internal/modules/cjs/loader.js:852:19)\n' +
+    '    at require (internal/modules/cjs/helpers.js:74:18)\n' +
+    '    at Object.<anonymous> (C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\startup\\routes.js:8:24)\n' +
+    '    at Module._compile (internal/modules/cjs/loader.js:959:30)\n' +
+    '    at Object.Module._extensions..js (internal/modules/cjs/loader.js:995:10)',
+  stack: 'C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\Controllers\\messagesController.js:30\n' +
+    '  const recipients = {}\n' +
+    '        ^\n' +
+    '\n' +
+    "SyntaxError: Identifier 'recipients' has already been declared\n" +
+    '    at Module._compile (internal/modules/cjs/loader.js:895:18)\n' +
+    '    at Object.Module._extensions..js (internal/modules/cjs/loader.js:995:10)\n' +
+    '    at Module.load (internal/modules/cjs/loader.js:815:32)\n' +
+    '    at Function.Module._load (internal/modules/cjs/loader.js:727:14)\n' +
+    '    at Module.require (internal/modules/cjs/loader.js:852:19)\n' +
+    '    at require (internal/modules/cjs/helpers.js:74:18)\n' +
+    '    at Object.<anonymous> (C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\Routes\\messagesRoutes.js:4:28)\n' +
+    '    at Module._compile (internal/modules/cjs/loader.js:959:30)\n' +
+    '    at Object.Module._extensions..js (internal/modules/cjs/loader.js:995:10)\n' +
+    '    at Module.load (internal/modules/cjs/loader.js:815:32)\n' +
+    '    at Function.Module._load (internal/modules/cjs/loader.js:727:14)\n' +
+    '    at Module.require (internal/modules/cjs/loader.js:852:19)\n' +
+    '    at require (internal/modules/cjs/helpers.js:74:18)\n' +
+    '    at Object.<anonymous> (C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\startup\\routes.js:8:24)\n' +
+    '    at Module._compile (internal/modules/cjs/loader.js:959:30)\n' +
+    '    at Object.Module._extensions..js (internal/modules/cjs/loader.js:995:10)',
+  exception: true,
+  date: 'Thu Nov 19 2020 12:06:06 GMT+0100 (GMT+01:00)',
+  process: {
+    pid: 21528,
+    uid: null,
+    gid: null,
+    cwd: 'C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop',
+    execPath: 'C:\\Program Files\\nodejs\\node.exe',
+    version: 'v12.13.1',
+    argv: [
+      'C:\\Program Files\\nodejs\\node.exe',
+      'C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\index.js'
+    ],
+    memoryUsage: {
+      rss: 71897088,
+      heapTotal: 56668160,
+      heapUsed: 28621608,
+      external: 19738882
+    }
+  },
+  os: { loadavg: [ 0, 0, 0 ], uptime: 629622 },
+  trace: [
+    {
+      column: 18,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module._compile',
+      line: 895,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 10,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module._extensions..js',
+      line: 995,
+      method: '.js',
+      native: false
+    },
+    {
+      column: 32,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module.load',
+      line: 815,
+      method: 'load',
+      native: false
+    },
+    {
+      column: 14,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module._load',
+      line: 727,
+      method: '_load',
+      native: false
+    },
+    {
+      column: 19,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module.require',
+      line: 852,
+      method: 'require',
+      native: false
+    },
+    {
+      column: 18,
+      file: 'internal/modules/cjs/helpers.js',
+      function: 'require',
+      line: 74,
+      method: null,
+      native: false
+    },
+    {
+      column: 28,
+      file: 'C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\Routes\\messagesRoutes.js',
+      function: null,
+      line: 4,
+      method: null,
+      native: false
+    },
+    {
+      column: 30,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module._compile',
+      line: 959,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 10,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module._extensions..js',
+      line: 995,
+      method: '.js',
+      native: false
+    },
+    {
+      column: 32,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module.load',
+      line: 815,
+      method: 'load',
+      native: false
+    },
+    {
+      column: 14,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module._load',
+      line: 727,
+      method: '_load',
+      native: false
+    },
+    {
+      column: 19,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module.require',
+      line: 852,
+      method: 'require',
+      native: false
+    },
+    {
+      column: 18,
+      file: 'internal/modules/cjs/helpers.js',
+      function: 'require',
+      line: 74,
+      method: null,
+      native: false
+    },
+    {
+      column: 24,
+      file: 'C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\startup\\routes.js',
+      function: null,
+      line: 8,
+      method: null,
+      native: false
+    },
+    {
+      column: 30,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module._compile',
+      line: 959,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 10,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module._extensions..js',
+      line: 995,
+      method: '.js',
+      native: false
+    }
+  ],
+  timestamp: '2020-11-19T11:06:06.174Z'
+}
+{
+  error: Error: Route.get() requires a callback function but got a [object Undefined]
+      at Route.<computed> [as get] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\route.js:202:15)
+      at Function.proto.<computed> [as get] (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\node_modules\express\lib\router\index.js:510:19)
+      at Object.<anonymous> (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\Routes\messagesRoutes.js:10:8)
+      at Module._compile (internal/modules/cjs/loader.js:959:30)
+      at Object.Module._extensions..js (internal/modules/cjs/loader.js:995:10)
+      at Module.load (internal/modules/cjs/loader.js:815:32)
+      at Function.Module._load (internal/modules/cjs/loader.js:727:14)
+      at Module.require (internal/modules/cjs/loader.js:852:19)
+      at require (internal/modules/cjs/helpers.js:74:18)
+      at Object.<anonymous> (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\startup\routes.js:8:24)
+      at Module._compile (internal/modules/cjs/loader.js:959:30)
+      at Object.Module._extensions..js (internal/modules/cjs/loader.js:995:10)
+      at Module.load (internal/modules/cjs/loader.js:815:32)
+      at Function.Module._load (internal/modules/cjs/loader.js:727:14)
+      at Module.require (internal/modules/cjs/loader.js:852:19)
+      at require (internal/modules/cjs/helpers.js:74:18),
+  level: 'error',
+  message: 'uncaughtException: Route.get() requires a callback function but got a [object Undefined]\n' +
+    'Error: Route.get() requires a callback function but got a [object Undefined]\n' +
+    '    at Route.<computed> [as get] (C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\node_modules\\express\\lib\\router\\route.js:202:15)\n' +
+    '    at Function.proto.<computed> [as get] (C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\node_modules\\express\\lib\\router\\index.js:510:19)\n' +
+    '    at Object.<anonymous> (C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\Routes\\messagesRoutes.js:10:8)\n' +
+    '    at Module._compile (internal/modules/cjs/loader.js:959:30)\n' +
+    '    at Object.Module._extensions..js (internal/modules/cjs/loader.js:995:10)\n' +
+    '    at Module.load (internal/modules/cjs/loader.js:815:32)\n' +
+    '    at Function.Module._load (internal/modules/cjs/loader.js:727:14)\n' +
+    '    at Module.require (internal/modules/cjs/loader.js:852:19)\n' +
+    '    at require (internal/modules/cjs/helpers.js:74:18)\n' +
+    '    at Object.<anonymous> (C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\startup\\routes.js:8:24)\n' +
+    '    at Module._compile (internal/modules/cjs/loader.js:959:30)\n' +
+    '    at Object.Module._extensions..js (internal/modules/cjs/loader.js:995:10)\n' +
+    '    at Module.load (internal/modules/cjs/loader.js:815:32)\n' +
+    '    at Function.Module._load (internal/modules/cjs/loader.js:727:14)\n' +
+    '    at Module.require (internal/modules/cjs/loader.js:852:19)\n' +
+    '    at require (internal/modules/cjs/helpers.js:74:18)',
+  stack: 'Error: Route.get() requires a callback function but got a [object Undefined]\n' +
+    '    at Route.<computed> [as get] (C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\node_modules\\express\\lib\\router\\route.js:202:15)\n' +
+    '    at Function.proto.<computed> [as get] (C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\node_modules\\express\\lib\\router\\index.js:510:19)\n' +
+    '    at Object.<anonymous> (C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\Routes\\messagesRoutes.js:10:8)\n' +
+    '    at Module._compile (internal/modules/cjs/loader.js:959:30)\n' +
+    '    at Object.Module._extensions..js (internal/modules/cjs/loader.js:995:10)\n' +
+    '    at Module.load (internal/modules/cjs/loader.js:815:32)\n' +
+    '    at Function.Module._load (internal/modules/cjs/loader.js:727:14)\n' +
+    '    at Module.require (internal/modules/cjs/loader.js:852:19)\n' +
+    '    at require (internal/modules/cjs/helpers.js:74:18)\n' +
+    '    at Object.<anonymous> (C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\startup\\routes.js:8:24)\n' +
+    '    at Module._compile (internal/modules/cjs/loader.js:959:30)\n' +
+    '    at Object.Module._extensions..js (internal/modules/cjs/loader.js:995:10)\n' +
+    '    at Module.load (internal/modules/cjs/loader.js:815:32)\n' +
+    '    at Function.Module._load (internal/modules/cjs/loader.js:727:14)\n' +
+    '    at Module.require (internal/modules/cjs/loader.js:852:19)\n' +
+    '    at require (internal/modules/cjs/helpers.js:74:18)',
+  exception: true,
+  date: 'Fri Nov 20 2020 12:35:03 GMT+0100 (GMT+01:00)',
+  process: {
+    pid: 12808,
+    uid: null,
+    gid: null,
+    cwd: 'C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop',
+    execPath: 'C:\\Program Files\\nodejs\\node.exe',
+    version: 'v12.13.1',
+    argv: [
+      'C:\\Program Files\\nodejs\\node.exe',
+      'C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\index.js'
+    ],
+    memoryUsage: {
+      rss: 71446528,
+      heapTotal: 56406016,
+      heapUsed: 27931368,
+      external: 19658407
+    }
+  },
+  os: { loadavg: [ 0, 0, 0 ], uptime: 717760 },
+  trace: [
+    {
+      column: 15,
+      file: 'C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\node_modules\\express\\lib\\router\\route.js',
+      function: 'Route.<computed> [as get]',
+      line: 202,
+      method: '<computed> [as get]',
+      native: false
+    },
+    {
+      column: 19,
+      file: 'C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\node_modules\\express\\lib\\router\\index.js',
+      function: 'Function.proto.<computed> [as get]',
+      line: 510,
+      method: '<computed> [as get]',
+      native: false
+    },
+    {
+      column: 8,
+      file: 'C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\Routes\\messagesRoutes.js',
+      function: null,
+      line: 10,
+      method: null,
+      native: false
+    },
+    {
+      column: 30,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module._compile',
+      line: 959,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 10,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module._extensions..js',
+      line: 995,
+      method: '.js',
+      native: false
+    },
+    {
+      column: 32,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module.load',
+      line: 815,
+      method: 'load',
+      native: false
+    },
+    {
+      column: 14,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module._load',
+      line: 727,
+      method: '_load',
+      native: false
+    },
+    {
+      column: 19,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module.require',
+      line: 852,
+      method: 'require',
+      native: false
+    },
+    {
+      column: 18,
+      file: 'internal/modules/cjs/helpers.js',
+      function: 'require',
+      line: 74,
+      method: null,
+      native: false
+    },
+    {
+      column: 24,
+      file: 'C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\startup\\routes.js',
+      function: null,
+      line: 8,
+      method: null,
+      native: false
+    },
+    {
+      column: 30,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module._compile',
+      line: 959,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 10,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module._extensions..js',
+      line: 995,
+      method: '.js',
+      native: false
+    },
+    {
+      column: 32,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module.load',
+      line: 815,
+      method: 'load',
+      native: false
+    },
+    {
+      column: 14,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module._load',
+      line: 727,
+      method: '_load',
+      native: false
+    },
+    {
+      column: 19,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module.require',
+      line: 852,
+      method: 'require',
+      native: false
+    },
+    {
+      column: 18,
+      file: 'internal/modules/cjs/helpers.js',
+      function: 'require',
+      line: 74,
+      method: null,
+      native: false
+    }
+  ],
+  timestamp: '2020-11-20T11:35:03.612Z'
+}
+{
+  error: Error: Cannot find module '../misc/generalRateLimiter'
+  Require stack:
+  - C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\Routes\messagesRoutes.js
+  - C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\startup\routes.js
+  - C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\index.js
+      at Function.Module._resolveFilename (internal/modules/cjs/loader.js:797:15)
+      at Function.Module._load (internal/modules/cjs/loader.js:690:27)
+      at Module.require (internal/modules/cjs/loader.js:852:19)
+      at require (internal/modules/cjs/helpers.js:74:18)
+      at Object.<anonymous> (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\Routes\messagesRoutes.js:3:17)
+      at Module._compile (internal/modules/cjs/loader.js:959:30)
+      at Object.Module._extensions..js (internal/modules/cjs/loader.js:995:10)
+      at Module.load (internal/modules/cjs/loader.js:815:32)
+      at Function.Module._load (internal/modules/cjs/loader.js:727:14)
+      at Module.require (internal/modules/cjs/loader.js:852:19)
+      at require (internal/modules/cjs/helpers.js:74:18)
+      at Object.<anonymous> (C:\Users\Ryu\Desktop\Workspace\Projects\Current\VT\Website\Backend\VT-Backend-develop\startup\routes.js:8:24)
+      at Module._compile (internal/modules/cjs/loader.js:959:30)
+      at Object.Module._extensions..js (internal/modules/cjs/loader.js:995:10)
+      at Module.load (internal/modules/cjs/loader.js:815:32)
+      at Function.Module._load (internal/modules/cjs/loader.js:727:14) {
+    code: 'MODULE_NOT_FOUND',
+    requireStack: [
+      'C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\Routes\\messagesRoutes.js',
+      'C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\startup\\routes.js',
+      'C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\index.js'
+    ]
+  },
+  level: 'error',
+  message: "uncaughtException: Cannot find module '../misc/generalRateLimiter'\n" +
+    'Require stack:\n' +
+    '- C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\Routes\\messagesRoutes.js\n' +
+    '- C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\startup\\routes.js\n' +
+    '- C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\index.js\n' +
+    "Error: Cannot find module '../misc/generalRateLimiter'\n" +
+    'Require stack:\n' +
+    '- C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\Routes\\messagesRoutes.js\n' +
+    '- C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\startup\\routes.js\n' +
+    '- C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\index.js\n' +
+    '    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:797:15)\n' +
+    '    at Function.Module._load (internal/modules/cjs/loader.js:690:27)\n' +
+    '    at Module.require (internal/modules/cjs/loader.js:852:19)\n' +
+    '    at require (internal/modules/cjs/helpers.js:74:18)\n' +
+    '    at Object.<anonymous> (C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\Routes\\messagesRoutes.js:3:17)\n' +
+    '    at Module._compile (internal/modules/cjs/loader.js:959:30)\n' +
+    '    at Object.Module._extensions..js (internal/modules/cjs/loader.js:995:10)\n' +
+    '    at Module.load (internal/modules/cjs/loader.js:815:32)\n' +
+    '    at Function.Module._load (internal/modules/cjs/loader.js:727:14)\n' +
+    '    at Module.require (internal/modules/cjs/loader.js:852:19)\n' +
+    '    at require (internal/modules/cjs/helpers.js:74:18)\n' +
+    '    at Object.<anonymous> (C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\startup\\routes.js:8:24)\n' +
+    '    at Module._compile (internal/modules/cjs/loader.js:959:30)\n' +
+    '    at Object.Module._extensions..js (internal/modules/cjs/loader.js:995:10)\n' +
+    '    at Module.load (internal/modules/cjs/loader.js:815:32)\n' +
+    '    at Function.Module._load (internal/modules/cjs/loader.js:727:14)',
+  stack: "Error: Cannot find module '../misc/generalRateLimiter'\n" +
+    'Require stack:\n' +
+    '- C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\Routes\\messagesRoutes.js\n' +
+    '- C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\startup\\routes.js\n' +
+    '- C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\index.js\n' +
+    '    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:797:15)\n' +
+    '    at Function.Module._load (internal/modules/cjs/loader.js:690:27)\n' +
+    '    at Module.require (internal/modules/cjs/loader.js:852:19)\n' +
+    '    at require (internal/modules/cjs/helpers.js:74:18)\n' +
+    '    at Object.<anonymous> (C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\Routes\\messagesRoutes.js:3:17)\n' +
+    '    at Module._compile (internal/modules/cjs/loader.js:959:30)\n' +
+    '    at Object.Module._extensions..js (internal/modules/cjs/loader.js:995:10)\n' +
+    '    at Module.load (internal/modules/cjs/loader.js:815:32)\n' +
+    '    at Function.Module._load (internal/modules/cjs/loader.js:727:14)\n' +
+    '    at Module.require (internal/modules/cjs/loader.js:852:19)\n' +
+    '    at require (internal/modules/cjs/helpers.js:74:18)\n' +
+    '    at Object.<anonymous> (C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\startup\\routes.js:8:24)\n' +
+    '    at Module._compile (internal/modules/cjs/loader.js:959:30)\n' +
+    '    at Object.Module._extensions..js (internal/modules/cjs/loader.js:995:10)\n' +
+    '    at Module.load (internal/modules/cjs/loader.js:815:32)\n' +
+    '    at Function.Module._load (internal/modules/cjs/loader.js:727:14)',
+  exception: true,
+  date: 'Fri Nov 20 2020 12:37:09 GMT+0100 (GMT+01:00)',
+  process: {
+    pid: 14852,
+    uid: null,
+    gid: null,
+    cwd: 'C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop',
+    execPath: 'C:\\Program Files\\nodejs\\node.exe',
+    version: 'v12.13.1',
+    argv: [
+      'C:\\Program Files\\nodejs\\node.exe',
+      'C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\index.js'
+    ],
+    memoryUsage: {
+      rss: 71524352,
+      heapTotal: 56930304,
+      heapUsed: 28112400,
+      external: 19702427
+    }
+  },
+  os: { loadavg: [ 0, 0, 0 ], uptime: 717886 },
+  trace: [
+    {
+      column: 15,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module._resolveFilename',
+      line: 797,
+      method: '_resolveFilename',
+      native: false
+    },
+    {
+      column: 27,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module._load',
+      line: 690,
+      method: '_load',
+      native: false
+    },
+    {
+      column: 19,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module.require',
+      line: 852,
+      method: 'require',
+      native: false
+    },
+    {
+      column: 18,
+      file: 'internal/modules/cjs/helpers.js',
+      function: 'require',
+      line: 74,
+      method: null,
+      native: false
+    },
+    {
+      column: 17,
+      file: 'C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\Routes\\messagesRoutes.js',
+      function: null,
+      line: 3,
+      method: null,
+      native: false
+    },
+    {
+      column: 30,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module._compile',
+      line: 959,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 10,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module._extensions..js',
+      line: 995,
+      method: '.js',
+      native: false
+    },
+    {
+      column: 32,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module.load',
+      line: 815,
+      method: 'load',
+      native: false
+    },
+    {
+      column: 14,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module._load',
+      line: 727,
+      method: '_load',
+      native: false
+    },
+    {
+      column: 19,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module.require',
+      line: 852,
+      method: 'require',
+      native: false
+    },
+    {
+      column: 18,
+      file: 'internal/modules/cjs/helpers.js',
+      function: 'require',
+      line: 74,
+      method: null,
+      native: false
+    },
+    {
+      column: 24,
+      file: 'C:\\Users\\Ryu\\Desktop\\Workspace\\Projects\\Current\\VT\\Website\\Backend\\VT-Backend-develop\\startup\\routes.js',
+      function: null,
+      line: 8,
+      method: null,
+      native: false
+    },
+    {
+      column: 30,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module._compile',
+      line: 959,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 10,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module._extensions..js',
+      line: 995,
+      method: '.js',
+      native: false
+    },
+    {
+      column: 32,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module.load',
+      line: 815,
+      method: 'load',
+      native: false
+    },
+    {
+      column: 14,
+      file: 'internal/modules/cjs/loader.js',
+      function: 'Module._load',
+      line: 727,
+      method: '_load',
+      native: false
+    }
+  ],
+  timestamp: '2020-11-20T11:37:09.656Z'
+}

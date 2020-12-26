@@ -1,3 +1,4 @@
+/*
 const redis = require('redis')
 const util = require('util')
 
@@ -26,3 +27,4 @@ exports.removeKey = async (key) => {
 exports.removeAll = async () => {
   client.flushall()
 }
+*/
