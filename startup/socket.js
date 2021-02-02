@@ -10,20 +10,29 @@ module.exports = function(app, port){
 	io.on('connection', async (socket) => {
 		//io.connections['test'] = socket;
 		console.log('a user connected');
-		//console.log(socket);
+		// console.log(socket);
 		socket.on('disconnect', () => {
 			console.log('user disconnected');
 		});
-	  
-		const cookies = parseCookie(socket.handshake.headers.cookie);
-		const userId = await authController.getUserIdFromJwt(cookies.jwt);
+
+
+		let cookies;
+		let userId;
+
+		if (socket.handshake.headers.cookie) cookies = parseCookie(socket.handshake.headers.cookie);
+		if (cookies && cookies.jwt) userId = await authController.getUserIdFromJwt(cookies.jwt);
+		
+		
 		if(!userId){
-			socket.emit('auth', 'failure');
-			return socket.disconnect();
+		socket.emit('auth', 'failure');
+		return socket.disconnect();
 		}
+		
 		socket.shouldDisconnect = false;
 		socket.join(userId);
 		socket.emit('auth', 'success');
+
+		console.log('Authorized ' + userId)
 	});
 
 	http.listen(port, () => {

@@ -9,7 +9,9 @@ exports.getMessages = async (req, res, next) => {
 	let { page } = req.query;
 	if(!page) page = 0;
 	
-	const messages = await Messages.find({$or:[{'participants.0':user._id},{'participants.1':user._id}]}).slice('messages', -1).skip(page*20).limit(20).sort('-editedAt').populate(['participants.0', 'participants.1']);
+	// const messages = await Messages.find({$or:[{'participants.0':user._id},{'participants.1':user._id}]}).slice('messages', 0).skip(page*20).limit(20).sort('-editedAt').populate({path:"participants.0 participants.1", select: 'username' });
+	const messages = await Messages.find({$or:[{'participants.0':user._id},{'participants.1':user._id}]}).skip(page*20).limit(20).sort('-editedAt').populate({path:"participants.0 participants.1", select: 'username' });
+	
 	if (messages.length < 1) return res.status(200).json({info: "no messages", message: "user has no messages", messages: []});
 	
 	return res.status(200).json({ info: 'success', messages: messages});
@@ -20,15 +22,16 @@ exports.getMessagesWithUser = async (req, res, next) => {
 	
 	const { recipientId } = req.params;
 	let { page } = req.query;
-	if(!page) page = 0;
-	page++;
+	if(!page) page = 1;
+	page--;
+
 	if (!mongoose.Types.ObjectId.isValid(recipientId)) return res.status(400).json({info: "recipientId", message: "Invalid recipientId"});
 	
 	participants = { 'participants.0': user._id, 'participants.1': user._id };
 	if(recipientId < user._id) participants['participants.0'] = recipientId;
 	else participants['participants.1'] = recipientId;
 	
-	const messages = await Messages.findOne(participants).slice('messages',[-20*page, 20]).populate(['participants.0', 'participants.1']);
+	const messages = await Messages.findOne(participants).slice('messages',[page * 20, 20]).populate({path:"participants.0 participants.1", select: 'username' });
 	if (!messages) return res.status(200).json({info: "no messages", message: "user has no messages with the recipient", messages: []});
 	
 	return res.status(200).json({ info: 'success', messages: messages});
@@ -36,10 +39,14 @@ exports.getMessagesWithUser = async (req, res, next) => {
 
 exports.sendMessage = async (req, res, next) => {
 	const user = await User.findById(req.user.id).select('-__v');
+
 	const { recipientId, message } = req.body;
 	
 	const { error } = await validateMessage(req.body, user, req);
 	if (error) return res.status(400).json({info: "invalid credentials", message: error.details[0].message});
+
+	const recipientDB = await User.findById(recipientId).select('-__v');
+	if (!recipientDB) return res.status(400).json({info: "invalid receiver", message: 'recepient could not be found'})
 	
 	participants = { 'participants.0': user._id, 'participants.1': user._id };
 	if(recipientId < user._id) participants['participants.0'] = recipientId;
@@ -63,13 +70,13 @@ exports.sendMessage = async (req, res, next) => {
 		if(messages['blockedBy'+(1-selfid)] === true) return res.status(403).json({info: "forbidden", message: "the recipient has blocked you"});
 		if(messages['blockedBy'+selfid] === true) return res.status(403).json({info: "forbidden", message: "you have blocked the recipient"});
 		
-		messages.messages.push({message: message, sendAt: Date.now(), sender: selfid});
+		messages.messages.unshift({message: message, sendAt: Date.now(), sender: selfid});
 		messages.editedAt = Date.now();
 		await messages.save();
 	}
 	let socket = req.app.get('socket');
-	socket.sendMessage(selfid, recipientId, message);
-	return res.status(200).json({info: "success", message: "message was send"});
+	socket.sendMessage(user._id, recipientId, message);
+	return res.status(200).json({info: "success", message: "message was sent"});
 }
 
 exports.blockUser = async (req, res, next) => {
