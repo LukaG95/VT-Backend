@@ -6,16 +6,16 @@ const messagesController = require('../Controllers/messagesController')
 
 const router = express.Router()
 
-router.get('/', authController.protect, messagesController.getMessages)
+router.get('/', authController.protect, messagesController.getDialogues)
 
 router.get('/:recipientId', authController.protect, messagesController.getMessagesWithUser)
 
 router.post('/message', authController.protect, limiter, messagesController.sendMessage)
-router.post('/blockUser', authController.protect, limiter, messagesController.blockUser)
+// router.post('/blockUser', authController.protect, limiter, messagesController.blockUser)
 
 router.put('/message', authController.protect, messagesController.editMessage)
 
-router.delete('/blockUser', authController.protect, limiter, messagesController.unblockUser)
+// router.delete('/blockUser', authController.protect, limiter, messagesController.unblockUser)
 router.delete('/message', authController.protect, messagesController.deleteMessage)
 
 module.exports = router
