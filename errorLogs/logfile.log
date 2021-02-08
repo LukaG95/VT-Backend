@@ -1,5 +1,0 @@
-{
-  message: 'Connected to mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority.',
-  level: 'info',
-  timestamp: '2020-12-26T01:08:07.191Z'
-}
