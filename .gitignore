@@ -1,9 +1,11 @@
 # Node modules
 node_modules/
 package-lock.json
+/yarn.lock
 
 #Error Logs
-errorLogs/*
+errorLogs/*.log
+*.log
 
 # React build (only push to production)
 # build/*

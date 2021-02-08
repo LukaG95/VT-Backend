@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const authController = require('../Controllers/authController');
 
 module.exports = function(app, port){
@@ -59,3 +60,15 @@ function parseCookie(cookie){
     }
     return object;
 }
+=======
+module.exports = function (app, server) {
+    const io = require("socket.io")(server);
+
+    io.on("connection", (socket) => {
+        console.log("new connection");
+    });
+
+    app.set("socket", io);
+    //var socket = req.app.get('socket');
+};
+>>>>>>> e912160993cb77f6401c49dd118d8c62d9d8009c
