@@ -1,4 +1,5 @@
 const authController = require('../Controllers/authController');
+const logger = require('./logging')
 
 module.exports = function(app, port){
 	//let app = require('express')();
@@ -14,7 +15,6 @@ module.exports = function(app, port){
 		socket.on('disconnect', () => {
 			console.log('user disconnected');
 		});
-
 
 		let cookies;
 		let userId;
@@ -36,7 +36,7 @@ module.exports = function(app, port){
 	});
 
 	http.listen(port, () => {
-	  console.log('listening on *:'+port);
+	  logger.info('listening on *:'+port);
 	});
 	
 	app.set('socket', io);
