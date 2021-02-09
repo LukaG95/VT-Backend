@@ -1,4 +1,4 @@
-/*const redis = require('redis')
+const redis = require('redis')
 const util = require('util')
 
 const redisUrl = 'redis://127.0.0.1:6379'
@@ -26,4 +26,3 @@ exports.removeKey = async (key) => {
 exports.removeAll = async () => {
   client.flushall()
 }
-*/
