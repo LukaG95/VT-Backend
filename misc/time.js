@@ -34,5 +34,23 @@ function readableActiveAt(trades){
   return editedTrades
 }
 
+function readableDialoguesCreatedAt(dialogues) {
+  dateNow = Date.now();
+  
+  dialogues = dialogues.map((dialogue) => {
+    const timeAgo = Math.round((dateNow - dialogue.createdAt.timestamp) / 1000);
+
+    if (timeAgo > 2 * 86400) dialogue.createdAt = dialogue.createdAt.fulldate;
+    else if (timeAgo > 86400) dialogue.createdAt = 'yesterday'
+    else dialogue.createdAt = dialogue.createdAt.hourminutes
+
+    return dialogue
+      
+  })
+
+  return dialogues
+}
+
 exports.readableActiveAt = readableActiveAt
+exports.readableDialoguesCreatedAt = readableDialoguesCreatedAt
 exports.dateToAgo = dateToAgo
