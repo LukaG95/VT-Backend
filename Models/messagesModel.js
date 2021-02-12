@@ -42,16 +42,18 @@ const messagesSchema = new mongoose.Schema({
     __v: { type: Number, select: false },
 });
 
-const Messages = mongoose.model("Messages", messagesSchema);
-/*
-Messages.collection.dropIndex({ createdAt: 1 }, function (err, result) {
-    Messages.collection.createIndex({ createdAt: 1 }, { expireAfterSeconds: 864000 });
+const Messages = mongoose.model('Messages', messagesSchema);
+
+// Messages.collection.dropIndex({ createdAt: 1 }, (err, result) => {
+//     Messages.collection.createIndex(
+//         { createdAt: 1 },
+//         { expireAfterSeconds: 864000 },
+//     );
+// });
+
+Messages.collection.dropIndexes((err, results) => {
+
 });
-*/
-Messages.collection.dropIndexes(function (err, result) {
-
-})
-
 
 // Messages.collection.deleteMany({})
 
