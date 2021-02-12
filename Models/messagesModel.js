@@ -43,10 +43,15 @@ const messagesSchema = new mongoose.Schema({
 });
 
 const Messages = mongoose.model("Messages", messagesSchema);
-
+/*
 Messages.collection.dropIndex({ createdAt: 1 }, function (err, result) {
     Messages.collection.createIndex({ createdAt: 1 }, { expireAfterSeconds: 864000 });
 });
+*/
+Messages.collection.dropIndexes(function (err, result) {
+
+})
+
 
 exports.Messages = Messages;
 
