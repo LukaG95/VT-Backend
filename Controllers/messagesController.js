@@ -125,15 +125,80 @@ exports.getMessagesWithUser = async (req, res, next) => {
             .json({ info: 'recipientId', message: 'Invalid recipientId' });
     }
 
-    const participants = { 'participants.0': user._id, 'participants.1': user._id };
-    if (recipientId < user._id) participants['participants.0'] = recipientId;
-    else participants['participants.1'] = recipientId;
+    const participants = { 'participants.0': `${user._id}`, 'participants.1': user._id };
+    if (recipientId < user._id) participants['participants.0'] = mongoose.Types.ObjectId(recipientId);
+    else participants['participants.1'] = mongoose.Types.ObjectId(recipientId);
 
-    const messages = await Messages.find(participants)
-        .skip(page * 20)
-        .limit(20)
-        .populate({ path: 'participants.0 participants.1', select: 'username' })
-        .sort('-createdAt');
+    // const messages = await Messages.find(participants)
+    //     .skip(page * 20)
+    //     .limit(20)
+    //     .populate({ path: 'participants.0 participants.1', select: 'username' })
+    //     .sort('-createdAt');
+  
+    let messages = await Messages.aggregate([
+        
+            {$match: participants},
+            {
+            
+            
+                $sort: {
+                    createdAt: -1,
+                },
+            },
+                
+        
+        {
+            $addFields: {
+                createdAt: {
+                    default: '$createdAt',
+                    timestamp: { $toLong: '$createdAt' },
+                    hourminutes: {
+                        $dateToString: {
+                            date: '$createdAt',
+                            format: '%H:%M',
+                        },
+                    },
+                    fulldate: {
+                        $dateToString: {
+                            date: '$createdAt',
+                            format: '%d/%m/%Y',
+                        },
+                    },
+                },
+                sender: {
+                    $cond: {
+                        if: {
+                            $eq: ['$sender', 0],
+                        },
+                        then: '$participants.0',
+                        else: '$participants.1',
+                    },
+                },
+            },
+        },
+        {
+            $project: {
+                _id:0,
+                message:1,
+                sender: 1,
+
+                createdAt:1,
+
+            },
+        },
+
+        { $limit: 20 },
+        { $skip: page * 20}
+
+    ]);
+
+    messages = await Messages.populate(messages, {
+        path: 'sender',
+        select: 'username',
+        model: 'User',
+    });
+    
+
     if (!messages) {
         return res.status(200).json({
             info: 'no messages',
@@ -142,8 +207,11 @@ exports.getMessagesWithUser = async (req, res, next) => {
         });
     }
 
-    return res.status(200).json({ info: 'success', messages });
+    return res.status(200).json({ info: 'success', messages: readableDialoguesCreatedAt(messages) });
 };
+
+
+
 
 exports.sendMessage = async (req, res, next) => {
     const user = await User.findById(req.user.id).select('-__v');
