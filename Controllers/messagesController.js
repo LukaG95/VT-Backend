@@ -125,7 +125,7 @@ exports.getMessagesWithUser = async (req, res, next) => {
             .json({ info: 'recipientId', message: 'Invalid recipientId' });
     }
 
-    const participants = { 'participants.0': `${user._id}`, 'participants.1': user._id };
+    const participants = { 'participants.0': user._id, 'participants.1': user._id };
     if (recipientId < user._id) participants['participants.0'] = mongoose.Types.ObjectId(recipientId);
     else participants['participants.1'] = mongoose.Types.ObjectId(recipientId);
 
@@ -138,9 +138,8 @@ exports.getMessagesWithUser = async (req, res, next) => {
     let messages = await Messages.aggregate([
         
             {$match: participants},
-            {
-            
-            
+
+            {    
                 $sort: {
                     createdAt: -1,
                 },
@@ -199,7 +198,7 @@ exports.getMessagesWithUser = async (req, res, next) => {
     });
     
 
-    if (!messages) {
+    if (messages.length < 1) {
         return res.status(200).json({
             info: 'no messages',
             message: 'user has no messages with the recipient',
