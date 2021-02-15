@@ -207,6 +207,8 @@ exports.getMessagesWithUser = async (req, res, next) => {
         });
     }
 
+    console.log(messages)
+
     return res.status(200).json({ info: 'success', messages: readableDialoguesCreatedAt(messages) });
 };
 
