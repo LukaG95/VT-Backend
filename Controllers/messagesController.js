@@ -191,7 +191,7 @@ exports.getMessagesWithUser = async (req, res, next) => {
 
         {
           $sort: {
-            'createdAt.default': -1
+            'createdAt.default': 1
           }
         }
 
