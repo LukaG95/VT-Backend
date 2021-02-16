@@ -42,8 +42,8 @@ module.exports = function (app, port) {
     // let socket = req.app.get('socket');
 };
 
-function sendMessage(senderId, recipientId, message) {
-    this.to(recipientId).emit('message/new', { senderId, message });
+function sendMessage(recipientId, messageObj) {
+    this.to(recipientId).emit('message/new', messageObj);
 }
 
 function parseCookie(cookie) {
