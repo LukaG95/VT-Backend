@@ -8,6 +8,7 @@ const {
 const { User } = require('../Models/userModel');
 const {
     readableDialoguesCreatedAt,
+    readableSocketMessageCreatedAt
 } = require('../misc/time');
 
 exports.getDialogues = async (req, res, next) => {
@@ -185,9 +186,16 @@ exports.getMessagesWithUser = async (req, res, next) => {
 
             },
         },
+        
 
         { $limit: 20 },
-        { $skip: page * 20}
+        { $skip: page * 20},
+
+        {    
+            $sort: {
+                'createdAt.default': 1,
+            },
+        },
 
     ]);
 
@@ -245,9 +253,15 @@ exports.sendMessage = async (req, res, next) => {
     };
 
     await new Messages(messageDetails).save();
+  
+    const socketMsg = {
+        sender: { _id: user._id, username: user.username }, 
+        message, 
+        createdAt: readableSocketMessageCreatedAt(messageDetails.createdAt)
+    }
 
     const socket = req.app.get('socket');
-    socket.sendMessage(user._id, recipientId, message);
+    socket.sendMessage(recipientId, socketMsg);
 
     return res.status(200).json({ info: 'success', message: 'message was sent' });
 };
