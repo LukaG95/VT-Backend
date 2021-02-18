@@ -1,5 +1,5 @@
 const authController = require('../Controllers/authController');
-const logger = require('./logging')
+const redis = require('../misc/redisCaching');
 
 module.exports = function (app, port) {
     // let app = require('express')();
@@ -12,7 +12,20 @@ module.exports = function (app, port) {
         // io.connections['test'] = socket;
         console.log('a user connected');
         // console.log(socket);
-        socket.on('disconnect', () => {
+        socket.on('disconnect', async () => {
+            
+
+            if (socket.jwt) {
+                let status = await redis.isCachedNested('status', userId);
+                    status *= 1;
+                
+                if (!status || status <= 0) await redis.cacheNested('status', userId, 0);
+                else await redis.cacheNested('status', userId, --status);
+                
+                
+                return console.log('Disconnected ' + socket.jwt) 
+            }
+            
             console.log('user disconnected');
         });
 
@@ -29,8 +42,17 @@ module.exports = function (app, port) {
 
         socket.shouldDisconnect = false;
         socket.join(userId);
+        socket.jwt = userId;
         socket.emit('auth', 'success');
 
+    
+        let status = await redis.isCachedNested('status', userId);
+            status *= 1;
+
+        if (!status || status <= 0) await redis.cacheNested('status', userId, 1);
+        else await redis.cacheNested('status', userId, ++status);
+            
+    
         console.log(`Authorized ${userId}`);
     });
 
