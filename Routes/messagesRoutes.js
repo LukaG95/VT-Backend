@@ -7,6 +7,7 @@ const messagesController = require('../Controllers/messagesController');
 const router = express.Router();
 
 router.get('/', authController.protect, messagesController.getDialogues);
+router.get('/status/:userId', authController.protect, messagesController.isOnline);
 
 router.get('/:recipientId', authController.protect, messagesController.getMessagesWithUser);
 
@@ -17,5 +18,6 @@ router.put('/message', authController.protect, messagesController.editMessage);
 
 // router.delete('/blockUser', authController.protect, limiter, messagesController.unblockUser)
 router.delete('/message', authController.protect, messagesController.deleteMessage);
+
 
 module.exports = router;

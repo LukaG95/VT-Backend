@@ -11,6 +11,8 @@ const {
     readableSocketMessageCreatedAt
 } = require('../misc/time');
 
+const redis = require('../misc/redisCaching');
+
 exports.getDialogues = async (req, res, next) => {
     const user = await User.findById(req.user.id).select('-__v');
     // let { page } = req.query;
@@ -31,18 +33,18 @@ exports.getDialogues = async (req, res, next) => {
                 createdAt: {
                     default: '$createdAt',
                     timestamp: { $toLong: '$createdAt' },
-                    hourminutes: {
-                        $dateToString: {
-                            date: '$createdAt',
-                            format: '%H:%M',
-                        },
-                    },
-                    fulldate: {
-                        $dateToString: {
-                            date: '$createdAt',
-                            format: '%d/%m/%Y',
-                        },
-                    },
+                    // hourminutes: {
+                    //     $dateToString: {
+                    //         date: '$createdAt',
+                    //         format: '%H:%M',
+                    //     },
+                    // },
+                    // fulldate: {
+                    //     $dateToString: {
+                    //         date: '$createdAt',
+                    //         format: '%d/%m/%Y',
+                    //     },
+                    // },
                 },
                 conversationWith: {
                     $cond: {
@@ -88,7 +90,7 @@ exports.getDialogues = async (req, res, next) => {
                 _id: 0,
             },
         },
-
+        
         { $limit: 20 },
     ]);
 
@@ -108,7 +110,8 @@ exports.getDialogues = async (req, res, next) => {
 
     return res.status(200).json({
         info: 'success',
-        dialogues: readableDialoguesCreatedAt(dialogues),
+        dialogues
+        // dialogues: readableDialoguesCreatedAt(dialogues),
     });
 };
 
@@ -152,18 +155,18 @@ exports.getMessagesWithUser = async (req, res, next) => {
                 createdAt: {
                     default: '$createdAt',
                     timestamp: { $toLong: '$createdAt' },
-                    hourminutes: {
-                        $dateToString: {
-                            date: '$createdAt',
-                            format: '%H:%M',
-                        },
-                    },
-                    fulldate: {
-                        $dateToString: {
-                            date: '$createdAt',
-                            format: '%d/%m/%Y',
-                        },
-                    },
+                    // hourminutes: {
+                    //     $dateToString: {
+                    //         date: '$createdAt',
+                    //         format: '%H:%M',
+                    //     },
+                    // },
+                    // fulldate: {
+                    //     $dateToString: {
+                    //         date: '$createdAt',
+                    //         format: '%d/%m/%Y',
+                    //     },
+                    // },
                 },
                 sender: {
                     $cond: {
@@ -182,7 +185,7 @@ exports.getMessagesWithUser = async (req, res, next) => {
                 message:1,
                 sender: 1,
 
-                createdAt:1,
+                createdAt: 1,
 
             },
         },
@@ -214,7 +217,10 @@ exports.getMessagesWithUser = async (req, res, next) => {
         });
     }
 
-    return res.status(200).json({ info: 'success', messages: readableDialoguesCreatedAt(messages) });
+    return res.status(200).json({ info: 'success',
+    messages
+    // messages: readableDialoguesCreatedAt(messages) 
+});
 };
 
 
@@ -256,8 +262,9 @@ exports.sendMessage = async (req, res, next) => {
   
     const socketMsg = {
         sender: { _id: user._id, username: user.username }, 
-        message, 
-        createdAt: readableSocketMessageCreatedAt(messageDetails.createdAt)
+        message,
+        createdAt:{timestamp: Date.now()}
+        // createdAt: readableSocketMessageCreatedAt(messageDetails.createdAt)
     }
 
     const socket = req.app.get('socket');
@@ -265,6 +272,26 @@ exports.sendMessage = async (req, res, next) => {
 
     return res.status(200).json({ info: 'success', message: 'message was sent' });
 };
+
+exports.isOnline = async (req, res, next) => {
+
+    const id = req.params.userId;
+
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        return res
+            .status(400)
+            .json({ info: 'userId', message: 'Invalid userId' });
+    }
+    
+    let status = await redis.isCachedNested('status', id);
+        status *= 1;
+
+    if (!status) return res.status(200).json({ info: 'success', status: 'offline' });
+        
+    
+    return res.status(200).json({ info: 'success', status: 'online' });
+
+}
 
 // exports.blockUser = async (req, res, next) => {
 // 	const user = await User.findById(req.user.id).select('-__v');
