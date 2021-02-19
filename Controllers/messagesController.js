@@ -190,10 +190,9 @@ exports.getMessagesWithUser = async (req, res, next) => {
             },
         },
         
-
-        { $limit: 20 },
         { $skip: page * 20},
-
+        { $limit: 20 },
+        
         {    
             $sort: {
                 'createdAt.default': 1,
