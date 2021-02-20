@@ -142,13 +142,12 @@ exports.getMessagesWithUser = async (req, res, next) => {
     let messages = await Messages.aggregate([
         
             {$match: participants},
-
+             
             {    
                 $sort: {
                     createdAt: -1,
                 },
             },
-                
         
         {
             $addFields: {
@@ -179,20 +178,21 @@ exports.getMessagesWithUser = async (req, res, next) => {
                 },
             },
         },
+        
+    
         {
             $project: {
                 _id:0,
                 message:1,
                 sender: 1,
-
                 createdAt: 1,
 
             },
         },
         
-
-        { $limit: 20 },
         { $skip: page * 20},
+        { $limit: 20 },
+        
 
         {    
             $sort: {
@@ -202,11 +202,7 @@ exports.getMessagesWithUser = async (req, res, next) => {
 
     ]);
 
-    messages = await Messages.populate(messages, {
-        path: 'sender',
-        select: 'username',
-        model: 'User',
-    });
+    
     
 
     if (messages.length < 1) {
@@ -217,7 +213,15 @@ exports.getMessagesWithUser = async (req, res, next) => {
         });
     }
 
-    return res.status(200).json({ info: 'success',
+    messages = await Messages.populate(messages, {
+        path: 'sender',
+        select: 'username',
+        model: 'User',
+    });
+
+    hasMore = (await Messages.count(participants).skip(++page * 20)) > 0 ? true : false;
+
+    return res.status(200).json({ info: 'success', hasMore,
     messages
     // messages: readableDialoguesCreatedAt(messages) 
 });
