@@ -219,7 +219,7 @@ exports.getMessagesWithUser = async (req, res, next) => {
         model: 'User',
     });
 
-    hasMore = (await Messages.count(participants).skip(++page * 20)) > 0 ? true : false;
+    const hasMore = (await Messages.count(participants).skip(++page * 20)) > 0 ? true : false;
 
     return res.status(200).json({ info: 'success', hasMore,
     messages
