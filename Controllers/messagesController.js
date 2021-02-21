@@ -104,14 +104,12 @@ exports.getDialogues = async (req, res, next) => {
         return res.status(200).json({
             info: 'no messages',
             message: 'user has no messages',
-            dialogues: [],
-            user: user.username
+            dialogues: []
         });
     }
 
     return res.status(200).json({
         info: 'success',
-        user: user.username,
         dialogues
         // dialogues: readableDialoguesCreatedAt(dialogues),
     });
