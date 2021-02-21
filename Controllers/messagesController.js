@@ -94,6 +94,7 @@ exports.getDialogues = async (req, res, next) => {
         { $limit: 20 },
     ]);
 
+
     dialogues = await Messages.populate(dialogues, {
         path: 'conversationWith',
         select: 'username',
@@ -122,6 +123,7 @@ exports.getMessagesWithUser = async (req, res, next) => {
     let { page } = req.query;
     if (!page) page = 1;
     page--;
+
 
     if (!mongoose.Types.ObjectId.isValid(recipientId)) {
         return res
@@ -186,7 +188,6 @@ exports.getMessagesWithUser = async (req, res, next) => {
                 message:1,
                 sender: 1,
                 createdAt: 1,
-
             },
         },
         
@@ -202,8 +203,6 @@ exports.getMessagesWithUser = async (req, res, next) => {
     ]);
 
     
-    
-
     if (messages.length < 1) {
         return res.status(200).json({
             info: 'no messages',
@@ -216,9 +215,10 @@ exports.getMessagesWithUser = async (req, res, next) => {
         path: 'sender',
         select: 'username',
         model: 'User',
-    });
+    },);
 
-    const hasMore = (await Messages.count(participants).skip(++page * 20)) > 0 ? true : false;
+
+    const hasMore = (await Messages.countDocuments(participants).skip(++page * 20)) > 0 ? true : false;
 
     return res.status(200).json({ info: 'success', hasMore,
     messages
