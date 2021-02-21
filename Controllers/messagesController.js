@@ -124,9 +124,8 @@ exports.getMessagesWithUser = async (req, res, next) => {
     if (!page) page = 1;
     page--;
 
-    const recipientDB = await User.findOne({"_id": recipientId}, {select: 'username'});
 
-    if (!recipientDB) {
+    if (!mongoose.Types.ObjectId.isValid(recipientId)) {
         return res
             .status(400)
             .json({ info: 'recipientId', message: 'Invalid recipientId' });
@@ -220,9 +219,9 @@ exports.getMessagesWithUser = async (req, res, next) => {
     },);
 
 
-    const hasMore = (await Messages.count(participants).skip(++page * 20)) > 0 ? true : false;
+    const hasMore = (await Messages.countDocuments(participants).skip(++page * 20)) > 0 ? true : false;
 
-    return res.status(200).json({ info: 'success', conversationWith: recipientDB,hasMore,
+    return res.status(200).json({ info: 'success', hasMore,
     messages
     // messages: readableDialoguesCreatedAt(messages) 
 });

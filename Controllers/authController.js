@@ -72,6 +72,23 @@ exports.getUser = async (req, res, next) => {
     return res.status(200).json({ info: 'success', message: 'successfully got user', user });
 };
 
+exports.getUsernameById = async (req, res, next) => {
+    
+    const { userId } = req.params;
+
+    const userDB = await User.findOne({ "_id": userId }, { username: 1 });
+
+    if (!userDB) {
+        return res
+            .status(400)
+            .json({ info: 'userId', message: 'Invalid userId' });
+    }
+
+
+    return res.status(200).json({ info: 'success', username: userDB.username})
+    
+}
+
 // GET api/auth/getUserByUsername
 exports.getUserByUsername = async (req, res, next) => {
     const { username } = req.params;
