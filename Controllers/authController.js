@@ -72,6 +72,7 @@ exports.getUser = async (req, res, next) => {
     return res.status(200).json({ info: 'success', message: 'successfully got user', user });
 };
 
+// Currently used for messaging
 exports.getUsernameById = async (req, res, next) => {
     
     const { userId } = req.params;
@@ -88,6 +89,21 @@ exports.getUsernameById = async (req, res, next) => {
     return res.status(200).json({ info: 'success', username: userDB.username})
     
 }
+
+// Currently used for reputation search
+exports.getIdsByUsername = async (req, res, next) => {
+
+    const { username } = req.params;
+
+    if (!username) return res.status(400).json({ info: 'error', message: 'No username provided' });
+
+    const usersDB = await User.find({ username: {'$regex': `^${username}`, '$options' : 'i' }}, { username: 1 }).sort({ username: 1 });
+
+    if (usersDB.length < 1) return res.status(400).json({ info: 'error', message: 'No users were found' });
+
+    return res.status(200).json({ info: 'success', users: usersDB })
+}
+
 
 // GET api/auth/getUserByUsername
 exports.getUserByUsername = async (req, res, next) => {

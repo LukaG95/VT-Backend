@@ -124,7 +124,7 @@ const tradesRLSchema = new mongoose.Schema({
         type: String,
         minlength: 1,
         maxlength: 10,
-        enum: ['Steam', 'XBOX', 'PS4', 'SWITCH'],
+        enum: ['Steam', 'XBOX', 'PSN', 'SWITCH'],
         required: true,
     },
 
@@ -199,7 +199,7 @@ exports.validateTrade = async (trade, user, req) => {
             .required(),
         want: Joi.array().items(hwValidation).min(1).max(itemsLimit)
             .required(),
-        platform: Joi.string().valid('Steam', 'XBOX', 'PS4', 'SWITCH').required(),
+        platform: Joi.string().valid('Steam', 'XBOX', 'PSN', 'SWITCH').required(),
         notes: Joi.string().max(300).allow('').required(),
     });
 
