@@ -93,11 +93,13 @@ exports.getUsernameById = async (req, res, next) => {
 // Currently used for reputation search
 exports.getIdsByUsername = async (req, res, next) => {
 
-    const { username } = req.params;
+    let { username } = req.body;
+
+    username = username.replace(/\|/g, '\\|');
 
     if (!username) return res.status(400).json({ info: 'error', message: 'No username provided' });
 
-    const usersDB = await User.find({ username: {'$regex': `^${username}`, '$options' : 'i' }}, { username: 1 }).sort({ username: 1 });
+    const usersDB = await User.find({ username: {'$regex': `^${username}`, '$options': 'i'}}, { username: 1}).sort({ username: 1 }).limit(15).maxTimeMS(3000);
 
     if (usersDB.length < 1) return res.status(400).json({ info: 'error', message: 'No users were found' });
 
@@ -109,7 +111,7 @@ exports.getIdsByUsername = async (req, res, next) => {
 exports.getUserByUsername = async (req, res, next) => {
     const { username } = req.params;
     // if (!username) return res ...
-
+    
     const regex = new RegExp(['^', username, '$'].join(''), 'i'); // make the search case insensitive
     const user = await User.find({ username: regex }, { _id: 1 });
     if (user.length < 1) return res.status(400).json({ info: 'no user', message: `user was not found by the name of ${username}` });
