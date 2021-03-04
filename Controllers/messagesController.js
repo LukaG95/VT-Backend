@@ -5,6 +5,7 @@ const {
     Messages,
     validateMessage,
 } = require('../Models/messagesModel');
+const { MessagesMisc } = require('../Models/messagesMiscModel');
 const { User } = require('../Models/userModel');
 const {
     readableDialoguesCreatedAt,
@@ -252,6 +253,11 @@ exports.sendMessage = async (req, res, next) => {
     const participants = { 0: user._id, 1: user._id };
     if (recipientId < user._id) participants[0] = recipientId;
     else participants[1] = recipientId;
+    const selfid = user._id == participants[0] ? 0 : 1;
+
+    const blockStatus = await MessagesMisc.findOne({'participants.0': participants[0], 'participants.1': participants[1]});
+        if(blockStatus && blockStatus['blockedBy'+(1-selfid)] === true) return res.status(403).json({info: "forbidden", message: "the recipient has blocked you"});
+	    if(blockStatus && blockStatus['blockedBy'+selfid] === true) return res.status(403).json({info: "forbidden", message: "you have blocked the recipient"});
 
     const messageDetails = {
         participants,
@@ -296,56 +302,95 @@ exports.isOnline = async (req, res, next) => {
 
 }
 
-// exports.blockUser = async (req, res, next) => {
-// 	const user = await User.findById(req.user.id).select('-__v');
-// 	const { recipientId } = req.body;
+exports.isBlocked = async (req, res, next) => {
+    const { user } = req;
+    const recipientId = req.params.userId;
 
-// 	if(recipientId == user._id) return res.status(400).json({info: "invalid credentials", message: 'can\'t block yourself you silly'});
+    if (!mongoose.Types.ObjectId.isValid(recipientId)) {
+        return res
+            .status(400)
+            .json({ info: 'userId', message: 'Invalid userId' });
+    }
 
-// 	participants = { 'participants.0': user._id, 'participants.1': user._id };
-// 	if(recipientId < user._id) participants['participants.0'] = recipientId;
-// 	else participants['participants.1'] = recipientId;
-// 	let selfid = user._id == participants['participants.0'] ? 0 : 1;
+    const participants = { 0: user.id, 1: user.id };
+    if (recipientId < user.id) participants[0] = recipientId;
+    else participants[1] = recipientId;
+    const selfid = user.id == participants[0] ? 0 : 1;
 
-// 	let messages = await Messages.findOne(participants);
-// 	if(!messages) {
-// 		messageDetails = {
-// 			participants: {0:participants['participants.0'],1:participants['participants.1']},
-// 			messages: [],
-// 			createdAt: Date.now(),
-// 			editedAt: Date.now(),
-// 		}
-// 		messageDetails['blockedBy'+selfid] = true;
-// 		await new Messages(messageDetails).save();
-// 	}else{
-// 		if(messages['blockedBy'+selfid] === true) return res.status(304).json({info: "not modified", message: "recipient is already blocked"});
-// 		messages['blockedBy'+selfid] = true;
-// 		await messages.save();
-// 	}
-// 	return res.status(200).json({info: "success", message: "user was blocked"});
-// }
+    const blockStatus = await MessagesMisc.findOne({'participants.0': participants[0], 'participants.1': participants[1]});
+	    if(blockStatus && blockStatus['blockedBy'+selfid] === true) return res.status(200).json({info: "success", status: 'Blocked'});
 
-// exports.unblockUser = async (req, res, next) => {
-// 	const user = await User.findById(req.user.id).select('-__v');
-// 	const { recipientId } = req.body;
 
-// 	if(recipientId == user._id) return res.status(400).json({info: "invalid credentials", message: 'can\'t unblock yourself you silly'});
+    return res.status(200).json({ info: 'success', status: 'Unblocked' });
+}
 
-// 	participants = { 'participants.0': user._id, 'participants.1': user._id };
-// 	if(recipientId < user._id) participants['participants.0'] = recipientId;
-// 	else participants['participants.1'] = recipientId;
-// 	let selfid = user._id == participants['participants.0'] ? 0 : 1;
+exports.blockUser = async (req, res, next) => {
+	const user = await User.findById(req.user.id).select('-__v');
+	const { recipientId } = req.body;
 
-// 	let messages = await Messages.findOne(participants);
-// 	if(!messages) {
-// 		return res.status(304).json({info: "not modified", message: "recipient is not blocked"});
-// 	}else{
-// 		if(messages['blockedBy'+selfid] === false) return res.status(304).json({info: "not modified", message: "recipient is not blocked"});
-// 		messages['blockedBy'+selfid] = false;
-// 		await messages.save();
-// 	}
-// 	return res.status(200).json({info: "success", message: "user in no longer blocked"});
-// }
+    if(recipientId == user._id) return res.status(400).json({info: "invalid credentials", message: 'can\'t block yourself you silly'});
+
+    if (!mongoose.Types.ObjectId.isValid(recipientId)) {
+        return res
+            .status(400)
+            .json({ info: 'recipientId', message: 'Invalid recipientId' });
+    }
+
+    const recipientDB = await User.findById(recipientId).select('-__v');
+    if (!recipientDB) {
+        return res.status(400).json({
+            info: 'invalid receiver',
+            message: 'recepient could not be found',
+        });
+    }
+
+	participants = { 'participants.0': user._id, 'participants.1': user._id };
+	if(recipientId < user._id) participants['participants.0'] = recipientId;
+	else participants['participants.1'] = recipientId;
+	let selfid = user._id == participants['participants.0'] ? 0 : 1;
+
+	let messages = await MessagesMisc.findOne(participants);
+	if(!messages) {
+		blockDetails = {
+			participants: {0:participants['participants.0'],1:participants['participants.1']},
+		}
+		blockDetails['blockedBy'+selfid] = true;
+		await new MessagesMisc(blockDetails).save();
+	}else{
+		if(messages['blockedBy'+selfid] === true) return res.status(200).json({info: "not modified", message: "recipient is already blocked"});
+		messages['blockedBy'+selfid] = true;
+		await messages.save();
+	}
+	return res.status(200).json({info: "success", message: "user was blocked"});
+}
+
+exports.unblockUser = async (req, res, next) => {
+	const user = await User.findById(req.user.id).select('-__v');
+	const { recipientId } = req.body;
+
+    if (!mongoose.Types.ObjectId.isValid(recipientId)) {
+        return res
+            .status(400)
+            .json({ info: 'recipientId', message: 'Invalid recipientId' });
+    }
+
+	if(recipientId == user._id) return res.status(400).json({info: "invalid credentials", message: 'can\'t unblock yourself you silly'});
+
+	participants = { 'participants.0': user._id, 'participants.1': user._id };
+	if(recipientId < user._id) participants['participants.0'] = recipientId;
+	else participants['participants.1'] = recipientId;
+	let selfid = user._id == participants['participants.0'] ? 0 : 1;
+
+	let messages = await MessagesMisc.findOne(participants);
+	if(!messages) {
+		return res.status(200).json({info: "not modified", message: "recipient is not blocked"});
+	}else{
+		if(messages['blockedBy'+selfid] === false) return res.status(200).json({info: "not modified", message: "recipient is not blocked"});
+		messages['blockedBy'+selfid] = false;
+		await messages.save();
+	}
+	return res.status(200).json({info: "success", message: "user in no longer blocked"});
+}
 
 exports.editMessage = async (req, res, next) => res.status(501).json({
     info: 'not implemented',
