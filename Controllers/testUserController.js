@@ -20,7 +20,7 @@ const createSendToken = (user, res, option) => {
 
   const cookieSettings = {
     expires: new Date(
-      Date.now() + 1 * 86400 * 1000,
+      Date.now() + 7 * 86400 * 1000,
     ),
     httpOnly: true,
   }
