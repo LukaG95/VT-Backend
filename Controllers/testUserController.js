@@ -17,10 +17,12 @@ const decodeToken = async (token) => promisify(jwt.verify)(token, process.env.JW
 const createSendToken = (user, res, option) => {
     const token = createToken(user._id);
 
-    const cookieSettings = {
-        expires: new Date(Date.now() + 1 * 86400 * 1000),
-        httpOnly: true
-    };
+  const cookieSettings = {
+    expires: new Date(
+      Date.now() + 7 * 86400 * 1000,
+    ),
+    httpOnly: true,
+  }
 
     if (process.env.NODE_ENV === "production") cookieSettings.secure = true;
 

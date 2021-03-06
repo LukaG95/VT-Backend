@@ -12,15 +12,19 @@ const { TestUser } = require('../Models/testUserModel');
 const Reputation = require('../Models/repModel');
 const user = require('../Models/userModel'); // this is here because of jest tests
 
-const createToken = (id, code = 0, email) => jwt.sign({ id, code, email }, process.env.JWT_SECRET, {
-    expiresIn: process.env.JWT_EXPIRES_IN,
+const createToken = (id, expires, code = 0, email) => jwt.sign({ id, code, email }, process.env.JWT_SECRET, {
+    expiresIn: expires + 'd',
 });
 
 const decodeToken = async (token) => promisify(jwt.verify)(token, process.env.JWT_SECRET);
 
-const createSendToken = (user, res, option) => {
-    const expires = process.env.JWT_EXPIRES_IN.slice(0, -1); // Delete 'd' from the end
-    const token = createToken(user._id);
+const createSendToken = (user, res, options) => {
+    let expires;
+
+    if (options && options.keepLogged === 'true') expires = process.env.JWT_EXPIRES_IN.slice(0, -1);  // Delete 'd' from the end
+    else expires = 1;
+
+    const token = createToken(user._id, expires);
 
     const cookieSettings = {
         expires: new Date(
@@ -33,7 +37,7 @@ const createSendToken = (user, res, option) => {
 
     res.cookie('jwt', token, cookieSettings);
 
-    if (option === 'redirect') {
+    if (options && options.redirect === 'true') {
         return res.redirect('/');
     }
 
@@ -121,9 +125,20 @@ exports.getUserByUsername = async (req, res, next) => {
 
 // POST api/auth/login
 exports.login = async (req, res, next) => {
-    const { email, password } = req.body;
+    const authHeader = req.headers.authorization;
+    const { keepLogged } =  req.query;
+    let email, password;
 
-    const { error } = validateLogin(req.body);
+    // Decode base64 credentials
+    if (authHeader) {
+        const decodedAuth = Buffer.from(authHeader.split(" ")[1], 'base64').toString();
+    
+            email = decodedAuth.split(":")[0];
+            password = decodedAuth.split(":")[1];
+    }
+    
+
+    const { error } = validateLogin({ email, password });
     if (error) return res.status(400).json({ info: 'invalid credentials', message: error.details[0].message });
 
     const query = parseEmail(email) === true ? { email } : { username: email };
@@ -133,16 +148,27 @@ exports.login = async (req, res, next) => {
         return res.status(400).json({ info: 'logorpass', message: "credentials don't match any users" });
     }
 
-    return createSendToken(user, res);
+    return createSendToken(user, res, { keepLogged });
 };
+
 
 // POST api/auth/signup
 exports.signup = async (req, res, next) => {
-    const {
-        username, email, password, passwordConfirm,
-    } = req.body;
+   
+    const authHeader = req.headers.authorization;
+    let username, email, password, passwordConfirm;
 
-    const { error } = validateSignup(req.body);
+    // Decode base64 credentials
+    if (authHeader) {
+        const decodedAuth = Buffer.from(authHeader.split(" ")[1], 'base64').toString();
+    
+            username = decodedAuth.split(":")[0]
+            email = decodedAuth.split(":")[1];
+            password = decodedAuth.split(":")[2];
+            passwordConfirm = decodedAuth.split(":")[3]
+    }
+
+    const { error } = validateSignup({ username, email, password, passwordConfirm });
     if (error) return res.status(400).json({ info: 'invalid credentials', message: error.details[0].message });
 
     let result = await user.validateEmail(email);
@@ -224,7 +250,7 @@ exports.passportLoginOrCreate = async (req, res, next) => {
     // Create user
     passportUser = await User.create({ [loginMethod]: user.id, username, activatedAccount: true });
 
-    return createSendToken(passportUser, res, 'redirect');
+    return createSendToken(passportUser, res, { redirect: 'true', keepLogged: 'true' });
 };
 
 // PUT api/auth/confirmEmail

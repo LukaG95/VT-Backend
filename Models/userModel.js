@@ -174,7 +174,7 @@ exports.validateSignup = (user) => {
             .required(),
         password: Joi.string().min(6).max(255).regex(/^[\!@#$%^&*()\\[\]{}\-_+=~`|:;"'<>,./?a-zA-Z0-9]{6,30}$/m)
             .required(),
-        passwordConfirm: Joi.string().min(6).max(255).required(),
+        passwordConfirm: Joi.ref('password'),
         email: Joi.string().min(1).max(255).email()
             .required(),
     });
