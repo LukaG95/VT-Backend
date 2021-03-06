@@ -24,7 +24,7 @@ function readableActiveAt(trades) {
         editedTrade.createdAt = dateToAgo(editedTrade.createdAt);
         editedTrade.expiresIn = {
             days: Math.floor(10 - (new Date() - editedTrade.bumpedAt) / (1000 * 3600 * 24)),
-            at: `${editedTrade.bumpedAt.getHours()}:${editedTrade.bumpedAt.getMinutes()}`
+            at: `${editedTrade.bumpedAt.getHours().toString().padStart(2, '0')}:${editedTrade.bumpedAt.getMinutes().toString().padStart(2, '0')}`
         };
         editedTrade.bumpedAt = dateToAgo(editedTrade.bumpedAt);
         return editedTrade;
