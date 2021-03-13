@@ -6,7 +6,7 @@ const DiscordStrategy = require("passport-discord").Strategy;
 // For production
 // const envURL = (process.env.NODE_ENV === 'production') ? 'https://virtrade.gg' : 'http://localhost:3000/';
 
-const envURL = process.env.HOST === "heroku" ? "https://www.virtrade.gg/" : "http://localhost:3000/";
+const envURL = process.env.HOST === "heroku" ? "https://virtrade-production.herokuapp.com/" : "http://localhost:3000/";
 
 passport.serializeUser((user, done) => {
     done(null, user);
@@ -19,7 +19,7 @@ passport.deserializeUser((obj, done) => {
 passport.use(
     new SteamStrategy(
         {
-            returnURL: `${envURL}auth/steam/return`,
+            returnURL: `${envURL}api/auth/steam/return`,
             realm: `${envURL}`,
             apiKey: process.env.STEAM_API_KEY
         },
