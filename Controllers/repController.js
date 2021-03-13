@@ -201,10 +201,11 @@ exports.addReputation = async (req, res, next) => {
 
         await newRep.save();
         await Redis.cache(`${user._id}${req.params.user}`, 1);
-        
+
         return res.status(200).json({ info: 'success', message: 'successfully added reputation to a new user' });
     }
 
+    console.log(user_repDB)
     user_repDB.reps.push(rep); // or unshift for adding at the start
     await user_repDB.save();
 

@@ -29,15 +29,15 @@ exports.getTrades = async (req, res, next) => {
 exports.getUserTrades = async (req, res, next) => {
     const user = await User.findById(req.user.id).select('-__v');
 
-    const { searchId } = req.query;
-    if (!mongoose.Types.ObjectId.isValid(searchId)) return res.status(400).json({ info: 'searchId', message: 'Invalid searchId' });
+    const searchId = await User.findById(req.query).select('-__v');
+    if (!searchId) return res.status(404).json({ info: 'no user', message: 'user with the given id does not exist' });
 
     const trades = await TradeRL.find({ user: searchId }).populate('user').sort('-bumpedAt');
     if (trades.length < 1) return res.status(200).json({ info: 'no trades', message: 'user has no trades created', trades: [] });
 
     const idMatch = user._id.toHexString() === trades[0].user._id.toHexString();
 
-    return res.status(200).json({ info: 'success', idMatch, trades: readableActiveAt(trades) });
+    return res.status(200).json({ info: 'success', idMatch, trades: readableActiveAt(trades), searchId });
 };
 
 exports.getTrade = async (req, res, next) => {
