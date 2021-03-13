@@ -6,7 +6,7 @@ const DiscordStrategy = require("passport-discord").Strategy;
 // For production
 // const envURL = (process.env.NODE_ENV === 'production') ? 'https://virtrade.gg' : 'http://localhost:3000/';
 
-const envURL = process.env.HOST === "heroku" ? "https://virtrade-backend.herokuapp.com/" : "http://localhost:3000/";
+const envURL = process.env.HOST === "heroku" ? "https://virtrade.gg/" : "http://localhost:3000/";
 
 passport.serializeUser((user, done) => {
     done(null, user);
