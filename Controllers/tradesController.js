@@ -29,7 +29,7 @@ exports.getTrades = async (req, res, next) => {
 exports.getUserTrades = async (req, res, next) => {
     const user = await User.findById(req.user.id).select('-__v');
 
-    const searchId = await User.findById(req.query).select('-__v');
+    const searchId = await User.findById(req.query.searchId).select('-__v');
     if (!searchId) return res.status(404).json({ info: 'no user', message: 'user with the given id does not exist' });
 
     const trades = await TradeRL.find({ user: searchId }).populate('user').sort('-bumpedAt');
@@ -37,7 +37,7 @@ exports.getUserTrades = async (req, res, next) => {
 
     const idMatch = user._id.toHexString() === trades[0].user._id.toHexString();
 
-    return res.status(200).json({ info: 'success', idMatch, trades: readableActiveAt(trades), searchId });
+    return res.status(200).json({ info: 'success', idMatch, trades: readableActiveAt(trades) });
 };
 
 exports.getTrade = async (req, res, next) => {
