@@ -37,7 +37,7 @@ exports.getUserTrades = async (req, res, next) => {
 
     const idMatch = user._id.toHexString() === trades[0].user._id.toHexString();
 
-    return res.status(200).json({ info: 'success', idMatch, trades: readableActiveAt(trades) });
+    return res.status(200).json({ info: 'success', idMatch, trades: readableActiveAt(trades), username: searchId.username });
 };
 
 exports.getTrade = async (req, res, next) => {
