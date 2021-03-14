@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const redis = require('../misc/redisCaching');
 
 const { TradeRL, validateTrade, validateTradeQuery } = require('../Models/tradesRLModel');
 const AdvancedQueryRL = require('../misc/AdvancedQueryRL');
@@ -28,15 +29,15 @@ exports.getTrades = async (req, res, next) => {
 exports.getUserTrades = async (req, res, next) => {
     const user = await User.findById(req.user.id).select('-__v');
 
-    const { searchId } = req.query;
-    if (!mongoose.Types.ObjectId.isValid(searchId)) return res.status(400).json({ info: 'searchId', message: 'Invalid searchId' });
+    const searchId = await User.findById(req.query.searchId).select('-__v');
+    if (!searchId) return res.status(404).json({ info: 'no user', message: 'user with the given id does not exist' });
 
     const trades = await TradeRL.find({ user: searchId }).populate('user').sort('-bumpedAt');
-    if (trades.length < 1) return res.status(200).json({ info: 'no trades', message: 'user has no trades created', trades: [] });
+    if (trades.length < 1) return res.status(200).json({ info: 'no trades', message: 'user has no trades created', trades: [], username: searchId.username });
 
     const idMatch = user._id.toHexString() === trades[0].user._id.toHexString();
 
-    return res.status(200).json({ info: 'success', idMatch, trades: readableActiveAt(trades) });
+    return res.status(200).json({ info: 'success', idMatch, trades: readableActiveAt(trades), username: searchId.username });
 };
 
 exports.getTrade = async (req, res, next) => {
@@ -72,7 +73,11 @@ exports.createTrade = async (req, res, next) => {
         bumpedAt: Date.now(),
     };
 
-    await new TradeRL(tradeDetails).save();
+    const trade = await new TradeRL(tradeDetails).save();
+
+    // Cache trade id for 10 minutes
+    await redis.cache(`${trade._id}`, 1, 600);
+    
     return res.status(200).json({ info: 'success', message: 'trade was created' });
 };
 
@@ -102,6 +107,7 @@ exports.editTrade = async (req, res, next) => {
     if (trade.user.toHexString() !== user._id.toHexString()) return res.status(401).json({ info: 'forbidden', message: "can't edit others trades" });
 
     await TradeRL.findOneAndUpdate({ _id: trade._id }, tradeDetails, { useFindAndModify: false });
+
     return res.status(200).json({ info: 'success', message: 'trade was edited' });
 };
 
@@ -115,8 +121,15 @@ exports.bumpTrade = async (req, res, next) => {
     if (!trade) return res.status(404).json({ info: 'no trade', message: "trade with given id doesn't exist" });
     if (trade.user.toHexString() !== user._id.toHexString()) return res.status(401).json({ info: 'unauthorized', message: "can't bump others trades" });
 
+    // Check if trade id is cached
+    const bumpCheck = await redis.isCached(tradeId)
+        if (bumpCheck) return res.status(404).json({ info: 'already bumped', message: "you can bump only once in 10 minutes" });
+
     trade.bumpedAt = Date.now();
     await trade.save();
+
+    // Cache trade id for 10 minutes
+    await redis.cache(`${trade._id}`, 1, 600);
 
     return res.status(200).json({ info: 'success', message: 'trade was bumped' });
 };

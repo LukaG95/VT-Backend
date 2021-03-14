@@ -11,11 +11,21 @@ exports.getReputation = async (req, res, next) => {
 
     const rep = await Reputation.aggregate([
         { $match: { user: user._id } }, // search for the users rep
+        
         { $unwind: '$reps' }, // unwind all reps
+        {
+            $lookup: {
+                from: 'users', localField: 'reps.createdBy', foreignField: '_id', as: 'userDB',
+            },
+        },
         { $sort: { 'reps.createdAt': -1 } }, // sort all reps by date created
         {
             $addFields: { // date to string
                 reps: {
+                    createdBy:  {
+                        _id: '$reps.createdBy',
+                        username: { $arrayElemAt: ['$userDB.username', 0] },
+                    },
                     createdAt: {
                         $dateToString: {
                             date: '$reps.createdAt',
@@ -109,6 +119,7 @@ exports.getReputation = async (req, res, next) => {
         },
     ]);
 
+
     if (rep.length < 1) {
         rep[0] = {
             ups: 0,
@@ -168,7 +179,7 @@ exports.getReputation = async (req, res, next) => {
 exports.addReputation = async (req, res, next) => {
     const user = await User.findById(req.user.id).select('-__v');
 
-    const rep = req.body; // Joi
+    const {rep} = req.body; // Joi
     rep.createdBy = user._id;
 
     // Check if user has already given a rep within 24 hours
@@ -188,7 +199,6 @@ exports.addReputation = async (req, res, next) => {
             reps: [rep],
         });
 
-        console.log(newRep);
         await newRep.save();
 
         return res.status(200).json({ info: 'success', message: 'successfully added reputation to a new user' });

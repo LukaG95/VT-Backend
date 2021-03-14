@@ -51,6 +51,20 @@ function readableDialoguesCreatedAt(dialogues) {
   return dialogues
 }
 
+function readableSocketMessageCreatedAt(createdAt) {
+  const date = new Date(createdAt);
+  
+  let hours = date.getHours();
+  let minutes = date.getMinutes();
+  
+  if (hours <= 9) hours = `0${hours}`
+  if (minutes <= 9) minutes = `0${minutes}`
+  
+  return `${hours}:${minutes}`
+  
+  }
+
 exports.readableActiveAt = readableActiveAt
 exports.readableDialoguesCreatedAt = readableDialoguesCreatedAt
+exports.readableSocketMessageCreatedAt = readableSocketMessageCreatedAt
 exports.dateToAgo = dateToAgo
