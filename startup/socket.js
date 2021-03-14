@@ -1,5 +1,9 @@
 const authController = require('../Controllers/authController');
+<<<<<<< HEAD
 const logger = require('./logging')
+=======
+const redis = require('../misc/redisCaching');
+>>>>>>> f8e1547ac8f987bb2289446e95146a97e14e02a0
 
 module.exports = function (app, port) {
     // let app = require('express')();
@@ -12,7 +16,20 @@ module.exports = function (app, port) {
         // io.connections['test'] = socket;
         console.log('a user connected');
         // console.log(socket);
-        socket.on('disconnect', () => {
+        socket.on('disconnect', async () => {
+            
+
+            if (socket.jwt) {
+                let status = await redis.isCachedNested('status', userId);
+                    status *= 1;
+                
+                if (!status || status <= 0) await redis.cacheNested('status', userId, 0);
+                else await redis.cacheNested('status', userId, --status);
+                
+                
+                return console.log('Disconnected ' + socket.jwt) 
+            }
+            
             console.log('user disconnected');
         });
 
@@ -29,8 +46,17 @@ module.exports = function (app, port) {
 
         socket.shouldDisconnect = false;
         socket.join(userId);
+        socket.jwt = userId;
         socket.emit('auth', 'success');
 
+    
+        let status = await redis.isCachedNested('status', userId);
+            status *= 1;
+
+        if (!status || status <= 0) await redis.cacheNested('status', userId, 1);
+        else await redis.cacheNested('status', userId, ++status);
+            
+    
         console.log(`Authorized ${userId}`);
     });
 
@@ -42,8 +68,8 @@ module.exports = function (app, port) {
     // let socket = req.app.get('socket');
 };
 
-function sendMessage(senderId, recipientId, message) {
-    this.to(recipientId).emit('message/new', { senderId, message });
+function sendMessage(recipientId, messageObj) {
+    this.to(recipientId).emit('message/new', messageObj);
 }
 
 function parseCookie(cookie) {
