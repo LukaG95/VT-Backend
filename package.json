@@ -1,18 +1,19 @@
 {
-  "name": "vir_backend",
+  "name": "virtrade-backend",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
   "scripts": {
     "start": "node index.js",
-    "test": "jest --testEnvironment=node --runInBand --watchAll --verbose"
+    "test": "jest --testEnvironment=node --runInBand --watchAll --verbose",
+    "prettier": "prettier --write \"**/*.js\""
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "async-redis": "^1.1.7",
     "aws-sdk": "^2.676.0",
-    "bcrypt": "^4.0.1",
+    "bcrypt": "^5.0.0",
     "compression": "^1.7.4",
     "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
@@ -36,7 +37,7 @@
     "path": "^0.12.7",
     "pm2": "^4.4.0",
     "redis": "^3.0.2",
-    "socket.io": "^2.3.0",
+    "socket.io": "^3.0.1",
     "validator": "^13.0.0",
     "winston": "^3.3.3",
     "winston-mongodb": "^5.0.3"

@@ -1,22 +1,21 @@
+const logger = require("../startup/logging");
 
-const logger = require('../startup/logging')
+module.exports = function (err, req, res, next) {
+    logger.error(err.message, { metadata: err });
 
-module.exports = function(err, req, res, next){   
-  logger.error(err.message, {metadata: err})
+    // error
+    // warn
+    // info
+    // verbose
+    // debug
+    // silly
 
-  // error
-  // warn
-  // info
-  // verbose
-  // debug
-  // silly
-
-  res.status(400).json({
-    message: 'Something failed!',
-    status: err.status,
-    error: err 
-  })
-}
+    res.status(400).json({
+        message: "Something failed!",
+        status: err.status,
+        error: err
+    });
+};
 /*
 module.exports = (err, req, res, next) => {
   err.status = err.status || 'error';

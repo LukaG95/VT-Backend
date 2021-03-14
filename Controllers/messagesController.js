@@ -106,7 +106,7 @@ exports.getDialogues = async (req, res, next) => {
         return res.status(200).json({
             info: 'no messages',
             message: 'user has no messages',
-            dialogues: [],
+            dialogues: []
         });
     }
 
@@ -195,7 +195,6 @@ exports.getMessagesWithUser = async (req, res, next) => {
         { $skip: page * 20},
         { $limit: 20 },
         
-
         {    
             $sort: {
                 'createdAt.default': 1,

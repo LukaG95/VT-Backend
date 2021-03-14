@@ -1,5 +1,5 @@
-const redis = require('redis')
-const util = require('util')
+const redis = require("redis");
+const util = require("util");
 
 //const redisUrl = 'redis://127.0.0.1:6379'
 const redisUrl = process.env.REDIS_URL
@@ -31,11 +31,11 @@ exports.cacheNested = async (key, id, value) => {
 }
 
 exports.isCached = async (key) => {
-  const stored = client.get(key)
-  if (stored) return stored
+    const stored = client.get(key);
+    if (stored) return stored;
 
-  return null
-}
+    return null;
+};
 
 exports.isCachedNested = async (key, id) => {
   const stored = client.hget(key,id);
@@ -45,8 +45,8 @@ exports.isCachedNested = async (key, id) => {
 }
 
 exports.removeKey = async (key) => {
-  client.del(key)
-}
+    client.del(key);
+};
 
 exports.removeKeyNested = async (key, id, value) => {
   client.hdel(key, id, value)

@@ -14,9 +14,9 @@ router.use(passport.initialize());
 router.get('/getUser', authController.protect, authController.getUser);
 router.get('/getUserById/:userId', authController.protect, authController.getUsernameById);
 router.get('/getUserByUsername/:username', authController.getUserByUsername);
-router.get('/getIdsByUsername/', authController.getIdsByUsername);
 router.get('/getTestUsers', authController.protect, authController.adminOnly, authController.getTestUsers);
 
+router.post('/getIdsByUsername/', authController.getIdsByUsername);
 router.post('/signup', limiter, authController.signup);
 router.post('/login', limiter, authController.login);
 router.post('/createTestUser', authController.protect, authController.adminOnly, authController.createTestUser);

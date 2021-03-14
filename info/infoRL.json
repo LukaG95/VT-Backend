@@ -2579,7 +2579,7 @@
                     "HasSpecialEditions": false,
                     "HasTeamEditions": false,
                     "ItemID": 1435,
-                    "Name": "Heatwave (Black Market)",
+                    "Name": "Heatwave",
                     "Paintable": false,
                     "Quality": "BlackMarket",
                     "Tradable": true
@@ -2588,7 +2588,7 @@
                     "HasSpecialEditions": false,
                     "HasTeamEditions": false,
                     "ItemID": 1436,
-                    "Name": "Labyrinth (Black Market)",
+                    "Name": "Labyrinth",
                     "Paintable": false,
                     "Quality": "BlackMarket",
                     "Tradable": true
@@ -2597,7 +2597,7 @@
                     "HasSpecialEditions": false,
                     "HasTeamEditions": false,
                     "ItemID": 1437,
-                    "Name": "Parallax (Black Market)",
+                    "Name": "Parallax",
                     "Paintable": false,
                     "Quality": "BlackMarket",
                     "Tradable": true
@@ -2606,7 +2606,7 @@
                     "HasSpecialEditions": false,
                     "HasTeamEditions": false,
                     "ItemID": 1438,
-                    "Name": "Slipstream (Black Market)",
+                    "Name": "Slipstream",
                     "Paintable": true,
                     "Quality": "BlackMarket",
                     "Tradable": true
@@ -2948,7 +2948,7 @@
                     "HasSpecialEditions": false,
                     "HasTeamEditions": false,
                     "ItemID": 1577,
-                    "Name": "Biomass (Black Market)",
+                    "Name": "Biomass",
                     "Paintable": false,
                     "Quality": "BlackMarket",
                     "Tradable": true
@@ -2957,7 +2957,7 @@
                     "HasSpecialEditions": false,
                     "HasTeamEditions": false,
                     "ItemID": 1578,
-                    "Name": "Hexed (Black Market)",
+                    "Name": "Hexed",
                     "Paintable": true,
                     "Quality": "BlackMarket",
                     "Tradable": true
@@ -2966,7 +2966,7 @@
                     "HasSpecialEditions": false,
                     "HasTeamEditions": false,
                     "ItemID": 1579,
-                    "Name": "Spectre (Black Market)",
+                    "Name": "Spectre",
                     "Paintable": false,
                     "Quality": "BlackMarket",
                     "Tradable": true
@@ -3299,7 +3299,7 @@
                     "HasSpecialEditions": false,
                     "HasTeamEditions": false,
                     "ItemID": 1679,
-                    "Name": "Tora (Black Market)",
+                    "Name": "Tora",
                     "Paintable": false,
                     "Quality": "BlackMarket",
                     "Tradable": true
@@ -3308,7 +3308,7 @@
                     "HasSpecialEditions": false,
                     "HasTeamEditions": false,
                     "ItemID": 1684,
-                    "Name": "20XX (Black Market)",
+                    "Name": "20XX",
                     "Paintable": true,
                     "Quality": "BlackMarket",
                     "Tradable": true
@@ -3650,7 +3650,7 @@
                     "HasSpecialEditions": false,
                     "HasTeamEditions": false,
                     "ItemID": 1888,
-                    "Name": "Bubbly (Black Market)",
+                    "Name": "Bubbly",
                     "Paintable": false,
                     "Quality": "BlackMarket",
                     "Tradable": true
@@ -4424,7 +4424,7 @@
                     "HasSpecialEditions": false,
                     "HasTeamEditions": false,
                     "ItemID": 2501,
-                    "Name": "Chameleon (Black Market)",
+                    "Name": "Chameleon",
                     "Paintable": false,
                     "Quality": "BlackMarket",
                     "Tradable": true
@@ -4784,7 +4784,7 @@
                     "HasSpecialEditions": false,
                     "HasTeamEditions": false,
                     "ItemID": 2694,
-                    "Name": "Storm Watch (Black Market)",
+                    "Name": "Storm Watch",
                     "Paintable": false,
                     "Quality": "BlackMarket",
                     "Tradable": true
@@ -4838,7 +4838,7 @@
                     "HasSpecialEditions": false,
                     "HasTeamEditions": false,
                     "ItemID": 2736,
-                    "Name": "Trigon (Black Market)",
+                    "Name": "Trigon",
                     "Paintable": true,
                     "Quality": "BlackMarket",
                     "Tradable": true
@@ -4919,7 +4919,7 @@
                     "HasSpecialEditions": false,
                     "HasTeamEditions": false,
                     "ItemID": 2854,
-                    "Name": "Dissolver (Black Market)",
+                    "Name": "Dissolver",
                     "Paintable": false,
                     "Quality": "BlackMarket",
                     "Tradable": true
@@ -5081,7 +5081,7 @@
                     "HasSpecialEditions": false,
                     "HasTeamEditions": false,
                     "ItemID": 2966,
-                    "Name": "Fire God (Black Market)",
+                    "Name": "Fire God",
                     "Paintable": false,
                     "Quality": "BlackMarket",
                     "Tradable": true
@@ -5090,7 +5090,7 @@
                     "HasSpecialEditions": false,
                     "HasTeamEditions": false,
                     "ItemID": 2967,
-                    "Name": "Streamline (Black Market)",
+                    "Name": "Streamline",
                     "Paintable": false,
                     "Quality": "BlackMarket",
                     "Tradable": true
@@ -5315,7 +5315,7 @@
                     "HasSpecialEditions": false,
                     "HasTeamEditions": false,
                     "ItemID": 3239,
-                    "Name": "Mainframe (Black Market)",
+                    "Name": "Mainframe",
                     "Paintable": true,
                     "Quality": "BlackMarket",
                     "Tradable": true
@@ -5576,7 +5576,7 @@
                     "HasSpecialEditions": false,
                     "HasTeamEditions": false,
                     "ItemID": 3460,
-                    "Name": "Wet Paint (Black Market)",
+                    "Name": "Wet Paint",
                     "Paintable": true,
                     "Quality": "BlackMarket",
                     "Tradable": true
@@ -5981,7 +5981,7 @@
                     "HasSpecialEditions": false,
                     "HasTeamEditions": false,
                     "ItemID": 3800,
-                    "Name": "Intrudium (Black Market)",
+                    "Name": "Intrudium",
                     "Paintable": false,
                     "Quality": "BlackMarket",
                     "Tradable": true
@@ -6071,7 +6071,7 @@
                     "HasSpecialEditions": false,
                     "HasTeamEditions": false,
                     "ItemID": 3854,
-                    "Name": "Hex Tide (Black Market)",
+                    "Name": "Hex Tide",
                     "Paintable": true,
                     "Quality": "BlackMarket",
                     "Tradable": true
@@ -6485,7 +6485,7 @@
                     "HasSpecialEditions": false,
                     "HasTeamEditions": false,
                     "ItemID": 4133,
-                    "Name": "Magma (Black Market)",
+                    "Name": "Magma",
                     "Paintable": false,
                     "Quality": "BlackMarket",
                     "Tradable": true
@@ -6611,7 +6611,7 @@
                     "HasSpecialEditions": false,
                     "HasTeamEditions": false,
                     "ItemID": 4244,
-                    "Name": "Glorifier (Black Market)",
+                    "Name": "Glorifier",
                     "Paintable": false,
                     "Quality": "BlackMarket",
                     "Tradable": true
@@ -6899,7 +6899,7 @@
                     "HasSpecialEditions": false,
                     "HasTeamEditions": false,
                     "ItemID": 4434,
-                    "Name": "Tidal Stream (Black Market)",
+                    "Name": "Tidal Stream",
                     "Paintable": false,
                     "Quality": "BlackMarket",
                     "Tradable": true
@@ -7457,7 +7457,7 @@
                     "HasSpecialEditions": false,
                     "HasTeamEditions": false,
                     "ItemID": 4989,
-                    "Name": "Interstellar (Black Market)",
+                    "Name": "Interstellar",
                     "Paintable": true,
                     "Quality": "BlackMarket",
                     "Tradable": true
@@ -7562,7 +7562,7 @@
                     "HasSpecialEditions": false,
                     "HasTeamEditions": false,
                     "ItemID": 358,
-                    "Name": "Goldstone (Alpha Reward)",
+                    "Name": "Goldstone",
                     "Paintable": false,
                     "Quality": "Limited",
                     "Tradable": true
@@ -10814,7 +10814,7 @@
                     "HasSpecialEditions": false,
                     "HasTeamEditions": false,
                     "ItemID": 32,
-                    "Name": "Gold Rush (Alpha Reward)",
+                    "Name": "Gold Rush",
                     "Paintable": false,
                     "Quality": "Limited",
                     "Tradable": true
@@ -12287,7 +12287,7 @@
                     "HasSpecialEditions": false,
                     "HasTeamEditions": false,
                     "ItemID": 6,
-                    "Name": "Gold Nugget (Beta Reward)",
+                    "Name": "Gold Nugget",
                     "Paintable": false,
                     "Quality": "Limited",
                     "Tradable": true
@@ -17603,7 +17603,7 @@
                     "HasSpecialEditions": false,
                     "HasTeamEditions": false,
                     "ItemID": 224,
-                    "Name": "Gold Cap (Alpha Reward)",
+                    "Name": "Gold Cap",
                     "Paintable": false,
                     "Quality": "Limited",
                     "Tradable": true
