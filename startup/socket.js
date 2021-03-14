@@ -1,9 +1,5 @@
 const authController = require('../Controllers/authController');
-<<<<<<< HEAD
-const logger = require('./logging')
-=======
 const redis = require('../misc/redisCaching');
->>>>>>> f8e1547ac8f987bb2289446e95146a97e14e02a0
 
 module.exports = function (app, port) {
     // let app = require('express')();
