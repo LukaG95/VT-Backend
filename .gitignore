@@ -6,13 +6,12 @@ package-lock.json
 errorLogs/*
 
 # React build (only push to production)
-# build/*
+build/
 
 # Environment variables, never commit this file
 /*.env
 
 # Other
 tests/
-testt.js
 insertManyDocsTEST.js
 
