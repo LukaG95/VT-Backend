@@ -17,7 +17,7 @@ class AdvancedQueryRL {
         const queryStr = JSON.stringify(queryObj); // queryStr = `{"itemID": "12", "itemName": "Zomba", "cert": "Striker", "paint": "Black", "page": "1", "limit": "10"}`
 
         const tradeOption = queryObj.search === "I want to sell" ? "want" : "have";
-        const editedStr = queryStr.replace(/\b(itemID|itemType|cert|color)\b/g, (match) => `${tradeOption}.${match}`);
+        const editedStr = queryStr.replace(/\b(itemID|itemType|cert|color|platform)\b/g, (match) => `${tradeOption}.${match}`);
 
         const editedObj = JSON.parse(editedStr); // editedObj = {"want.itemID": "12", "want.cert": "Striker", "want.color": "Black", "page": "1", "limit": "10"}
 

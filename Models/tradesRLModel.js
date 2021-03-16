@@ -223,6 +223,7 @@ exports.validateTradeQuery = (query) => {
         itemType: Joi.string().valid('Any', 'items', 'blueprints').required(),
         cert: Joi.string().valid('Any', 'None', 'Playmaker', 'Acrobat', 'Aviator', 'Goalkeeper', 'Guardian', 'Juggler', 'Paragon', 'Scorer', 'Show-Off', 'Sniper', 'Striker', 'Sweeper', 'Tactician', 'Turtle', 'Victor').required(),
         color: Joi.string().valid('Any', 'None', 'Crimson', 'Lime', 'Black', 'Sky Blue', 'Cobalt', 'Burnt Sienna', 'Forest Green', 'Purple', 'Pink', 'Orange', 'Grey', 'Titanium White', 'Saffron').required(),
+        platform: Joi.string().valid("Any", "Steam", "PS4", "XBOX", "SWITCH", "EPIC").required(),
         page: Joi.number().min(1).required(),
         limit: Joi.number().valid(10, 15, 20).required(),
     });
