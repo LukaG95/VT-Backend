@@ -387,6 +387,87 @@ exports.resetPassword = catchAsync(async (req, res, next) => {
     if (!user.confirmedEmail) return next(new AppError('invalid'));
 });
 
+
+exports.linkPlatform = async (req, res, next) => {
+
+    const { platform } = req.query;
+    const { username } = req.body;
+
+    // To be changed for other platforms too
+    if (platform !== 'psn') return res.status(200).json({ info: 'error', message: 'invalid platform provided' });
+    if (!username) return res.status(200).json({ info: 'error', message: 'no username provided' });
+
+    const user = await User.findById(req.user.id).select('-__v');
+    if (!user) return res.status(200).json({ info: 'error', message: 'invalid user' });
+    if (user.psn.username) return res.status(200).json({ info: 'error', message: 'psn account already linked' });
+
+
+
+    const usernameAvailability = await User.findOne({ 'psn.username': username }).select('-__v');
+    if (usernameAvailability) return res.status(200).json({ info: 'error', message: 'username already linked to another account' });
+
+    user[`${platform}`].username = username;
+    user[`${platform}`].verified = false;
+
+    await user.save();
+
+    return res.status(200).json({ info: 'success', message: 'successfully linked platform' });
+
+}
+
+exports.unlinkPlatform = async (req, res, next) => {
+
+    const { platform } = req.query;
+
+    
+    // To be changed for other platforms too
+    if (platform !== 'psn') return res.status(200).json({ info: 'error', message: 'invalid platform provided' });
+
+    const user = await User.findById(req.user.id).select('-__v');
+    if (!user) return res.status(200).json({ info: 'error', message: 'invalid user' });
+
+    user[`${platform}`] = {};
+    await user.save();
+
+    return res.status(200).json({ info: 'success', message: 'successfully unlinked platform' });
+
+}
+
+exports.getPsnUnverifiedUsers = async (req, res, next) => {
+
+    if (req.query.from !== 'psnserver') {
+        return res.status(401).json({ info: 'error', message: 'Unauthorized' });
+    }
+
+    const users = await User.find({ 'psn.verified': false }, { psn: 1 });
+    
+    if (users.length < 1) return res.status(200).json({ info: 'error', message: 'none unverified users' });
+
+    return res.status(200).json({ info: 'success', users });
+
+
+}
+
+exports.verifyPsnUser = async (req, res, next) => {
+
+    if (req.query.from !== 'psnserver') {
+        return res.status(401).json({ info: 'error', message: 'Unauthorized' });
+    }
+
+    const { user } = req.body;
+
+    const userDb = await User.findById(user._id);
+
+    if (userDb && userDb.psn.username === user.psn.username) {
+        userDb.psn.verified = true;
+        await userDb.save();
+        return res.status(200).json({ info: 'success', message: 'successfuly verified the user' });
+    }
+
+    return res.status(200).json({ info: 'error' });
+
+}
+
 async function sendSignupEmail(user) {
     const emailToken = await user.generateEmailToken();
     await user.save();
@@ -413,6 +494,7 @@ async function sendEmailUpdateEmail(user, newEmail) {
         .sendEmailUpdate(token);
     await Email;
 }
+
 
 function parseEmail(email) {
     const regex = /^[^\s@]+@[^\s@\.]+(\.[^\s@.]+)+$/;

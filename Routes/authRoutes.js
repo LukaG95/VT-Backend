@@ -42,6 +42,12 @@ router.put('/resetPassword', authController.resetPassword);
 
 router.post('/sendResetEmailToken', authController.protect, authController.sendResetEmail);
 
+
+router.post('/linkPlatform', authController.protect, authController.linkPlatform);
+router.delete('/linkPlatform', authController.protect, authController.unlinkPlatform);
+router.get('/getPsnUnverifiedUsers', authController.getPsnUnverifiedUsers);
+router.post('/verifyPsnUser', authController.verifyPsnUser);
+
 // router.post('/resendCode', authController.protect, authController.resendCode)
 
 module.exports = router;

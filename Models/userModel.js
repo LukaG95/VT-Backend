@@ -105,6 +105,17 @@ const userSchema = new mongoose.Schema({
         sparse: true,
     },
 
+    psn: {
+        username: {
+            type: String,
+            unique: true
+        },
+        verified: {
+            type: Boolean,
+        }
+        
+    },
+
     verificationToken: {
         type: String,
         maxlength: 255,
