@@ -461,6 +461,8 @@ exports.verifyPsnUser = async (req, res, next) => {
     if (userDb && userDb.psn.username === user.psn.username) {
         userDb.psn.verified = true;
         await userDb.save();
+        const socket = req.app.get('socket');
+        socket.notifyPlatformConfirmation(user._id, 'psn');
         return res.status(200).json({ info: 'success', message: 'successfuly verified the user' });
     }
 
