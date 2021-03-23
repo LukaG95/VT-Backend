@@ -394,16 +394,17 @@ exports.linkPlatform = async (req, res, next) => {
     const { username } = req.body;
 
     // To be changed for other platforms too
-    if (platform !== 'psn') return res.status(200).json({ info: 'error', message: 'invalid platform provided' });
+    if (platform !== 'psn' && platform !== 'epic' && platform !== 'switch') return res.status(200).json({ info: 'error', message: 'invalid platform provided' });
     if (!username) return res.status(200).json({ info: 'error', message: 'no username provided' });
 
     const user = await User.findById(req.user.id).select('-__v');
     if (!user) return res.status(200).json({ info: 'error', message: 'invalid user' });
+
     if (user.psn.username) return res.status(200).json({ info: 'error', message: 'psn account already linked' });
 
 
 
-    const usernameAvailability = await User.findOne({ 'psn.username': username }).select('-__v');
+    const usernameAvailability = await User.findOne({ [`${platform}.username`]: username }).select('-__v');
     if (usernameAvailability) return res.status(200).json({ info: 'error', message: 'username already linked to another account' });
 
     user[`${platform}`].username = username;
@@ -421,7 +422,7 @@ exports.unlinkPlatform = async (req, res, next) => {
 
     
     // To be changed for other platforms too
-    if (platform !== 'psn') return res.status(200).json({ info: 'error', message: 'invalid platform provided' });
+    if (platform !== 'psn' && platform !== 'epic' && platform !== 'switch') return res.status(200).json({ info: 'error', message: 'invalid platform provided' });
 
     const user = await User.findById(req.user.id).select('-__v');
     if (!user) return res.status(200).json({ info: 'error', message: 'invalid user' });
@@ -433,13 +434,21 @@ exports.unlinkPlatform = async (req, res, next) => {
 
 }
 
-exports.getPsnUnverifiedUsers = async (req, res, next) => {
+exports.getPlatformUnverifiedUsers = async (req, res, next) => {
 
-    if (req.query.from !== 'psnserver') {
+    if (req.query.from !== 'platformserver') {
         return res.status(401).json({ info: 'error', message: 'Unauthorized' });
     }
 
-    const users = await User.find({ 'psn.verified': false }, { psn: 1 });
+    const { platform } = req.query;
+
+
+    if (platform !== 'psn' && platform !== 'epic') return res.status(200).json({ info: 'error', message: 'invalid platform provided' });
+
+    
+   
+    const users = await User.find( { [`${platform}.verified`]: false}, { [platform]: 1 });
+
     
     if (users.length < 1) return res.status(200).json({ info: 'error', message: 'none unverified users' });
 
@@ -448,27 +457,32 @@ exports.getPsnUnverifiedUsers = async (req, res, next) => {
 
 }
 
-exports.verifyPsnUser = async (req, res, next) => {
+exports.verifyPlatformUser = async (req, res, next) => {
 
-    if (req.query.from !== 'psnserver') {
+    if (req.query.from !== 'platformserver') {
         return res.status(401).json({ info: 'error', message: 'Unauthorized' });
     }
 
+    const { platform } = req.query;
+    if (platform !== 'psn' && platform !== 'epic') return res.status(200).json({ info: 'error', message: 'invalid platform provided' });
+
     const { user } = req.body;
+
 
     const userDb = await User.findById(user._id);
 
-    if (userDb && userDb.psn.username === user.psn.username) {
-        userDb.psn.verified = true;
+    if (userDb && userDb[platform].username === user[platform].username) {
+        userDb[platform].verified = true;
         await userDb.save();
         const socket = req.app.get('socket');
-        socket.notifyPlatformConfirmation(user._id, 'psn');
+        socket.notifyPlatformConfirmation(user._id, platform);
         return res.status(200).json({ info: 'success', message: 'successfuly verified the user' });
     }
 
     return res.status(200).json({ info: 'error' });
 
 }
+
 
 async function sendSignupEmail(user) {
     const emailToken = await user.generateEmailToken();

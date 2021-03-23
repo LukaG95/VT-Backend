@@ -116,6 +116,26 @@ const userSchema = new mongoose.Schema({
         
     },
 
+    epic: {
+        username: {
+            type: String,
+            unique:true
+        },
+        verified: {
+            type: Boolean
+        }
+    },
+
+    switch: {
+        username: {
+            type: String,
+        },
+        verified: {
+            type: Boolean
+        }
+
+    },
+
     verificationToken: {
         type: String,
         maxlength: 255,
