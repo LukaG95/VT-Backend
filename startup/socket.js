@@ -7,6 +7,7 @@ module.exports = function (app, port) {
     const io = require('socket.io')(http);
 
     io.sendMessage = sendMessage;
+    io.notifyPlatformConfirmation = notifyPlatformConfirmation;
 
     io.on('connection', async (socket) => {
         // io.connections['test'] = socket;
@@ -66,6 +67,10 @@ module.exports = function (app, port) {
 
 function sendMessage(recipientId, messageObj) {
     this.to(recipientId).emit('message/new', messageObj);
+}
+
+function notifyPlatformConfirmation(recipientId, platform) {
+    this.to(recipientId).emit('confirmPlatform', { platform })
 }
 
 function parseCookie(cookie) {
