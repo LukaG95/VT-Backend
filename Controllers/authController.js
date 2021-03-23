@@ -400,7 +400,7 @@ exports.linkPlatform = async (req, res, next) => {
     const user = await User.findById(req.user.id).select('-__v');
     if (!user) return res.status(200).json({ info: 'error', message: 'invalid user' });
 
-    if (user.psn.username) return res.status(200).json({ info: 'error', message: 'psn account already linked' });
+    if (user[platform].username) return res.status(200).json({ info: 'error', message: `${platform} account already linked` });
 
 
 
