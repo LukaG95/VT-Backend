@@ -119,7 +119,7 @@ const userSchema = new mongoose.Schema({
     epic: {
         username: {
             type: String,
-            unique:true
+            unique: true
         },
         verified: {
             type: Boolean
@@ -129,6 +129,7 @@ const userSchema = new mongoose.Schema({
     switch: {
         username: {
             type: String,
+            unique: true
         },
         verified: {
             type: Boolean
