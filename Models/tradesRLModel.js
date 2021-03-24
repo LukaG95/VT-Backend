@@ -179,9 +179,8 @@ exports.validateTrade = async (trade, user, req) => {
         // this checks if itemIDs and itemNames are related
         for (let i = 0; i < trade.have.length; i++) { 
           if (trade.have[i].itemID === item.ItemID) 
-            if (trade.have[i].itemName === item.Name) {
+            if (trade.have[i].itemName === item.Name) 
               itemChecker++; 
-            }
         }
 
         for (let i = 0; i < trade.want.length; i++) { 
@@ -196,13 +195,13 @@ exports.validateTrade = async (trade, user, req) => {
     // this checks if colorIDs and color names are related
     infoRL.Colors.map(color => {
       for (let i = 0; i < trade.have.length; i++) { 
-        if (trade.have[i].colorID === color.colorID)
+        if (trade.have[i].colorID === color.ID)
           if (trade.have[i].color === color.Name)
             colorChecker++
       }
 
       for (let i = 0; i < trade.want.length; i++) { 
-        if (trade.want[i].colorID === color.colorID)
+        if (trade.want[i].colorID === color.ID)
           if (trade.want[i].color === color.Name)
             colorChecker++
       }
