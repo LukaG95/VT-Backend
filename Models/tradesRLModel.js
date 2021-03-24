@@ -198,25 +198,23 @@ exports.validateTrade = async (trade, user, req) => {
         if (trade.have[i].colorID === color.ID)
           if (trade.have[i].color === color.Name)
             colorChecker++
-        if (trade.have[i].colorID !== 0)
-          countPaintedItems++
       }
 
       for (let i = 0; i < trade.want.length; i++) { 
         if (trade.want[i].colorID === color.ID)
           if (trade.want[i].color === color.Name)
             colorChecker++
-        if (trade.want[i].colorID !== 0)
-          countPaintedItems++
       }
     })
-    if (colorChecker !== countPaintedItems) return { error: { details: [{ message: "colorID doesn't match with color name" }] } };
 
+    trade.have.concat(trade.want).forEach(item => { if (item.colorID !== 0) countPaintedItems++ })
+    if (colorChecker !== countPaintedItems) return { error: { details: [{ message: "colorID doesn't match with color name" }] } };
+    
     const hwValidation = Joi.object({
         itemID: Joi.number().valid(...allItemIDs).required(),
         itemName: Joi.string().valid(...allItemNames).required(),
         color: Joi.string().valid('None', 'Crimson', 'Lime', 'Black', 'Sky Blue', 'Cobalt', 'Burnt Sienna', 'Forest Green', 'Purple', 'Pink', 'Orange', 'Grey', 'Titanium White', 'Saffron').required(),
-        colorID: Joi.number().valid(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13).required(),
+        colorID: Joi.number().valid(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13).strict().required(),
         cert: Joi.string().valid('None', 'Playmaker', 'Acrobat', 'Aviator', 'Goalkeeper', 'Guardian', 'Juggler', 'Paragon', 'Scorer', 'Show-Off', 'Sniper', 'Striker', 'Sweeper', 'Tactician', 'Turtle', 'Victor').required(),
         itemType: Joi.string().valid('item', 'blueprint').required(),
         amount: Joi.when('itemID', { is: 4743, then: Joi.number().min(1).max(100000).required(), otherwise: Joi.number().min(1).max(100).required() }), // limit 100000 if credits are the item
