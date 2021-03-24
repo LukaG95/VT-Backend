@@ -21,6 +21,7 @@ const decodeToken = async (token) => promisify(jwt.verify)(token, process.env.JW
 const createSendToken = (user, res, options) => {
     let expires;
 
+
     if (options && options.keepLogged === 'true') expires = process.env.JWT_EXPIRES_IN.slice(0, -1);  // Delete 'd' from the end
     else expires = 1;
 
@@ -144,7 +145,8 @@ exports.login = async (req, res, next) => {
     const query = parseEmail(email) === true ? { email } : { username: email };
     const user = await User.findOne(query).select('+password');
 
-    if (!user || !(await user.correctPassword(password, user.password))) {
+
+    if (!user || !user.password || !(await user.correctPassword(password, user.password))) {
         return res.status(400).json({ info: 'logorpass', message: "credentials don't match any users" });
     }
 
@@ -234,7 +236,7 @@ exports.passportLoginOrCreate = async (req, res, next) => {
     passportUser = await User.findOne({ [loginMethod]: user.id });
 
     if (passportUser) {
-        return createSendToken(passportUser, res, 'redirect');
+        return createSendToken(passportUser, res, { redirect: 'true', keepLogged: 'true' });
     }
 
     // Checks if username is available
