@@ -169,7 +169,7 @@ exports.validateTrade = async (trade, user, req) => {
     if (trades.length >= tradeLimit) return { error: { details: [{ message: 'Trade amount limit' }] } }; // because that's how Joi returns the error
 
     const allItemIDs = []; const allItemNames = []; 
-    let itemChecker = 0; let colorChecker = 0;
+    let itemChecker = 0; let colorChecker = 0; let countPaintedItems = 0;
 
     infoRL.Slots.map((Slot) => Slot.Items.map((item) => {
       if (item.Tradable) {
@@ -198,15 +198,19 @@ exports.validateTrade = async (trade, user, req) => {
         if (trade.have[i].colorID === color.ID)
           if (trade.have[i].color === color.Name)
             colorChecker++
+        if (trade.have[i].colorID !== 0)
+          countPaintedItems++
       }
 
       for (let i = 0; i < trade.want.length; i++) { 
         if (trade.want[i].colorID === color.ID)
           if (trade.want[i].color === color.Name)
             colorChecker++
+        if (trade.want[i].colorID !== 0)
+          countPaintedItems++
       }
     })
-    if (colorChecker !== trade.want.length + trade.have.length) return { error: { details: [{ message: "colorID doesn't match with color name" }] } };
+    if (colorChecker !== countPaintedItems) return { error: { details: [{ message: "colorID doesn't match with color name" }] } };
 
     const hwValidation = Joi.object({
         itemID: Joi.number().valid(...allItemIDs).required(),
