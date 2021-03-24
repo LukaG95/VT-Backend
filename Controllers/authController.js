@@ -458,7 +458,7 @@ exports.unlinkPlatform = async (req, res, next) => {
 
     
     // To be changed for other platforms too
-    if (platform !== 'psn' && platform !== 'epic' && platform !== 'switch' && platofmr !== 'xbox') return res.status(200).json({ info: 'error', message: 'invalid platform provided' });
+    if (platform !== 'psn' && platform !== 'epic' && platform !== 'switch' && platform !== 'xbox') return res.status(200).json({ info: 'error', message: 'invalid platform provided' });
 
     const user = await User.findById(req.user.id).select('-__v');
     if (!user) return res.status(200).json({ info: 'error', message: 'invalid user' });
