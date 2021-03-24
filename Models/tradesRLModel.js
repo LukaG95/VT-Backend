@@ -168,21 +168,46 @@ exports.validateTrade = async (trade, user, req) => {
     const trades = await TradeRL.find({ user: req.user.id });
     if (trades.length >= tradeLimit) return { error: { details: [{ message: 'Trade amount limit' }] } }; // because that's how Joi returns the error
 
-    const allItemIDs = []; const allItemNames = []; let
-        checker = 0;
+    const allItemIDs = []; const allItemNames = []; 
+    let itemChecker = 0; let colorChecker = 0;
 
     infoRL.Slots.map((Slot) => Slot.Items.map((item) => {
-        if (item.Tradable) {
-            allItemIDs.push(item.ItemID);
-            allItemNames.push(item.Name);
+      if (item.Tradable) {
+        allItemIDs.push(item.ItemID);
+        allItemNames.push(item.Name);
 
-            for (let i = 0; i < trade.have.length; i++) // this checks if itemID and itemName are related
-            { if (trade.have[i].itemID === item.ItemID) if (trade.have[i].itemName === item.Name) checker++; }
-
-            for (let i = 0; i < trade.want.length; i++) { if (trade.want[i].itemID === item.ItemID) if (trade.want[i].itemName === item.Name) checker++; }
+        // this checks if itemIDs and itemNames are related
+        for (let i = 0; i < trade.have.length; i++) { 
+          if (trade.have[i].itemID === item.ItemID) 
+            if (trade.have[i].itemName === item.Name) {
+              itemChecker++; 
+            }
         }
+
+        for (let i = 0; i < trade.want.length; i++) { 
+          if (trade.want[i].itemID === item.ItemID) 
+            if (trade.want[i].itemName === item.Name) 
+              itemChecker++; 
+        }
+      }
     }));
-    if (checker !== trade.want.length + trade.have.length) return { error: { details: [{ message: "itemID doesn't match with itemName" }] } };
+    if (itemChecker !== trade.want.length + trade.have.length) return { error: { details: [{ message: "itemID doesn't match with itemName" }] } };
+
+    // this checks if colorIDs and color names are related
+    infoRL.Colors.map(color => {
+      for (let i = 0; i < trade.have.length; i++) { 
+        if (trade.have[i].colorID === color.colorID)
+          if (trade.have[i].color === color.Name)
+            colorChecker++
+      }
+
+      for (let i = 0; i < trade.want.length; i++) { 
+        if (trade.want[i].colorID === color.colorID)
+          if (trade.want[i].color === color.Name)
+            colorChecker++
+      }
+    })
+    if (colorChecker !== trade.want.length + trade.have.length) return { error: { details: [{ message: "itemID doesn't match with itemName" }] } };
 
     const hwValidation = Joi.object({
         itemID: Joi.number().valid(...allItemIDs).required(),
@@ -207,8 +232,8 @@ exports.validateTrade = async (trade, user, req) => {
 };
 
 exports.validateTradeQuery = (query) => {
-    const allItemIDs = ['Any']; const
-        allItemNames = ['Any'];
+    const allItemIDs = ['Any']; 
+    const allItemNames = ['Any'];
 
     infoRL.Slots.map((Slot) => Slot.Items.map((item) => {
         if (item.Tradable) {
