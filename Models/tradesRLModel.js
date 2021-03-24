@@ -207,7 +207,7 @@ exports.validateTrade = async (trade, user, req) => {
             colorChecker++
       }
     })
-    if (colorChecker !== trade.want.length + trade.have.length) return { error: { details: [{ message: "itemID doesn't match with itemName" }] } };
+    if (colorChecker !== trade.want.length + trade.have.length) return { error: { details: [{ message: "colorID doesn't match with color name" }] } };
 
     const hwValidation = Joi.object({
         itemID: Joi.number().valid(...allItemIDs).required(),
