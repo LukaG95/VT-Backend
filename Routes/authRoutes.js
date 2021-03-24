@@ -34,6 +34,9 @@ router.get('/steam/return', passport.authenticate('steam'), authController.passp
 router.get('/discord', passport.authenticate('discord'));
 router.get('/discord/callback', passport.authenticate('discord'), authController.passportLoginOrCreate);
 
+router.get('/xbox', authController.protect, passport.authenticate('xbox'));
+router.get('/xbox/callback', authController.protect, authController.passportPlatformHelper, passport.authenticate('xbox'), authController.passportLinkPlatform);
+
 router.put('/confirmEmail/', authController.confirmEmail);
 
 router.post('/sendResetPasswordToken', authController.sendResetToken);

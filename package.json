@@ -13,7 +13,7 @@
   "dependencies": {
     "async-redis": "^1.1.7",
     "aws-sdk": "^2.676.0",
-    "bcrypt": "^5.0.0",
+    "bcrypt": "^5.0.1",
     "compression": "^1.7.4",
     "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
@@ -34,7 +34,9 @@
     "passport": "^0.4.1",
     "passport-discord": "^0.1.3",
     "passport-steam": "^1.0.14",
+    "passport-xbox": "^1.0.0",
     "path": "^0.12.7",
+    "pkginfo": "^0.4.1",
     "pm2": "^4.4.0",
     "redis": "^3.0.2",
     "socket.io": "^3.0.1",

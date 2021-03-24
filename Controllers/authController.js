@@ -12,6 +12,9 @@ const { TestUser } = require('../Models/testUserModel');
 const Reputation = require('../Models/repModel');
 const user = require('../Models/userModel'); // this is here because of jest tests
 
+
+const envURL = process.env.HOST === "heroku" ? "https://www.virtrade.gg/" : "http://localhost:3000/";
+
 const createToken = (id, expires, code = 0, email) => jwt.sign({ id, code, email }, process.env.JWT_SECRET, {
     expiresIn: expires + 'd',
 });
@@ -255,6 +258,37 @@ exports.passportLoginOrCreate = async (req, res, next) => {
     return createSendToken(passportUser, res, { redirect: 'true', keepLogged: 'true' });
 };
 
+
+exports.passportLinkPlatform = async(req, res, next) => {
+
+    const { user, userJwt } = req;
+
+    if (!user || !user.username) return res.status(200).json({ info: 'error', message: 'Unknown error. Please try again later' });
+
+    const userDb = await User.findById(userJwt.id).select('-__v');
+    if (!userDb) return res.status(200).json({ info: 'error', message: 'invalid user' });
+
+    if (userDb.xbox.username) return res.status(200).json({ info: 'error', message: `xbox account already linked` });
+
+    const usernameAvailability = await User.findOne({ 'xbox.username': user.username }).select('-__v');
+    if (usernameAvailability) return res.status(200).json({ info: 'error', message: 'username already linked to another account' });
+    
+    userDb.xbox.username = user.username;
+    userDb.xbox.verified = true;
+
+    await userDb.save();
+
+    return res.redirect(`${envURL}account/settings`);
+
+}
+
+
+// rename user into userJwt, since req.user would be overwritten by passport
+exports.passportPlatformHelper = async(req, res, next) => {
+    req.userJwt = req.user;
+    next();
+}
+
 // PUT api/auth/confirmEmail
 exports.confirmEmail = catchAsync(async (req, res, next) => {
     const { code } = req.body;
@@ -424,7 +458,7 @@ exports.unlinkPlatform = async (req, res, next) => {
 
     
     // To be changed for other platforms too
-    if (platform !== 'psn' && platform !== 'epic' && platform !== 'switch') return res.status(200).json({ info: 'error', message: 'invalid platform provided' });
+    if (platform !== 'psn' && platform !== 'epic' && platform !== 'switch' && platofmr !== 'xbox') return res.status(200).json({ info: 'error', message: 'invalid platform provided' });
 
     const user = await User.findById(req.user.id).select('-__v');
     if (!user) return res.status(200).json({ info: 'error', message: 'invalid user' });

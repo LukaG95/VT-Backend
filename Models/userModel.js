@@ -136,6 +136,16 @@ const userSchema = new mongoose.Schema({
         }
 
     },
+    
+    xbox: {
+        username: {
+            type: String,
+            unique: true
+        },
+        verified: {
+            type: Boolean
+        }
+    },
 
     verificationToken: {
         type: String,

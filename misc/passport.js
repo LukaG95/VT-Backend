@@ -2,6 +2,7 @@ const passport = require("passport");
 
 const SteamStrategy = require("passport-steam").Strategy;
 const DiscordStrategy = require("passport-discord").Strategy;
+const XboxStrategy = require('passport-xbox').Strategy;
 
 // For production
 // const envURL = (process.env.NODE_ENV === 'production') ? 'https://virtrade.gg' : 'http://localhost:3000/';
@@ -48,5 +49,19 @@ passport.use(
         }
     )
 );
+
+passport.use(
+    new XboxStrategy(
+    {
+        clientID: process.env.MICROSOFT_CLIENT_ID,
+        clientSecret: process.env.MICROSOFT_CLIENT_SECRET,
+        callbackURL: `${envURL}api/auth/xbox/callback`,
+        scope: 'Xboxlive.signin'
+  },
+  
+  (accessToken, name, profile, done) => {
+    return done(null, profile);
+  }
+));
 
 module.exports = passport;
