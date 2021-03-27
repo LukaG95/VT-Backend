@@ -5,6 +5,7 @@ const { promisify } = require('util');
 const Joi = require('joi');
 
 const userSchema = new mongoose.Schema({
+    
     username: {
         type: String,
         minlength: 2,
@@ -23,7 +24,6 @@ const userSchema = new mongoose.Schema({
 
     activatedAccount: {
         type: Boolean,
-        maxlength: 255,
         default: false,
     },
 
@@ -92,55 +92,76 @@ const userSchema = new mongoose.Schema({
   }]
 */
     discord: {
-        type: String,
-        maxlength: 255,
-        unique: true,
-        sparse: true,
-    },
-
-    steam: {
-        type: String,
-        maxlength: 255,
-        unique: true,
-        sparse: true,
-    },
-
-    psn: {
+        id: {
+            type: String,
+            maxlength: 20,
+            unique: true,
+        },
         username: {
             type: String,
-            unique: true
+            maxlength: 36
         },
-        verified: {
+        
+        signedUpWith: {
             type: Boolean,
         }
         
     },
 
-    epic: {
+    steam: {
+        id: {
+            type: String,
+            maxlength: 20,
+            unique: true,
+        },
         username: {
             type: String,
-            unique: true
+            maxlength: 36
         },
-        verified: {
-            type: Boolean
+        
+        signedUpWith: {
+            type: Boolean,
         }
-    },
-
-    switch: {
-        username: {
-            type: String,
-            unique: true
-        },
-        verified: {
-            type: Boolean
-        }
-
     },
     
     xbox: {
         username: {
             type: String,
             unique: true
+        },
+        id: {
+            type: String,
+            unique: true
+        }
+    },
+
+    epic: {
+        username: {
+            type: String,
+            unique: true,
+            maxlength: 20
+        },
+        verified: {
+            type: Boolean
+        }
+    },
+
+    psn: {
+        username: {
+            type: String,
+            unique: true,
+            maxlength: 16
+        },
+        verified: {
+            type: Boolean,
+        }
+    },
+
+    switch: {
+        username: {
+            type: String,
+            unique: true,
+            maxlength: 17
         },
         verified: {
             type: Boolean

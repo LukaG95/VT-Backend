@@ -236,7 +236,7 @@ exports.passportLoginOrCreate = async (req, res, next) => {
     let { username } = user;
 
     // Checks if user already exists in DataBase
-    passportUser = await User.findOne({ [loginMethod]: user.id });
+    passportUser = await User.findOne({ [`${loginMethod}.id`]: user.id });
 
     if (passportUser) {
         return createSendToken(passportUser, res, { redirect: 'true', keepLogged: 'true' });
@@ -245,40 +245,48 @@ exports.passportLoginOrCreate = async (req, res, next) => {
     // Checks if username is available
     let registeredUser = await validateUsername(username);
 
-    // If not, Slice username to 12 char + add 4 random numbers
-    if (!registeredUser) username = username.slice(0, 12) + genNumber(4);
+    // If not, Slice username to 11 char + add 4 random numbers
+    if (!registeredUser) username = username.slice(0, 11) + genNumber(4);
 
     // Checks if its still available after adding 4 random numbers. Just in case
     registeredUser = await validateUsername(username);
     if (!registeredUser) return res.status(400).json({ info: 'error', message: 'Taken username. Please try again!' });
 
     // Create user
-    passportUser = await User.create({ [loginMethod]: user.id, username, activatedAccount: true });
+    passportUser = await User.create({ [`${loginMethod}.id`]: user.id, [`${loginMethod}.username`]: user.username, [`${loginMethod}.signedUpWith`]: true, username, activatedAccount: true });
 
     return createSendToken(passportUser, res, { redirect: 'true', keepLogged: 'true' });
 };
 
 
+// For xbox, steam and discord linking
 exports.passportLinkPlatform = async(req, res, next) => {
 
     const { user, userJwt } = req;
 
-    if (!user || !user.username) return res.status(200).json({ info: 'error', message: 'Unknown error. Please try again later' });
+    const platform = user.method;
+
+    if (!platform) return res.status(200).json({ info: 'error', message: 'invalid platform provided' });
+
+    if (!user || !user.username || !user.id) return res.status(200).json({ info: 'error', message: 'Unknown error. Please try again later' });
 
     const userDb = await User.findById(userJwt.id).select('-__v');
     if (!userDb) return res.status(200).json({ info: 'error', message: 'invalid user' });
 
-    if (userDb.xbox.username) return res.status(200).json({ info: 'error', message: `xbox account already linked` });
+    if (userDb[platform].id) return res.status(200).json({ info: 'error', message: `${platform} account already linked` });
 
-    const usernameAvailability = await User.findOne({ 'xbox.username': user.username }).select('-__v');
-    if (usernameAvailability) return res.status(200).json({ info: 'error', message: 'username already linked to another account' });
+    const usernameAvailability = await User.findOne({ [`${platform}.username`]: user.username });
+    const idAvailability = await User.findOne({ [`${platform}.id`]: user.id });
+
+    if (usernameAvailability || idAvailability) return res.status(200).json({ info: 'error', message: 'username already linked to another virtrade account' });
     
-    userDb.xbox.username = user.username;
-    userDb.xbox.verified = true;
+    userDb[platform].username = user.username;
+    userDb[platform].id = user.id;
+    if (platform === 'steam' || platform === 'discord') userDb[platform].signedUpWith = false;
 
     await userDb.save();
 
-    return res.redirect(`${envURL}account/settings`);
+    return res.redirect(`${envURL}account/settings/platforms`);
 
 }
 
@@ -429,9 +437,14 @@ exports.linkPlatform = async (req, res, next) => {
     const { platform } = req.query;
     const { username } = req.body;
 
-    // To be changed for other platforms too
-    if (platform !== 'psn' && platform !== 'epic' && platform !== 'switch') return res.status(200).json({ info: 'error', message: 'invalid platform provided' });
+
+    const validPlatforms = ['psn', 'epic', 'switch'];
+    if (!validPlatforms.includes(platform)) return res.status(200).json({ info: 'error', message: 'invalid platform provided' });
     if (!username) return res.status(200).json({ info: 'error', message: 'no username provided' });
+
+    if (platform === 'switch' && !username.match(/SW-\d{4}-\d{4}-\d{4}$/)) return res.status(200).json({ info: 'error', message: `invalid ${platform} username format` });
+    if (platform === 'psn' && username.length > 16) return res.status(200).json({ info: 'error', message: `invalid ${platform} username format` });
+    if (platform === 'epic' && username.length > 20) return res.status(200).json({ info: 'error', message: `invalid ${platform} username format` });
 
     const user = await User.findById(req.user.id).select('-__v');
     if (!user) return res.status(200).json({ info: 'error', message: 'invalid user' });
@@ -457,11 +470,13 @@ exports.unlinkPlatform = async (req, res, next) => {
     const { platform } = req.query;
 
     
-    // To be changed for other platforms too
-    if (platform !== 'psn' && platform !== 'epic' && platform !== 'switch' && platform !== 'xbox') return res.status(200).json({ info: 'error', message: 'invalid platform provided' });
+    const validPlatforms = ['psn', 'epic', 'switch', 'xbox', 'steam', 'discord'];
+    if (!validPlatforms.includes(platform)) return res.status(200).json({ info: 'error', message: 'invalid platform provided' });
 
     const user = await User.findById(req.user.id).select('-__v');
     if (!user) return res.status(200).json({ info: 'error', message: 'invalid user' });
+
+    if ((platform === 'steam' || platform === 'discord') && user[platform].signedUpWith) return res.status(200).json({ info: 'error', message: "Can't unlink platform you signed up with. Please contact us on discord or at support@virtrade.gg if you'd like to do so!" });
 
     user[`${platform}`] = {};
     await user.save();

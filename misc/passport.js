@@ -17,7 +17,7 @@ passport.deserializeUser((obj, done) => {
     done(null, obj);
 });
 
-passport.use(
+passport.use('steam-login',
     new SteamStrategy(
         {
             returnURL: `${envURL}api/auth/steam/return`,
@@ -28,7 +28,24 @@ passport.use(
         (identifier, profile, done) => {
             profile.method = "steam";
             profile.username = profile.displayName;
+           
+            return done(null, profile);
+        }
+    )
+);
 
+passport.use('steam-link',
+    new SteamStrategy(
+        {
+            returnURL: `${envURL}api/auth/linkSteam/return`,
+            realm: `${envURL}`,
+            apiKey: process.env.STEAM_API_KEY
+        },
+
+        (identifier, profile, done) => {
+            profile.method = "steam";
+            profile.username = profile.displayName;
+           
             return done(null, profile);
         }
     )
@@ -60,6 +77,7 @@ passport.use(
   },
   
   (accessToken, name, profile, done) => {
+    profile.method = "xbox";
     return done(null, profile);
   }
 ));

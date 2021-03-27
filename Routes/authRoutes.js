@@ -6,6 +6,8 @@ const passport = require('../misc/passport');
 const authController = require('../Controllers/authController');
 const testUserController = require('../Controllers/testUserController');
 
+const envURL = process.env.HOST === "heroku" ? "https://www.virtrade.gg/" : "http://localhost:3000/";
+
 const router = express.Router();
 
 router.use(cors());
@@ -28,11 +30,20 @@ router.put('/updateUsername', authController.protect, authController.updateUsern
 router.put('/updatePassword', authController.protect, authController.updatePassword);
 router.put('/updateEmail', authController.protect, authController.updateEmail);
 
-router.get('/steam', passport.authenticate('steam'));
-router.get('/steam/return', passport.authenticate('steam'), authController.passportLoginOrCreate);
+router.get('/steam', passport.authenticate('steam-login'));
+router.get('/steam/return', passport.authenticate('steam-login'), authController.passportLoginOrCreate);
 
 router.get('/discord', passport.authenticate('discord'));
 router.get('/discord/callback', passport.authenticate('discord'), authController.passportLoginOrCreate);
+
+router.get('/linkDiscord', authController.protect, (req, res, next) =>
+    passport.authenticate('discord', {callbackURL: `${env}api/auth/linkDiscord/callback`})(req, res, next));
+router.get('/linkDiscord/callback', authController.protect, authController.passportPlatformHelper, (req, res, next) =>
+    passport.authenticate('discord', {callbackURL: `${env}api/auth/linkDiscord/callback`})(req, res, next), authController.passportLinkPlatform);
+
+router.get('/linkSteam', authController.protect, passport.authenticate('steam-link'));
+router.get('/linkSteam/return', authController.protect, authController.passportPlatformHelper, 
+    passport.authenticate('steam-link'), authController.passportLinkPlatform);
 
 router.get('/xbox', authController.protect, passport.authenticate('xbox'));
 router.get('/xbox/callback', authController.protect, authController.passportPlatformHelper, passport.authenticate('xbox'), authController.passportLinkPlatform);
