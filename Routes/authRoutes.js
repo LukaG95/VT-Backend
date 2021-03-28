@@ -37,9 +37,9 @@ router.get('/discord', passport.authenticate('discord'));
 router.get('/discord/callback', passport.authenticate('discord'), authController.passportLoginOrCreate);
 
 router.get('/linkDiscord', authController.protect, (req, res, next) =>
-    passport.authenticate('discord', {callbackURL: `${env}api/auth/linkDiscord/callback`})(req, res, next));
+    passport.authenticate('discord', {callbackURL: `${envURL}api/auth/linkDiscord/callback`})(req, res, next));
 router.get('/linkDiscord/callback', authController.protect, authController.passportPlatformHelper, (req, res, next) =>
-    passport.authenticate('discord', {callbackURL: `${env}api/auth/linkDiscord/callback`})(req, res, next), authController.passportLinkPlatform);
+    passport.authenticate('discord', {callbackURL: `${envURL}api/auth/linkDiscord/callback`})(req, res, next), authController.passportLinkPlatform);
 
 router.get('/linkSteam', authController.protect, passport.authenticate('steam-link'));
 router.get('/linkSteam/return', authController.protect, authController.passportPlatformHelper, 

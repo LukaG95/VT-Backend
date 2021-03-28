@@ -266,19 +266,25 @@ exports.passportLinkPlatform = async(req, res, next) => {
 
     const platform = user.method;
 
-    if (!platform) return res.status(200).json({ info: 'error', message: 'invalid platform provided' });
+    // if (!platform) return res.status(200).json({ info: 'error', message: 'invalid platform provided' });
+    if (!platform) return res.redirect(`${envURL}account/settings/platforms`);
 
-    if (!user || !user.username || !user.id) return res.status(200).json({ info: 'error', message: 'Unknown error. Please try again later' });
+    // if (!user || !user.username || !user.id) return res.status(200).json({ info: 'error', message: 'Unknown error. Please try again later' });
+    if (!user || !user.username || !user.id) return res.redirect(`${envURL}account/settings/platforms`);
 
     const userDb = await User.findById(userJwt.id).select('-__v');
-    if (!userDb) return res.status(200).json({ info: 'error', message: 'invalid user' });
 
-    if (userDb[platform].id) return res.status(200).json({ info: 'error', message: `${platform} account already linked` });
+    // if (!userDb) return res.status(200).json({ info: 'error', message: 'invalid user' });
+    if (!userDb) return res.redirect(`${envURL}account/settings/platforms`);
+
+    // if (userDb[platform].id) return res.status(200).json({ info: 'error', message: `${platform} account already linked` });
+    if (userDb[platform].id) return res.redirect(`${envURL}account/settings/platforms`);
 
     const usernameAvailability = await User.findOne({ [`${platform}.username`]: user.username });
     const idAvailability = await User.findOne({ [`${platform}.id`]: user.id });
 
-    if (usernameAvailability || idAvailability) return res.status(200).json({ info: 'error', message: 'username already linked to another virtrade account' });
+    // if (usernameAvailability || idAvailability) return res.status(200).json({ info: 'error', message: 'username already linked to another virtrade account' });
+    if (usernameAvailability || idAvailability) return res.redirect(`${envURL}account/settings/platforms`);
     
     userDb[platform].username = user.username;
     userDb[platform].id = user.id;
