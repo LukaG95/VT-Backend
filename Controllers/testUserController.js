@@ -24,7 +24,7 @@ const createSendToken = (user, res, option) => {
     httpOnly: true,
   }
 
-    if (process.env.NODE_ENV === "production") cookieSettings.secure = true;
+  if (process.env.NODE_ENV === "production") cookieSettings.secure = true; cookieSettings.domain = '.virtrade.gg';
 
     res.cookie("test", token, cookieSettings);
 

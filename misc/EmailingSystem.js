@@ -4,7 +4,7 @@ class EmailingSystem {
     constructor(options) {
         this.receiver = options.email;
         this.userId = options.id;
-        this.url = process.env.NODE_ENV === "production" ? "virtrade.gg" : "https://justlearningfront.website";
+        this.url = process.env.NODE_ENV === "production" ? "https://virtrade.gg" : "http://localhost:3000";
     }
 
     newTransporter() {
@@ -35,33 +35,27 @@ class EmailingSystem {
     async sendEmail(subject, text) {
         const transporter = this.newTransporter();
         const messageOptions = {
-            from: "virtrade.gg", // sender address
+            from: '"VirTrade" <info@virtrade.gg>', // sender address
             to: this.receiver, // list of receivers
             subject, // Subject line
             text, // plain text body
             html: `<b>${text}</b>` // html body
         };
-        if (process.env.NODE_ENV === "production") messageOptions.from = '"Virtrade.gg" <rldsocials@gmail.com>';
+        // if (process.env.NODE_ENV === "production") messageOptions.from = '"Virtrade.gg" <rldsocials@gmail.com>';
 
-        await transporter.sendMail(messageOptions, (error, info) => {
-            if (error) {
-                console.log(error);
-            } else {
-                console.log(`Message sent: ${info.response}`);
-            }
-        });
+        transporter.sendMail(messageOptions, (err, res) => console.log(res.response));
     }
 
     async sendSignup(code) {
-        await this.sendEmail("Email verification", `Your verification link is ${this.url}/email/confirm/${code}`);
+        await this.sendEmail("Email verification", `Your email verification link is <br> <a href= "${this.url}/email/confirm/${code}">${this.url}/email/confirm/${code}</a> <br> Valid for 15 minutes!`);
     }
 
     async sendPasswordReset(code) {
-        await this.sendEmail("Password reset", `Your password reset link is ${this.url}/password/reset/${code}`);
+        await this.sendEmail("Password reset", `Please ignore the email, if you have not issued this! <br><br> Your password reset link is <br> <a href= "${this.url}/password/reset/${code}">${this.url}/password/reset/${code}</a> <br><br> Valid for 15 minutes!`);
     }
 
-    async sendEmailUpdate(code) {
-        await this.sendEmail("Email update", `Your email updading link is ${this.url}/email/update/${code}`);
+    async sendEmailUpdate(code, newEmail) {
+        await this.sendEmail("Email update", `Please ignore the email, if you have not issued this! <br><br> Your email updating link is <br> <a href= "${this.url}/email/update/${code}">${this.url}/email/update/${code}</a> <br> Once clicked, your email would be changed to ${newEmail}! <br><br> Valid for 15 minutes!`);
     }
 }
 

@@ -257,7 +257,7 @@ exports.validateLogin = (user) => {
 exports.validateEmail = async (email) => {
     const user = await User.findOne({ email }).collation({ locale: 'en', strength: 2 });
     if (user) {
-        if (user.confirmedEmail === false && user.tokenCreatedAt.getTime() < (Date.now() - 15 * 60 * 1000)) {
+        if (user.activatedAccount === false && user.tokenCreatedAt.getTime() < (Date.now() - 15 * 60 * 1000)) {
             await User.deleteOne({ _id: user._id });
             return true;
         }
@@ -270,7 +270,7 @@ exports.validateEmail = async (email) => {
 exports.validateUsername = async (username) => {
     const user = await User.findOne({ username }).collation({ locale: 'en', strength: 2 });
     if (user) {
-        if (user.confirmedEmail === false && user.tokenCreatedAt.getTime() < (Date.now() - 15 * 60 * 1000)) {
+        if (user.activatedAccount === false && user.tokenCreatedAt.getTime() < (Date.now() - 15 * 60 * 1000)) {
             await User.deleteOne({ _id: user._id });
             return true;
         }

@@ -13,10 +13,10 @@ const Reputation = require('../Models/repModel');
 const user = require('../Models/userModel'); // this is here because of jest tests
 
 
-const envURL = process.env.HOST === "heroku" ? "https://www.virtrade.gg/" : "http://localhost:3000/";
+const envURL = process.env.NODE_ENV === "production" ? "https://virtrade.gg/" : "http://localhost:3000/";
 
 const createToken = (id, expires, code = 0, email) => jwt.sign({ id, code, email }, process.env.JWT_SECRET, {
-    expiresIn: expires + 'd',
+    expiresIn: expires + (code != 0 ? 'm' : 'd'),
 });
 
 const decodeToken = async (token) => promisify(jwt.verify)(token, process.env.JWT_SECRET);
@@ -37,7 +37,7 @@ const createSendToken = (user, res, options) => {
         httpOnly: true,
     };
 
-    if (process.env.NODE_ENV === 'production') cookieSettings.secure = true;
+    if (process.env.NODE_ENV === "production") cookieSettings.secure = true; cookieSettings.domain = '.virtrade.gg';
 
     res.cookie('jwt', token, cookieSettings);
 
@@ -183,10 +183,11 @@ exports.signup = async (req, res, next) => {
     if (!result) return res.status(400).json({ info: 'username', message: 'this username is taken' });
 
     const newUser = await User.create({
-        username, email, password, passwordConfirm,
+        username, email, password, passwordConfirm, activatedAccount: false
     });
 
-    // await sendSignupEmail(newUser)
+    await sendEmail('signup', newUser);
+
     return createSendToken(newUser, res);
 };
 
@@ -228,6 +229,15 @@ exports.adminOnly = async (req, res, next) => {
 
     next();
 };
+
+exports.activatedAccountOnly = async (req, res, next) => {
+    const user = await User.findById(req.user.id);
+
+    if (!user.activatedAccount) return res.status(200).json({ info: 'error', message: 'Confirmed email is required to access this feature!' });
+
+    next();
+
+}
 
 exports.passportLoginOrCreate = async (req, res, next) => {
     const { user } = req;
@@ -304,95 +314,99 @@ exports.passportPlatformHelper = async(req, res, next) => {
 }
 
 // PUT api/auth/confirmEmail
-exports.confirmEmail = catchAsync(async (req, res, next) => {
+exports.confirmEmail = async (req, res, next) => {
     const { code } = req.body;
     const decodedCode = await decodeToken(code);
 
     const userDB = await User.findById(decodedCode.id).select('verificationToken');
-    if (!userDB) return next(new AppError());
+    if (!userDB) return res.status(200).json({ info: 'error', message: 'user not found' });
 
     const result = await userDB.compareTokens(decodedCode.code, userDB.verificationToken);
 
-    if (result === true && !userDB.confirmedEmail) {
-        userDB.confirmedEmail = true;
-        userDB.verificationToken = null;
-        await userDB.save();
-        return res.json({ status: 'success' });
-    }
+    if (!result || userDB.activatedAccount) return res.status(200).json({ info: 'error', message: 'invalid verification code or account already activated' });
+        
+    userDB.activatedAccount = true;
+    userDB.verificationToken = null;
+    await userDB.save();
 
-    next(new AppError('OldOrInvalid'));
-});
+    return res.status(200).json({ info: 'success', message: 'successfully confirmed email!' });
+    
+};
 
-// exports.resendCode = catchAsync(async (req, res, next) => {
-//     const { user } = req
+exports.resendSignupEmail = async (req, res, next) => {
+    const user = await User.findById(req.user.id)
 
-//     if (user.confirmedEmail === true) return next(new AppError())
+    if (user.activatedAccount === true) return res.status(200).json({ info: 'error', message: 'email is already verified' });
 
-//     await sendEmail(user)
-//     return res.json({ status: 'success' })
-// })
+    await sendEmail('signup', user);
+
+    return res.status(200).json({ info: 'success', message: 'successfully sent a verification token' });
+};
 
 // DELETE api/auth/logout
-exports.logout = catchAsync(async (req, res, next) => {
+exports.logout = async (req, res, next) => {
     res.clearCookie('jwt');
 
     return res.json({ status: 'success' });
-});
+};
 
 // PUT api/auth/updateUsername
-exports.updateUsername = catchAsync(async (req, res, next) => {
+exports.updateUsername = async (req, res, next) => {
     const user = await User.findById(req.user.id).select('-__v');
     const { newUsername } = req.body;
 
     // Find user, if user exists change his username if new one matches the regex and hasn't been changed in the past 30 days
-    if (!newUsername || !newUsername.match(/^(?!.*[ ]{2,})[a-zA-Z0-9 _-]{2,15}$/gm)) return next(new AppError(1));
+    if (!newUsername || !newUsername.match(/^(?!.*[ ]{2,})[a-zA-Z0-9 _-]{2,15}$/gm)) return res.status(200).json({ info: 'error', message: 'invalid username provided!' });
 
-    if (user.usernameChangedAt > new Date(Date.now() - 86400 * 1000)) return next(new AppError('days30'));
+    if (user.usernameChangedAt > new Date(Date.now() - 86400 * 1000 * 30)) return res.status(200).json({ info: 'error', message: 'days30' });
 
     const validateName = await User.findOne({ username: newUsername }).collation({ locale: 'en', strength: 2 });
-    if (validateName) return next(new AppError('username'));
+    if (validateName) return res.status(200).json({ info: 'error', message: 'username' });
 
     user.username = newUsername;
     user.usernameChangedAt = Date.now();
 
     await user.save();
 
-    return res.json({ status: 'success' });
-});
+    return res.status(200).json({ info: 'success', message: 'successfully changed the username', newUsername });
+};
 
 // PUT api/auth/updateEmail
-exports.updateEmail = catchAsync(async (req, res, next) => {
+exports.updateEmail = async (req, res, next) => {
     const { code } = req.body;
     const decodedCode = await decodeToken(code);
 
     const user = await User.findById(decodedCode.id).select('-__v +verificationToken');
-    if (!user) return next(new AppError('error1'));
+    if (!user) return res.status(200).json({ info: 'error', message: 'invalid user' });
 
     const takenEmail = await User.findOne({ email: decodedCode.email }).collation({ locale: 'en', strength: 2 });
-    if (takenEmail || !decodedCode.email) return next(new AppError('email'));
+    if (takenEmail || !decodedCode.email) return res.status(200).json({ info: 'error', message: 'email is already taken' });
 
     user.email = decodedCode.email;
     await user.save();
 
-    return res.json({ status: 'success', username: user.username, newEmail: decodedCode.email });
-});
+    return res.status(200).json({ info: 'success', username: user.username, newEmail: decodedCode.email });
+};
 
 // POST api/auth/sendResetEmailToken
-exports.sendResetEmail = catchAsync(async (req, res, next) => {
+exports.sendUpdateEmailToken = async (req, res, next) => {
     const user = await User.findById(req.user.id).select('-__v');
+    if (!user) return res.status(200).json({ info: 'error', message: 'invalid user' });
+
     const { newEmail } = req.body;
 
     const takenEmail = await User.findOne({ email: newEmail }).collation({ locale: 'en', strength: 2 });
-    if (takenEmail) return next(new AppError('email'));
+    if (takenEmail) return res.status(200).json({ info: 'error', message: 'email is already taken' });
 
     if (!newEmail || !parseEmail(newEmail)) {
-        return next(new AppError('error'));
+        return res.status(200).json({ info: 'error', message: 'invalid email format provided' });
     }
 
-    await sendEmailUpdateEmail(user, newEmail);
+    await sendEmail('emailUpdate', user, newEmail);
 
-    return res.json({ status: 'success' });
-});
+    return res.status(200).json({ info: 'success', message: `successfully sent a verification link to ${user.email}` });
+};
+
 
 // PUT api/auth/updatePassword
 exports.updatePassword = catchAsync(async (req, res, next) => {
@@ -410,16 +424,6 @@ exports.updatePassword = catchAsync(async (req, res, next) => {
     return res.status(200).json({ info: 'success', message: 'successfully updated password' });
 });
 
-// POST api/auth/sendResetPasswordToken
-exports.sendResetToken = catchAsync(async (req, res, next) => {
-    const { email } = req.body;
-    const user = await User.findOne({ email }).collation({ locale: 'en', strength: 2 });
-
-    if (!user.confirmedEmail) return next(new AppError('invalid'));
-    await sendPasswordResetEmail(user);
-
-    return res.json({ status: 'success' });
-});
 
 // PUT api/auth/resetPassword
 exports.resetPassword = catchAsync(async (req, res, next) => {
@@ -427,15 +431,30 @@ exports.resetPassword = catchAsync(async (req, res, next) => {
     const decodedCode = await decodeToken(code);
     const user = await User.findById(decodedCode.id).select('-__v +verificationToken');
 
-    if (await user.compareTokens(decodedCode.code, user.verificationToken) && password === passwordConfirm && user.confirmedEmail) {
+    if (await user.compareTokens(decodedCode.code, user.verificationToken) && password === passwordConfirm) {
         user.password = password;
         user.verificationToken = null;
         await user.save();
-        return res.json({ status: 'success' });
+        return res.status(200).json({ info: 'success', message: 'successfully updated password' });
     }
 
-    if (!user.confirmedEmail) return next(new AppError('invalid'));
+    return res.status(200).json({ info: 'error', message: 'error resetting the password' });
 });
+
+// POST api/auth/sendResetPasswordToken
+exports.sendResetPasswordToken = async (req, res, next) => {
+    const { email } = req.body;
+
+    const user = await User.findOne({ email }).collation({ locale: 'en', strength: 2 });
+
+
+    if (!user) return res.status(200).json({ info: 'error', message: 'user with specified email does not exist' });
+    if (!user.activatedAccount) return res.status(200).json({ info: 'error', message: 'email address needs to be confirmed' });
+
+    await sendEmail('passwordReset', user);
+
+    return res.status(200).json({ info: 'success', message: 'successfully sent an email' });
+};
 
 
 exports.linkPlatform = async (req, res, next) => {
@@ -540,32 +559,18 @@ exports.verifyPlatformUser = async (req, res, next) => {
 
 }
 
+async function sendEmail(type, user, newEmail) {
 
-async function sendSignupEmail(user) {
     const emailToken = await user.generateEmailToken();
     await user.save();
-    const token = await createToken(user._id, emailToken);
-    const Email = new EmailingSystem({ email: user.email })
-        .sendSignup(token);
-    await Email;
-}
 
-async function sendPasswordResetEmail(user) {
-    const emailToken = await user.generateEmailToken();
-    await user.save();
-    const token = await createToken(user._id, emailToken);
+    const token = await createToken(user._id, 1, emailToken, newEmail);
     const Email = new EmailingSystem({ email: user.email })
-        .sendPasswordReset(token);
-    await Email;
-}
 
-async function sendEmailUpdateEmail(user, newEmail) {
-    const emailToken = await user.generateEmailToken();
-    await user.save();
-    const token = await createToken(user._id, emailToken, newEmail);
-    const Email = new EmailingSystem({ email: user.email })
-        .sendEmailUpdate(token);
-    await Email;
+    if (type === 'signup') await Email.sendSignup(token);
+    if (type === 'passwordReset') await Email.sendPasswordReset(token);
+    if (type === 'emailUpdate') await Email.sendEmailUpdate(token, newEmail);
+
 }
 
 
