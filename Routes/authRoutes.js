@@ -8,7 +8,10 @@ const testUserController = require('../Controllers/testUserController');
 
 const envURL = process.env.NODE_ENV === "production" ? "https://virtrade.gg/" : "http://localhost:3000/";
 
+
 const router = express.Router();
+
+
 
 router.use(cors());
 router.use(passport.initialize());

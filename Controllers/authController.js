@@ -37,7 +37,7 @@ const createSendToken = (user, res, options) => {
         httpOnly: true,
     };
 
-    if (process.env.NODE_ENV === "production") cookieSettings.secure = true; cookieSettings.domain = '.virtrade.gg';
+    if (process.env.NODE_ENV === "production") cookieSettings.secure = true
 
     res.cookie('jwt', token, cookieSettings);
 

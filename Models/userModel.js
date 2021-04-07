@@ -96,6 +96,8 @@ const userSchema = new mongoose.Schema({
             type: String,
             maxlength: 20,
             unique: true,
+            sparse: true
+
         },
         username: {
             type: String,
@@ -113,6 +115,7 @@ const userSchema = new mongoose.Schema({
             type: String,
             maxlength: 20,
             unique: true,
+            sparse: true
         },
         username: {
             type: String,
@@ -127,11 +130,13 @@ const userSchema = new mongoose.Schema({
     xbox: {
         username: {
             type: String,
-            unique: true
+            unique: true,
+            sparse: true
         },
         id: {
             type: String,
-            unique: true
+            unique: true,
+            sparse: true
         }
     },
 
@@ -139,7 +144,8 @@ const userSchema = new mongoose.Schema({
         username: {
             type: String,
             unique: true,
-            maxlength: 20
+            maxlength: 20,
+            sparse: true
         },
         verified: {
             type: Boolean
@@ -150,7 +156,8 @@ const userSchema = new mongoose.Schema({
         username: {
             type: String,
             unique: true,
-            maxlength: 16
+            maxlength: 16,
+            sparse: true
         },
         verified: {
             type: Boolean,
@@ -161,7 +168,8 @@ const userSchema = new mongoose.Schema({
         username: {
             type: String,
             unique: true,
-            maxlength: 17
+            maxlength: 17,
+            sparse: true
         },
         verified: {
             type: Boolean

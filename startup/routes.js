@@ -2,8 +2,9 @@ const cookieParser = require('cookie-parser');
 const express = require('express');
 const cors = require('cors');
 
-const TradeRouter = require('../Routes/tradeRoutes');
+
 const AuthRouter = require('../Routes/authRoutes');
+const TradeRouter = require('../Routes/tradeRoutes');
 const RepRouter = require('../Routes/repRoutes');
 const MessagesRouter = require('../Routes/messagesRoutes');
 const TestUserRouter = require('../Routes/testUserRoutes');
