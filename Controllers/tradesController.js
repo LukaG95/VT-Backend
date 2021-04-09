@@ -61,13 +61,18 @@ exports.createTrade = async (req, res, next) => {
     } = req.body;
 
     const { error } = await validateTrade(req.body, user, req);
-    if (error) return res.status(400).json({ info: 'invalid credentials', message: error.details[0].message });
+    if (error) return res.status(400).json({ info: 'invalid credentials', message: error.details[0].message});
+
+    let formatPlatform = {
+      name: platform,
+      ID: platformID(platform, user)
+    }
 
     const tradeDetails = {
         user: user._id,
         have,
         want,
-        platform,
+        platform: formatPlatform,
         notes,
         createdAt: Date.now(),
         bumpedAt: Date.now(),
@@ -96,10 +101,15 @@ exports.editTrade = async (req, res, next) => {
     const trade = await TradeRL.findById(tradeId);
     if (!trade) return res.status(404).json({ info: 'no trade', message: "trade with given id doesn't exist" });
 
+    let formatPlatform = {
+      name: platform,
+      ID: platformID(platform, user)
+    }
+
     const tradeDetails = {
         have,
         want,
-        platform,
+        platform: formatPlatform,
         notes,
         editedAt: Date.now(),
     };
@@ -154,3 +164,13 @@ exports.deleteTrades = async (req, res, next) => {
     await TradeRL.deleteMany({ user: user._id });
     return res.status(200).json({ info: 'success', message: 'deleted all trades' });
 };
+
+
+function platformID(platform, user){
+  platform = platform.toLowerCase()
+
+  if (platform === "xbox" || platform === "steam")
+    return user[platform].id
+  else
+    return user[platform].username
+}
