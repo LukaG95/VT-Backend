@@ -9,7 +9,7 @@ const app = express();
 
 app.use(helmet());
 app.use(compression());
-app.use(mongoSanitize());
+// app.use(mongoSanitize());
 app.use(xss());
 
 

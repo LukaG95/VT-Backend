@@ -229,13 +229,15 @@ userSchema.methods.compareTokens = async function (Token, HashedToken) {
 };
 
 userSchema.index({ username: 1, email: 1 }, { collation: { locale: 'en', strength: 2 } });
-userSchema.set('autoIndex', true); // Read this - https://mongoosejs.com/docs/guide.html
+// userSchema.set('autoIndex', true); // Read this - https://mongoosejs.com/docs/guide.html
 
 const User = mongoose.model('User', userSchema);
 
-User.collection.dropIndexes((err, results) => {
-    // Handle errors
-});
+
+
+// User.collection.dropIndexes((err, results) => {
+
+// });
 
 exports.User = User;
 

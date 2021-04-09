@@ -564,7 +564,7 @@ async function sendEmail(type, user, newEmail) {
     const emailToken = await user.generateEmailToken();
     await user.save();
 
-    const token = await createToken(user._id, 1, emailToken, newEmail);
+    const token = await createToken(user._id, 15, emailToken, newEmail);
     const Email = new EmailingSystem({ email: user.email })
 
     if (type === 'signup') await Email.sendSignup(token);

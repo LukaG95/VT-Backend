@@ -42,7 +42,7 @@ router.post('/sendResetPasswordToken', limiter(2, 1800), authController.sendRese
 router.put('/resetPassword', authController.resetPassword);
 
 
-router.get('/steam', limiter(5, 30), passport.authenticate('steam-login'));
+router.get('/steam',  passport.authenticate('steam-login'));
 router.get('/steam/return', passport.authenticate('steam-login'), authController.passportLoginOrCreate);
 
 router.get('/discord', limiter(5, 30), passport.authenticate('discord'));
