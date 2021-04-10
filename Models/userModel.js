@@ -5,6 +5,7 @@ const { promisify } = require('util');
 const Joi = require('joi');
 
 const userSchema = new mongoose.Schema({
+    
     username: {
         type: String,
         minlength: 2,
@@ -23,7 +24,6 @@ const userSchema = new mongoose.Schema({
 
     activatedAccount: {
         type: Boolean,
-        maxlength: 255,
         default: false,
     },
 
@@ -92,49 +92,88 @@ const userSchema = new mongoose.Schema({
   }]
 */
     discord: {
-        type: String,
-        maxlength: 255,
-        unique: true,
-        sparse: true,
-    },
+        id: {
+            type: String,
+            maxlength: 20,
+            unique: true,
+            sparse: true
 
-    steam: {
-        type: String,
-        maxlength: 255,
-        unique: true,
-        sparse: true,
-    },
-
-    psn: {
+        },
         username: {
             type: String,
-            unique: true
+            maxlength: 36
         },
-        verified: {
+        
+        signedUpWith: {
             type: Boolean,
         }
         
     },
 
+    steam: {
+        id: {
+            type: String,
+            maxlength: 20,
+            unique: true,
+            sparse: true
+        },
+        username: {
+            type: String,
+            maxlength: 36
+        },
+        
+        signedUpWith: {
+            type: Boolean,
+        }
+    },
+    
+    xbox: {
+        username: {
+            type: String,
+            unique: true,
+            sparse: true
+        },
+        id: {
+            type: String,
+            unique: true,
+            sparse: true
+        }
+    },
+
     epic: {
         username: {
             type: String,
-            unique: true
+            unique: true,
+            maxlength: 20,
+            sparse: true
         },
         verified: {
             type: Boolean
+        }
+    },
+
+    psn: {
+        username: {
+            type: String,
+            unique: true,
+            maxlength: 16,
+            sparse: true
+        },
+        verified: {
+            type: Boolean,
         }
     },
 
     switch: {
         username: {
             type: String,
-            unique: true
+            unique: true,
+            maxlength: 17,
+            sparse: true
         },
         verified: {
             type: Boolean
         }
-
     },
 
     verificationToken: {
@@ -190,13 +229,15 @@ userSchema.methods.compareTokens = async function (Token, HashedToken) {
 };
 
 userSchema.index({ username: 1, email: 1 }, { collation: { locale: 'en', strength: 2 } });
-userSchema.set('autoIndex', true); // Read this - https://mongoosejs.com/docs/guide.html
+// userSchema.set('autoIndex', true); // Read this - https://mongoosejs.com/docs/guide.html
 
 const User = mongoose.model('User', userSchema);
 
-User.collection.dropIndexes((err, results) => {
-    // Handle errors
-});
+
+
+// User.collection.dropIndexes((err, results) => {
+
+// });
 
 exports.User = User;
 
@@ -226,7 +267,7 @@ exports.validateLogin = (user) => {
 exports.validateEmail = async (email) => {
     const user = await User.findOne({ email }).collation({ locale: 'en', strength: 2 });
     if (user) {
-        if (user.confirmedEmail === false && user.tokenCreatedAt.getTime() < (Date.now() - 15 * 60 * 1000)) {
+        if (user.activatedAccount === false && user.tokenCreatedAt.getTime() < (Date.now() - 15 * 60 * 1000)) {
             await User.deleteOne({ _id: user._id });
             return true;
         }
@@ -239,7 +280,7 @@ exports.validateEmail = async (email) => {
 exports.validateUsername = async (username) => {
     const user = await User.findOne({ username }).collation({ locale: 'en', strength: 2 });
     if (user) {
-        if (user.confirmedEmail === false && user.tokenCreatedAt.getTime() < (Date.now() - 15 * 60 * 1000)) {
+        if (user.activatedAccount === false && user.tokenCreatedAt.getTime() < (Date.now() - 15 * 60 * 1000)) {
             await User.deleteOne({ _id: user._id });
             return true;
         }

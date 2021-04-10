@@ -2,11 +2,12 @@ const passport = require("passport");
 
 const SteamStrategy = require("passport-steam").Strategy;
 const DiscordStrategy = require("passport-discord").Strategy;
+const XboxStrategy = require('passport-xbox').Strategy;
 
 // For production
 // const envURL = (process.env.NODE_ENV === 'production') ? 'https://virtrade.gg' : 'http://localhost:3000/';
 
-const envURL = process.env.HOST === "heroku" ? "https://www.virtrade.gg/" : "http://localhost:3000/";
+const envURL = process.env.NODE_ENV === "production" ? "https://virtrade.gg/" : "http://localhost:3000/";
 
 passport.serializeUser((user, done) => {
     done(null, user);
@@ -16,7 +17,7 @@ passport.deserializeUser((obj, done) => {
     done(null, obj);
 });
 
-passport.use(
+passport.use('steam-login',
     new SteamStrategy(
         {
             returnURL: `${envURL}api/auth/steam/return`,
@@ -27,7 +28,24 @@ passport.use(
         (identifier, profile, done) => {
             profile.method = "steam";
             profile.username = profile.displayName;
+           
+            return done(null, profile);
+        }
+    )
+);
 
+passport.use('steam-link',
+    new SteamStrategy(
+        {
+            returnURL: `${envURL}api/auth/linkSteam/return`,
+            realm: `${envURL}`,
+            apiKey: process.env.STEAM_API_KEY
+        },
+
+        (identifier, profile, done) => {
+            profile.method = "steam";
+            profile.username = profile.displayName;
+           
             return done(null, profile);
         }
     )
@@ -48,5 +66,20 @@ passport.use(
         }
     )
 );
+
+passport.use(
+    new XboxStrategy(
+    {
+        clientID: process.env.MICROSOFT_CLIENT_ID,
+        clientSecret: process.env.MICROSOFT_CLIENT_SECRET,
+        callbackURL: `${envURL}api/auth/xbox/callback`,
+        scope: 'Xboxlive.signin'
+  },
+  
+  (accessToken, name, profile, done) => {
+    profile.method = "xbox";
+    return done(null, profile);
+  }
+));
 
 module.exports = passport;

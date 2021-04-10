@@ -1,6 +1,7 @@
 const authController = require('../Controllers/authController');
 const redis = require('../misc/redisCaching');
 
+
 module.exports = function (app, port) {
     // let app = require('express')();
     const http = require('http').createServer(app);
@@ -11,7 +12,7 @@ module.exports = function (app, port) {
 
     io.on('connection', async (socket) => {
         // io.connections['test'] = socket;
-        console.log('a user connected');
+
         // console.log(socket);
         socket.on('disconnect', async () => {
             
@@ -24,10 +25,9 @@ module.exports = function (app, port) {
                 else await redis.cacheNested('status', userId, --status);
                 
                 
-                return console.log('Disconnected ' + socket.jwt) 
+
             }
-            
-            console.log('user disconnected');
+
         });
 
         let cookies;
@@ -54,7 +54,7 @@ module.exports = function (app, port) {
         else await redis.cacheNested('status', userId, ++status);
             
     
-        console.log(`Authorized ${userId}`);
+
     });
 
     http.listen(port, () => {

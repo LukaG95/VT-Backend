@@ -13,7 +13,7 @@ module.exports = function (err, req, res, next) {
     res.status(400).json({
         message: "Something failed!",
         status: err.status,
-        error: err
+        error: 'unknown error'
     });
 };
 /*

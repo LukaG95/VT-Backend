@@ -24,7 +24,9 @@ const createSendToken = (user, res, option) => {
     httpOnly: true,
   }
 
-    if (process.env.NODE_ENV === "production") cookieSettings.secure = true;
+
+  if (process.env.NODE_ENV === "production") cookieSettings.secure = true
+
 
     res.cookie("test", token, cookieSettings);
 
@@ -48,6 +50,8 @@ exports.protect = catchAsync(async (req, res, next) => {
 exports.login = catchAsync(async (req, res, next) => {
     const { username, password } = req.body;
     const user = await TestUser.findOne({ username });
+
+    console.log(user);
 
     if (!user || user.password != password) return next(new AppError("error"));
 
