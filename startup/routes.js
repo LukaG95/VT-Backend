@@ -18,7 +18,7 @@ module.exports = function (app) {
     app.use(express.json());
     app.use(cookieParser());
 
-    app.use('/api/', limiter(300, 60));
+    // app.use('/api/');
 
     app.use('/api/auth/', AuthRouter);
     app.use('/api/test', TestUserRouter);

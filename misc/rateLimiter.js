@@ -1,5 +1,14 @@
 const rateLimit = require("express-rate-limit");
 
+const RedisStore = require("rate-limit-redis");
+
+const redisClient = require("./redisCaching").client;
+
+redisClient.flushall();
+
+// const Redis = require("ioredis");
+// const client = new Redis("/tmp/redis.sock");
+
 // let max;
 
 // if (process.env.NODE_ENV === "test") max = 1000;
@@ -7,10 +16,14 @@ const rateLimit = require("express-rate-limit");
 
 const limiter = function(max, seconds) {
     return rateLimit({
-        windowMs: seconds * 1 * 1000, // seconds
+        store: new RedisStore({
+            client: redisClient,
+            expiry: seconds
+          }),
+        windowMs: seconds * 1000, // seconds
         max, // limit each IP to x requests per windowMs
         headers: false,
-        message: { status: "blocked" }
+        message: { status: "blocked" },
     });
 
 } 

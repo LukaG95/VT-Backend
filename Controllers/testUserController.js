@@ -51,7 +51,6 @@ exports.login = catchAsync(async (req, res, next) => {
     const { username, password } = req.body;
     const user = await TestUser.findOne({ username });
 
-    console.log(user);
 
     if (!user || user.password != password) return next(new AppError("error"));
 

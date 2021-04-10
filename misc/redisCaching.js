@@ -55,3 +55,5 @@ exports.removeKeyNested = async (key, id, value) => {
 exports.removeAll = async () => {
   client.flushall()
 }
+
+exports.client = client;
