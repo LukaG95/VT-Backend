@@ -39,7 +39,7 @@ class EmailingSystem {
             to: this.receiver, // list of receivers
             subject, // Subject line
             text, // plain text body
-            html: `<b>${text}</b>` // html body
+            html: `<p>${text}</p>` // html body
         };
         if (process.env.NODE_ENV === "production") messageOptions.from = '"Virtrade.gg" <rldsocials@gmail.com>';
 
@@ -53,7 +53,20 @@ class EmailingSystem {
     }
 
     async sendSignup(code) {
-        await this.sendEmail("Email verification", `Your verification link is ${this.url}/email/confirm/${code}`);
+        await this.sendEmail("Email verification", 
+          `
+            Thank you for signing up \n\n
+
+            Welcome to VirTrade <username>! \n
+            Please confirm your email address by visiting: \n
+            ${this.url}/email/confirm/${code} \n\n
+
+            Happy trading! \n
+            __ \n \n
+
+            If you did not create this account we suggest you change your password and contact us at support@virtrade.gg
+          `
+        );
     }
 
     async sendPasswordReset(code) {
