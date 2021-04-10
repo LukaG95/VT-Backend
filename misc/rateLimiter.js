@@ -4,8 +4,6 @@ const RedisStore = require("rate-limit-redis");
 
 const redisClient = require("./redisCaching").client;
 
-redisClient.flushall();
-
 // const Redis = require("ioredis");
 // const client = new Redis("/tmp/redis.sock");
 
