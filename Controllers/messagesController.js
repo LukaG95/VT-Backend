@@ -34,6 +34,7 @@ exports.getDialogues = async (req, res, next) => {
                 createdAt: {
                     default: '$createdAt',
                     timestamp: { $toLong: '$createdAt' },
+                    
                     // hourminutes: {
                     //     $dateToString: {
                     //         date: '$createdAt',
