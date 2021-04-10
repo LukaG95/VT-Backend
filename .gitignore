@@ -9,6 +9,7 @@ errorLogs/*.log
 
 # React build (only push to production)
 build/
+client/
 
 # Environment variables, never commit this file
 /*.env
