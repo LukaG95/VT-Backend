@@ -49,14 +49,14 @@ class EmailingSystem {
     async sendSignup(code, username) {
         await this.sendEmail("Email verification", 
           `
-            Thank you for signing up \n\n
+            Thank you for signing up <br /><br />
 
-            Welcome to VirTrade ${username}! \n
-            Please confirm your email address by visiting: \n
-            ${this.url}/email/confirm/${code} \n\n
+            Welcome to VirTrade ${username}! <br />
+            Please confirm your email address by visiting: <br />
+            ${this.url}/email/confirm/${code} <br /><br />
 
-            Happy trading! \n
-            __ \n \n
+            Happy trading! <br />
+            __ <br /><br />
 
             If you did not create this account we suggest you change your password and contact us at support@virtrade.gg
           `
