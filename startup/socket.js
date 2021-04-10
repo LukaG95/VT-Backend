@@ -6,7 +6,10 @@ const redisAdapter = require('socket.io-redis')
 module.exports = function (app, port) {
     // let app = require('express')();
     const http = require('http').createServer(app);
-    const io = require('socket.io')(http);
+    const io = require('socket.io')(http,{
+        upgrade: false,
+        transports: ['websocket']
+    });
 
     io.adapter(redisAdapter({ host: 'localhost', port: 6379 }))
 
