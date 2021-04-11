@@ -288,7 +288,7 @@ exports.validateTradeQuery = (query) => {
     const schema = Joi.object({
         search: Joi.string().valid('Any', 'I want to buy', 'I want to sell').required(),
         itemID: Joi.number().valid(...allItemIDs).required(),
-        itemType: Joi.string().valid('Item', 'Blueprint').required(),
+        itemType: Joi.string().valid('Any', 'Item', 'Blueprint').required(),
         cert: Joi.string().valid('Any', 'None', 'Playmaker', 'Acrobat', 'Aviator', 'Goalkeeper', 'Guardian', 'Juggler', 'Paragon', 'Scorer', 'Show-Off', 'Sniper', 'Striker', 'Sweeper', 'Tactician', 'Turtle', 'Victor').required(),
         color: Joi.string().valid('Any', 'None', 'Crimson', 'Lime', 'Black', 'Sky Blue', 'Cobalt', 'Burnt Sienna', 'Forest Green', 'Purple', 'Pink', 'Orange', 'Grey', 'Titanium White', 'Saffron').required(),
         platform: Joi.string().valid("Any", "Steam", "PS4", "XBOX", "SWITCH", "EPIC").required(),
