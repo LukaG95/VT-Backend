@@ -67,7 +67,7 @@ class EmailingSystem {
     async sendPasswordReset(code) {
         await this.sendEmail("Password reset", `
           To confirm reseting password click on the link below: <br />
-          ${this.url}/password/reset/${code}">${this.url}/password/reset/${code} <br /><br />
+          ${this.url}/password/reset/${code} <br /><br />
 
           __ <br /><br />
 
@@ -80,7 +80,7 @@ class EmailingSystem {
         await this.sendEmail("Email update", 
           `
             To update your email to ${newEmail}, click on the link below: <br />
-            ${this.url}/email/update/${code}">${this.url}/email/update/${code} <br /><br />
+            ${this.url}/email/update/${code} <br /><br />
 
             __ <br /><br />
 

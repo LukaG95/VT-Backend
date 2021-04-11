@@ -448,8 +448,8 @@ exports.sendResetPasswordToken = async (req, res, next) => {
     const user = await User.findOne({ email }).collation({ locale: 'en', strength: 2 });
 
 
-    if (!user) return res.status(200).json({ info: 'error', message: 'user with specified email does not exist' });
-    if (!user.activatedAccount) return res.status(200).json({ info: 'error', message: 'email address needs to be confirmed' });
+    if (!user) return res.status(200).json({ info: 'error', message: 'User with specified email does not exist' });
+    if (!user.activatedAccount) return res.status(200).json({ info: 'error', message: 'Email address needs to be confirmed' });
 
     await sendEmail('passwordReset', user);
 
