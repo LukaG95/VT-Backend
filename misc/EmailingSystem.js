@@ -53,7 +53,7 @@ class EmailingSystem {
 
             Welcome to VirTrade ${username}! <br />
             Please confirm your email address by visiting: <br />
-            ${this.url}/email/confirm/${code} <br /><br />
+            <a href="${this.url}/email/confirm/${code}">Confirm email</a> <br /><br />
 
             Happy trading! <br />
             __ <br /><br />
@@ -67,7 +67,7 @@ class EmailingSystem {
     async sendPasswordReset(code) {
         await this.sendEmail("Password reset", `
           To confirm reseting password click on the link below: <br />
-          ${this.url}/password/reset/${code} <br /><br />
+          <a href="${this.url}/password/reset/${code}">Reset password</a> <br /><br />
 
           __ <br /><br />
 
@@ -80,7 +80,7 @@ class EmailingSystem {
         await this.sendEmail("Email update", 
           `
             To update your email to ${newEmail}, click on the link below: <br />
-            ${this.url}/email/update/${code} <br /><br />
+            <a href="${this.url}/email/update/${code}">Update email</a> <br /><br />
 
             __ <br /><br />
 
