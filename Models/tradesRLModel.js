@@ -245,7 +245,7 @@ exports.validateTrade = async (trade, user, req) => {
 
     for (let i = 0; i < tradeLength; i++){
       if (haveWant[i].itemID === item.ItemID)
-        if (haveWant[i].blueprint)
+        if (haveWant[i].itemType === "Blueprint")
           if (!item.Blueprintable)
             blueprintError = true
         

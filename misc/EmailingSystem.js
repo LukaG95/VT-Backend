@@ -58,17 +58,36 @@ class EmailingSystem {
             Happy trading! <br />
             __ <br /><br />
 
-            If you did not create this account we suggest you change your password and contact us at support@virtrade.gg
+            Link is active for 15 minutes.<br />
+            If you did not create this account ignore this email. For support contact us at support@virtrade.gg
           `
         );
     }
 
     async sendPasswordReset(code) {
-        await this.sendEmail("Password reset", `Please ignore the email, if you have not issued this! <br><br> Your password reset link is <br> <a href= "${this.url}/password/reset/${code}">${this.url}/password/reset/${code}</a> <br><br> Valid for 15 minutes!`);
+        await this.sendEmail("Password reset", `
+          To confirm reseting password click on the link below: <br />
+          ${this.url}/password/reset/${code}">${this.url}/password/reset/${code} <br /><br />
+
+          __ <br /><br />
+
+          Link is active for 15 minutes.<br />
+          If you did not create this request ignore this email. For support contact us at support@virtrade.gg
+        `);
     }
 
     async sendEmailUpdate(code, newEmail) {
-        await this.sendEmail("Email update", `Please ignore the email, if you have not issued this! <br><br> Your email updating link is <br> <a href= "${this.url}/email/update/${code}">${this.url}/email/update/${code}</a> <br> Once clicked, your email would be changed to ${newEmail}! <br><br> Valid for 15 minutes!`);
+        await this.sendEmail("Email update", 
+          `
+            To update your email to ${newEmail}, click on the link below: <br />
+            ${this.url}/email/update/${code}">${this.url}/email/update/${code} <br /><br />
+
+            __ <br /><br />
+
+            Link is active for 15 minutes.<br />
+            If you did not create this request ignore this email. For support contact us at support@virtrade.gg
+          `
+        );
     }
 }
 
