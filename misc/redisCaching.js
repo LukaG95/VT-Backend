@@ -5,7 +5,6 @@ const util = require("util");
 const redisUrl = process.env.REDIS_URL
 const client = redis.createClient(redisUrl)
 
-
 // const client = redis.createClient(6379)
 
 // Make redis functions promise based
@@ -16,7 +15,6 @@ const client = redis.createClient(redisUrl)
   client.set = util.promisify(client.set);
   client.hset = util.promisify(client.hset);
 //
-
 
 // Clear online status db on startup
   client.del('status');

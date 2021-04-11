@@ -51,6 +51,7 @@ const tradesRLSchema = new mongoose.Schema({
 
             itemType: {
                 type: String,
+                enum: ['Item', 'Blueprint'],
                 minlength: 1,
                 maxlength: 50,
                 required: true,
@@ -61,10 +62,6 @@ const tradesRLSchema = new mongoose.Schema({
                 min: 1,
                 max: 100000,
                 required: true,
-            },
-            blueprint: {
-              type: Boolean,
-              required: true
             }
         },
     ],
@@ -110,6 +107,7 @@ const tradesRLSchema = new mongoose.Schema({
 
             itemType: {
                 type: String,
+                enum: ['Item', 'Blueprint'],
                 minlength: 1,
                 maxlength: 50,
                 required: true,
@@ -120,10 +118,6 @@ const tradesRLSchema = new mongoose.Schema({
                 min: 1,
                 max: 100000,
                 required: true,
-            },
-            blueprint: {
-              type: Boolean,
-              required: true
             }
         },
     ],
@@ -252,7 +246,7 @@ exports.validateTrade = async (trade, user, req) => {
     }
     
   })
-  if (blueprintError) return { error: { details: [{ message: "blueprint attribute error" }] } };
+  if (blueprintError) return { error: { details: [{ message: "item blueprintable error" }] } };
   
   const hwValidation = Joi.object({
     itemID: Joi.number().valid(...allItemIDs).required(),
@@ -260,9 +254,8 @@ exports.validateTrade = async (trade, user, req) => {
     color: Joi.string().valid('None', 'Crimson', 'Lime', 'Black', 'Sky Blue', 'Cobalt', 'Burnt Sienna', 'Forest Green', 'Purple', 'Pink', 'Orange', 'Grey', 'Titanium White', 'Saffron').required(),
     colorID: Joi.number().valid(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13).strict().required(),
     cert: Joi.string().valid('None', 'Playmaker', 'Acrobat', 'Aviator', 'Goalkeeper', 'Guardian', 'Juggler', 'Paragon', 'Scorer', 'Show-Off', 'Sniper', 'Striker', 'Sweeper', 'Tactician', 'Turtle', 'Victor').required(),
-    itemType: Joi.string().valid('item', 'blueprint').required(),
-    amount: Joi.when('itemID', { is: 4743, then: Joi.number().min(1).max(100000).required(), otherwise: Joi.number().min(1).max(100).required() }), // limit 100000 if credits are the item
-    blueprint: Joi.boolean().required()
+    itemType: Joi.string().valid('Item', 'Blueprint').required(),
+    amount: Joi.when('itemID', { is: 4743, then: Joi.number().min(1).max(100000).required(), otherwise: Joi.number().min(1).max(100).required() }) // limit 100000 if credits are the item
   });
 
   const schema = Joi.object({
@@ -295,7 +288,7 @@ exports.validateTradeQuery = (query) => {
     const schema = Joi.object({
         search: Joi.string().valid('Any', 'I want to buy', 'I want to sell').required(),
         itemID: Joi.number().valid(...allItemIDs).required(),
-        itemType: Joi.string().valid('Any', 'items', 'blueprints').required(),
+        itemType: Joi.string().valid('Item', 'Blueprint').required(),
         cert: Joi.string().valid('Any', 'None', 'Playmaker', 'Acrobat', 'Aviator', 'Goalkeeper', 'Guardian', 'Juggler', 'Paragon', 'Scorer', 'Show-Off', 'Sniper', 'Striker', 'Sweeper', 'Tactician', 'Turtle', 'Victor').required(),
         color: Joi.string().valid('Any', 'None', 'Crimson', 'Lime', 'Black', 'Sky Blue', 'Cobalt', 'Burnt Sienna', 'Forest Green', 'Purple', 'Pink', 'Orange', 'Grey', 'Titanium White', 'Saffron').required(),
         platform: Joi.string().valid("Any", "Steam", "PS4", "XBOX", "SWITCH", "EPIC").required(),
