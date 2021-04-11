@@ -15,5 +15,5 @@ module.exports = function () {
         useCreateIndex: true,
     // useUnifiedTopology: true
     })
-        .then(() => process.env.NODE_ENV !== 'test' && logger.info(`Connected to ${DB}.`));
+        .then(() => process.env.NODE_ENV !== 'test' && logger.info(`Connected to db`));
 };
