@@ -2,26 +2,43 @@ class AdvancedQueryRL {
     constructor(query, queryString) {
         this.query = query; // query = TradeRL.find()
         this.queryString = queryString; // queryString = { userID: 5f61179c4f3b2c0017cf96c7 }
-        this.excludedFields = ["search", "page", "limit"];
+        this.excludedFields = ["search", "page", "limit", "platform"];
     }
 
     filter() {
         // deletes fields with "Any" filter attribute
-        const queryObj = { ...this.queryString };
+        let queryObj = { ...this.queryString };
         Object.keys(queryObj).forEach((q) => {
-            if (queryObj[q] === "Any") {
+            if (queryObj[q] === "Any" && q !== 'search') {
                 delete queryObj[q];
             }
         });
 
+        queryObj['platform.name'] = queryObj.platform; // platform = 'Steam' to platform.name = 'Steam'
+
         const queryStr = JSON.stringify(queryObj); // queryStr = `{"itemID": "12", "itemName": "Zomba", "cert": "Striker", "paint": "Black", "page": "1", "limit": "10"}`
 
         const tradeOption = queryObj.search === "I want to sell" ? "want" : "have";
-        const editedStr = queryStr.replace(/\b(itemID|itemType|cert|color)\b/g, (match) => `${tradeOption}.${match}`);
 
-        const editedObj = JSON.parse(editedStr); // editedObj = {"want.itemID": "12", "want.cert": "Striker", "want.color": "Black", "page": "1", "limit": "10"}
+        let editedStr;
+        let editedObj; // editedObj = {"want.itemID": "12", "want.cert": "Striker", "want.color": "Black", "page": "1", "limit": "10"}
 
-        this.excludedFields.map((field) => delete editedObj[field]);
+        if (queryObj.search === "I want to sell" || queryObj.search === "I want to buy") {
+            let tradeOption = queryObj.search === "I want to sell" ? "want" : "have";
+            editedStr = queryStr.replace(/\b(itemID|itemType|cert|color)\b/g, (match) => `${tradeOption}.${match}`);
+            editedObj = JSON.parse(editedStr); 
+            this.excludedFields.map((field) => delete editedObj[field]);
+        } 
+
+        if (queryObj.search === "Any") {
+            let want = queryStr.replace(/\b(itemID|itemType|cert|color)\b/g, (match) => `want.${match}`);
+            let have = queryStr.replace(/\b(itemID|itemType|cert|color)\b/g, (match) => `have.${match}`);
+            editedObj = { $or: [ JSON.parse(want), JSON.parse(have) ] };
+            this.excludedFields.map((field) => {
+                delete editedObj['$or'][0][field]; 
+                delete editedObj['$or'][1][field];
+            });
+        }
 
         this.query = this.query.find(editedObj);
         return this;

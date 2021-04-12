@@ -18,7 +18,7 @@ exports.getTrades = async (req, res, next) => {
         .paginate()
         .sortByLatest();
 
-    const trades = await advancedQuery.query.populate('user', 'username isPremium psn epic switch steam.username steam.id xbox.username');
+    const trades = await advancedQuery.query.populate('user', 'username isPremium tags psn epic switch steam.username steam.id xbox.username');
     const pages = Math.ceil((await TradeRL.countDocuments(advancedQuery.resetQuery().query)) / advancedQuery.limit);
 
     return res.status(200).json({
@@ -32,7 +32,7 @@ exports.getUserTrades = async (req, res, next) => {
     const searchId = await User.findById(req.query.searchId).select('-__v');
     if (!searchId) return res.status(404).json({ info: 'no user', message: 'user with the given id does not exist' });
 
-    const trades = await TradeRL.find({ user: req.query.searchId }).populate('user', 'username isPremium psn epic switch steam.username steam.id xbox.username').sort('-bumpedAt');
+    const trades = await TradeRL.find({ user: req.query.searchId }).populate('user', 'username isPremium tags psn epic switch steam.username steam.id xbox.username').sort('-bumpedAt');
     if (trades.length < 1) return res.status(200).json({ info: 'no trades', message: 'user has no trades created', trades: [], username: searchId.username });
 
     const idMatch = user._id.toHexString() === trades[0].user._id.toHexString();
