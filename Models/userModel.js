@@ -10,15 +10,13 @@ const userSchema = new mongoose.Schema({
         type: String,
         minlength: 2,
         maxlength: 15,
-        unique: true,
-        required: true,
+        required: true
+        
     },
 
     email: {
         type: String,
-        maxlength: 255,
-        sparse: true,
-        unique: true,
+        maxlength: 255,   
         required() { return !(this.steam || this.discord); },
     },
 
@@ -228,16 +226,30 @@ userSchema.methods.compareTokens = async function (Token, HashedToken) {
     return await bcrypt.compare(Token, HashedToken);
 };
 
-userSchema.index({ username: 1, email: 1 }, { collation: { locale: 'en', strength: 2 } });
+userSchema.index({ username: 1 }, { unique: true, collation: { locale: 'en', strength: 2 } });
+userSchema.index({ email: 1 }, { unique: true, sparse: true, collation: { locale: 'en', strength: 2 } });
+
+
+        // required: true,
+        // collation: { locale: 'en', strength: 2 }
+
+
+userSchema.index(
+    { 'createdAt': 1 },
+    {
+      expireAfterSeconds: 900,
+      partialFilterExpression: { 'activatedAccount': false }
+    }
+  );
 // userSchema.set('autoIndex', true); // Read this - https://mongoosejs.com/docs/guide.html
 
 const User = mongoose.model('User', userSchema);
 
 
 
-// User.collection.dropIndexes((err, results) => {
+// User.collection.dropIndexes((err, results) => {});
 
-// });
+
 
 exports.User = User;
 
@@ -266,26 +278,12 @@ exports.validateLogin = (user) => {
 
 exports.validateEmail = async (email) => {
     const user = await User.findOne({ email }).collation({ locale: 'en', strength: 2 });
-    if (user) {
-        if (user.activatedAccount === false && user.tokenCreatedAt.getTime() < (Date.now() - 15 * 60 * 1000)) {
-            await User.deleteOne({ _id: user._id });
-            return true;
-        }
-        return false;
-    }
-
+    if (user) return false;
     return true;
 };
 
 exports.validateUsername = async (username) => {
     const user = await User.findOne({ username }).collation({ locale: 'en', strength: 2 });
-    if (user) {
-        if (user.activatedAccount === false && user.tokenCreatedAt.getTime() < (Date.now() - 15 * 60 * 1000)) {
-            await User.deleteOne({ _id: user._id });
-            return true;
-        }
-        return false;
-    }
-
+    if (user) return false;
     return true;
 };
