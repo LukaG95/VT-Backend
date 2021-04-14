@@ -245,6 +245,8 @@ exports.passportLoginOrCreate = async (req, res, next) => {
     const loginMethod = user.method;
     let { username } = user;
 
+    username = username.slice(0, 15);
+
     // Checks if user already exists in DataBase
     passportUser = await User.findOne({ [`${loginMethod}.id`]: user.id });
 
@@ -257,6 +259,8 @@ exports.passportLoginOrCreate = async (req, res, next) => {
 
     // If not, Slice username to 11 char + add 4 random numbers
     if (!registeredUser) username = username.slice(0, 11) + genNumber(4);
+    
+
 
     // Checks if its still available after adding 4 random numbers. Just in case
     registeredUser = await validateUsername(username);
