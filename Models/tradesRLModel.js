@@ -48,13 +48,18 @@ const tradesRLSchema = new mongoose.Schema({
                 maxlength: 50,
                 required: true,
             },
-
+            /*
             itemType: {
                 type: String,
-                enum: ['Item', 'Blueprint'],
+                enum: ['Special', 'Antenna', 'Body', 'Rocket Boost', 'Topper', 'Paint Finish', 'Decal', 'Wheels', 'Crate', 'Goal Explosion', 'Trail', 'Player Banner', 'Avatar Border'],
                 minlength: 1,
-                maxlength: 50,
+                maxlength: 20,
                 required: true,
+            },
+            */
+            blueprint: {
+                type: Boolean,
+                required: true
             },
 
             amount: {
@@ -104,13 +109,18 @@ const tradesRLSchema = new mongoose.Schema({
                 maxlength: 50,
                 required: true,
             },
-
+            /*
             itemType: {
                 type: String,
-                enum: ['Item', 'Blueprint'],
+                enum: ['Special', 'Antenna', 'Body', 'Rocket Boost', 'Topper', 'Paint Finish', 'Decal', 'Wheels', 'Crate', 'Goal Explosion', 'Trail', 'Player Banner', 'Avatar Border'],
                 minlength: 1,
-                maxlength: 50,
+                maxlength: 20,
                 required: true,
+            },
+            */
+            blueprint: {
+              type: Boolean,
+              required: true
             },
 
             amount: {
@@ -202,7 +212,6 @@ exports.validateTrade = async (trade, user, req) => {
       allItemIDs.push(item.ItemID);
       allItemNames.push(item.Name);
 
-      
       for (let i = 0; i < trade.have.length; i++) { 
         if (trade.have[i].itemID === item.ItemID) 
           if (trade.have[i].itemName === item.Name) 
@@ -239,7 +248,7 @@ exports.validateTrade = async (trade, user, req) => {
 
     for (let i = 0; i < tradeLength; i++){
       if (haveWant[i].itemID === item.ItemID)
-        if (haveWant[i].itemType === "Blueprint")
+        if (haveWant[i].blueprint)
           if (!item.Blueprintable)
             blueprintError = true
         
@@ -254,7 +263,8 @@ exports.validateTrade = async (trade, user, req) => {
     color: Joi.string().valid('None', 'Crimson', 'Lime', 'Black', 'Sky Blue', 'Cobalt', 'Burnt Sienna', 'Forest Green', 'Purple', 'Pink', 'Orange', 'Grey', 'Titanium White', 'Saffron').required(),
     colorID: Joi.number().valid(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13).strict().required(),
     cert: Joi.string().valid('None', 'Playmaker', 'Acrobat', 'Aviator', 'Goalkeeper', 'Guardian', 'Juggler', 'Paragon', 'Scorer', 'Show-Off', 'Sniper', 'Striker', 'Sweeper', 'Tactician', 'Turtle', 'Victor').required(),
-    itemType: Joi.string().valid('Item', 'Blueprint').required(),
+    // itemType: Joi.string().valid('Special', 'Antenna', 'Body', 'Rocket Boost', 'Topper', 'Paint Finish', 'Decal', 'Wheels', 'Crate', 'Goal Explosion', 'Trail', 'Player Banner', 'Avatar Border').required(),
+    blueprint: Joi.boolean().required(),
     amount: Joi.when('itemID', { is: 4743, then: Joi.number().min(1).max(100000).required(), otherwise: Joi.number().min(1).max(100).required() }) // limit 100000 if credits are the item
   });
 
