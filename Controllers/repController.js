@@ -1,3 +1,4 @@
+const mongoose = require('mongoose');
 const Redis = require('../misc/redisCaching');
 
 const Reputation = require('../Models/repModel');
@@ -277,7 +278,7 @@ exports.getReputation_compact = async (req, res, next) => {
             ups: 0,
             downs: 0,
             grade: '1.0',
-            title: 'novice',
+            title: 'Novice',
         };
     } else {
         reputation[0].reps.map((rep) => (rep.good ? ups++ : downs++));
@@ -291,3 +292,54 @@ exports.getReputation_compact = async (req, res, next) => {
 
     return res.status(200).json({ info: 'success', message: 'returned user reputation', rep: rep_compact });
 };
+
+
+
+exports.getReputation_compactV2 = async (req, res, next) => {
+    const userIds = req.body.users;
+    if (userIds.length > 25) return res.status(200).json({ info: 'error', message: 'invalid format for user ids' });
+
+    const editedUserIds = userIds.map(id => mongoose.Types.ObjectId(id));
+
+    const reputation = await Reputation.aggregate([
+        { $match : { "user": { "$in": editedUserIds }}},
+    
+        { $unwind: '$reps' },
+
+        { $group: {
+            _id: {
+                userId: "$user",
+                grade: "$grade",
+                title: "$title",
+            },
+            ups: { $sum: { $cond: { if: { $eq: ['$reps.good', true] }, then: 1, else: 0 } } },
+            downs: { $sum: { $cond: { if: { $eq: ['$reps.good', false] }, then: 1, else: 0 } } },
+            
+        }},
+
+        { $project: {
+            _id: 0,
+            ups: 1,
+            downs: 1,
+            userId: "$_id.userId",
+            grade: "$_id.grade",
+            title: "$_id.title" 
+        }}
+    ]);
+
+
+    userIds.forEach(userId => {
+        if (!reputation.find(rep => rep.userId == userId)){
+            reputation.push({
+                ups: 0,
+                downs: 0,
+                userId,
+                grade: '1.0',
+                title: 'Novice'
+            });
+        };
+    });
+
+
+    return res.status(200).json({ info: 'success', message: 'returned user reputation', rep: reputation });
+}
