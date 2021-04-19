@@ -51,7 +51,7 @@ const tradesRLSchema = new mongoose.Schema({
             /*
             itemType: {
                 type: String,
-                enum: ['Special', 'Antenna', 'Body', 'Rocket Boost', 'Topper', 'Paint Finish', 'Decal', 'Wheels', 'Crate', 'Goal Explosion', 'Trail', 'Player Banner', 'Avatar Border'],
+                enum: ['Special', 'Engine Audio', 'Antenna', 'Body', 'Rocket Boost', 'Topper', 'Paint Finish', 'Decal', 'Wheels', 'Crate', 'Goal Explosion', 'Trail', 'Player Banner', 'Avatar Border'],
                 minlength: 1,
                 maxlength: 20,
                 required: true,
@@ -112,7 +112,7 @@ const tradesRLSchema = new mongoose.Schema({
             /*
             itemType: {
                 type: String,
-                enum: ['Special', 'Antenna', 'Body', 'Rocket Boost', 'Topper', 'Paint Finish', 'Decal', 'Wheels', 'Crate', 'Goal Explosion', 'Trail', 'Player Banner', 'Avatar Border'],
+                enum: ['Special', 'Engine Audio', 'Antenna', 'Body', 'Rocket Boost', 'Topper', 'Paint Finish', 'Decal', 'Wheels', 'Crate', 'Goal Explosion', 'Trail', 'Player Banner', 'Avatar Border'],
                 minlength: 1,
                 maxlength: 20,
                 required: true,
@@ -256,6 +256,22 @@ exports.validateTrade = async (trade, user, req) => {
     
   })
   if (blueprintError) return { error: { details: [{ message: "item blueprintable error" }] } };
+
+
+  //check if item can be painted
+  let colorError = false
+  infoRL.items.map(item=> {
+
+    for (let i = 0; i < tradeLength; i++){
+      if (haveWant[i].itemID === item.ItemID)
+        if (haveWant[i].colorID !== 0)
+          if (!item.Paintable)
+            colorError = true
+      
+    }
+    
+  })
+  if (colorError) return { error: { details: [{ message: "item paintable error" }] } };
   
   const hwValidation = Joi.object({
     itemID: Joi.number().valid(...allItemIDs).required(),
@@ -263,7 +279,7 @@ exports.validateTrade = async (trade, user, req) => {
     color: Joi.string().valid('None', 'Crimson', 'Lime', 'Black', 'Sky Blue', 'Cobalt', 'Burnt Sienna', 'Forest Green', 'Purple', 'Pink', 'Orange', 'Grey', 'Titanium White', 'Saffron').required(),
     colorID: Joi.number().valid(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13).strict().required(),
     cert: Joi.string().valid('None', 'Playmaker', 'Acrobat', 'Aviator', 'Goalkeeper', 'Guardian', 'Juggler', 'Paragon', 'Scorer', 'Show-Off', 'Sniper', 'Striker', 'Sweeper', 'Tactician', 'Turtle', 'Victor').required(),
-    // itemType: Joi.string().valid('Special', 'Antenna', 'Body', 'Rocket Boost', 'Topper', 'Paint Finish', 'Decal', 'Wheels', 'Crate', 'Goal Explosion', 'Trail', 'Player Banner', 'Avatar Border').required(),
+    // itemType: Joi.string().valid('Special', 'Engine Audio', 'Antenna', 'Body', 'Rocket Boost', 'Topper', 'Paint Finish', 'Decal', 'Wheels', 'Crate', 'Goal Explosion', 'Trail', 'Player Banner', 'Avatar Border').required(),
     blueprint: Joi.boolean().required(),
     amount: Joi.when('itemID', { is: 4743, then: Joi.number().min(1).max(100000).required(), otherwise: Joi.number().min(1).max(100).required() }) // limit 100000 if credits are the item
   });
