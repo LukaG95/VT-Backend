@@ -343,3 +343,51 @@ exports.getReputation_compactV2 = async (req, res, next) => {
 
     return res.status(200).json({ info: 'success', message: 'returned user reputation', rep: reputation });
 }
+
+
+exports.getReputation_compactV2_middleware = async (req, res) => {
+    const { userIds, trades, pages, idMatch, username } = req;
+
+    const reputation = await Reputation.aggregate([
+        { $match : { "user": { "$in": userIds }}},
+        { $unwind: '$reps' },
+
+        { $group: {
+            _id: {
+                userId: "$user",
+                grade: "$grade",
+                title: "$title",
+            },
+            ups: { $sum: { $cond: { if: { $eq: ['$reps.good', true] }, then: 1, else: 0 } } },
+            downs: { $sum: { $cond: { if: { $eq: ['$reps.good', false] }, then: 1, else: 0 } } },
+            
+        }},
+
+        { $project: {
+            _id: 0,
+            ups: 1,
+            downs: 1,
+            userId: "$_id.userId",
+            grade: "$_id.grade",
+            title: "$_id.title" 
+        }}
+    ]);
+
+    const tradesWithRep = trades.map((trade, i) => {
+        let rep = reputation.find(rep => trade.user._id.equals(rep.userId));
+        if (!rep) {
+            rep = {
+                ups: 0,
+                downs: 0,
+                grade: '1.0',
+                title: 'Novice'
+            }
+        }
+         
+        return { ...trade, rep };
+    })
+
+    return res.status(200).json({
+        info: 'success', message: 'successfully got trades', trades: tradesWithRep, pages, idMatch, username
+    });
+}

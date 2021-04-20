@@ -7,7 +7,7 @@ const limiter = require('../misc/rateLimiter');
 
 const router = express.Router();
 
-router.get('/getTrades', tradesController.getTrades);
+router.get('/getTrades', tradesController.getTrades, repController.getReputation_compactV2_middleware);
 router.get('/getUserTrades', authController.protect, tradesController.getUserTrades);
 router.get('/getTrade/:tradeId', authController.protect, tradesController.getTrade);
 
