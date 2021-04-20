@@ -4,6 +4,7 @@ const redis = require('../misc/redisCaching');
 const { TradeRL, validateTrade, validateTradeQuery } = require('../Models/tradesRLModel');
 const AdvancedQueryRL = require('../misc/AdvancedQueryRL');
 const { User } = require('../Models/userModel');
+const { Reputation } = require('../Models/repModel');
 const { readableActiveAt } = require('../misc/time');
 
 exports.getTrades = async (req, res, next) => {
@@ -25,6 +26,8 @@ exports.getTrades = async (req, res, next) => {
         info: 'success', message: 'successfully got trades', trades: readableActiveAt(trades), pages,
     });
 };
+
+
 
 exports.getUserTrades = async (req, res, next) => {
     const user = await User.findById(req.user.id).select('-__v');

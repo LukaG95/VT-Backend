@@ -16,27 +16,22 @@ class AdvancedQueryRL {
 
         queryObj['platform.name'] = queryObj.platform; // platform = 'Steam' to platform.name = 'Steam'
 
-        const queryStr = JSON.stringify(queryObj); // queryStr = `{"itemID": "12", "itemName": "Zomba", "cert": "Striker", "paint": "Black", "page": "1", "limit": "10"}`
 
-        const tradeOption = queryObj.search === "I want to sell" ? "want" : "have";
-
-        let editedStr;
-        let editedObj; // editedObj = {"want.itemID": "12", "want.cert": "Striker", "want.color": "Black", "page": "1", "limit": "10"}
+        let editedObj; 
 
         if (queryObj.search === "I want to sell" || queryObj.search === "I want to buy") {
             let tradeOption = queryObj.search === "I want to sell" ? "want" : "have";
-            editedStr = queryStr.replace(/\b(itemID|itemType|cert|color)\b/g, (match) => `${tradeOption}.${match}`);
-            editedObj = JSON.parse(editedStr); 
-            this.excludedFields.map((field) => delete editedObj[field]);
+            editedObj = {[tradeOption]: {$elemMatch: queryObj}}; 
+            this.excludedFields.map((field) => delete editedObj[tradeOption]['$elemMatch'][field]);
         } 
 
         if (queryObj.search === "Any") {
-            let want = queryStr.replace(/\b(itemID|itemType|cert|color)\b/g, (match) => `want.${match}`);
-            let have = queryStr.replace(/\b(itemID|itemType|cert|color)\b/g, (match) => `have.${match}`);
-            editedObj = { $or: [ JSON.parse(want), JSON.parse(have) ] };
+            let want = {'want': {$elemMatch: queryObj}};
+            let have = {'have': {$elemMatch: queryObj}};
+            editedObj = { $or: [ want, have ] };
             this.excludedFields.map((field) => {
-                delete editedObj['$or'][0][field]; 
-                delete editedObj['$or'][1][field];
+                delete editedObj['$or'][0]['want']['$elemMatch'][field]; 
+                delete editedObj['$or'][1]['have']['$elemMatch'][field];
             });
         }
 

@@ -9,7 +9,6 @@ const tradesRLSchema = new mongoose.Schema({
         ref: 'User',
         required: true,
     },
-
     have: [
         {
             _id: { select: false },
