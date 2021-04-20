@@ -9,25 +9,23 @@ class AdvancedQueryRL {
         // deletes fields with "Any" filter attribute
         let queryObj = { ...this.queryString };
         Object.keys(queryObj).forEach((q) => {
-            if (queryObj[q] === "Any" && q !== 'search') {
+            if (queryObj[q] === "Any" && !this.excludedFields.some(field => q === field)) {
                 delete queryObj[q];
             }
         });
 
-        queryObj['platform.name'] = queryObj.platform; // platform = 'Steam' to platform.name = 'Steam'
-
-
+        const platform = queryObj['platform'] === 'Any' ? {$exists: true} : queryObj['platform'];
+        
         let editedObj; 
-
         if (queryObj.search === "I want to sell" || queryObj.search === "I want to buy") {
             let tradeOption = queryObj.search === "I want to sell" ? "want" : "have";
-            editedObj = {[tradeOption]: {$elemMatch: queryObj}}; 
+            editedObj = {[tradeOption]: {$elemMatch: queryObj}, 'platform.name': platform }; 
             this.excludedFields.map((field) => delete editedObj[tradeOption]['$elemMatch'][field]);
         } 
 
         if (queryObj.search === "Any") {
-            let want = {'want': {$elemMatch: queryObj}};
-            let have = {'have': {$elemMatch: queryObj}};
+            let want = {'want': {$elemMatch: queryObj}, 'platform.name': [queryObj.platform]};
+            let have = {'have': {$elemMatch: queryObj}, 'platform.name': [queryObj.platform]};
             editedObj = { $or: [ want, have ] };
             this.excludedFields.map((field) => {
                 delete editedObj['$or'][0]['want']['$elemMatch'][field]; 
@@ -35,6 +33,7 @@ class AdvancedQueryRL {
             });
         }
 
+        console.log(editedObj);
         this.query = this.query.find(editedObj);
         return this;
     }
