@@ -44,7 +44,7 @@ exports.getUserTrades = async (req, res, next) => {
     const trades = readableActiveAt(await TradeRL.find({ user: req.query.searchId }).populate('user', 'username isPremium tags psn epic switch steam.username steam.id xbox.username').sort('-bumpedAt'));
     if (trades.length < 1) return res.status(200).json({ info: 'no trades', message: 'user has no trades created', trades: [], username: searchId.username });
 
-    const userIds = [...mongoose.Types.ObjectId(searchId._id)];
+    const userIds = [mongoose.Types.ObjectId(searchId._id)];
     const idMatch = user._id.toHexString() === trades[0].user._id.toHexString();
 
     req.idMatch = idMatch;
