@@ -24,8 +24,8 @@ class AdvancedQueryRL {
         } 
 
         if (queryObj.search === "Any") {
-            let want = {'want': {$elemMatch: queryObj}, 'platform.name': [queryObj.platform]};
-            let have = {'have': {$elemMatch: queryObj}, 'platform.name': [queryObj.platform]};
+            let want = {'want': {$elemMatch: queryObj}, 'platform.name': platform};
+            let have = {'have': {$elemMatch: queryObj}, 'platform.name': platform};
             editedObj = { $or: [ want, have ] };
             this.excludedFields.map((field) => {
                 delete editedObj['$or'][0]['want']['$elemMatch'][field]; 
