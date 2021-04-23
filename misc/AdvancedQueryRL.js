@@ -33,7 +33,6 @@ class AdvancedQueryRL {
             });
         }
 
-        console.log(editedObj);
         this.query = this.query.find(editedObj);
         return this;
     }
