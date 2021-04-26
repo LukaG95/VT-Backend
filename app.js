@@ -7,7 +7,9 @@ const xss = require('xss-clean');
 
 const app = express();
 
-app.use(helmet());
+app.use(helmet({
+    contentSecurityPolicy: false,
+  }));
 app.use(compression());
 // app.use(mongoSanitize());
 app.use(xss());
