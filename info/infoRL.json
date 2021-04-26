@@ -169,56 +169,6 @@
           "Rarities": []
         },
         {
-          "ItemID": 9990,
-          "Slot": "1Special",
-          "Name": "Non-Crate Rare Offer",
-          "Quality": "Premium",
-          "Blueprintable": false,
-          "Tradable": true,
-          "Series": [],
-          "Rarities": []
-        },
-        {
-          "ItemID": 9989,
-          "Slot": "1Special",
-          "Name": "Non-Crate Exotic Offer",
-          "Quality": "Premium",
-          "Blueprintable": false,
-          "Tradable": true,
-          "Series": [],
-          "Rarities": []
-        },
-        {
-          "ItemID": 9988,
-          "Slot": "1Special",
-          "Name": "Non-Crate Import Offer",
-          "Quality": "Premium",
-          "Blueprintable": false,
-          "Tradable": true,
-          "Series": [],
-          "Rarities": []
-        },
-        {
-          "ItemID": 9987,
-          "Slot": "1Special",
-          "Name": "Non-Crate Uncommon Offer",
-          "Quality": "Premium",
-          "Blueprintable": false,
-          "Tradable": true,
-          "Series": [],
-          "Rarities": []
-        },
-        {
-          "ItemID": 9986,
-          "Slot": "1Special",
-          "Name": "Non-Crate Very Rare Offer",
-          "Quality": "Premium",
-          "Blueprintable": false,
-          "Tradable": true,
-          "Series": [],
-          "Rarities": []
-        },
-        {
             "ItemID": 1,
             "Slot": "Antenna",
             "Name": "8-Ball",
