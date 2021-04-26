@@ -21,12 +21,13 @@ exports.getTrades = async (req, res, next) => {
     const trades = readableActiveAt(await advancedQuery.query.populate('user', 'username isPremium tags psn epic switch steam.username steam.id xbox.username'));
     const pages = Math.ceil((await TradeRL.countDocuments(advancedQuery.resetQuery().query)) / advancedQuery.limit);
 
-
     if (trades.length < 1) return res.status(200).json({ info: 'success', message: 'successfully got trades', trades, pages});
-    
-    const userIds = trades.map(trade => mongoose.Types.ObjectId(trade.user._id));
 
-    req.trades = trades;
+    const filteredTrades = trades.filter(trade => trade.user !== null);
+    const userIds = filteredTrades.map(trade => mongoose.Types.ObjectId(trade.user._id));
+        
+
+    req.trades = filteredTrades;
     req.userIds = userIds;
     req.pages = pages;
     
