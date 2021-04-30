@@ -63,7 +63,7 @@ const tradesRLSchema = new mongoose.Schema({
 
             amount: {
                 type: Number,
-                min: 1,
+                min: 0.01,
                 max: 100000,
                 required: true,
             }
@@ -124,7 +124,7 @@ const tradesRLSchema = new mongoose.Schema({
 
             amount: {
                 type: Number,
-                min: 1,
+                min: 0.01,
                 max: 100000,
                 required: true,
             }
@@ -280,8 +280,12 @@ exports.validateTrade = async (trade, user, req) => {
     cert: Joi.string().valid('None', 'Playmaker', 'Acrobat', 'Aviator', 'Goalkeeper', 'Guardian', 'Juggler', 'Paragon', 'Scorer', 'Show-Off', 'Sniper', 'Striker', 'Sweeper', 'Tactician', 'Turtle', 'Victor').required(),
     // itemType: Joi.string().valid('Special', 'Engine Audio', 'Antenna', 'Body', 'Rocket Boost', 'Topper', 'Paint Finish', 'Decal', 'Wheels', 'Crate', 'Goal Explosion', 'Trail', 'Player Banner', 'Avatar Border').required(),
     blueprint: Joi.boolean().required(),
-    amount: Joi.when('itemID', { is: 4743, then: Joi.number().min(1).max(100000).required(), otherwise: Joi.number().min(1).max(100).required() }) // limit 100000 if credits are the item
-  });
+    amount: Joi.number().when('itemID', [
+    { is: 9985, then: Joi.number().min(0.01).max(100000).required() },
+    { is: 4743, then: Joi.number().integer().min(1).max(100000).required(),
+      otherwise: Joi.number().integer().min(1).max(100).required() }]) });
+     
+
 
   const schema = Joi.object({
     have: Joi.array().items(hwValidation).min(1).max(itemsLimit)
