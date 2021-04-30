@@ -219,6 +219,26 @@
           "Rarities": []
         },
         {
+          "ItemID": 9985,
+          "Slot": "1Special",
+          "Name": "Cash",
+          "Quality": "Premium",
+          "Blueprintable": false,
+          "Tradable": true,
+          "Series": [],
+          "Rarities": []
+        },
+        {
+          "ItemID": 9984,
+          "Slot": "1Special",
+          "Name": "Cash Offer",
+          "Quality": "Premium",
+          "Blueprintable": false,
+          "Tradable": true,
+          "Series": [],
+          "Rarities": []
+        },
+        {
             "ItemID": 1,
             "Slot": "Antenna",
             "Name": "8-Ball",
