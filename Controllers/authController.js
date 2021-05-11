@@ -10,6 +10,10 @@ const {
 } = require('../Models/userModel');
 const { TestUser } = require('../Models/testUserModel');
 const Reputation = require('../Models/repModel');
+
+const redis = require('../misc/redisCaching');
+const { ReferralEvents } = require('../Models/referralEventsModel');
+
 const user = require('../Models/userModel'); // this is here because of jest tests
 
 
@@ -187,6 +191,12 @@ exports.signup = async (req, res, next) => {
     });
 
     await sendEmail('signup', newUser);
+
+    const referral = await redis.isCached(`ref${req.ip}`);
+    if (referral) {
+        const signupEvent = new ReferralEvents({ partner: JSON.parse(referral), event: 'signup', userId: newUser._id });
+        await signupEvent.save();
+    }
 
     return createSendToken(newUser, res);
 };

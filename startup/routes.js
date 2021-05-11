@@ -6,6 +6,7 @@ const cors = require('cors');
 const AuthRouter = require('../Routes/authRoutes');
 const TradeRouter = require('../Routes/tradeRoutes');
 const RepRouter = require('../Routes/repRoutes');
+const RefRouter = require('../Routes/refRoutes');
 const MessagesRouter = require('../Routes/messagesRoutes');
 const TestUserRouter = require('../Routes/testUserRoutes');
 const errorController = require('../misc/errorController');
@@ -25,6 +26,7 @@ module.exports = function (app) {
     app.use('/api/trades/', TradeRouter);
     app.use('/api/reputation', RepRouter);
     app.use('/api/messages', MessagesRouter);
+    app.use('/api/ref', RefRouter);
 
     app.use(errorController);
 };

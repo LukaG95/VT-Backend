@@ -48,9 +48,9 @@ Messages.collection.dropIndex({ createdAt: 1 }, function (err, result) {
     Messages.collection.createIndex({ createdAt: 1 }, { expireAfterSeconds: 864000 });
 });
 */
-Messages.collection.dropIndexes(function (err, result) {
+// Messages.collection.dropIndexes(function (err, result) {
 
-})
+// })
 
 
 // Messages.collection.deleteMany({})
