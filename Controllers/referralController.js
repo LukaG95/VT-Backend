@@ -127,7 +127,7 @@ exports.getStats = async (req, res, next) => {
     ]);
 
 
-    return res.status(200).json({ info: 'success', total: stats, statsByDate });
+    return res.status(200).json({ info: 'success', name: partner.partner, total: stats, statsByDate });
 
 }
 
