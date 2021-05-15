@@ -30,7 +30,7 @@ exports.deleteReferral = async (req, res, next) => {
     if (removed.deletedCount < 1) return res.status(200).json({ info: "error", message: `partner ${name} not found` });
 
 
-    return res.status(200).json({ status: 'success', info: `partner ${name} was deleted` });
+    return res.status(200).json({ info: 'success', message: `partner ${name} was deleted` });
 
 }
 
@@ -43,19 +43,19 @@ exports.countClick = async (req, res, next) => {
     
     const exists = await Referral.findOne({ partner: ref });
     // Fake success
-    if (!exists) return res.status(200).json({ status: 'success' });
+    if (!exists) return res.status(200).json({ info: 'success' });
     
     
     const isCached = await redis.isCached(`ref${req.ip}`);
     // Fake success
-    if (isCached) return res.status(200).json({ status: 'success' });
+    if (isCached) return res.status(200).json({ info: 'success' });
 
     const newEvent = new ReferralEvents({ partner: exists._id, event: 'click' });
     await newEvent.save();
 
     await redis.cache(`ref${req.ip}`, exists._id);
 
-    return res.status(200).json({ status: 'success' });
+    return res.status(200).json({ info: 'success' });
 }
 
 // exports.countSingup = async (req, res, next) => {
@@ -67,13 +67,16 @@ exports.getReferrals = async (req, res, next) => {
 
     const referrals = await Referral.find({});
 
-    return res.status(200).json({ status: 'success', partners: referrals });
+    return res.status(200).json({ info: 'success', partners: referrals });
 }
 
 exports.getStats = async (req, res, next) => {
 
     const { id } = req.params;
     if (!mongoose.Types.ObjectId.isValid(id)) return res.status(200).json({ info: "error", message: "invalid id format" });
+
+    const partner = await Referral.findById(id);
+    if (!partner) return res.status(200).json({ info: "error", message: "partner does not exist" });
 
     const stats = await ReferralEvents.aggregate([
 
@@ -124,7 +127,7 @@ exports.getStats = async (req, res, next) => {
     ]);
 
 
-    return res.status(200).json({ status: 'success', total: stats, statsByDate });
+    return res.status(200).json({ info: 'success', total: stats, statsByDate });
 
 }
 
@@ -141,27 +144,24 @@ exports.getStatsForPartners = async(req, res, next) => {
 
         {$match:  {partner: partner._id}},
 
-        {$lookup: {
-            from: 'referrals', localField: 'partner', foreignField: '_id', as: 'partnerDB',
-        }},
+        // {$lookup: {
+        //     from: 'referrals', localField: 'partner', foreignField: '_id', as: 'partnerDB',
+        // }},
 
         {$group: {
-            _id: { 
-                $arrayElemAt: ['$partnerDB.partner', 0] 
-            },
+            _id: null,
         
             clicks:  { $sum: { $cond: { if: { $eq: ['$event', 'click'] }, then: 1, else: 0 } } },
         }},
 
         { $project: {
             _id: 0,
-            partner: '$_id',
             clicks: 1,
         }},
     ])
 
 
-    return res.status(200).json({ status: 'success', total: stats });
+    return res.status(200).json({ info: 'success', name: partner.partner, clicks: stats });
 }
 
 
