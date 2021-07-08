@@ -190,3 +190,15 @@ function platformID(platform, user){
   else
     return user[platform].username
 }
+
+exports.updateBumpedTime = async() => {
+
+    const oneDayInMs = (1 * 24 * 3600 * 1000);
+
+    const yesterdayDate = new Date(Date.now() - 1 * oneDayInMs);
+
+    const trades = await TradeRL.updateMany({ 'bumpedAt': { $lte: yesterdayDate }}, { bumpedAt: Date.now() });
+
+    return trades;
+    
+}

@@ -11,6 +11,7 @@ require('./startup/routes')(app);
 require('./startup/db')();
 // require('./startup/prod')(app);
 require('./startup/validation')();
+require('./misc/redis-cron')();
 
 
 
