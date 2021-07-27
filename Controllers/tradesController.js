@@ -81,8 +81,11 @@ exports.createTrade = async (req, res, next) => {
 
     let formatPlatform = {
       name: platform,
-      ID: platformID(platform, user)
+      verified: user[platform].verified
     }
+
+    if (formatPlatform.verified)
+      formatPlatform.ID = platformID(platform, user)
 
     const tradeDetails = {
         user: user._id,
@@ -152,6 +155,7 @@ exports.bumpTrade = async (req, res, next) => {
         if (bumpCheck) return res.status(404).json({ info: 'already bumped', message: "you can bump only once in 10 minutes" });
 
     trade.bumpedAt = Date.now();
+    trade.bumped = true;
     await trade.save();
 
     // Cache trade id for 10 minutes

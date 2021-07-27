@@ -143,9 +143,12 @@ const tradesRLSchema = new mongoose.Schema({
         type: String,
         minlength: 1,
         maxlength: 20,
+        required: false
+      },
+      verified: {
+        type: Boolean,
         required: true
       }
-        
     },
 
     createdAt: {
@@ -160,6 +163,11 @@ const tradesRLSchema = new mongoose.Schema({
     bumpedAt: {
         type: Date,
         default: Date.now,
+    },
+
+    bumped: {
+        type: Boolean,
+        default: false
     },
 
     notes: {
