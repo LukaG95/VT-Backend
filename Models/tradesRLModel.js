@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const Joi = require('joi');
 
 const infoRL = require('../info/infoRL.json');
+const { CategoriesJson } = require('../info/Categories')
 
 const tradesRLSchema = new mongoose.Schema({
     user: {
@@ -14,58 +15,60 @@ const tradesRLSchema = new mongoose.Schema({
             _id: { select: false },
 
             itemID: {
-                type: Number,
-                min: 0,
-                max: 10000,
-                required: true,
+              type: Number,
+              min: 0,
+              max: 10000,
+              required: true,
             },
 
             itemName: {
-                type: String,
-                minlength: 1,
-                maxlength: 50,
-                required: true,
+              type: String,
+              minlength: 1,
+              maxlength: 50,
+              required: true,
+            },
+
+            category: {
+              type: "String",
+              enum: ['Rocket League', 'Money', 'Design'],
+              required: true
             },
 
             color: {
-                type: String,
-                minlength: 1,
-                maxlength: 50,
-                required: true,
+              type: String,
+              minlength: 1,
+              maxlength: 50,
+              required: function () { return this.category === "Rocket League" }
             },
 
             colorID: {
-                type: Number,
-                minlength: 1,
-                maxlength: 50,
-                required: true,
+              type: Number,
+              minlength: 1,
+              maxlength: 50,
+              required: function () { return this.category === "Rocket League" }
             },
 
             cert: {
-                type: String,
-                minlength: 1,
-                maxlength: 50,
-                required: true,
+              type: String,
+              minlength: 1,
+              maxlength: 50,
+              required: function () { return this.category === "Rocket League" }
             },
-            /*
-            itemType: {
-                type: String,
-                enum: ['Special', 'Engine Audio', 'Antenna', 'Body', 'Rocket Boost', 'Topper', 'Paint Finish', 'Decal', 'Wheels', 'Crate', 'Goal Explosion', 'Trail', 'Player Banner', 'Avatar Border'],
-                minlength: 1,
-                maxlength: 20,
-                required: true,
-            },
-            */
+            
             blueprint: {
                 type: Boolean,
                 required: true
             },
 
             amount: {
-                type: Number,
-                min: 0.01,
-                max: 100000,
-                required: true,
+              type: Number,
+              min: 1,
+              max: 100000,
+              required: function () { return this.category === "Rocket League" || this.category === "Money"}
+            },
+            blueprint: {
+              type: Boolean,
+              required: function () { return this.category === "Rocket League" }
             }
         },
     ],
@@ -75,58 +78,61 @@ const tradesRLSchema = new mongoose.Schema({
             _id: { select: false },
 
             itemID: {
-                type: Number,
-                min: 0,
-                max: 10000,
-                required: true,
+              type: Number,
+              min: 0,
+              max: 10000,
+              required: true,
             },
 
             itemName: {
-                type: String,
-                minlength: 1,
-                maxlength: 50,
-                required: true,
+              type: String,
+              minlength: 1,
+              maxlength: 50,
+              required: true,
+            },
+
+            category: {
+              type: "String",
+              enum: ['Rocket League', 'Money', 'Design'],
+              required: true
             },
 
             color: {
-                type: String,
-                minlength: 1,
-                maxlength: 50,
-                required: true,
+              type: String,
+              minlength: 1,
+              maxlength: 50,
+              required: function () { return this.category === "Rocket League" }
             },
 
             colorID: {
-                type: Number,
-                minlength: 1,
-                maxlength: 50,
-                required: true,
+              type: Number,
+              minlength: 1,
+              maxlength: 50,
+              required: function () { return this.category === "Rocket League" }
             },
 
             cert: {
-                type: String,
-                minlength: 1,
-                maxlength: 50,
-                required: true,
+              type: String,
+              minlength: 1,
+              maxlength: 50,
+              required: function () { return this.category === "Rocket League" }
             },
-            /*
-            itemType: {
-                type: String,
-                enum: ['Special', 'Engine Audio', 'Antenna', 'Body', 'Rocket Boost', 'Topper', 'Paint Finish', 'Decal', 'Wheels', 'Crate', 'Goal Explosion', 'Trail', 'Player Banner', 'Avatar Border'],
-                minlength: 1,
-                maxlength: 20,
-                required: true,
-            },
-            */
+            
             blueprint: {
               type: Boolean,
               required: true
             },
 
             amount: {
-                type: Number,
-                min: 0.01,
-                max: 100000,
-                required: true,
+              type: Number,
+              min: 1,
+              max: 100000,
+              required: function () { return this.category === "Rocket League" || this.category === "Money"}
+            },
+
+            blueprint: {
+              type: Boolean,
+              required: function () { return this.category === "Rocket League" }
             }
         },
     ],
@@ -137,7 +143,16 @@ const tradesRLSchema = new mongoose.Schema({
         minlength: 1,
         maxlength: 10,
         enum: ['Steam', 'XBOX', 'PSN', 'SWITCH', 'EPIC'],
-        required: true
+        required: function () {  
+          let isPresent = false
+          const haveWant = this.have.concat(this.want)
+      
+          haveWant.forEach(item => {
+            if(item.category === "Rocket League") isPresent = true
+          })
+      
+          return isPresent
+        }
       },
       ID: {
         type: String,
@@ -145,9 +160,19 @@ const tradesRLSchema = new mongoose.Schema({
         maxlength: 20,
         required: false
       },
+
       verified: {
         type: Boolean,
-        required: true
+        required: function () {  
+          let isPresent = false
+          const haveWant = this.have.concat(this.want)
+      
+          haveWant.forEach(item => {
+            if(item.category === "Rocket League") isPresent = true
+          })
+      
+          return isPresent
+        }
       }
     },
 
@@ -166,9 +191,9 @@ const tradesRLSchema = new mongoose.Schema({
     },
 
     bumped: {
-        type: Boolean,
-        default: false
-    },
+      type: Boolean,
+      default: false
+  },
 
     notes: {
         type: 'String',
@@ -195,7 +220,68 @@ exports.validateTrade = async (trade, user, req) => {
     return { error: { details: [{ message: 'No links allowed' }] } }; 
   }
 
+  const tradeLength = trade.have.length + trade.want.length
+  const haveWant = trade.have.concat(trade.want)
+  const allItemIDs = []
+  const allItemNames = []
+  let itemChecker = false; 
+  let colorError = false;
+  let blueprintError = false
+  let idExists = 0
+
+  // fill all possible item names and IDs
+  let temp = [...Object.keys(CategoriesJson)]
+  temp.forEach(category => CategoriesJson[category].forEach(item => {allItemNames.push(item.Name); allItemIDs.push(item.ItemID)}))
+
+  haveWant.forEach(item => {  
+    // include checking if name and itemID are related
+    if (!CategoriesJson[item.category]) return { error: { details: [{ message: "item's category or ID is wrong" }] } }; // if incoming category doesn't exist at all
+    CategoriesJson[item.category].forEach(_item => {
+      if (item.itemID === _item.ItemID){
+        idExists++ // check if there's an item with the given ID inside the category (if incoming category is correct)
+        if (item.itemName !== _item.Name)
+          itemChecker = true
+      }
+    })
+
+    if (item.category === "Rocket League"){
+
+      // check if colorIDs and color names are related
+      infoRL.Colors.forEach(color => {
+        for (let i = 0; i < tradeLength; i++){
+          if (item.colorID === color.ID){
+            if (item.color !== color.Name) 
+              colorError = true
+          }   
+        }
+      })
+
+      // check if item is blueprintable
+       infoRL.items.forEach(_item => {
+          for (let i = 0; i < tradeLength; i++){
+            if (item.itemID === _item.ItemID)
+              if (item.blueprint)
+                if (!_item.Blueprintable)
+                  blueprintError = true
+          }
+        })
+    }
+
+  })
+  if (colorError)
+    return { error: { details: [{ message: "color's name doesn't match the color's ID" }] } }; 
+  if (blueprintError) 
+    return { error: { details: [{ message: "blueprint attribute error" }] } };
+  if (idExists !== tradeLength) 
+    return { error: { details: [{ message: "item's category or ID is wrong" }] } };
+  if (itemChecker) 
+    return { error: { details: [{ message: "item's ID doesn't match with item's name" }] } };
+
+    
   // check if platform is linked to user account (and verified)
+  // TEMPORARILY DISABLED
+  
+  /*
   const platform = trade.platform.toLowerCase();
 
   if (platform === "steam" || platform === "xbox" || platform === "switch"){
@@ -208,103 +294,71 @@ exports.validateTrade = async (trade, user, req) => {
         return { error: { details: [{ message: 'Platform is not verified or confirmed' }] } };
 
   const trades = await TradeRL.find({ user: req.user.id });
-  if (trades.length >= tradeLimit) return { error: { details: [{ message: 'Trade amount limit' }] } }; // because that's how Joi returns the error
+  if (trades.length >= tradeLimit) return { error: { details: [{ message: 'Trade amount limit' }] } };
+  */
 
-  // check if itemIDs and itemNames are related
-  const allItemIDs = []; const allItemNames = []; 
-  let itemChecker = 0; let colorChecker = 0;
-
-  infoRL.items.map(item => {
-    if (item.Tradable) {
-      allItemIDs.push(item.ItemID);
-      allItemNames.push(item.Name);
-
-      for (let i = 0; i < trade.have.length; i++) { 
-        if (trade.have[i].itemID === item.ItemID) 
-          if (trade.have[i].itemName === item.Name) 
-            itemChecker++; 
-      }
-
-      for (let i = 0; i < trade.want.length; i++) { 
-        if (trade.want[i].itemID === item.ItemID) 
-          if (trade.want[i].itemName === item.Name) 
-            itemChecker++; 
-      }
-    }
-  });
-  if (itemChecker !== trade.want.length + trade.have.length) return { error: { details: [{ message: "itemID doesn't match with itemName" }] } };
-
-  // check if colorIDs and color names are related
-  const tradeLength = trade.have.length + trade.want.length
-  const haveWant = trade.have.concat(trade.want)
-
-  infoRL.Colors.map(color => {
-
-    for (let i = 0; i < tradeLength; i++){
-      if (haveWant[i].colorID === color.ID)
-        if (haveWant[i].color === color.Name)
-          colorChecker++
-    }
-
+  // check if platform is defined when RL items are in the trade (should be in Joi but don't know how to implement)
+  let isPresent = false
+  haveWant.forEach(item => {
+    if(item.category === "Rocket League") isPresent = true
   })
-  if (colorChecker !== tradeLength) return { error: { details: [{ message: "colors name doesn't match the colors ID" }] } };
-
-  // check if item is blueprintable
-  let blueprintError = false
-  infoRL.items.map(item=> {
-
-    for (let i = 0; i < tradeLength; i++){
-      if (haveWant[i].itemID === item.ItemID)
-        if (haveWant[i].blueprint)
-          if (!item.Blueprintable)
-            blueprintError = true
-        
-    }
-    
-  })
-  if (blueprintError) return { error: { details: [{ message: "item blueprintable error" }] } };
+  if (isPresent && !trade.platform) return { error: { details: [{ message: "no platform included" }] } };
 
 
-  //check if item can be painted
-  let colorError = false
-  infoRL.items.map(item=> {
-
-    for (let i = 0; i < tradeLength; i++){
-      if (haveWant[i].itemID === item.ItemID)
-        if (haveWant[i].colorID !== 0)
-          if (!item.Paintable)
-            colorError = true
-      
-    }
-    
-  })
-  if (colorError) return { error: { details: [{ message: "item paintable error" }] } };
-  
   const hwValidation = Joi.object({
     itemID: Joi.number().valid(...allItemIDs).required(),
-    itemName: Joi.string().valid(...allItemNames).required(),
-    color: Joi.string().valid('None', 'Crimson', 'Lime', 'Black', 'Sky Blue', 'Cobalt', 'Burnt Sienna', 'Forest Green', 'Purple', 'Pink', 'Orange', 'Grey', 'Titanium White', 'Saffron').required(),
-    colorID: Joi.number().valid(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13).strict().required(),
-    cert: Joi.string().valid('None', 'Playmaker', 'Acrobat', 'Aviator', 'Goalkeeper', 'Guardian', 'Juggler', 'Paragon', 'Scorer', 'Show-Off', 'Sniper', 'Striker', 'Sweeper', 'Tactician', 'Turtle', 'Victor').required(),
-    // itemType: Joi.string().valid('Special', 'Engine Audio', 'Antenna', 'Body', 'Rocket Boost', 'Topper', 'Paint Finish', 'Decal', 'Wheels', 'Crate', 'Goal Explosion', 'Trail', 'Player Banner', 'Avatar Border').required(),
-    blueprint: Joi.boolean().required(),
-    amount: Joi.number().when('itemID', [
-    { is: 9985, then: Joi.number().min(0.01).max(100000).required() },
-    { is: 4743, then: Joi.number().integer().min(1).max(100000).required(),
-      otherwise: Joi.number().integer().min(1).max(100).required() }]) });
-     
+    itemName: Joi.string().valid().required(),
+    category: Joi.string().valid('Rocket League', 'Money', 'Design').required(),
+    color: Joi.when('category', { 
+      is: "Rocket League", 
+      then: Joi.string().valid('None', 'Crimson', 'Lime', 'Black', 'Sky Blue', 'Cobalt', 'Burnt Sienna', 'Forest Green', 'Purple', 'Pink', 'Orange', 'Grey', 'Titanium White', 'Saffron').required()
+    }),
+    colorID: Joi.when('category', { 
+      is: "Rocket League", 
+      then: Joi.number().valid(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13).strict().required()
+    }),
+    cert: Joi.when('category', { 
+      is: "Rocket League", 
+      then: Joi.string().valid('None', 'Playmaker', 'Acrobat', 'Aviator', 'Goalkeeper', 'Guardian', 'Juggler', 'Paragon', 'Scorer', 'Show-Off', 'Sniper', 'Striker', 'Sweeper', 'Tactician', 'Turtle', 'Victor').required()
+    }),
+    blueprint: Joi.when('category', { 
+      is: "Rocket League", 
+      then: Joi.boolean().required()
+    }),
+    amount: Joi.when('category', { 
+      is: "Rocket League", 
+      then: Joi.when('itemID', {
+        is: 4743,
+        then: Joi.number().min(1).max(100000).required(), // limit 100000 if credits are the item
+        otherwise: Joi.number().min(1).max(100).required() 
+      }),
+      otherwise: Joi.when('category', {
+        is: "Money",
+        then: Joi.number().min(1).max(100000).required(),
+        otherwise: Joi.forbidden()
+      })
+    }), 
+  });
 
+  /*
+  
+  amount: Joi.when('itemID', { 
+      is: 4743, 
+      then: Joi.when('category', {
+        is: "Rocket League",
+        then: Joi.number().min(1).max(100000).required(), // limit 100000 if credits are the item
+      }),
+      otherwise: Joi.number().min(1).max(100).required() 
+    }), 
+    
+    */
 
   const schema = Joi.object({
     have: Joi.array().items(hwValidation).min(1).max(itemsLimit)
       .required(),
     want: Joi.array().items(hwValidation).min(1).max(itemsLimit)
       .required(),
-    platform: Joi.string().valid('Steam', 'XBOX', 'PSN', 'SWITCH', 'EPIC').required(),
-    /*platform: Joi.object({
-      name: Joi.string().valid('Steam', 'XBOX', 'PSN', 'SWITCH', 'EPIC').required(),
-      ID: Joi.string().required()
-    }),*/
+    platform: Joi.string().valid('Steam', 'XBOX', 'PSN', 'SWITCH', 'EPIC').optional(),
     notes: Joi.string().max(1000).allow('').required(),
   });
 
@@ -316,10 +370,10 @@ exports.validateTradeQuery = (query) => {
     const allItemNames = ['Any'];
 
     infoRL.items.map(item => {
-        if (item.Tradable) {
-            allItemIDs.push(item.ItemID);
-            allItemNames.push(item.Name);
-        }
+      if (item.Tradable) {
+        allItemIDs.push(item.ItemID);
+        allItemNames.push(item.Name);
+      }
     });
 
     const schema = Joi.object({

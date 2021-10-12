@@ -154,9 +154,9 @@ const userSchema = new mongoose.Schema({
             sparse: true
         },
         verified: {
-          type: Boolean,
-          required: true
-      }
+            type: Boolean,
+            required: true
+        }
     },
 
     psn: {
@@ -180,9 +180,9 @@ const userSchema = new mongoose.Schema({
             sparse: true
         },
         verified: {
-          type: Boolean,
-          required: true
-      }
+            type: Boolean,
+            required: true
+        }
     },
 
     verificationToken: {

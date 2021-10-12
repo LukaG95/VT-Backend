@@ -166,7 +166,7 @@ exports.signup = async (req, res, next) => {
    
     const authHeader = req.headers.authorization;
     let username, email, password, passwordConfirm;
-
+    
     // Decode base64 credentials
     if (authHeader) {
         const decodedAuth = Buffer.from(authHeader.split(" ")[1], 'base64').toString();

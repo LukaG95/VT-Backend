@@ -8,8 +8,7 @@ errorLogs/*.log
 *.log
 
 # React build (only push to production)
-build/
-client/
+#build/
 
 # Environment variables, never commit this file
 /*.env

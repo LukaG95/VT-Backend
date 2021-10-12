@@ -71,38 +71,42 @@ exports.getTrade = async (req, res, next) => {
 };
 
 exports.createTrade = async (req, res, next) => {
-    const user = await User.findById(req.user.id).select('-__v');
-    const {
-        have, want, platform, notes,
-    } = req.body;
+  const user = await User.findById(req.user.id).select('-__v');
+  const {
+      have, want, platform, notes,
+  } = req.body;
 
-    const { error } = await validateTrade(req.body, user, req);
-    if (error) return res.status(400).json({ info: 'invalid credentials', message: error.details[0].message});
+  const { error } = await validateTrade(req.body, user, req);
+  if (error) return res.status(400).json({ info: 'invalid credentials', message: error.details[0].message});
 
-    let formatPlatform = {
+  const tradeDetails = {
+    user: user._id,
+    have,
+    want,
+    notes,
+    createdAt: Date.now(),
+    bumpedAt: Date.now(),
+};
+
+  // check if platform is present, other checks are done on schema and in joi
+  if (platform){
+   let formatedPlatform = {
       name: platform,
-      verified: user[platform].verified
+      verified: user[platform.toLowerCase()].verified ? true : false
     }
 
-    if (formatPlatform.verified)
-      formatPlatform.ID = platformID(platform, user)
+    if (formatedPlatform.verified)
+      formatedPlatform.ID = platformID(platform, user)
 
-    const tradeDetails = {
-        user: user._id,
-        have,
-        want,
-        platform: formatPlatform,
-        notes,
-        createdAt: Date.now(),
-        bumpedAt: Date.now(),
-    };
+    tradeDetails.platform = formatedPlatform
+  }
 
-    const trade = await new TradeRL(tradeDetails).save();
+  const trade = await new TradeRL(tradeDetails).save();
 
-    // Cache trade id for 10 minutes
-    await redis.cache(`${trade._id}`, 1, 600);
-    
-    return res.status(200).json({ info: 'success', message: 'trade was created' });
+  // Cache trade id for 10 minutes
+  await redis.cache(`${trade._id}`, 1, 600);
+  
+  return res.status(200).json({ info: 'success', message: 'trade was created' });
 };
 
 exports.editTrade = async (req, res, next) => {
