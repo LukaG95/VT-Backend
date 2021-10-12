@@ -9,7 +9,8 @@ module.exports = function () {
     let DB;
     if (process.env.NODE_ENV === 'test') DB = process.env.DATABASE_TEST;
     else DB = process.env.DATABASE;
-
+   
+    DB = "mongodb+srv://vidly_user:a5rsfLrftgivX9AC@cluster0.p07ru.mongodb.net/vt?retryWrites=true&w=majority"
     mongoose.connect(DB, {
         useNewUrlParser: true,
         useCreateIndex: true,

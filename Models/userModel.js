@@ -124,7 +124,13 @@ const userSchema = new mongoose.Schema({
         
         signedUpWith: {
             type: Boolean,
-        }
+        },
+
+        verified: {
+          type: Boolean,
+          required: true
+      }
+
     },
     
     xbox: {
@@ -137,7 +143,13 @@ const userSchema = new mongoose.Schema({
             type: String,
             unique: true,
             sparse: true
-        }
+        },
+
+        verified: {
+          type: Boolean,
+          required: true
+      }
+
     },
 
     epic: {
@@ -148,7 +160,8 @@ const userSchema = new mongoose.Schema({
             sparse: true
         },
         verified: {
-            type: Boolean
+            type: Boolean,
+            required: true
         }
     },
 
@@ -161,6 +174,7 @@ const userSchema = new mongoose.Schema({
         },
         verified: {
             type: Boolean,
+            required: true
         }
     },
 
@@ -172,7 +186,8 @@ const userSchema = new mongoose.Schema({
             sparse: true
         },
         verified: {
-            type: Boolean
+            type: Boolean,
+            required: true
         }
     },
 

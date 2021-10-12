@@ -1,0 +1,20 @@
+[
+  {
+    "ItemID": 1,
+    "category": "Keys And Currency",
+    "itemType": "Rocket League",
+    "Name": "Credits"
+  },
+  {
+    "ItemID": 2,
+    "category": "Keys And Currency",
+    "itemType": "CSGO",
+    "Name": "Key"
+  },
+  {
+    "ItemID": 3,
+    "category": "Keys And Currency",
+    "itemType": "TF2",
+    "Name": "Key"
+  }
+]
