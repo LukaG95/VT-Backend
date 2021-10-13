@@ -54,11 +54,6 @@ const tradesRLSchema = new mongoose.Schema({
               maxlength: 50,
               required: function () { return this.category === "Rocket League" }
             },
-            
-            blueprint: {
-                type: Boolean,
-                required: true
-            },
 
             amount: {
               type: Number,
@@ -66,6 +61,7 @@ const tradesRLSchema = new mongoose.Schema({
               max: 100000,
               required: function () { return this.category === "Rocket League" || this.category === "Money"}
             },
+
             blueprint: {
               type: Boolean,
               required: function () { return this.category === "Rocket League" }
@@ -116,11 +112,6 @@ const tradesRLSchema = new mongoose.Schema({
               minlength: 1,
               maxlength: 50,
               required: function () { return this.category === "Rocket League" }
-            },
-            
-            blueprint: {
-              type: Boolean,
-              required: true
             },
 
             amount: {
