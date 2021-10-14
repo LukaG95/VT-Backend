@@ -43,7 +43,7 @@ class EmailingSystem {
         };
         // if (process.env.NODE_ENV === "production") messageOptions.from = '"Virtrade.gg" <rldsocials@gmail.com>';
 
-        transporter.sendMail(messageOptions, (err, res) => console.log(res.response));
+        transporter.sendMail(messageOptions, (err, res) => {});
     }
 
     async sendSignup(code, username) {

@@ -34,8 +34,6 @@ exports.getTrades = async (req, res, next) => {
     return next();
 };
 
-
-
 exports.getUserTrades = async (req, res, next) => {
     const user = await User.findById(req.user.id).select('-__v');
 

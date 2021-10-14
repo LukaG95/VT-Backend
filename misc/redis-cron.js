@@ -3,10 +3,7 @@
 const redis = require('redis').createClient()
 const cronJob = require('cron-cluster')(redis).CronJob;
 
-
 const { updateBumpedTime } = require('../Controllers/tradesController');
-
-
 
 // Bump 24 hours old trades every 30 seconds
 function doCron () {
@@ -14,7 +11,7 @@ function doCron () {
       // Do some stuff here
 
       const res = await updateBumpedTime();
-      if (res && res.nModified > 0) console.log(`Bumped ${res.nModified} trades!`);
+      // if (res && res.nModified > 0) console.log(`Bumped ${res.nModified} trades!`);
     })
     job.start()
   }

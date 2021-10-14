@@ -325,7 +325,7 @@ exports.validateTrade = async (trade, user, req) => {
       }),
       otherwise: Joi.when('category', {
         is: "Money",
-        then: Joi.number().min(1).max(100000).required(),
+        then: Joi.number().min(0.01).max(100000).required(),
         otherwise: Joi.forbidden()
       })
     }), 
