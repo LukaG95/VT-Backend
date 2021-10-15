@@ -57,9 +57,10 @@ const tradesRLSchema = new mongoose.Schema({
 
             amount: {
               type: Number,
-              min: 1,
+              min: 0.01,
               max: 100000,
-              required: function () { return this.category === "Rocket League" || this.category === "Money"}
+              required: false
+              // required: function () { return this.category === "Rocket League" || this.category === "Money"}
             },
 
             blueprint: {
@@ -116,9 +117,10 @@ const tradesRLSchema = new mongoose.Schema({
 
             amount: {
               type: Number,
-              min: 1,
+              min: 0.01,
               max: 100000,
-              required: function () { return this.category === "Rocket League" || this.category === "Money"}
+              required: false,
+              // required: function () { return this.category === "Rocket League" || this.category === "Money"}
             },
 
             blueprint: {
@@ -320,12 +322,12 @@ exports.validateTrade = async (trade, user, req) => {
       is: "Rocket League", 
       then: Joi.when('itemID', {
         is: 4743,
-        then: Joi.number().min(1).max(100000).required(), // limit 100000 if credits are the item
-        otherwise: Joi.number().min(1).max(100).required() 
+        then: Joi.number().min(1).max(100000), // limit 100000 if credits are the item
+        otherwise: Joi.number().min(1).max(100)
       }),
       otherwise: Joi.when('category', {
         is: "Money",
-        then: Joi.number().min(0.01).max(100000).required(),
+        then: Joi.number().min(0.01).max(100000),
         otherwise: Joi.forbidden()
       })
     }), 

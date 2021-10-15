@@ -203,7 +203,7 @@ exports.updateBumpedTime = async() => {
 
     const yesterdayDate = new Date(Date.now() - 1 * oneDayInMs);
 
-    const trades = await TradeRL.updateMany({ 'bumpedAt': { $lte: yesterdayDate }}, { bumpedAt: Date.now() });
+    const trades = await TradeRL.updateMany({ 'bumpedAt': { $lte: yesterdayDate }}, { bumpedAt: Date.now() }, { bumped: true });
 
     return trades;
     
