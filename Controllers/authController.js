@@ -160,10 +160,8 @@ exports.login = async (req, res, next) => {
     return createSendToken(user, res, { keepLogged });
 };
 
-
 // POST api/auth/signup
 exports.signup = async (req, res, next) => {
-   
     const authHeader = req.headers.authorization;
     let username, email, password, passwordConfirm;
     
@@ -492,13 +490,11 @@ exports.linkPlatform = async (req, res, next) => {
 
     if (user[platform].username) return res.status(200).json({ info: 'error', message: `${platform} account already linked` });
 
-
-
     const usernameAvailability = await User.findOne({ [`${platform}.username`]: username }).select('-__v');
     if (usernameAvailability) return res.status(200).json({ info: 'error', message: 'username already linked to another account' });
 
     user[`${platform}`].username = username;
-    user[`${platform}`].verified = false;
+    user[`${platform}`].verified = true;
 
     await user.save();
 
@@ -520,6 +516,8 @@ exports.unlinkPlatform = async (req, res, next) => {
     if ((platform === 'steam' || platform === 'discord') && user[platform].signedUpWith) return res.status(200).json({ info: 'error', message: "Can't unlink platform you signed up with. Please contact us on discord or at support@virtrade.gg if you'd like to do so!" });
 
     user[`${platform}`] = {};
+    user[`${platform}`].verified = false;
+
     await user.save();
 
     return res.status(200).json({ info: 'success', message: 'successfully unlinked platform' });

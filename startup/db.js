@@ -9,7 +9,7 @@ module.exports = function () {
     let DB;
     if (process.env.NODE_ENV === 'test') DB = process.env.DATABASE_TEST;
     else DB = process.env.DATABASE;
-    
+  
     mongoose.connect(DB, {
         useNewUrlParser: true,
         useCreateIndex: true,

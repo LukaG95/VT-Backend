@@ -125,6 +125,7 @@ const userSchema = new mongoose.Schema({
         },
         verified: {
           type: Boolean,
+          default: false,
           required: true
       }
     },
@@ -142,6 +143,7 @@ const userSchema = new mongoose.Schema({
         },
         verified: {
           type: Boolean,
+          default: false,
           required: true
       }
     },
@@ -155,6 +157,7 @@ const userSchema = new mongoose.Schema({
         },
         verified: {
             type: Boolean,
+            default: false,
             required: true
         }
     },
@@ -168,6 +171,7 @@ const userSchema = new mongoose.Schema({
         },
         verified: {
             type: Boolean,
+            default: false,
             required: true
         }
     },
@@ -181,6 +185,7 @@ const userSchema = new mongoose.Schema({
         },
         verified: {
             type: Boolean,
+            default: false,
             required: true
         }
     },
