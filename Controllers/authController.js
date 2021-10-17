@@ -494,7 +494,9 @@ exports.linkPlatform = async (req, res, next) => {
     if (usernameAvailability) return res.status(200).json({ info: 'error', message: 'username already linked to another account' });
 
     user[`${platform}`].username = username;
-    user[`${platform}`].verified = true;
+    // This is not needed anymore. 
+    // As this function is only to accept a username, and leave the platform unverified until the bot verifies it. But now by defaults all platforsm have verified: false
+    // user[`${platform}`].verified = false;
 
     await user.save();
 

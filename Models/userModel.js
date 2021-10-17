@@ -95,7 +95,6 @@ const userSchema = new mongoose.Schema({
             maxlength: 20,
             unique: true,
             sparse: true
-
         },
         username: {
             type: String,
@@ -104,6 +103,12 @@ const userSchema = new mongoose.Schema({
         
         signedUpWith: {
             type: Boolean,
+        },
+
+        verified: {
+          type: Boolean,
+          default: false,
+          required: true
         }
         
     },
@@ -127,7 +132,7 @@ const userSchema = new mongoose.Schema({
           type: Boolean,
           default: false,
           required: true
-      }
+        }
     },
     
     xbox: {
