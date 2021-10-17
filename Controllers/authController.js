@@ -310,8 +310,8 @@ exports.passportLinkPlatform = async(req, res, next) => {
     
     userDb[platform].username = user.username;
     userDb[platform].id = user.id;
-
-    if (platform === 'steam' || platform === 'xbox') userDb[platform].verified = true;
+    userDb[platform].verified = true;
+    
     if (platform === 'steam' || platform === 'discord') userDb[platform].signedUpWith = false;
 
     await userDb.save();
