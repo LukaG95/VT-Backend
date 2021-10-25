@@ -311,7 +311,7 @@ exports.passportLinkPlatform = async(req, res, next) => {
     userDb[platform].username = user.username;
     userDb[platform].id = user.id;
     userDb[platform].verified = true;
-    
+
     if (platform === 'steam' || platform === 'discord') userDb[platform].signedUpWith = false;
 
     await userDb.save();
@@ -477,24 +477,27 @@ exports.linkPlatform = async (req, res, next) => {
     const { username } = req.body;
 
 
-    const validPlatforms = ['psn', 'epic', 'switch'];
+    const validPlatforms = ['psn', 'epic', 'switch', 'xbox'];
     if (!validPlatforms.includes(platform)) return res.status(200).json({ info: 'error', message: 'invalid platform provided' });
     if (!username) return res.status(200).json({ info: 'error', message: 'no username provided' });
 
     if (platform === 'switch' && !username.match(/SW-\d{4}-\d{4}-\d{4}$/)) return res.status(200).json({ info: 'error', message: `invalid ${platform} username format` });
     if (platform === 'psn' && username.length > 16) return res.status(200).json({ info: 'error', message: `invalid ${platform} username format` });
     if (platform === 'epic' && username.length > 20) return res.status(200).json({ info: 'error', message: `invalid ${platform} username format` });
+    if (platform === 'xbox' && username.length > 20) return res.status(200).json({ info: 'error', message: `invalid ${platform} username format` });
 
     const user = await User.findById(req.user.id).select('-__v');
     if (!user) return res.status(200).json({ info: 'error', message: 'invalid user' });
 
     if (user[platform].username) return res.status(200).json({ info: 'error', message: `${platform} account already linked` });
 
-    const usernameAvailability = await User.findOne({ [`${platform}.username`]: username }).select('-__v');
-    if (usernameAvailability) return res.status(200).json({ info: 'error', message: 'username already linked to another account' });
+    //   This is currently disabled because there's no username/profile bot verification
+    // const usernameAvailability = await User.findOne({ [`${platform}.username`]: username }).select('-__v');
+    // if (usernameAvailability) return res.status(200).json({ info: 'error', message: 'username already linked to another account' });
 
     user[`${platform}`].username = username;
-    // This is not needed anymore. 
+    
+    //   This is not needed anymore. 
     // As this function is only to accept a username, and leave the platform unverified until the bot verifies it. But now by defaults all platforsm have verified: false
     // user[`${platform}`].verified = false;
 

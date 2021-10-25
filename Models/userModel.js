@@ -138,7 +138,7 @@ const userSchema = new mongoose.Schema({
     xbox: {
         username: {
             type: String,
-            unique: true,
+           // unique: true,
             sparse: true
         },
         id: {
@@ -156,7 +156,7 @@ const userSchema = new mongoose.Schema({
     epic: {
         username: {
             type: String,
-            unique: true,
+           // unique: true,
             maxlength: 20,
             sparse: true
         },
@@ -170,7 +170,7 @@ const userSchema = new mongoose.Schema({
     psn: {
         username: {
             type: String,
-            unique: true,
+          // unique: true,
             maxlength: 16,
             sparse: true
         },
@@ -184,7 +184,7 @@ const userSchema = new mongoose.Schema({
     switch: {
         username: {
             type: String,
-            unique: true,
+          // unique: true,
             maxlength: 17,
             sparse: true
         },
